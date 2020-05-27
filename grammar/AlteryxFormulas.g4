@@ -1,10 +1,16 @@
 grammar AlteryxFormulas;
 
 formula
-    : numberExpr
+    : fieldExpr
+    | numberExpr
     | dateExpr
     | stringExpr
     | boolExpr
+    ;
+
+fieldExpr
+    : '(' Field ')'                                                  # fieldParenthesis
+    | Field                                                          # anyField
     ;
 
 stringExpr

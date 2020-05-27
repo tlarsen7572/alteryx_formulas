@@ -1,6 +1,6 @@
 import unittest
 from datetime import datetime
-
+from alteryx_formulas.visitor import FieldInterface
 from alteryx_formulas.visitor import calculate
 
 
@@ -240,6 +240,19 @@ class AlteryxGrammarTests(unittest.TestCase):
         self.assertEqual('b', result)
         result = calculate('if false then `2020-01-01` elseif false then `2020-01-03` else `2020-01-02` endif')
         self.assertEqual(datetime(2020, 1, 2), result)
+
+    def test_number_field(self):
+        result = calculate('[NumberField]', fields={'NumberField': FieldInterface(value_getter=lambda : 23, type_getter=lambda : 'Int64') })
+        self.assertEqual(23, result)
+
+    def test_string_field(self):
+        result = calculate('[StringField]', fields={'StringField': FieldInterface(value_getter=lambda : 'ab', type_getter=lambda : 'String') })
+        self.assertEqual('ab', result)
+
+    def test_string_field_parenthesis(self):
+        result = calculate('([StringField])', fields={'StringField': FieldInterface(value_getter=lambda : 'ab', type_getter=lambda : 'String') })
+        self.assertEqual('ab', result)
+
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ from antlr4 import *
 from antlr4.error.ErrorListener import ErrorListener
 from alteryx_formulas.generated_grammar.AlteryxFormulasLexer import AlteryxFormulasLexer
 from alteryx_formulas.generated_grammar.AlteryxFormulasParser import AlteryxFormulasParser
-from typing import Callable, Dict
+from typing import Callable, Dict, List
 
 
 class MissingFieldException(Exception):
@@ -31,8 +31,20 @@ class AlteryxFormulasErrorListener(ErrorListener):
         raise Exception("{line}:{col} {msg}".format(line=line, col=column, msg=msg))
 
 
+class FieldInterface:
+    def __init__(self, value_getter, type_getter):
+        self.value_getter = value_getter
+        self.type_getter = type_getter
+
+    def get_value(self):
+        return self.value_getter()
+
+    def get_type(self):
+        return self.type_getter()
+
+
 class AlteryxFormulaVisitor(ParseTreeVisitor):
-    def __init__(self, expression: str, fields: Dict[str, Callable]):
+    def __init__(self, expression: str, fields: Dict[str, FieldInterface]):
         self.Expression = expression
         self.Fields = fields
         lexer = AlteryxFormulasLexer(InputStream(expression))
@@ -107,6 +119,12 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
     def visitStringParenthesis(self, ctx: AlteryxFormulasParser.NumberParenthesisContext):
         return self.visit(ctx.stringExpr())
 
+    def visitFieldParenthesis(self, ctx: AlteryxFormulasParser.FieldParenthesisContext):
+        return self._visit_field(ctx.Field().getText())
+
+    def visitAnyField(self, ctx: AlteryxFormulasParser.AnyFieldContext):
+        return self._visit_field(ctx.getText())
+
     def visitStringEqual(self, ctx: AlteryxFormulasParser.StringEqualContext):
         return self._left_right_check(ctx, lambda l, r: l == r)
 
@@ -130,10 +148,10 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
 
     def _visit_field(self, field_name):
         field_name = field_name[1:-1]
-        value_getter = self.Fields.get(field_name)
-        if value_getter is None:
+        field = self.Fields.get(field_name)
+        if field is None:
             raise MissingFieldException(missing_field=field_name)
-        return value_getter()
+        return field.get_value()
 
     def visitStringLiteral(self, ctx: AlteryxFormulasParser.StringLiteralContext):
         return ctx.getText()[1:-1]

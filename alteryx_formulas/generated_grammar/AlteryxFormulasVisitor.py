@@ -14,6 +14,16 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by AlteryxFormulasParser#fieldParenthesis.
+    def visitFieldParenthesis(self, ctx:AlteryxFormulasParser.FieldParenthesisContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#anyField.
+    def visitAnyField(self, ctx:AlteryxFormulasParser.AnyFieldContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by AlteryxFormulasParser#stringIf.
     def visitStringIf(self, ctx:AlteryxFormulasParser.StringIfContext):
         return self.visitChildren(ctx)
