@@ -1,15 +1,24 @@
 grammar AlteryxFormulas;
 
 formula
-    : stringExpr
-    | numberExpr
+    : numberExpr
     | dateExpr
+    | stringExpr
     | boolExpr
     ;
 
 stringExpr
     : '(' stringExpr ')'                                             # stringParenthesis
     | left=stringExpr '+' right=stringExpr                           # concatenate
+    | If   boolExpr
+      Then stringExpr
+      Else stringExpr
+      Endif                                                          # stringIf
+    | If      boolExpr
+      Then    stringExpr
+      (Elseif boolExpr Then stringExpr)+
+      Else    stringExpr
+      Endif                                                          # stringElseIf
     | string                                                         # stringLiteral
     | Field                                                          # stringField
     ;
@@ -45,6 +54,15 @@ numberFunction
 
 dateExpr
     : '(' dateExpr ')'                                               # dateParenthesis
+    | If   boolExpr
+      Then dateExpr
+      Else dateExpr
+      Endif                                                          # dateIf
+    | If      boolExpr
+      Then    dateExpr
+      (Elseif boolExpr Then dateExpr)+
+      Else    dateExpr
+      Endif                                                          # dateElseIf
     | Datetime                                                       # datetimeLiteral
     | Date                                                           # dateLiteral
     | Field                                                          # dateField
@@ -107,10 +125,8 @@ Endif  : E N D I F ;
 Bool             : TrueLiteral | FalseLiteral ;
 Integer          : Digit+ ;
 Decimal          : Digit* '.' Digit+ ;
-Date             : ['] DateLiteral [']
-                 | '"' DateLiteral '"';
-Datetime         : ['] DateTimeLiteral [']
-                 | '"' DateTimeLiteral '"';
+Date             : [`] DateLiteral [`] ;
+Datetime         : [`] DateTimeLiteral [`] ;
 Field            : '[' ~(']')+ ']' ;
 SingleQuoteString: ['] ~(['])* ['] ;
 DoubleQuoteString: '"' ~('"')* '"' ;

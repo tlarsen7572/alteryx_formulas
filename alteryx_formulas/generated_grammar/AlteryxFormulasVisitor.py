@@ -14,6 +14,11 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by AlteryxFormulasParser#stringIf.
+    def visitStringIf(self, ctx:AlteryxFormulasParser.StringIfContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by AlteryxFormulasParser#concatenate.
     def visitConcatenate(self, ctx:AlteryxFormulasParser.ConcatenateContext):
         return self.visitChildren(ctx)
@@ -26,6 +31,11 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by AlteryxFormulasParser#stringParenthesis.
     def visitStringParenthesis(self, ctx:AlteryxFormulasParser.StringParenthesisContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringElseIf.
+    def visitStringElseIf(self, ctx:AlteryxFormulasParser.StringElseIfContext):
         return self.visitChildren(ctx)
 
 
@@ -106,6 +116,16 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by AlteryxFormulasParser#dateParenthesis.
     def visitDateParenthesis(self, ctx:AlteryxFormulasParser.DateParenthesisContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateIf.
+    def visitDateIf(self, ctx:AlteryxFormulasParser.DateIfContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateElseIf.
+    def visitDateElseIf(self, ctx:AlteryxFormulasParser.DateElseIfContext):
         return self.visitChildren(ctx)
 
 

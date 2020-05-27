@@ -56,6 +56,9 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
     def visitAdd(self, ctx: AlteryxFormulasParser.AddContext):
         return self._left_right_check(ctx, lambda l, r: l + r)
 
+    def visitConcatenate(self, ctx: AlteryxFormulasParser.ConcatenateContext):
+        return self._left_right_check(ctx, lambda l, r: l + r)
+
     def visitOr(self, ctx: AlteryxFormulasParser.OrContext):
         return self._left_right_check(ctx, lambda l, r: l or r)
 
@@ -141,6 +144,12 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
     def visitNumberElseIf(self, ctx: AlteryxFormulasParser.NumberElseIfContext):
         return self._visit_else_if(ctx.boolExpr, ctx.numberExpr)
 
+    def visitStringElseIf(self, ctx: AlteryxFormulasParser.StringElseIfContext):
+        return self._visit_else_if(ctx.boolExpr, ctx.stringExpr)
+
+    def visitDateElseIf(self, ctx: AlteryxFormulasParser.DateElseIfContext):
+        return self._visit_else_if(ctx.boolExpr, ctx.dateExpr)
+
     def _visit_else_if(self, bool_expr, then_else_expr):
         condition = self.visit(bool_expr(0))
         if condition:
@@ -220,6 +229,12 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
 
     def visitNumberIf(self, ctx: AlteryxFormulasParser.NumberIfContext):
         return self._visit_if(ctx.boolExpr, ctx.numberExpr)
+
+    def visitStringIf(self, ctx: AlteryxFormulasParser.StringIfContext):
+        return self._visit_if(ctx.boolExpr, ctx.stringExpr)
+
+    def visitDateIf(self, ctx: AlteryxFormulasParser.DateIfContext):
+        return self._visit_if(ctx.boolExpr, ctx.dateExpr)
 
     def _visit_if(self, bool_expr, then_else_expr):
         condition = self.visit(bool_expr())
