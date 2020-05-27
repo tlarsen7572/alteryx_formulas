@@ -14,58 +14,8 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#add.
-    def visitAdd(self, ctx:AlteryxFormulasParser.AddContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#or.
-    def visitOr(self, ctx:AlteryxFormulasParser.OrContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#in.
-    def visitIn(self, ctx:AlteryxFormulasParser.InContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#subtract.
-    def visitSubtract(self, ctx:AlteryxFormulasParser.SubtractContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#notEqual.
-    def visitNotEqual(self, ctx:AlteryxFormulasParser.NotEqualContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#integer.
-    def visitInteger(self, ctx:AlteryxFormulasParser.IntegerContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#parenthesis.
-    def visitParenthesis(self, ctx:AlteryxFormulasParser.ParenthesisContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#equal.
-    def visitEqual(self, ctx:AlteryxFormulasParser.EqualContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#datetimeLiteral.
-    def visitDatetimeLiteral(self, ctx:AlteryxFormulasParser.DatetimeLiteralContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#func.
-    def visitFunc(self, ctx:AlteryxFormulasParser.FuncContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#field.
-    def visitField(self, ctx:AlteryxFormulasParser.FieldContext):
+    # Visit a parse tree produced by AlteryxFormulasParser#concatenate.
+    def visitConcatenate(self, ctx:AlteryxFormulasParser.ConcatenateContext):
         return self.visitChildren(ctx)
 
 
@@ -74,23 +24,48 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#and.
-    def visitAnd(self, ctx:AlteryxFormulasParser.AndContext):
+    # Visit a parse tree produced by AlteryxFormulasParser#stringParenthesis.
+    def visitStringParenthesis(self, ctx:AlteryxFormulasParser.StringParenthesisContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#elseIf.
-    def visitElseIf(self, ctx:AlteryxFormulasParser.ElseIfContext):
+    # Visit a parse tree produced by AlteryxFormulasParser#stringField.
+    def visitStringField(self, ctx:AlteryxFormulasParser.StringFieldContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#lessThan.
-    def visitLessThan(self, ctx:AlteryxFormulasParser.LessThanContext):
+    # Visit a parse tree produced by AlteryxFormulasParser#numberParenthesis.
+    def visitNumberParenthesis(self, ctx:AlteryxFormulasParser.NumberParenthesisContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#dateLiteral.
-    def visitDateLiteral(self, ctx:AlteryxFormulasParser.DateLiteralContext):
+    # Visit a parse tree produced by AlteryxFormulasParser#add.
+    def visitAdd(self, ctx:AlteryxFormulasParser.AddContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberFunc.
+    def visitNumberFunc(self, ctx:AlteryxFormulasParser.NumberFuncContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberField.
+    def visitNumberField(self, ctx:AlteryxFormulasParser.NumberFieldContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#subtract.
+    def visitSubtract(self, ctx:AlteryxFormulasParser.SubtractContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberIf.
+    def visitNumberIf(self, ctx:AlteryxFormulasParser.NumberIfContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberElseIf.
+    def visitNumberElseIf(self, ctx:AlteryxFormulasParser.NumberElseIfContext):
         return self.visitChildren(ctx)
 
 
@@ -99,18 +74,8 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#greaterEqual.
-    def visitGreaterEqual(self, ctx:AlteryxFormulasParser.GreaterEqualContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#notIn.
-    def visitNotIn(self, ctx:AlteryxFormulasParser.NotInContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#lessEqual.
-    def visitLessEqual(self, ctx:AlteryxFormulasParser.LessEqualContext):
+    # Visit a parse tree produced by AlteryxFormulasParser#integer.
+    def visitInteger(self, ctx:AlteryxFormulasParser.IntegerContext):
         return self.visitChildren(ctx)
 
 
@@ -124,33 +89,188 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#if.
-    def visitIf(self, ctx:AlteryxFormulasParser.IfContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#greaterThan.
-    def visitGreaterThan(self, ctx:AlteryxFormulasParser.GreaterThanContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by AlteryxFormulasParser#string.
-    def visitString(self, ctx:AlteryxFormulasParser.StringContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by AlteryxFormulasParser#pow.
     def visitPow(self, ctx:AlteryxFormulasParser.PowContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#min.
-    def visitMin(self, ctx:AlteryxFormulasParser.MinContext):
+    # Visit a parse tree produced by AlteryxFormulasParser#numberMin.
+    def visitNumberMin(self, ctx:AlteryxFormulasParser.NumberMinContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by AlteryxFormulasParser#max.
-    def visitMax(self, ctx:AlteryxFormulasParser.MaxContext):
+    # Visit a parse tree produced by AlteryxFormulasParser#numberMax.
+    def visitNumberMax(self, ctx:AlteryxFormulasParser.NumberMaxContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateParenthesis.
+    def visitDateParenthesis(self, ctx:AlteryxFormulasParser.DateParenthesisContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#datetimeLiteral.
+    def visitDatetimeLiteral(self, ctx:AlteryxFormulasParser.DatetimeLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateLiteral.
+    def visitDateLiteral(self, ctx:AlteryxFormulasParser.DateLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateField.
+    def visitDateField(self, ctx:AlteryxFormulasParser.DateFieldContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberIn.
+    def visitNumberIn(self, ctx:AlteryxFormulasParser.NumberInContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringGreaterThan.
+    def visitStringGreaterThan(self, ctx:AlteryxFormulasParser.StringGreaterThanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateIn.
+    def visitDateIn(self, ctx:AlteryxFormulasParser.DateInContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#boolParenthesis.
+    def visitBoolParenthesis(self, ctx:AlteryxFormulasParser.BoolParenthesisContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberNotIn.
+    def visitNumberNotIn(self, ctx:AlteryxFormulasParser.NumberNotInContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#boolLiteral.
+    def visitBoolLiteral(self, ctx:AlteryxFormulasParser.BoolLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringNotIn.
+    def visitStringNotIn(self, ctx:AlteryxFormulasParser.StringNotInContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#boolField.
+    def visitBoolField(self, ctx:AlteryxFormulasParser.BoolFieldContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateGreaterEqual.
+    def visitDateGreaterEqual(self, ctx:AlteryxFormulasParser.DateGreaterEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateLessThan.
+    def visitDateLessThan(self, ctx:AlteryxFormulasParser.DateLessThanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#and.
+    def visitAnd(self, ctx:AlteryxFormulasParser.AndContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateNotEqual.
+    def visitDateNotEqual(self, ctx:AlteryxFormulasParser.DateNotEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateEqual.
+    def visitDateEqual(self, ctx:AlteryxFormulasParser.DateEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringLessEqual.
+    def visitStringLessEqual(self, ctx:AlteryxFormulasParser.StringLessEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberEqual.
+    def visitNumberEqual(self, ctx:AlteryxFormulasParser.NumberEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringLessThan.
+    def visitStringLessThan(self, ctx:AlteryxFormulasParser.StringLessThanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberLessEqual.
+    def visitNumberLessEqual(self, ctx:AlteryxFormulasParser.NumberLessEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#or.
+    def visitOr(self, ctx:AlteryxFormulasParser.OrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberGreaterThan.
+    def visitNumberGreaterThan(self, ctx:AlteryxFormulasParser.NumberGreaterThanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateLessEqual.
+    def visitDateLessEqual(self, ctx:AlteryxFormulasParser.DateLessEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringEqual.
+    def visitStringEqual(self, ctx:AlteryxFormulasParser.StringEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringIn.
+    def visitStringIn(self, ctx:AlteryxFormulasParser.StringInContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringGreaterEqual.
+    def visitStringGreaterEqual(self, ctx:AlteryxFormulasParser.StringGreaterEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateGreaterThan.
+    def visitDateGreaterThan(self, ctx:AlteryxFormulasParser.DateGreaterThanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringNotEqual.
+    def visitStringNotEqual(self, ctx:AlteryxFormulasParser.StringNotEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberGreaterEqual.
+    def visitNumberGreaterEqual(self, ctx:AlteryxFormulasParser.NumberGreaterEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateNotIn.
+    def visitDateNotIn(self, ctx:AlteryxFormulasParser.DateNotInContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberLessThan.
+    def visitNumberLessThan(self, ctx:AlteryxFormulasParser.NumberLessThanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#numberNotEqual.
+    def visitNumberNotEqual(self, ctx:AlteryxFormulasParser.NumberNotEqualContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#string.
+    def visitString(self, ctx:AlteryxFormulasParser.StringContext):
         return self.visitChildren(ctx)
 
 

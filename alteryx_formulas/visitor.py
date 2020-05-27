@@ -59,11 +59,20 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
     def visitOr(self, ctx: AlteryxFormulasParser.OrContext):
         return self._left_right_check(ctx, lambda l, r: l or r)
 
-    def visitIn(self, ctx: AlteryxFormulasParser.InContext):
-        value = self.visit(ctx.expr(0))
+    def visitStringIn(self, ctx: AlteryxFormulasParser.StringInContext):
+        return self._visit_in(ctx.stringExpr)
+
+    def visitNumberIn(self, ctx: AlteryxFormulasParser.StringInContext):
+        return self._visit_in(ctx.numberExpr)
+
+    def visitDateIn(self, ctx: AlteryxFormulasParser.StringInContext):
+        return self._visit_in(ctx.dateExpr)
+
+    def _visit_in(self, expr):
+        value = self.visit(expr(0))
         compare_to = 1
-        while compare_to < len(ctx.expr()):
-            if value == self.visit(ctx.expr(compare_to)):
+        while compare_to < len(expr()):
+            if value == self.visit(expr(compare_to)):
                 return True
             compare_to += 1
         return False
@@ -71,20 +80,53 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
     def visitSubtract(self, ctx: AlteryxFormulasParser.SubtractContext):
         return self._left_right_check(ctx, lambda l, r: l - r)
 
-    def visitNotEqual(self, ctx: AlteryxFormulasParser.NotEqualContext):
+    def visitStringNotEqual(self, ctx: AlteryxFormulasParser.StringNotEqualContext):
+        return self._left_right_check(ctx, lambda l, r: l != r)
+
+    def visitNumberNotEqual(self, ctx: AlteryxFormulasParser.NumberNotEqualContext):
+        return self._left_right_check(ctx, lambda l, r: l != r)
+
+    def visitDateNotEqual(self, ctx: AlteryxFormulasParser.DateNotEqualContext):
         return self._left_right_check(ctx, lambda l, r: l != r)
 
     def visitInteger(self, ctx: AlteryxFormulasParser.IntegerContext):
         return int(ctx.getText())
 
-    def visitParenthesis(self, ctx: AlteryxFormulasParser.ParenthesisContext):
-        return self.visit(ctx.expr())
+    def visitBoolParenthesis(self, ctx: AlteryxFormulasParser.BoolParenthesisContext):
+        return self.visit(ctx.boolExpr())
 
-    def visitEqual(self, ctx: AlteryxFormulasParser.EqualContext):
+    def visitDateParenthesis(self, ctx: AlteryxFormulasParser.DateParenthesisContext):
+        return self.visit(ctx.dateExpr())
+
+    def visitNumberParenthesis(self, ctx: AlteryxFormulasParser.DateParenthesisContext):
+        return self.visit(ctx.numberExpr())
+
+    def visitStringParenthesis(self, ctx: AlteryxFormulasParser.NumberParenthesisContext):
+        return self.visit(ctx.stringExpr())
+
+    def visitStringEqual(self, ctx: AlteryxFormulasParser.StringEqualContext):
         return self._left_right_check(ctx, lambda l, r: l == r)
 
-    def visitField(self, ctx: AlteryxFormulasParser.FieldContext):
-        field_name = ctx.getText()[1:-1]
+    def visitNumberEqual(self, ctx: AlteryxFormulasParser.NumberEqualContext):
+        return self._left_right_check(ctx, lambda l, r: l == r)
+
+    def visitDateEqual(self, ctx: AlteryxFormulasParser.DateEqualContext):
+        return self._left_right_check(ctx, lambda l, r: l == r)
+
+    def visitStringField(self, ctx: AlteryxFormulasParser.StringFieldContext):
+        return self._visit_field(ctx.getText())
+
+    def visitNumberField(self, ctx: AlteryxFormulasParser.NumberFieldContext):
+        return self._visit_field(ctx.getText())
+
+    def visitDateField(self, ctx: AlteryxFormulasParser.DateFieldContext):
+        return self._visit_field(ctx.getText())
+
+    def visitBoolField(self, ctx: AlteryxFormulasParser.BoolFieldContext):
+        return self._visit_field(ctx.getText())
+
+    def _visit_field(self, field_name):
+        field_name = field_name[1:-1]
         value_getter = self.Fields.get(field_name)
         if value_getter is None:
             raise MissingFieldException(missing_field=field_name)
@@ -96,24 +138,33 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
     def visitAnd(self, ctx: AlteryxFormulasParser.AndContext):
         return self._left_right_check(ctx, lambda l, r: l and r)
 
-    def visitElseIf(self, ctx: AlteryxFormulasParser.ElseIfContext):
-        condition = self.visit(ctx.expr(0))
-        if condition:
-            return self.visit(ctx.expr(1))
+    def visitNumberElseIf(self, ctx: AlteryxFormulasParser.NumberElseIfContext):
+        return self._visit_else_if(ctx.boolExpr, ctx.numberExpr)
 
-        elseifs = (len(ctx.expr())-3) / 2
+    def _visit_else_if(self, bool_expr, then_else_expr):
+        condition = self.visit(bool_expr(0))
+        if condition:
+            return self.visit(then_else_expr(0))
+
+        elseifs = len(bool_expr())-1
         elseif = 0
         while elseif < elseifs:
-            start_index = (elseif * 2) + 2
-            condition = self.visit(ctx.expr(start_index))
+            start_index = (elseif + 1)
+            condition = self.visit(bool_expr(start_index))
             if condition:
-                return self.visit(ctx.expr(start_index + 1))
+                return self.visit(then_else_expr(start_index))
             elseif += 1
 
-        else_expr = len(ctx.expr())-1
-        return self.visit(ctx.expr(else_expr))
+        else_expr = len(then_else_expr())-1
+        return self.visit(then_else_expr(else_expr))
 
-    def visitLessThan(self, ctx: AlteryxFormulasParser.LessThanContext):
+    def visitStringLessThan(self, ctx: AlteryxFormulasParser.StringLessThanContext):
+        return self._left_right_check(ctx, lambda l, r: l < r)
+
+    def visitNumberLessThan(self, ctx: AlteryxFormulasParser.NumberLessThanContext):
+        return self._left_right_check(ctx, lambda l, r: l < r)
+
+    def visitDateLessThan(self, ctx: AlteryxFormulasParser.DateLessThanContext):
         return self._left_right_check(ctx, lambda l, r: l < r)
 
     def visitDateLiteral(self, ctx: AlteryxFormulasParser.DateLiteralContext):
@@ -125,19 +176,40 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
     def visitDivide(self, ctx: AlteryxFormulasParser.DivideContext):
         return self._left_right_check(ctx, lambda l, r: l / r)
 
-    def visitGreaterEqual(self, ctx: AlteryxFormulasParser.GreaterEqualContext):
+    def visitStringGreaterEqual(self, ctx: AlteryxFormulasParser.StringGreaterEqualContext):
         return self._left_right_check(ctx, lambda l, r: l >= r)
 
-    def visitNotIn(self, ctx: AlteryxFormulasParser.NotInContext):
-        value = self.visit(ctx.expr(0))
+    def visitNumberGreaterEqual(self, ctx: AlteryxFormulasParser.NumberGreaterEqualContext):
+        return self._left_right_check(ctx, lambda l, r: l >= r)
+
+    def visitDateGreaterEqual(self, ctx: AlteryxFormulasParser.DateGreaterEqualContext):
+        return self._left_right_check(ctx, lambda l, r: l >= r)
+
+    def visitStringNotIn(self, ctx: AlteryxFormulasParser.StringNotInContext):
+        return self._visit_not_in(ctx.stringExpr)
+
+    def visitNumberNotIn(self, ctx: AlteryxFormulasParser.NumberNotInContext):
+        return self._visit_not_in(ctx.numberExpr)
+
+    def visitDateNotIn(self, ctx: AlteryxFormulasParser.DateNotInContext):
+        return self._visit_not_in(ctx.dateExpr)
+
+    def _visit_not_in(self, expr):
+        value = self.visit(expr(0))
         compare_to = 1
-        while compare_to < len(ctx.expr()):
-            if value == self.visit(ctx.expr(compare_to)):
+        while compare_to < len(expr()):
+            if value == self.visit(expr(compare_to)):
                 return False
             compare_to += 1
         return True
 
-    def visitLessEqual(self, ctx: AlteryxFormulasParser.LessEqualContext):
+    def visitStringLessEqual(self, ctx: AlteryxFormulasParser.StringLessEqualContext):
+        return self._left_right_check(ctx, lambda l, r: l <= r)
+
+    def visitNumberLessEqual(self, ctx: AlteryxFormulasParser.NumberLessEqualContext):
+        return self._left_right_check(ctx, lambda l, r: l <= r)
+
+    def visitDateLessEqual(self, ctx: AlteryxFormulasParser.DateLessEqualContext):
         return self._left_right_check(ctx, lambda l, r: l <= r)
 
     def visitDecimal(self, ctx: AlteryxFormulasParser.DecimalContext):
@@ -146,20 +218,29 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
     def visitMultiply(self, ctx: AlteryxFormulasParser.MultiplyContext):
         return self._left_right_check(ctx, lambda l, r: l * r)
 
-    def visitIf(self, ctx: AlteryxFormulasParser.IfContext):
-        condition = self.visit(ctx.expr(0))
-        if condition:
-            return self.visit(ctx.expr(1))
-        else:
-            return self.visit(ctx.expr(2))
+    def visitNumberIf(self, ctx: AlteryxFormulasParser.NumberIfContext):
+        return self._visit_if(ctx.boolExpr, ctx.numberExpr)
 
-    def visitGreaterThan(self, ctx: AlteryxFormulasParser.GreaterThanContext):
+    def _visit_if(self, bool_expr, then_else_expr):
+        condition = self.visit(bool_expr())
+        if condition:
+            return self.visit(then_else_expr(0))
+        else:
+            return self.visit(then_else_expr(1))
+
+    def visitStringGreaterThan(self, ctx: AlteryxFormulasParser.StringGreaterThanContext):
+        return self._left_right_check(ctx, lambda l, r: l > r)
+
+    def visitNumberGreaterThan(self, ctx: AlteryxFormulasParser.NumberGreaterThanContext):
+        return self._left_right_check(ctx, lambda l, r: l > r)
+
+    def visitDateGreaterThan(self, ctx: AlteryxFormulasParser.DateGreaterThanContext):
         return self._left_right_check(ctx, lambda l, r: l > r)
 
     def visitPow(self, ctx: AlteryxFormulasParser.PowContext):
         return pow(self.visit(ctx.expr(0)), self.visit(ctx.expr(1)))
 
-    def visitMin(self, ctx: AlteryxFormulasParser.MinContext):
+    def visitNumberMin(self, ctx: AlteryxFormulasParser.NumberMinContext):
         min_value = self.visit(ctx.expr(0))
         index = 1
         while index < len(ctx.expr()):
@@ -169,7 +250,7 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
             index += 1
         return min_value
 
-    def visitMax(self, ctx: AlteryxFormulasParser.MaxContext):
+    def visitNumberMax(self, ctx: AlteryxFormulasParser.NumberMaxContext):
         max_value = self.visit(ctx.expr(0))
         index = 1
         while index < len(ctx.expr()):
@@ -178,3 +259,6 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
                 max_value = compare_to
             index += 1
         return max_value
+
+    def visitBoolLiteral(self, ctx: AlteryxFormulasParser.BoolLiteralContext):
+        return ctx.getText().lower() == 'true'

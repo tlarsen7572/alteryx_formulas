@@ -1,43 +1,85 @@
 grammar AlteryxFormulas;
 
 formula
-    : expr
+    : stringExpr
+    | numberExpr
+    | dateExpr
+    | boolExpr
     ;
 
-expr
-    : '(' expr ')'                                                   # parenthesis
-    | left=expr '*' right=expr                                       # multiply
-    | left=expr '/' right=expr                                       # divide
-    | left=expr '+' right=expr                                       # add
-    | left=expr '-' right=expr                                       # subtract
-    | left=expr '=' right=expr                                       # equal
-    | left=expr '>' right=expr                                       # greaterThan
-    | left=expr '>=' right=expr                                      # greaterEqual
-    | left=expr '<' right=expr                                       # lessThan
-    | left=expr '<=' right=expr                                      # lessEqual
-    | left=expr '!=' right=expr                                      # notEqual
-    | expr 'IN' '(' (expr (',' expr)*)? ')'                          # in
-    | expr 'NOT IN' '(' (expr (',' expr)*)? ')'                      # notIn
-    | left=expr ('AND'|'&&') right=expr                              # and
-    | left=expr ('OR'|'||') right=expr                               # or
-    | function                                                       # func
-    | 'IF'   expr
-      'THEN' expr
-      'ELSE' expr
-      'ENDIF'                                                        # if
-    | 'IF'      expr
-      'THEN'    expr
-      ('ELSEIF' expr 'THEN' expr)+
-      'ELSE' expr
-      'ENDIF'                                                        # elseIf
+stringExpr
+    : '(' stringExpr ')'                                             # stringParenthesis
+    | left=stringExpr '+' right=stringExpr                           # concatenate
+    | string                                                         # stringLiteral
+    | Field                                                          # stringField
+    ;
+
+numberExpr
+    : '(' numberExpr ')'                                             # numberParenthesis
+    | left=numberExpr '*' right=numberExpr                           # multiply
+    | left=numberExpr '/' right=numberExpr                           # divide
+    | left=numberExpr '+' right=numberExpr                           # add
+    | left=numberExpr '-' right=numberExpr                           # subtract
+    | numberFunction                                                 # numberFunc
+    | If   boolExpr
+      Then numberExpr
+      Else numberExpr
+      Endif                                                          # numberIf
+    | If      boolExpr
+      Then    numberExpr
+      (Elseif boolExpr Then numberExpr)+
+      Else    numberExpr
+      Endif                                                          # numberElseIf
     | Integer                                                        # integer
     | '-'Integer                                                     # integer
     | Decimal                                                        # decimal
     | '-'Decimal                                                     # decimal
+    | Field                                                          # numberField
+    ;
+
+numberFunction
+    : Pow '(' numberExpr ',' numberExpr ')'                          # pow
+    | Min '(' numberExpr (',' numberExpr)+ ')'                       # numberMin
+    | Max '(' numberExpr (',' numberExpr)+ ')'                       # numberMax
+    ;
+
+dateExpr
+    : '(' dateExpr ')'                                               # dateParenthesis
     | Datetime                                                       # datetimeLiteral
     | Date                                                           # dateLiteral
-    | Field                                                          # field
-    | string                                                         # stringLiteral
+    | Field                                                          # dateField
+    ;
+
+boolExpr
+    : '(' boolExpr ')'                                               # boolParenthesis
+    | left=stringExpr '=' right=stringExpr                           # stringEqual
+    | left=stringExpr '>' right=stringExpr                           # stringGreaterThan
+    | left=stringExpr '>=' right=stringExpr                          # stringGreaterEqual
+    | left=stringExpr '<' right=stringExpr                           # stringLessThan
+    | left=stringExpr '<=' right=stringExpr                          # stringLessEqual
+    | left=stringExpr '!=' right=stringExpr                          # stringNotEqual
+    | stringExpr In '(' (stringExpr (',' stringExpr)*)? ')'          # stringIn
+    | stringExpr Not In '(' (stringExpr (',' stringExpr)*)? ')'      # stringNotIn
+    | left=numberExpr '=' right=numberExpr                           # numberEqual
+    | left=numberExpr '>' right=numberExpr                           # numberGreaterThan
+    | left=numberExpr '>=' right=numberExpr                          # numberGreaterEqual
+    | left=numberExpr '<' right=numberExpr                           # numberLessThan
+    | left=numberExpr '<=' right=numberExpr                          # numberLessEqual
+    | left=numberExpr '!=' right=numberExpr                          # numberNotEqual
+    | numberExpr In '(' (numberExpr (',' numberExpr)*)? ')'          # numberIn
+    | numberExpr Not In '(' (numberExpr (',' numberExpr)*)? ')'      # numberNotIn
+    | left=dateExpr '=' right=dateExpr                               # dateEqual
+    | left=dateExpr '>' right=dateExpr                               # dateGreaterThan
+    | left=dateExpr '>=' right=dateExpr                              # dateGreaterEqual
+    | left=dateExpr '<' right=dateExpr                               # dateLessThan
+    | left=dateExpr '<=' right=dateExpr                              # dateLessEqual
+    | left=dateExpr '!=' right=dateExpr                              # dateNotEqual
+    | dateExpr In '(' (dateExpr (',' dateExpr)*)? ')'                # dateIn
+    | dateExpr Not In '(' (dateExpr (',' dateExpr)*)? ')'            # dateNotIn
+    | left=boolExpr (And | '&&') right=boolExpr                      # and
+    | left=boolExpr (Or | '||') right=boolExpr                       # or
+    | Bool                                                           # boolLiteral
+    | Field                                                          # boolField
     ;
 
 string
@@ -45,18 +87,24 @@ string
     | DoubleQuoteString
     ;
 
-function
-    : Pow '(' expr ',' expr ')'    # pow
-    | Min '(' expr (',' expr)+ ')' # min
-    | Max '(' expr (',' expr)+ ')' # max
-    ;
-
 // Case-insensitive function names
 Pow : P O W ;
 Min : M I N ;
 Max : M A X ;
 
+// Case-insensitive keywords
+In     : I N ;
+Not    : N O T ;
+And    : A N D ;
+Or     : O R ;
+If     : I F ;
+Then   : T H E N ;
+Else   : E L S E ;
+Elseif : E L S E I F ;
+Endif  : E N D I F ;
+
 // Literals
+Bool             : TrueLiteral | FalseLiteral ;
 Integer          : Digit+ ;
 Decimal          : Digit* '.' Digit+ ;
 Date             : ['] DateLiteral [']
@@ -98,3 +146,5 @@ fragment Z:('z'|'Z');
 fragment Digit: [0-9];
 fragment DateLiteral : Digit Digit Digit Digit '-' Digit Digit '-' Digit Digit ;
 fragment DateTimeLiteral: DateLiteral ' ' Digit Digit ':' Digit Digit ':' Digit Digit ;
+fragment TrueLiteral : T R U E ;
+fragment FalseLiteral : F A L S E ;
