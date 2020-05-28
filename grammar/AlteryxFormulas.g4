@@ -25,8 +25,14 @@ stringExpr
       (Elseif boolExpr Then stringExpr)+
       Else    stringExpr
       Endif                                                          # stringElseIf
+    | stringFunction                                                 # stringFunc
     | string                                                         # stringLiteral
     | Field                                                          # stringField
+    ;
+
+stringFunction
+    : Min '(' stringExpr (',' stringExpr)+ ')'                          # stringMin
+    | Max '(' stringExpr (',' stringExpr)+ ')'                          # stringMax
     ;
 
 numberExpr
@@ -69,9 +75,15 @@ dateExpr
       (Elseif boolExpr Then dateExpr)+
       Else    dateExpr
       Endif                                                          # dateElseIf
+    | dateFunction                                                   # dateFunc
     | Datetime                                                       # datetimeLiteral
     | Date                                                           # dateLiteral
     | Field                                                          # dateField
+    ;
+
+dateFunction
+    : Min '(' dateExpr (',' dateExpr)+ ')'                           # dateMin
+    | Max '(' dateExpr (',' dateExpr)+ ')'                           # dateMax
     ;
 
 boolExpr

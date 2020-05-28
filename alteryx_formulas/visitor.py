@@ -4,7 +4,7 @@ from antlr4 import *
 from antlr4.error.ErrorListener import ErrorListener
 from alteryx_formulas.generated_grammar.AlteryxFormulasLexer import AlteryxFormulasLexer
 from alteryx_formulas.generated_grammar.AlteryxFormulasParser import AlteryxFormulasParser
-from typing import Callable, Dict, List
+from typing import Dict
 
 
 class MissingFieldException(Exception):
@@ -271,23 +271,41 @@ class AlteryxFormulaVisitor(ParseTreeVisitor):
         return self._left_right_check(ctx, lambda l, r: l > r)
 
     def visitPow(self, ctx: AlteryxFormulasParser.PowContext):
-        return pow(self.visit(ctx.expr(0)), self.visit(ctx.expr(1)))
+        return pow(self.visit(ctx.numberExpr(0)), self.visit(ctx.numberExpr(1)))
 
     def visitNumberMin(self, ctx: AlteryxFormulasParser.NumberMinContext):
-        min_value = self.visit(ctx.expr(0))
+        return self._visit_min(ctx.numberExpr)
+
+    def visitStringMin(self, ctx: AlteryxFormulasParser.StringMinContext):
+        return self._visit_min(ctx.stringExpr)
+
+    def visitDateMin(self, ctx: AlteryxFormulasParser.DateMinContext):
+        return self._visit_min(ctx.dateExpr)
+
+    def _visit_min(self, expr):
+        min_value = self.visit(expr(0))
         index = 1
-        while index < len(ctx.expr()):
-            compare_to = self.visit(ctx.expr(index))
+        while index < len(expr()):
+            compare_to = self.visit(expr(index))
             if compare_to < min_value:
                 min_value = compare_to
             index += 1
         return min_value
 
     def visitNumberMax(self, ctx: AlteryxFormulasParser.NumberMaxContext):
-        max_value = self.visit(ctx.expr(0))
+        return self._visit_max(ctx.numberExpr)
+
+    def visitStringMax(self, ctx: AlteryxFormulasParser.StringMaxContext):
+        return self._visit_max(ctx.stringExpr)
+
+    def visitDateMax(self, ctx: AlteryxFormulasParser.DateMaxContext):
+        return self._visit_max(ctx.dateExpr)
+
+    def _visit_max(self, expr):
+        max_value = self.visit(expr(0))
         index = 1
-        while index < len(ctx.expr()):
-            compare_to = self.visit(ctx.expr(index))
+        while index < len(expr()):
+            compare_to = self.visit(expr(index))
             if compare_to > max_value:
                 max_value = compare_to
             index += 1

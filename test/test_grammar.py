@@ -253,6 +253,33 @@ class AlteryxGrammarTests(unittest.TestCase):
         result = calculate('([StringField])', fields={'StringField': FieldInterface(value_getter=lambda : 'ab', type_getter=lambda : 'String') })
         self.assertEqual('ab', result)
 
+    def test_min_number(self):
+        result = calculate('min(1,2,3)')
+        self.assertEqual(1, result)
+
+    def test_min_string(self):
+        result = calculate("min('a','b','c')")
+        self.assertEqual('a', result)
+
+    def test_min_date(self):
+        result = calculate("min(`2019-01-01`,`2019-01-02`,`2019-01-03`)")
+        self.assertEqual(datetime(2019, 1, 1), result)
+
+    def test_max_number(self):
+        result = calculate('max(1,2,3)')
+        self.assertEqual(3, result)
+
+    def test_max_string(self):
+        result = calculate("max('a','b','c')")
+        self.assertEqual('c', result)
+
+    def test_max_date(self):
+        result = calculate("max(`2019-01-01`,`2019-01-02`,`2019-01-03`)")
+        self.assertEqual(datetime(2019, 1, 3), result)
+
+    def test_pow(self):
+        result = calculate('pow(2,3)')
+        self.assertEqual(8, result)
 
 
 if __name__ == '__main__':

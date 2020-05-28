@@ -29,6 +29,11 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by AlteryxFormulasParser#stringFunc.
+    def visitStringFunc(self, ctx:AlteryxFormulasParser.StringFuncContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by AlteryxFormulasParser#concatenate.
     def visitConcatenate(self, ctx:AlteryxFormulasParser.ConcatenateContext):
         return self.visitChildren(ctx)
@@ -51,6 +56,16 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by AlteryxFormulasParser#stringField.
     def visitStringField(self, ctx:AlteryxFormulasParser.StringFieldContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringMin.
+    def visitStringMin(self, ctx:AlteryxFormulasParser.StringMinContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#stringMax.
+    def visitStringMax(self, ctx:AlteryxFormulasParser.StringMaxContext):
         return self.visitChildren(ctx)
 
 
@@ -139,6 +154,11 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by AlteryxFormulasParser#dateFunc.
+    def visitDateFunc(self, ctx:AlteryxFormulasParser.DateFuncContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by AlteryxFormulasParser#datetimeLiteral.
     def visitDatetimeLiteral(self, ctx:AlteryxFormulasParser.DatetimeLiteralContext):
         return self.visitChildren(ctx)
@@ -151,6 +171,16 @@ class AlteryxFormulasVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by AlteryxFormulasParser#dateField.
     def visitDateField(self, ctx:AlteryxFormulasParser.DateFieldContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateMin.
+    def visitDateMin(self, ctx:AlteryxFormulasParser.DateMinContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by AlteryxFormulasParser#dateMax.
+    def visitDateMax(self, ctx:AlteryxFormulasParser.DateMaxContext):
         return self.visitChildren(ctx)
 
 
