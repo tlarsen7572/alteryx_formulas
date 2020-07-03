@@ -26,7 +26,7 @@ stringExpr
       Else    stringExpr
       Endif                                                          # stringElseIf
     | stringFunction                                                 # stringFunc
-    | string                                                         # stringLiteral
+    | str                                                            # stringLiteral
     | Field                                                          # stringField
     ;
 
@@ -118,7 +118,7 @@ boolExpr
     | Field                                                          # boolField
     ;
 
-string
+str
     : SingleQuoteString
     | DoubleQuoteString
     ;
