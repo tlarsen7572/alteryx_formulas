@@ -1,11 +1,11 @@
 grammar AlteryxFormulas;
 
 formula
-    : fieldExpr
-    | numberExpr
-    | dateExpr
-    | stringExpr
-    | boolExpr
+    : fieldExpr                                                      # formulaIsField
+    | numberExpr                                                     # formulaIsNumber
+    | dateExpr                                                       # formulaIsDate
+    | stringExpr                                                     # formulaIsString
+    | boolExpr                                                       # formulaIsBool
     ;
 
 fieldExpr

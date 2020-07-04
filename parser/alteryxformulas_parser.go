@@ -359,54 +359,8 @@ func NewFormulaContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 
 func (s *FormulaContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *FormulaContext) FieldExpr() IFieldExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFieldExprContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IFieldExprContext)
-}
-
-func (s *FormulaContext) NumberExpr() INumberExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*INumberExprContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(INumberExprContext)
-}
-
-func (s *FormulaContext) DateExpr() IDateExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IDateExprContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IDateExprContext)
-}
-
-func (s *FormulaContext) StringExpr() IStringExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IStringExprContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IStringExprContext)
-}
-
-func (s *FormulaContext) BoolExpr() IBoolExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IBoolExprContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IBoolExprContext)
+func (s *FormulaContext) CopyFrom(ctx *FormulaContext) {
+	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
 }
 
 func (s *FormulaContext) GetRuleContext() antlr.RuleContext {
@@ -417,15 +371,203 @@ func (s *FormulaContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *FormulaContext) EnterRule(listener antlr.ParseTreeListener) {
+type FormulaIsFieldContext struct {
+	*FormulaContext
+}
+
+func NewFormulaIsFieldContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FormulaIsFieldContext {
+	var p = new(FormulaIsFieldContext)
+
+	p.FormulaContext = NewEmptyFormulaContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*FormulaContext))
+
+	return p
+}
+
+func (s *FormulaIsFieldContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FormulaIsFieldContext) FieldExpr() IFieldExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFieldExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFieldExprContext)
+}
+
+func (s *FormulaIsFieldContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterFormula(s)
+		listenerT.EnterFormulaIsField(s)
 	}
 }
 
-func (s *FormulaContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *FormulaIsFieldContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitFormula(s)
+		listenerT.ExitFormulaIsField(s)
+	}
+}
+
+type FormulaIsBoolContext struct {
+	*FormulaContext
+}
+
+func NewFormulaIsBoolContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FormulaIsBoolContext {
+	var p = new(FormulaIsBoolContext)
+
+	p.FormulaContext = NewEmptyFormulaContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*FormulaContext))
+
+	return p
+}
+
+func (s *FormulaIsBoolContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FormulaIsBoolContext) BoolExpr() IBoolExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IBoolExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IBoolExprContext)
+}
+
+func (s *FormulaIsBoolContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterFormulaIsBool(s)
+	}
+}
+
+func (s *FormulaIsBoolContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitFormulaIsBool(s)
+	}
+}
+
+type FormulaIsNumberContext struct {
+	*FormulaContext
+}
+
+func NewFormulaIsNumberContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FormulaIsNumberContext {
+	var p = new(FormulaIsNumberContext)
+
+	p.FormulaContext = NewEmptyFormulaContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*FormulaContext))
+
+	return p
+}
+
+func (s *FormulaIsNumberContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FormulaIsNumberContext) NumberExpr() INumberExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*INumberExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(INumberExprContext)
+}
+
+func (s *FormulaIsNumberContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterFormulaIsNumber(s)
+	}
+}
+
+func (s *FormulaIsNumberContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitFormulaIsNumber(s)
+	}
+}
+
+type FormulaIsDateContext struct {
+	*FormulaContext
+}
+
+func NewFormulaIsDateContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FormulaIsDateContext {
+	var p = new(FormulaIsDateContext)
+
+	p.FormulaContext = NewEmptyFormulaContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*FormulaContext))
+
+	return p
+}
+
+func (s *FormulaIsDateContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FormulaIsDateContext) DateExpr() IDateExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IDateExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IDateExprContext)
+}
+
+func (s *FormulaIsDateContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterFormulaIsDate(s)
+	}
+}
+
+func (s *FormulaIsDateContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitFormulaIsDate(s)
+	}
+}
+
+type FormulaIsStringContext struct {
+	*FormulaContext
+}
+
+func NewFormulaIsStringContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *FormulaIsStringContext {
+	var p = new(FormulaIsStringContext)
+
+	p.FormulaContext = NewEmptyFormulaContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*FormulaContext))
+
+	return p
+}
+
+func (s *FormulaIsStringContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FormulaIsStringContext) StringExpr() IStringExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IStringExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IStringExprContext)
+}
+
+func (s *FormulaIsStringContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterFormulaIsString(s)
+	}
+}
+
+func (s *FormulaIsStringContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitFormulaIsString(s)
 	}
 }
 
@@ -453,6 +595,7 @@ func (p *AlteryxFormulasParser) Formula() (localctx IFormulaContext) {
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 0, p.GetParserRuleContext()) {
 	case 1:
+		localctx = NewFormulaIsFieldContext(p, localctx)
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(20)
@@ -460,6 +603,7 @@ func (p *AlteryxFormulasParser) Formula() (localctx IFormulaContext) {
 		}
 
 	case 2:
+		localctx = NewFormulaIsNumberContext(p, localctx)
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(21)
@@ -467,6 +611,7 @@ func (p *AlteryxFormulasParser) Formula() (localctx IFormulaContext) {
 		}
 
 	case 3:
+		localctx = NewFormulaIsDateContext(p, localctx)
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(22)
@@ -474,6 +619,7 @@ func (p *AlteryxFormulasParser) Formula() (localctx IFormulaContext) {
 		}
 
 	case 4:
+		localctx = NewFormulaIsStringContext(p, localctx)
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(23)
@@ -481,6 +627,7 @@ func (p *AlteryxFormulasParser) Formula() (localctx IFormulaContext) {
 		}
 
 	case 5:
+		localctx = NewFormulaIsBoolContext(p, localctx)
 		p.EnterOuterAlt(localctx, 5)
 		{
 			p.SetState(24)

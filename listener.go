@@ -8,6 +8,7 @@ import (
 type listener struct {
 	functions []func()
 	numbers   []nullableNum
+	calculate func() NullableValue
 	parser.BaseAlteryxFormulasListener
 }
 
@@ -19,7 +20,11 @@ func nullNumber() nullableNum {
 	return nullableNum{isNull: true}
 }
 
-func (l *listener) calculateNumber() nullableNum {
+func (l *listener) Calculate() NullableValue {
+	return l.calculate()
+}
+
+func (l *listener) calculateNumber() NullableValue {
 	for funcIndex := len(l.functions) - 1; funcIndex >= 0; funcIndex-- {
 		l.functions[funcIndex]()
 	}
@@ -60,6 +65,19 @@ func (l *listener) multiply() {
 	l.numbers = append(l.numbers, number(value1.value*value2.value))
 }
 
+func (l *listener) divide() {
+	value1 := l.popNumbers()
+	value2 := l.popNumbers()
+	if value1.isNull || value2.isNull {
+		l.numbers = append(l.numbers, nullNumber())
+	}
+	l.numbers = append(l.numbers, number(value1.value/value2.value))
+}
+
+func (l *listener) EnterFormulaIsNumber(_ *parser.FormulaIsNumberContext) {
+	l.calculate = l.calculateNumber
+}
+
 func (l *listener) EnterAdd(_ *parser.AddContext) {
 	l.functions = append(l.functions, l.add)
 }
@@ -70,6 +88,10 @@ func (l *listener) EnterSubtract(_ *parser.SubtractContext) {
 
 func (l *listener) EnterMultiply(_ *parser.MultiplyContext) {
 	l.functions = append(l.functions, l.multiply)
+}
+
+func (l *listener) EnterDivide(_ *parser.DivideContext) {
+	l.functions = append(l.functions, l.divide)
 }
 
 func (l *listener) EnterInteger(c *parser.IntegerContext) {

@@ -12,6 +12,6 @@ func Calculate(formula string) (NullableValue, error) {
 	p := parser.NewAlteryxFormulasParser(tokens)
 	listener := &listener{}
 	antlr.ParseTreeWalkerDefault.Walk(listener, p.Formula())
-	result := listener.calculateNumber()
+	result := listener.Calculate()
 	return result, nil
 }

@@ -21,11 +21,35 @@ func (s *BaseAlteryxFormulasListener) EnterEveryRule(ctx antlr.ParserRuleContext
 // ExitEveryRule is called when any rule is exited.
 func (s *BaseAlteryxFormulasListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
 
-// EnterFormula is called when production formula is entered.
-func (s *BaseAlteryxFormulasListener) EnterFormula(ctx *FormulaContext) {}
+// EnterFormulaIsField is called when production formulaIsField is entered.
+func (s *BaseAlteryxFormulasListener) EnterFormulaIsField(ctx *FormulaIsFieldContext) {}
 
-// ExitFormula is called when production formula is exited.
-func (s *BaseAlteryxFormulasListener) ExitFormula(ctx *FormulaContext) {}
+// ExitFormulaIsField is called when production formulaIsField is exited.
+func (s *BaseAlteryxFormulasListener) ExitFormulaIsField(ctx *FormulaIsFieldContext) {}
+
+// EnterFormulaIsNumber is called when production formulaIsNumber is entered.
+func (s *BaseAlteryxFormulasListener) EnterFormulaIsNumber(ctx *FormulaIsNumberContext) {}
+
+// ExitFormulaIsNumber is called when production formulaIsNumber is exited.
+func (s *BaseAlteryxFormulasListener) ExitFormulaIsNumber(ctx *FormulaIsNumberContext) {}
+
+// EnterFormulaIsDate is called when production formulaIsDate is entered.
+func (s *BaseAlteryxFormulasListener) EnterFormulaIsDate(ctx *FormulaIsDateContext) {}
+
+// ExitFormulaIsDate is called when production formulaIsDate is exited.
+func (s *BaseAlteryxFormulasListener) ExitFormulaIsDate(ctx *FormulaIsDateContext) {}
+
+// EnterFormulaIsString is called when production formulaIsString is entered.
+func (s *BaseAlteryxFormulasListener) EnterFormulaIsString(ctx *FormulaIsStringContext) {}
+
+// ExitFormulaIsString is called when production formulaIsString is exited.
+func (s *BaseAlteryxFormulasListener) ExitFormulaIsString(ctx *FormulaIsStringContext) {}
+
+// EnterFormulaIsBool is called when production formulaIsBool is entered.
+func (s *BaseAlteryxFormulasListener) EnterFormulaIsBool(ctx *FormulaIsBoolContext) {}
+
+// ExitFormulaIsBool is called when production formulaIsBool is exited.
+func (s *BaseAlteryxFormulasListener) ExitFormulaIsBool(ctx *FormulaIsBoolContext) {}
 
 // EnterFieldParenthesis is called when production fieldParenthesis is entered.
 func (s *BaseAlteryxFormulasListener) EnterFieldParenthesis(ctx *FieldParenthesisContext) {}

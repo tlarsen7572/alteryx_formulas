@@ -8,8 +8,20 @@ import "github.com/antlr/antlr4/runtime/Go/antlr"
 type AlteryxFormulasListener interface {
 	antlr.ParseTreeListener
 
-	// EnterFormula is called when entering the formula production.
-	EnterFormula(c *FormulaContext)
+	// EnterFormulaIsField is called when entering the formulaIsField production.
+	EnterFormulaIsField(c *FormulaIsFieldContext)
+
+	// EnterFormulaIsNumber is called when entering the formulaIsNumber production.
+	EnterFormulaIsNumber(c *FormulaIsNumberContext)
+
+	// EnterFormulaIsDate is called when entering the formulaIsDate production.
+	EnterFormulaIsDate(c *FormulaIsDateContext)
+
+	// EnterFormulaIsString is called when entering the formulaIsString production.
+	EnterFormulaIsString(c *FormulaIsStringContext)
+
+	// EnterFormulaIsBool is called when entering the formulaIsBool production.
+	EnterFormulaIsBool(c *FormulaIsBoolContext)
 
 	// EnterFieldParenthesis is called when entering the fieldParenthesis production.
 	EnterFieldParenthesis(c *FieldParenthesisContext)
@@ -206,8 +218,20 @@ type AlteryxFormulasListener interface {
 	// EnterStr is called when entering the str production.
 	EnterStr(c *StrContext)
 
-	// ExitFormula is called when exiting the formula production.
-	ExitFormula(c *FormulaContext)
+	// ExitFormulaIsField is called when exiting the formulaIsField production.
+	ExitFormulaIsField(c *FormulaIsFieldContext)
+
+	// ExitFormulaIsNumber is called when exiting the formulaIsNumber production.
+	ExitFormulaIsNumber(c *FormulaIsNumberContext)
+
+	// ExitFormulaIsDate is called when exiting the formulaIsDate production.
+	ExitFormulaIsDate(c *FormulaIsDateContext)
+
+	// ExitFormulaIsString is called when exiting the formulaIsString production.
+	ExitFormulaIsString(c *FormulaIsStringContext)
+
+	// ExitFormulaIsBool is called when exiting the formulaIsBool production.
+	ExitFormulaIsBool(c *FormulaIsBoolContext)
 
 	// ExitFieldParenthesis is called when exiting the fieldParenthesis production.
 	ExitFieldParenthesis(c *FieldParenthesisContext)
