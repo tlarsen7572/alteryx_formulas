@@ -2,109 +2,40 @@ package alteryx_formulas
 
 import (
 	"github.com/tlarsen7572/alteryx_formulas/parser"
-	"strconv"
 )
 
 type listener struct {
 	functions []func()
 	numbers   []nullableNum
-	calculate func() NullableValue
+	getResult func() NullableValue
 	parser.BaseAlteryxFormulasListener
 }
 
-func number(value float64) nullableNum {
-	return nullableNum{value: value}
-}
-
-func nullNumber() nullableNum {
-	return nullableNum{isNull: true}
-}
-
 func (l *listener) Calculate() NullableValue {
-	return l.calculate()
-}
-
-func (l *listener) calculateNumber() NullableValue {
 	for funcIndex := len(l.functions) - 1; funcIndex >= 0; funcIndex-- {
 		l.functions[funcIndex]()
 	}
-	return l.numbers[0]
+	return l.getResult()
 }
 
-func (l *listener) popNumbers() nullableNum {
+func (l *listener) pushFunction(f func()) {
+	l.functions = append(l.functions, f)
+}
+
+func (l *listener) popNumber() nullableNum {
 	item := len(l.numbers) - 1
 	returnVal := l.numbers[item]
 	l.numbers = l.numbers[:item]
 	return returnVal
 }
 
-func (l *listener) add() {
-	value1 := l.popNumbers()
-	value2 := l.popNumbers()
-	if value1.isNull || value2.isNull {
-		l.numbers = append(l.numbers, nullNumber())
-	}
-	l.numbers = append(l.numbers, number(value1.value+value2.value))
-}
-
-func (l *listener) subtract() {
-	value1 := l.popNumbers()
-	value2 := l.popNumbers()
-	if value1.isNull || value2.isNull {
-		l.numbers = append(l.numbers, nullNumber())
-	}
-	l.numbers = append(l.numbers, number(value1.value-value2.value))
-}
-
-func (l *listener) multiply() {
-	value1 := l.popNumbers()
-	value2 := l.popNumbers()
-	if value1.isNull || value2.isNull {
-		l.numbers = append(l.numbers, nullNumber())
-	}
-	l.numbers = append(l.numbers, number(value1.value*value2.value))
-}
-
-func (l *listener) divide() {
-	value1 := l.popNumbers()
-	value2 := l.popNumbers()
-	if value1.isNull || value2.isNull {
-		l.numbers = append(l.numbers, nullNumber())
-	}
-	l.numbers = append(l.numbers, number(value1.value/value2.value))
+func (l *listener) pushNumber(number nullableNum) {
+	l.numbers = append(l.numbers, number)
 }
 
 func (l *listener) EnterFormulaIsNumber(_ *parser.FormulaIsNumberContext) {
-	l.calculate = l.calculateNumber
-}
-
-func (l *listener) EnterAdd(_ *parser.AddContext) {
-	l.functions = append(l.functions, l.add)
-}
-
-func (l *listener) EnterSubtract(_ *parser.SubtractContext) {
-	l.functions = append(l.functions, l.subtract)
-}
-
-func (l *listener) EnterMultiply(_ *parser.MultiplyContext) {
-	l.functions = append(l.functions, l.multiply)
-}
-
-func (l *listener) EnterDivide(_ *parser.DivideContext) {
-	l.functions = append(l.functions, l.divide)
-}
-
-func (l *listener) EnterInteger(c *parser.IntegerContext) {
-	value, _ := strconv.ParseFloat(c.GetText(), 64)
-	f := func() {
-		l.numbers = append(l.numbers, number(value))
+	f := func() NullableValue {
+		return l.numbers[0]
 	}
-	l.functions = append(l.functions, f)
-}
-
-func (l *listener) EnterNumberNull(_ *parser.NumberNullContext) {
-	f := func() {
-		l.numbers = append(l.numbers, nullNumber())
-	}
-	l.functions = append(l.functions, f)
+	l.getResult = f
 }
