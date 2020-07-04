@@ -62,6 +62,7 @@ numberFunction
     : Pow '(' numberExpr ',' numberExpr ')'                          # pow
     | Min '(' numberExpr (',' numberExpr)+ ')'                       # numberMin
     | Max '(' numberExpr (',' numberExpr)+ ')'                       # numberMax
+    | Null '()'                                                      # numberNull
     ;
 
 dateExpr
@@ -127,6 +128,7 @@ str
 Pow : P O W ;
 Min : M I N ;
 Max : M A X ;
+Null: N U L L ;
 
 // Case-insensitive keywords
 In     : I N ;

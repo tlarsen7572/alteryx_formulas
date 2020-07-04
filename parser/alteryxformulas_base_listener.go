@@ -177,6 +177,12 @@ func (s *BaseAlteryxFormulasListener) EnterNumberMax(ctx *NumberMaxContext) {}
 // ExitNumberMax is called when production numberMax is exited.
 func (s *BaseAlteryxFormulasListener) ExitNumberMax(ctx *NumberMaxContext) {}
 
+// EnterNumberNull is called when production numberNull is entered.
+func (s *BaseAlteryxFormulasListener) EnterNumberNull(ctx *NumberNullContext) {}
+
+// ExitNumberNull is called when production numberNull is exited.
+func (s *BaseAlteryxFormulasListener) ExitNumberNull(ctx *NumberNullContext) {}
+
 // EnterDateParenthesis is called when production dateParenthesis is entered.
 func (s *BaseAlteryxFormulasListener) EnterDateParenthesis(ctx *DateParenthesisContext) {}
 

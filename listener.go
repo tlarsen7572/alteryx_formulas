@@ -79,3 +79,10 @@ func (l *listener) EnterInteger(c *parser.IntegerContext) {
 	}
 	l.functions = append(l.functions, f)
 }
+
+func (l *listener) EnterNumberNull(_ *parser.NumberNullContext) {
+	f := func() {
+		l.numbers = append(l.numbers, nullNumber())
+	}
+	l.functions = append(l.functions, f)
+}

@@ -34,3 +34,13 @@ func TestMultiplication(t *testing.T) {
 		t.Fatalf(`expected 40 but got %v`, result.Value())
 	}
 }
+
+func TestNullNumber(t *testing.T) {
+	result, err := f.Calculate(`1+NULL()`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != nil {
+		t.Fatalf(`expected nil but got %v`, result.Value())
+	}
+}

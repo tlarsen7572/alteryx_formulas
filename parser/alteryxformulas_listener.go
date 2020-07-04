@@ -86,6 +86,9 @@ type AlteryxFormulasListener interface {
 	// EnterNumberMax is called when entering the numberMax production.
 	EnterNumberMax(c *NumberMaxContext)
 
+	// EnterNumberNull is called when entering the numberNull production.
+	EnterNumberNull(c *NumberNullContext)
+
 	// EnterDateParenthesis is called when entering the dateParenthesis production.
 	EnterDateParenthesis(c *DateParenthesisContext)
 
@@ -280,6 +283,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitNumberMax is called when exiting the numberMax production.
 	ExitNumberMax(c *NumberMaxContext)
+
+	// ExitNumberNull is called when exiting the numberNull production.
+	ExitNumberNull(c *NumberNullContext)
 
 	// ExitDateParenthesis is called when exiting the dateParenthesis production.
 	ExitDateParenthesis(c *DateParenthesisContext)
