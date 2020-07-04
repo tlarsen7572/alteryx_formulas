@@ -14,6 +14,10 @@ func (l *listener) EnterNumberEqual(_ *parser.NumberEqualContext) {
 	l.pushFunction(l.numberEqual)
 }
 
+func (l *listener) EnterNumberGreaterThan(_ *parser.NumberGreaterThanContext) {
+	l.pushFunction(l.numberGreaterThan)
+}
+
 func (l *listener) numberEqual() {
 	value1 := l.popNumber()
 	value2 := l.popNumber()
@@ -24,4 +28,13 @@ func (l *listener) numberEqual() {
 		l.pushBool(boolVal(false))
 	}
 	l.pushBool(boolVal(value1.value == value2.value))
+}
+
+func (l *listener) numberGreaterThan() {
+	value1 := l.popNumber()
+	value2 := l.popNumber()
+	if value1.isNull || value2.isNull {
+		l.pushBool(boolVal(false))
+	}
+	l.pushBool(boolVal(value1.value > value2.value))
 }

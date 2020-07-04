@@ -98,3 +98,37 @@ func TestNumberEquals(t *testing.T) {
 		t.Fatalf(`expected true but got: %v`, result.Value())
 	}
 }
+
+func TestNumberGreaterThan(t *testing.T) {
+	result, err := f.Calculate(`1 > 2`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != false {
+		t.Fatalf(`expected false but got %v`, result.Value())
+	}
+
+	result, err = f.Calculate(`2 > 1`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != true {
+		t.Fatalf(`expected true but got %v`, result.Value())
+	}
+
+	result, err = f.Calculate(`2 > NULL()`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != false {
+		t.Fatalf(`expected false but got %v`, result.Value())
+	}
+
+	result, err = f.Calculate(`NULL() > 2`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != false {
+		t.Fatalf(`expected false but got %v`, result.Value())
+	}
+}
