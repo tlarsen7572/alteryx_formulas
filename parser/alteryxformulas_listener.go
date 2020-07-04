@@ -80,14 +80,11 @@ type AlteryxFormulasListener interface {
 	// EnterDivide is called when entering the divide production.
 	EnterDivide(c *DivideContext)
 
-	// EnterInteger is called when entering the integer production.
-	EnterInteger(c *IntegerContext)
-
-	// EnterDecimal is called when entering the decimal production.
-	EnterDecimal(c *DecimalContext)
-
 	// EnterMultiply is called when entering the multiply production.
 	EnterMultiply(c *MultiplyContext)
+
+	// EnterNumberLiteral is called when entering the numberLiteral production.
+	EnterNumberLiteral(c *NumberLiteralContext)
 
 	// EnterPow is called when entering the pow production.
 	EnterPow(c *PowContext)
@@ -290,14 +287,11 @@ type AlteryxFormulasListener interface {
 	// ExitDivide is called when exiting the divide production.
 	ExitDivide(c *DivideContext)
 
-	// ExitInteger is called when exiting the integer production.
-	ExitInteger(c *IntegerContext)
-
-	// ExitDecimal is called when exiting the decimal production.
-	ExitDecimal(c *DecimalContext)
-
 	// ExitMultiply is called when exiting the multiply production.
 	ExitMultiply(c *MultiplyContext)
+
+	// ExitNumberLiteral is called when exiting the numberLiteral production.
+	ExitNumberLiteral(c *NumberLiteralContext)
 
 	// ExitPow is called when exiting the pow production.
 	ExitPow(c *PowContext)

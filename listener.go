@@ -7,6 +7,7 @@ import (
 type listener struct {
 	functions []func()
 	numbers   []nullableNum
+	bools     []nullableBool
 	getResult func() NullableValue
 	parser.BaseAlteryxFormulasListener
 }
@@ -33,9 +34,27 @@ func (l *listener) pushNumber(number nullableNum) {
 	l.numbers = append(l.numbers, number)
 }
 
+func (l *listener) popBool() nullableBool {
+	item := len(l.bools) - 1
+	returnVal := l.bools[item]
+	l.bools = l.bools[:item]
+	return returnVal
+}
+
+func (l *listener) pushBool(value nullableBool) {
+	l.bools = append(l.bools, value)
+}
+
 func (l *listener) EnterFormulaIsNumber(_ *parser.FormulaIsNumberContext) {
 	f := func() NullableValue {
 		return l.numbers[0]
+	}
+	l.getResult = f
+}
+
+func (l *listener) EnterFormulaIsBool(_ *parser.FormulaIsBoolContext) {
+	f := func() NullableValue {
+		return l.bools[0]
 	}
 	l.getResult = f
 }

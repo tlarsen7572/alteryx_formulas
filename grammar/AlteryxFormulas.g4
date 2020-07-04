@@ -51,10 +51,10 @@ numberExpr
       (Elseif boolExpr Then numberExpr)+
       Else    numberExpr
       Endif                                                          # numberElseIf
-    | Integer                                                        # integer
-    | '-'Integer                                                     # integer
-    | Decimal                                                        # decimal
-    | '-'Decimal                                                     # decimal
+    | Integer                                                        # numberLiteral
+    | '-'Integer                                                     # numberLiteral
+    | Decimal                                                        # numberLiteral
+    | '-'Decimal                                                     # numberLiteral
     | Field                                                          # numberField
     ;
 

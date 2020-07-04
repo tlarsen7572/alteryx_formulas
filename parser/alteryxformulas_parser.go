@@ -2285,74 +2285,6 @@ func (s *DivideContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
-type IntegerContext struct {
-	*NumberExprContext
-}
-
-func NewIntegerContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *IntegerContext {
-	var p = new(IntegerContext)
-
-	p.NumberExprContext = NewEmptyNumberExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*NumberExprContext))
-
-	return p
-}
-
-func (s *IntegerContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *IntegerContext) Integer() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserInteger, 0)
-}
-
-func (s *IntegerContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterInteger(s)
-	}
-}
-
-func (s *IntegerContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitInteger(s)
-	}
-}
-
-type DecimalContext struct {
-	*NumberExprContext
-}
-
-func NewDecimalContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DecimalContext {
-	var p = new(DecimalContext)
-
-	p.NumberExprContext = NewEmptyNumberExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*NumberExprContext))
-
-	return p
-}
-
-func (s *DecimalContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *DecimalContext) Decimal() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserDecimal, 0)
-}
-
-func (s *DecimalContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterDecimal(s)
-	}
-}
-
-func (s *DecimalContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitDecimal(s)
-	}
-}
-
 type MultiplyContext struct {
 	*NumberExprContext
 	left  INumberExprContext
@@ -2413,6 +2345,44 @@ func (s *MultiplyContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *MultiplyContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
 		listenerT.ExitMultiply(s)
+	}
+}
+
+type NumberLiteralContext struct {
+	*NumberExprContext
+}
+
+func NewNumberLiteralContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NumberLiteralContext {
+	var p = new(NumberLiteralContext)
+
+	p.NumberExprContext = NewEmptyNumberExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*NumberExprContext))
+
+	return p
+}
+
+func (s *NumberLiteralContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NumberLiteralContext) Integer() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserInteger, 0)
+}
+
+func (s *NumberLiteralContext) Decimal() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserDecimal, 0)
+}
+
+func (s *NumberLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterNumberLiteral(s)
+	}
+}
+
+func (s *NumberLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitNumberLiteral(s)
 	}
 }
 
@@ -2572,7 +2542,7 @@ func (p *AlteryxFormulasParser) numberExpr(_p int) (localctx INumberExprContext)
 		}
 
 	case 5:
-		localctx = NewIntegerContext(p, localctx)
+		localctx = NewNumberLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
@@ -2581,7 +2551,7 @@ func (p *AlteryxFormulasParser) numberExpr(_p int) (localctx INumberExprContext)
 		}
 
 	case 6:
-		localctx = NewIntegerContext(p, localctx)
+		localctx = NewNumberLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
@@ -2594,7 +2564,7 @@ func (p *AlteryxFormulasParser) numberExpr(_p int) (localctx INumberExprContext)
 		}
 
 	case 7:
-		localctx = NewDecimalContext(p, localctx)
+		localctx = NewNumberLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
@@ -2603,7 +2573,7 @@ func (p *AlteryxFormulasParser) numberExpr(_p int) (localctx INumberExprContext)
 		}
 
 	case 8:
-		localctx = NewDecimalContext(p, localctx)
+		localctx = NewNumberLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{

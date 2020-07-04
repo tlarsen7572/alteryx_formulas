@@ -29,7 +29,7 @@ func (l *listener) EnterDivide(_ *parser.DivideContext) {
 	l.pushFunction(l.divide)
 }
 
-func (l *listener) EnterInteger(c *parser.IntegerContext) {
+func (l *listener) EnterNumberLiteral(c *parser.NumberLiteralContext) {
 	value, _ := strconv.ParseFloat(c.GetText(), 64)
 	f := func() {
 		l.pushNumber(number(value))

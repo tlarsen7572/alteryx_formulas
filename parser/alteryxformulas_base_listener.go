@@ -165,23 +165,17 @@ func (s *BaseAlteryxFormulasListener) EnterDivide(ctx *DivideContext) {}
 // ExitDivide is called when production divide is exited.
 func (s *BaseAlteryxFormulasListener) ExitDivide(ctx *DivideContext) {}
 
-// EnterInteger is called when production integer is entered.
-func (s *BaseAlteryxFormulasListener) EnterInteger(ctx *IntegerContext) {}
-
-// ExitInteger is called when production integer is exited.
-func (s *BaseAlteryxFormulasListener) ExitInteger(ctx *IntegerContext) {}
-
-// EnterDecimal is called when production decimal is entered.
-func (s *BaseAlteryxFormulasListener) EnterDecimal(ctx *DecimalContext) {}
-
-// ExitDecimal is called when production decimal is exited.
-func (s *BaseAlteryxFormulasListener) ExitDecimal(ctx *DecimalContext) {}
-
 // EnterMultiply is called when production multiply is entered.
 func (s *BaseAlteryxFormulasListener) EnterMultiply(ctx *MultiplyContext) {}
 
 // ExitMultiply is called when production multiply is exited.
 func (s *BaseAlteryxFormulasListener) ExitMultiply(ctx *MultiplyContext) {}
+
+// EnterNumberLiteral is called when production numberLiteral is entered.
+func (s *BaseAlteryxFormulasListener) EnterNumberLiteral(ctx *NumberLiteralContext) {}
+
+// ExitNumberLiteral is called when production numberLiteral is exited.
+func (s *BaseAlteryxFormulasListener) ExitNumberLiteral(ctx *NumberLiteralContext) {}
 
 // EnterPow is called when production pow is entered.
 func (s *BaseAlteryxFormulasListener) EnterPow(ctx *PowContext) {}

@@ -6,7 +6,7 @@ import (
 )
 
 func TestAddition(t *testing.T) {
-	result, err := f.Calculate(`1+2+4`)
+	result, err := f.Calculate(`1.0+2+4`)
 	if err != nil {
 		t.Fatalf(`expected no error but got %v`, err.Error())
 	}
@@ -16,7 +16,7 @@ func TestAddition(t *testing.T) {
 }
 
 func TestSubtraction(t *testing.T) {
-	result, err := f.Calculate(`4-1-2`)
+	result, err := f.Calculate(`4-1.0-2`)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -26,7 +26,7 @@ func TestSubtraction(t *testing.T) {
 }
 
 func TestMultiplication(t *testing.T) {
-	result, err := f.Calculate(`10*4`)
+	result, err := f.Calculate(`10*4.0`)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -46,11 +46,55 @@ func TestNullNumber(t *testing.T) {
 }
 
 func TestDivision(t *testing.T) {
-	result, err := f.Calculate(`40/10`)
+	result, err := f.Calculate(`40.0/10`)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
 	if result.Value() != 4.0 {
 		t.Fatalf(`expected 4 but got %v`, result.Value())
+	}
+}
+
+func TestNegativeNumberAddition(t *testing.T) {
+	result, err := f.Calculate(`-1.0+-3`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != -4.0 {
+		t.Fatalf(`expected -4 but got %v`, result.Value())
+	}
+}
+
+func TestNumberEquals(t *testing.T) {
+	result, err := f.Calculate(`1=1.0`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != true {
+		t.Fatalf(`expected true but got: %v`, result.Value())
+	}
+
+	result, err = f.Calculate(`1=2`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != false {
+		t.Fatalf(`expected false but got: %v`, result.Value())
+	}
+
+	result, err = f.Calculate(`1=NULL()`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != false {
+		t.Fatalf(`expected false but got: %v`, result.Value())
+	}
+
+	result, err = f.Calculate(`NULL()=NULL()`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != true {
+		t.Fatalf(`expected true but got: %v`, result.Value())
 	}
 }

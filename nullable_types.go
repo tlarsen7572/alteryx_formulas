@@ -15,3 +15,15 @@ func (v nullableNum) Value() interface{} {
 	}
 	return v.value
 }
+
+type nullableBool struct {
+	value  bool
+	isNull bool
+}
+
+func (v nullableBool) Value() interface{} {
+	if v.isNull {
+		return nil
+	}
+	return v.value
+}
