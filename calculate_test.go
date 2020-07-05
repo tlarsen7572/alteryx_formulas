@@ -132,3 +132,38 @@ func TestNumberGreaterThan(t *testing.T) {
 		t.Fatalf(`expected false but got %v`, result.Value())
 	}
 }
+
+func TestNumberGreaterEqual(t *testing.T) {
+	result, err := f.Calculate(`1 >= 2.0`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != false {
+		t.Fatalf(`expected false but got %v`, result.Value())
+	}
+
+	result, _ = f.Calculate(`2 >= 2.0`)
+	if result.Value() != true {
+		t.Fatalf(`expected true but got %v`, result.Value())
+	}
+
+	result, _ = f.Calculate(`3 >= 2.0`)
+	if result.Value() != true {
+		t.Fatalf(`expected true but got %v`, result.Value())
+	}
+}
+
+func TestNumberLessThan(t *testing.T) {
+	result, err := f.Calculate(`1 < 2`)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != true {
+		t.Fatalf(`expected true but got %v`, result.Value())
+	}
+
+	result, _ = f.Calculate(`2 < 2`)
+	if result.Value() != false {
+		t.Fatalf(`expected false but got %v`, result.Value())
+	}
+}
