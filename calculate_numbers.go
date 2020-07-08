@@ -44,6 +44,44 @@ func (l *listener) EnterNumberNull(_ *parser.NumberNullContext) {
 	l.pushFunction(f)
 }
 
+func (l *listener) EnterNumberField(c *parser.NumberFieldContext) {
+	text := c.GetText()
+	fieldName := text[1 : len(text)-1]
+	fieldType, err := l.recordInfo.GetFieldTypeFromName(fieldName)
+	if err != nil {
+		return
+	}
+
+	var f func()
+	switch fieldType {
+	case ByteType, Int16Type, Int32Type, Int64Type:
+		f = func() {
+			value, isNull, err := l.recordInfo.GetCurrentInt(fieldName)
+			if err != nil {
+				return
+			}
+			if isNull {
+				l.numbers = append(l.numbers, nullNumber())
+				return
+			}
+			l.numbers = append(l.numbers, number(float64(value)))
+		}
+	case FixedDecimalType, FloatType, DoubleType:
+		f = func() {
+			value, isNull, err := l.recordInfo.GetCurrentFloat(fieldName)
+			if err != nil {
+				return
+			}
+			if isNull {
+				l.numbers = append(l.numbers, nullNumber())
+				return
+			}
+			l.numbers = append(l.numbers, number(value))
+		}
+	}
+	l.pushFunction(f)
+}
+
 func (l *listener) add() {
 	value1 := l.popNumber()
 	value2 := l.popNumber()

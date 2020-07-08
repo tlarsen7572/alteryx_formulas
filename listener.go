@@ -5,10 +5,11 @@ import (
 )
 
 type listener struct {
-	functions []func()
-	numbers   []nullableNum
-	bools     []nullableBool
-	getResult func() NullableValue
+	recordInfo RecordInfo
+	functions  []func()
+	numbers    []nullableNum
+	bools      []nullableBool
+	getResult  func() NullableValue
 	parser.BaseAlteryxFormulasListener
 }
 

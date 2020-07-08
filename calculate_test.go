@@ -1,12 +1,67 @@
 package alteryx_formulas_test
 
 import (
+	"fmt"
 	f "github.com/tlarsen7572/alteryx_formulas"
 	"testing"
+	"time"
 )
 
+type mockSingleFieldRecord struct {
+	value     interface{}
+	isNull    bool
+	fieldType string
+}
+
+func (r *mockSingleFieldRecord) GetCurrentBool(_ string) (bool, bool, error) {
+	if r.fieldType != f.BoolType {
+		return false, false, fmt.Errorf(`wrong data type`)
+	}
+	return r.value.(bool), r.isNull, nil
+}
+
+func (r *mockSingleFieldRecord) GetCurrentInt(_ string) (int, bool, error) {
+	switch r.fieldType {
+	case f.ByteType, f.Int16Type, f.Int32Type, f.Int64Type:
+	default:
+		return 0, false, fmt.Errorf(`wrong data type`)
+	}
+	return r.value.(int), r.isNull, nil
+}
+
+func (r *mockSingleFieldRecord) GetCurrentFloat(_ string) (float64, bool, error) {
+	switch r.fieldType {
+	case f.FixedDecimalType, f.FloatType, f.DoubleType:
+	default:
+		return 0, false, fmt.Errorf(`wrong data type`)
+	}
+	return r.value.(float64), r.isNull, nil
+}
+
+func (r *mockSingleFieldRecord) GetCurrentString(_ string) (string, bool, error) {
+	switch r.fieldType {
+	case f.StringType, f.V_WStringType, f.WStringType, f.V_StringType:
+	default:
+		return ``, false, fmt.Errorf(`wrong data type`)
+	}
+	return r.value.(string), r.isNull, nil
+}
+
+func (r *mockSingleFieldRecord) GetCurrentDate(_ string) (time.Time, bool, error) {
+	switch r.fieldType {
+	case f.DateTimeType, f.DateType:
+	default:
+		return time.Date(0, 0, 0, 0, 0, 0, 0, time.UTC), false, fmt.Errorf(`wrong data type`)
+	}
+	return r.value.(time.Time), r.isNull, nil
+}
+
+func (r *mockSingleFieldRecord) GetFieldTypeFromName(_ string) (string, error) {
+	return r.fieldType, nil
+}
+
 func TestAddition(t *testing.T) {
-	result, err := f.Calculate(`1.0+2+4`)
+	result, err := f.Calculate(`1.0+2+4`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got %v`, err.Error())
 	}
@@ -16,7 +71,7 @@ func TestAddition(t *testing.T) {
 }
 
 func TestSubtraction(t *testing.T) {
-	result, err := f.Calculate(`4-1.0-2`)
+	result, err := f.Calculate(`4-1.0-2`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -26,7 +81,7 @@ func TestSubtraction(t *testing.T) {
 }
 
 func TestMultiplication(t *testing.T) {
-	result, err := f.Calculate(`10*4.0`)
+	result, err := f.Calculate(`10*4.0`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -36,7 +91,7 @@ func TestMultiplication(t *testing.T) {
 }
 
 func TestNullNumber(t *testing.T) {
-	result, err := f.Calculate(`1+NULL()`)
+	result, err := f.Calculate(`1+NULL()`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -46,7 +101,7 @@ func TestNullNumber(t *testing.T) {
 }
 
 func TestDivision(t *testing.T) {
-	result, err := f.Calculate(`40.0/10`)
+	result, err := f.Calculate(`40.0/10`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -56,7 +111,7 @@ func TestDivision(t *testing.T) {
 }
 
 func TestNegativeNumberAddition(t *testing.T) {
-	result, err := f.Calculate(`-1.0+-3`)
+	result, err := f.Calculate(`-1.0+-3`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -66,7 +121,7 @@ func TestNegativeNumberAddition(t *testing.T) {
 }
 
 func TestNumberEquals(t *testing.T) {
-	result, err := f.Calculate(`1=1.0`)
+	result, err := f.Calculate(`1=1.0`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -74,7 +129,7 @@ func TestNumberEquals(t *testing.T) {
 		t.Fatalf(`expected true but got: %v`, result.Value())
 	}
 
-	result, err = f.Calculate(`1=2`)
+	result, err = f.Calculate(`1=2`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -82,7 +137,7 @@ func TestNumberEquals(t *testing.T) {
 		t.Fatalf(`expected false but got: %v`, result.Value())
 	}
 
-	result, err = f.Calculate(`1=NULL()`)
+	result, err = f.Calculate(`1=NULL()`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -90,7 +145,7 @@ func TestNumberEquals(t *testing.T) {
 		t.Fatalf(`expected false but got: %v`, result.Value())
 	}
 
-	result, err = f.Calculate(`NULL()=NULL()`)
+	result, err = f.Calculate(`NULL()=NULL()`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -100,7 +155,7 @@ func TestNumberEquals(t *testing.T) {
 }
 
 func TestNumberGreaterThan(t *testing.T) {
-	result, err := f.Calculate(`1 > 2`)
+	result, err := f.Calculate(`1 > 2`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -108,7 +163,7 @@ func TestNumberGreaterThan(t *testing.T) {
 		t.Fatalf(`expected false but got %v`, result.Value())
 	}
 
-	result, err = f.Calculate(`2 > 1`)
+	result, err = f.Calculate(`2 > 1`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -116,7 +171,7 @@ func TestNumberGreaterThan(t *testing.T) {
 		t.Fatalf(`expected true but got %v`, result.Value())
 	}
 
-	result, err = f.Calculate(`2 > NULL()`)
+	result, err = f.Calculate(`2 > NULL()`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -124,7 +179,7 @@ func TestNumberGreaterThan(t *testing.T) {
 		t.Fatalf(`expected false but got %v`, result.Value())
 	}
 
-	result, err = f.Calculate(`NULL() > 2`)
+	result, err = f.Calculate(`NULL() > 2`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -134,7 +189,7 @@ func TestNumberGreaterThan(t *testing.T) {
 }
 
 func TestNumberGreaterEqual(t *testing.T) {
-	result, err := f.Calculate(`1 >= 2.0`)
+	result, err := f.Calculate(`1 >= 2.0`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -142,19 +197,19 @@ func TestNumberGreaterEqual(t *testing.T) {
 		t.Fatalf(`expected false but got %v`, result.Value())
 	}
 
-	result, _ = f.Calculate(`2 >= 2.0`)
+	result, _ = f.Calculate(`2 >= 2.0`, nil)
 	if result.Value() != true {
 		t.Fatalf(`expected true but got %v`, result.Value())
 	}
 
-	result, _ = f.Calculate(`3 >= 2.0`)
+	result, _ = f.Calculate(`3 >= 2.0`, nil)
 	if result.Value() != true {
 		t.Fatalf(`expected true but got %v`, result.Value())
 	}
 }
 
 func TestNumberLessThan(t *testing.T) {
-	result, err := f.Calculate(`1 < 2`)
+	result, err := f.Calculate(`1 < 2`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
@@ -162,8 +217,38 @@ func TestNumberLessThan(t *testing.T) {
 		t.Fatalf(`expected true but got %v`, result.Value())
 	}
 
-	result, _ = f.Calculate(`2 < 2`)
+	result, _ = f.Calculate(`2 < 2`, nil)
 	if result.Value() != false {
 		t.Fatalf(`expected false but got %v`, result.Value())
+	}
+}
+
+func TestIntField(t *testing.T) {
+	recordInfo := &mockSingleFieldRecord{
+		value:     1,
+		isNull:    false,
+		fieldType: f.Int64Type,
+	}
+	result, err := f.Calculate(`[MyField]+2`, recordInfo)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result.Value())
+	}
+}
+
+func TestFloatField(t *testing.T) {
+	recordInfo := &mockSingleFieldRecord{
+		value:     1.0,
+		isNull:    false,
+		fieldType: f.DoubleType,
+	}
+	result, err := f.Calculate(`[MyField]+2`, recordInfo)
+	if err != nil {
+		t.Fatalf(`expected no error but got: %v`, err.Error())
+	}
+	if result.Value() != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result.Value())
 	}
 }

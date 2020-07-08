@@ -31,8 +31,8 @@ stringExpr
     ;
 
 stringFunction
-    : Min '(' stringExpr (',' stringExpr)+ ')'                          # stringMin
-    | Max '(' stringExpr (',' stringExpr)+ ')'                          # stringMax
+    : Min '(' stringExpr (',' stringExpr)+ ')'                       # stringMin
+    | Max '(' stringExpr (',' stringExpr)+ ')'                       # stringMax
     ;
 
 numberExpr
