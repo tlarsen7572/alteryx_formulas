@@ -47,7 +47,7 @@ func (l *listener) EnterNumberNull(_ *parser.NumberNullContext) {
 func (l *listener) EnterNumberField(c *parser.NumberFieldContext) {
 	text := c.GetText()
 	fieldName := text[1 : len(text)-1]
-	fieldType, err := l.recordInfo.GetFieldTypeFromName(fieldName)
+	fieldType, err := l.recordInfo.GetFieldTypeByName(fieldName)
 	if err != nil {
 		return
 	}

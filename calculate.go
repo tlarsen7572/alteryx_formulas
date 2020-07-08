@@ -12,7 +12,7 @@ type RecordInfo interface {
 	GetCurrentFloat(fieldName string) (float64, bool, error)
 	GetCurrentString(fieldName string) (string, bool, error)
 	GetCurrentDate(fieldName string) (time.Time, bool, error)
-	GetFieldTypeFromName(fieldName string) (string, error)
+	GetFieldTypeByName(fieldName string) (string, error)
 }
 
 func Calculate(formula string, info RecordInfo) (NullableValue, error) {

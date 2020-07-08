@@ -56,7 +56,7 @@ func (r *mockSingleFieldRecord) GetCurrentDate(_ string) (time.Time, bool, error
 	return r.value.(time.Time), r.isNull, nil
 }
 
-func (r *mockSingleFieldRecord) GetFieldTypeFromName(_ string) (string, error) {
+func (r *mockSingleFieldRecord) GetFieldTypeByName(_ string) (string, error) {
 	return r.fieldType, nil
 }
 
