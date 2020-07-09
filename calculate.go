@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+type Calculator interface {
+	Calculate() NullableValue
+}
+
 type RecordInfo interface {
 	GetCurrentBool(fieldName string) (bool, bool, error)
 	GetCurrentInt(fieldName string) (int, bool, error)
@@ -20,9 +24,14 @@ func Calculate(formula string, info RecordInfo) (NullableValue, error) {
 	lexer := parser.NewAlteryxFormulasLexer(inputStream)
 	tokens := antlr.NewCommonTokenStream(lexer, antlr.LexerDefaultTokenChannel)
 	p := parser.NewAlteryxFormulasParser(tokens)
-	listener := &listener{recordInfo: info}
-	antlr.ParseTreeWalkerDefault.Walk(listener, p.Formula())
-	result := listener.Calculate()
+	tree := p.Formula()
+	walker := antlr.ParseTreeWalker{}
+	firstListener := &firstPassListener{recordInfo: info, symbols: make(map[interface{}]int)}
+	walker.Walk(firstListener, tree)
+	secondListener := &secondPassListener{symbols: firstListener.symbols, calc: &calculator{recordInfo: info}}
+	antlr.ParseTreeWalkerDefault.Walk(secondListener, tree)
+	calc := secondListener.calc
+	result := calc.Calculate()
 	return result, nil
 }
 
