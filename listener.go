@@ -7,6 +7,7 @@ import (
 type listener struct {
 	recordInfo RecordInfo
 	functions  []func()
+	strings    []nullableString
 	numbers    []nullableNum
 	bools      []nullableBool
 	getResult  func() NullableValue
@@ -46,6 +47,17 @@ func (l *listener) pushBool(value nullableBool) {
 	l.bools = append(l.bools, value)
 }
 
+func (l *listener) popString() nullableString {
+	item := len(l.strings) - 1
+	returnVal := l.strings[item]
+	l.strings = l.strings[:item]
+	return returnVal
+}
+
+func (l *listener) pushString(value nullableString) {
+	l.strings = append(l.strings, value)
+}
+
 func (l *listener) EnterFormulaIsNumber(_ *parser.FormulaIsNumberContext) {
 	f := func() NullableValue {
 		return l.numbers[0]
@@ -56,6 +68,13 @@ func (l *listener) EnterFormulaIsNumber(_ *parser.FormulaIsNumberContext) {
 func (l *listener) EnterFormulaIsBool(_ *parser.FormulaIsBoolContext) {
 	f := func() NullableValue {
 		return l.bools[0]
+	}
+	l.getResult = f
+}
+
+func (l *listener) EnterFormulaIsString(_ *parser.FormulaIsStringContext) {
+	f := func() NullableValue {
+		return l.strings[0]
 	}
 	l.getResult = f
 }

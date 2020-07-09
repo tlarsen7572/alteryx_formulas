@@ -27,3 +27,15 @@ func (v nullableBool) Value() interface{} {
 	}
 	return v.value
 }
+
+type nullableString struct {
+	value  string
+	isNull bool
+}
+
+func (v nullableString) Value() interface{} {
+	if v.isNull {
+		return nil
+	}
+	return v.value
+}
