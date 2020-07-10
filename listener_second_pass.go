@@ -141,3 +141,23 @@ func (l *secondPassListener) EnterGreaterThan(c *parser.GreaterThanContext) {
 	}
 	panic(`invalid left or right type`)
 }
+
+func (l *secondPassListener) EnterGreaterEqual(c *parser.GreaterEqualContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+
+	if (leftType == Number || leftType == Null) && (rightType == Number || rightType == Null) {
+		l.calc.pushFunction(l.calc.numberGreaterEqual)
+		return
+	}
+	panic(`invalid left or right type`)
+}
+
+func (l *secondPassListener) EnterLessThan(c *parser.LessThanContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+
+	if (leftType == Number || leftType == Null) && (rightType == Number || rightType == Null) {
+		l.calc.pushFunction(l.calc.numberLessThan)
+		return
+	}
+	panic(`invalid left or right type`)
+}
