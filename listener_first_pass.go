@@ -7,6 +7,7 @@ import (
 )
 
 const (
+	Null   = 0
 	Number = 1
 	String = 2
 	Date   = 3
@@ -17,14 +18,6 @@ type firstPassListener struct {
 	symbols    map[interface{}]int
 	recordInfo RecordInfo
 	parser.BaseAlteryxFormulasListener
-}
-
-func (l *firstPassListener) ExitFormula(c *parser.FormulaContext) {
-	fieldType, ok := l.symbols[c.Expr().GetStart()]
-	if !ok {
-		panic(`formula rule could not find a field type for its expression`)
-	}
-	l.symbols[c.GetStart()] = fieldType
 }
 
 func (l *firstPassListener) EnterNumberLiteral(c *parser.NumberLiteralContext) {
@@ -45,6 +38,10 @@ func (l *firstPassListener) EnterDatetimeLiteral(c *parser.DatetimeLiteralContex
 
 func (l *firstPassListener) EnterBoolLiteral(c *parser.BoolLiteralContext) {
 	l.symbols[c.GetStart()] = Bool
+}
+
+func (l *firstPassListener) EnterNullFunc(c *parser.NullFuncContext) {
+	l.symbols[c.GetStart()] = Null
 }
 
 func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {

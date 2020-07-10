@@ -1,19 +1,11 @@
 package alteryx_formulas
 
-func number(value float64) nullableNum {
-	return nullableNum{value: value}
-}
-
-func nullNumber() nullableNum {
-	return nullableNum{isNull: true}
-}
-
 func (calc *calculator) addNumbers() {
-	value1 := calc.popNumber()
-	value2 := calc.popNumber()
-	if value1.isNull || value2.isNull {
-		calc.pushNumber(nullNumber())
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(nil)
 		return
 	}
-	calc.pushNumber(number(value1.value + value2.value))
+	calc.pushValue(value1.(float64) + value2.(float64))
 }

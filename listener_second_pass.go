@@ -25,9 +25,18 @@ func (l *secondPassListener) EnterExprField(c *parser.ExprFieldContext) {
 	if !ok {
 		panic(`symbol not found`)
 	}
-	if fieldType == String {
+	switch fieldType {
+	case String:
 		l.calc.pushStringField(fieldName)
+	case Number:
+		l.calc.pushNumberField(fieldName)
+	default:
+		panic("Invalid field type")
 	}
+}
+
+func (l *secondPassListener) EnterNullFunc(c *parser.NullFuncContext) {
+	l.calc.pushValueFunc(nil)
 }
 
 func (l *secondPassListener) EnterNumberLiteral(c *parser.NumberLiteralContext) {
@@ -36,30 +45,13 @@ func (l *secondPassListener) EnterNumberLiteral(c *parser.NumberLiteralContext) 
 	if err != nil {
 		panic(fmt.Sprintf(`%v could not be parsed to a float64`, text))
 	}
-	l.calc.pushNumberFunc(number(value))
+	l.calc.pushValueFunc(value)
 }
 
 func (l *secondPassListener) EnterStringLiteral(c *parser.StringLiteralContext) {
 	text := c.GetText()
 	value := text[1 : len(text)-1]
-	l.calc.pushStringFunc(stringVal(value))
-}
-
-func (l *secondPassListener) ExitFormula(c *parser.FormulaContext) {
-	fieldType, ok := l.getSymbol(c)
-	if !ok {
-		panic(`no field type found for formula`)
-	}
-	switch fieldType {
-	case Number:
-		l.calc.getResult = l.calc.returnNumber
-	case String:
-		l.calc.getResult = l.calc.returnString
-	case Bool:
-		l.calc.getResult = l.calc.returnBool
-	default:
-		panic(`invalid formula field type`)
-	}
+	l.calc.pushValueFunc(value)
 }
 
 func (l *secondPassListener) EnterAdd(c *parser.AddContext) {
@@ -71,12 +63,17 @@ func (l *secondPassListener) EnterAdd(c *parser.AddContext) {
 	if !ok {
 		panic(`right symbol does not exist`)
 	}
-	if leftType == Number && rightType == Number {
+
+	if (leftType == Number && rightType == Number) || (leftType == Number && rightType == Null) || (leftType == Null && rightType == Number) {
 		l.calc.pushFunction(l.calc.addNumbers)
 		return
 	}
-	if leftType == String && rightType == String {
+	if (leftType == String && rightType == String) || (leftType == String && rightType == Null) || (leftType == Null && rightType == String) {
 		l.calc.pushFunction(l.calc.concatenate)
+		return
+	}
+	if leftType == Null && rightType == Null {
+		l.calc.pushFunction(l.calc.addNumbers)
 		return
 	}
 	panic(`invalid left and right type`)

@@ -12,8 +12,8 @@ func TestAddition(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got %v`, err.Error())
 	}
-	if result.Value() != 7.0 {
-		t.Fatalf(`expected 7 but got %v`, result.Value())
+	if result != 7.0 {
+		t.Fatalf(`expected 7 but got %v`, result)
 	}
 }
 
@@ -22,8 +22,8 @@ func TestSubtraction(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != 1.0 {
-		t.Fatalf(`expected 1 but got %v`, result.Value())
+	if result != 1.0 {
+		t.Fatalf(`expected 1 but got %v`, result)
 	}
 }
 
@@ -32,8 +32,8 @@ func TestMultiplication(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != 40.0 {
-		t.Fatalf(`expected 40 but got %v`, result.Value())
+	if result != 40.0 {
+		t.Fatalf(`expected 40 but got %v`, result)
 	}
 }
 
@@ -42,8 +42,8 @@ func TestNullNumber(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != nil {
-		t.Fatalf(`expected nil but got %v`, result.Value())
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
 
@@ -52,8 +52,8 @@ func TestDivision(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != 4.0 {
-		t.Fatalf(`expected 4 but got %v`, result.Value())
+	if result != 4.0 {
+		t.Fatalf(`expected 4 but got %v`, result)
 	}
 }
 
@@ -62,8 +62,8 @@ func TestNegativeNumberAddition(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != -4.0 {
-		t.Fatalf(`expected -4 but got %v`, result.Value())
+	if result != -4.0 {
+		t.Fatalf(`expected -4 but got %v`, result)
 	}
 }
 
@@ -72,32 +72,32 @@ func TestNumberEquals(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != true {
-		t.Fatalf(`expected true but got: %v`, result.Value())
+	if result != true {
+		t.Fatalf(`expected true but got: %v`, result)
 	}
 
 	result, err = f.Calculate(`1=2`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != false {
-		t.Fatalf(`expected false but got: %v`, result.Value())
+	if result != false {
+		t.Fatalf(`expected false but got: %v`, result)
 	}
 
 	result, err = f.Calculate(`1=NULL()`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != false {
-		t.Fatalf(`expected false but got: %v`, result.Value())
+	if result != false {
+		t.Fatalf(`expected false but got: %v`, result)
 	}
 
 	result, err = f.Calculate(`NULL()=NULL()`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != true {
-		t.Fatalf(`expected true but got: %v`, result.Value())
+	if result != true {
+		t.Fatalf(`expected true but got: %v`, result)
 	}
 }
 
@@ -106,32 +106,32 @@ func TestNumberGreaterThan(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != false {
-		t.Fatalf(`expected false but got %v`, result.Value())
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
 	}
 
 	result, err = f.Calculate(`2 > 1`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != true {
-		t.Fatalf(`expected true but got %v`, result.Value())
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
 	}
 
 	result, err = f.Calculate(`2 > NULL()`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != false {
-		t.Fatalf(`expected false but got %v`, result.Value())
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
 	}
 
 	result, err = f.Calculate(`NULL() > 2`, nil)
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != false {
-		t.Fatalf(`expected false but got %v`, result.Value())
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
 	}
 }
 
@@ -140,18 +140,18 @@ func TestNumberGreaterEqual(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != false {
-		t.Fatalf(`expected false but got %v`, result.Value())
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
 	}
 
 	result, _ = f.Calculate(`2 >= 2.0`, nil)
-	if result.Value() != true {
-		t.Fatalf(`expected true but got %v`, result.Value())
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
 	}
 
 	result, _ = f.Calculate(`3 >= 2.0`, nil)
-	if result.Value() != true {
-		t.Fatalf(`expected true but got %v`, result.Value())
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
 	}
 }
 
@@ -160,13 +160,13 @@ func TestNumberLessThan(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != true {
-		t.Fatalf(`expected true but got %v`, result.Value())
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
 	}
 
 	result, _ = f.Calculate(`2 < 2`, nil)
-	if result.Value() != false {
-		t.Fatalf(`expected false but got %v`, result.Value())
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
 	}
 }
 
@@ -180,8 +180,8 @@ func TestIntField(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != 3.0 {
-		t.Fatalf(`expected 3 but got %v`, result.Value())
+	if result != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result)
 	}
 }
 
@@ -195,8 +195,8 @@ func TestFloatField(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != 3.0 {
-		t.Fatalf(`expected 3 but got %v`, result.Value())
+	if result != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result)
 	}
 }
 
@@ -210,8 +210,8 @@ func TestConcatenateField(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != `hello world` {
-		t.Fatalf(`expected 'hello world' but got %v`, result.Value())
+	if result != `hello world` {
+		t.Fatalf(`expected 'hello world' but got %v`, result)
 	}
 }
 
@@ -221,8 +221,8 @@ func TestAddTwoNumberFields(t *testing.T) {
 	if err != nil {
 		t.Fatalf(`expected no error but got: %v`, err.Error())
 	}
-	if result.Value() != 3.0 {
-		t.Fatalf(`expected 3 but got %v`, result.Value())
+	if result != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result)
 	}
 }
 

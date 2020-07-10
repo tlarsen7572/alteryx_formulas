@@ -21,12 +21,6 @@ func (s *BaseAlteryxFormulasListener) EnterEveryRule(ctx antlr.ParserRuleContext
 // ExitEveryRule is called when any rule is exited.
 func (s *BaseAlteryxFormulasListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
 
-// EnterFormula is called when production formula is entered.
-func (s *BaseAlteryxFormulasListener) EnterFormula(ctx *FormulaContext) {}
-
-// ExitFormula is called when production formula is exited.
-func (s *BaseAlteryxFormulasListener) ExitFormula(ctx *FormulaContext) {}
-
 // EnterAdd is called when production add is entered.
 func (s *BaseAlteryxFormulasListener) EnterAdd(ctx *AddContext) {}
 

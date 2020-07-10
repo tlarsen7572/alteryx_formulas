@@ -8,9 +8,6 @@ import "github.com/antlr/antlr4/runtime/Go/antlr"
 type AlteryxFormulasListener interface {
 	antlr.ParseTreeListener
 
-	// EnterFormula is called when entering the formula production.
-	EnterFormula(c *FormulaContext)
-
 	// EnterAdd is called when entering the add production.
 	EnterAdd(c *AddContext)
 
@@ -97,9 +94,6 @@ type AlteryxFormulasListener interface {
 
 	// EnterStr is called when entering the str production.
 	EnterStr(c *StrContext)
-
-	// ExitFormula is called when exiting the formula production.
-	ExitFormula(c *FormulaContext)
 
 	// ExitAdd is called when exiting the add production.
 	ExitAdd(c *AddContext)

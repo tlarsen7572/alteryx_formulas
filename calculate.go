@@ -7,7 +7,7 @@ import (
 )
 
 type Calculator interface {
-	Calculate() NullableValue
+	Calculate() interface{}
 }
 
 type RecordInfo interface {
@@ -19,12 +19,12 @@ type RecordInfo interface {
 	GetFieldTypeByName(fieldName string) (string, error)
 }
 
-func Calculate(formula string, info RecordInfo) (NullableValue, error) {
+func Calculate(formula string, info RecordInfo) (interface{}, error) {
 	inputStream := antlr.NewInputStream(formula)
 	lexer := parser.NewAlteryxFormulasLexer(inputStream)
 	tokens := antlr.NewCommonTokenStream(lexer, antlr.LexerDefaultTokenChannel)
 	p := parser.NewAlteryxFormulasParser(tokens)
-	tree := p.Formula()
+	tree := p.Expr()
 	walker := antlr.ParseTreeWalker{}
 	firstListener := &firstPassListener{recordInfo: info, symbols: make(map[interface{}]int)}
 	walker.Walk(firstListener, tree)

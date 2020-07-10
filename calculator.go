@@ -2,86 +2,35 @@ package alteryx_formulas
 
 type calculator struct {
 	functions  []func()
-	strings    []nullableString
-	numbers    []nullableNum
-	bools      []nullableBool
-	getResult  func() NullableValue
+	values     []interface{}
 	recordInfo RecordInfo
 }
 
-func (calc *calculator) Calculate() NullableValue {
+func (calc *calculator) Calculate() interface{} {
 	for funcIndex := len(calc.functions) - 1; funcIndex >= 0; funcIndex-- {
 		calc.functions[funcIndex]()
 	}
-	return calc.getResult()
-}
-
-func (calc *calculator) returnNumber() NullableValue {
-	return calc.numbers[0]
-}
-
-func (calc *calculator) returnString() NullableValue {
-	return calc.strings[0]
-}
-
-func (calc *calculator) returnBool() NullableValue {
-	return calc.bools[0]
+	return calc.values[0]
 }
 
 func (calc *calculator) pushFunction(f func()) {
 	calc.functions = append(calc.functions, f)
 }
 
-func (calc *calculator) popNumber() nullableNum {
-	item := len(calc.numbers) - 1
-	returnVal := calc.numbers[item]
-	calc.numbers = calc.numbers[:item]
+func (calc *calculator) popValue() interface{} {
+	item := len(calc.values) - 1
+	returnVal := calc.values[item]
+	calc.values = calc.values[:item]
 	return returnVal
 }
 
-func (calc *calculator) pushNumber(value nullableNum) {
-	calc.numbers = append(calc.numbers, value)
+func (calc *calculator) pushValue(value interface{}) {
+	calc.values = append(calc.values, value)
 }
 
-func (calc *calculator) pushNumberFunc(value nullableNum) {
+func (calc *calculator) pushValueFunc(value interface{}) {
 	f := func() {
-		calc.pushNumber(value)
-	}
-	calc.pushFunction(f)
-}
-
-func (calc *calculator) popBool() nullableBool {
-	item := len(calc.bools) - 1
-	returnVal := calc.bools[item]
-	calc.bools = calc.bools[:item]
-	return returnVal
-}
-
-func (calc *calculator) pushBool(value nullableBool) {
-	calc.bools = append(calc.bools, value)
-}
-
-func (calc *calculator) pushBoolFunc(value nullableBool) {
-	f := func() {
-		calc.pushBool(value)
-	}
-	calc.pushFunction(f)
-}
-
-func (calc *calculator) popString() nullableString {
-	item := len(calc.strings) - 1
-	returnVal := calc.strings[item]
-	calc.strings = calc.strings[:item]
-	return returnVal
-}
-
-func (calc *calculator) pushString(value nullableString) {
-	calc.strings = append(calc.strings, value)
-}
-
-func (calc *calculator) pushStringFunc(value nullableString) {
-	f := func() {
-		calc.pushString(value)
+		calc.pushValue(value)
 	}
 	calc.pushFunction(f)
 }
@@ -90,10 +39,38 @@ func (calc *calculator) pushStringField(fieldName string) {
 	f := func() {
 		value, isNull, err := calc.recordInfo.GetCurrentString(fieldName)
 		if err != nil || isNull {
-			calc.pushString(nullString())
+			calc.pushValue(nil)
 			return
 		}
-		calc.pushString(stringVal(value))
+		calc.pushValue(value)
+	}
+	calc.pushFunction(f)
+}
+
+func (calc *calculator) pushNumberField(fieldName string) {
+	fieldType, _ := calc.recordInfo.GetFieldTypeByName(fieldName)
+	var f func()
+	switch fieldType {
+	case ByteType, Int16Type, Int32Type, Int64Type:
+		f = func() {
+			value, isNull, err := calc.recordInfo.GetCurrentInt(fieldName)
+			if err != nil || isNull {
+				calc.pushValue(nil)
+				return
+			}
+			calc.pushValue(float64(value))
+		}
+	case FixedDecimalType, FloatType, DoubleType:
+		f = func() {
+			value, isNull, err := calc.recordInfo.GetCurrentFloat(fieldName)
+			if err != nil || isNull {
+				calc.pushValue(nil)
+				return
+			}
+			calc.pushValue(value)
+		}
+	default:
+		panic(`invalid field type`)
 	}
 	calc.pushFunction(f)
 }

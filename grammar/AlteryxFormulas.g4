@@ -1,9 +1,5 @@
 grammar AlteryxFormulas;
 
-formula
-    : expr
-    ;
-
 expr
     : '(' expr ')'                                                   # parenthesis
     | left=expr '*' right=expr                                       # multiply
