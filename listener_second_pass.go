@@ -18,6 +18,23 @@ func (l *secondPassListener) getSymbol(c antlr.ParserRuleContext) (int, bool) {
 	return symbol, ok
 }
 
+type HasLeftRightTypes interface {
+	GetLeft() parser.IExprContext
+	GetRight() parser.IExprContext
+}
+
+func (l *secondPassListener) getLeftRightTypes(c HasLeftRightTypes) (int, int) {
+	leftType, ok := l.getSymbol(c.GetLeft())
+	if !ok {
+		panic(`left symbol does not exist`)
+	}
+	rightType, ok := l.getSymbol(c.GetRight())
+	if !ok {
+		panic(`right symbol does not exist`)
+	}
+	return leftType, rightType
+}
+
 func (l *secondPassListener) EnterExprField(c *parser.ExprFieldContext) {
 	text := c.GetText()
 	fieldName := text[1 : len(text)-1]
@@ -35,7 +52,7 @@ func (l *secondPassListener) EnterExprField(c *parser.ExprFieldContext) {
 	}
 }
 
-func (l *secondPassListener) EnterNullFunc(c *parser.NullFuncContext) {
+func (l *secondPassListener) EnterNullFunc(_ *parser.NullFuncContext) {
 	l.calc.pushValueFunc(nil)
 }
 
@@ -55,14 +72,7 @@ func (l *secondPassListener) EnterStringLiteral(c *parser.StringLiteralContext) 
 }
 
 func (l *secondPassListener) EnterAdd(c *parser.AddContext) {
-	leftType, ok := l.getSymbol(c.GetLeft())
-	if !ok {
-		panic(`left symbol does not exist`)
-	}
-	rightType, ok := l.getSymbol(c.GetRight())
-	if !ok {
-		panic(`right symbol does not exist`)
-	}
+	leftType, rightType := l.getLeftRightTypes(c)
 
 	if (leftType == Number && rightType == Number) || (leftType == Number && rightType == Null) || (leftType == Null && rightType == Number) {
 		l.calc.pushFunction(l.calc.addNumbers)
@@ -77,4 +87,57 @@ func (l *secondPassListener) EnterAdd(c *parser.AddContext) {
 		return
 	}
 	panic(`invalid left and right type`)
+}
+
+func (l *secondPassListener) EnterSubtract(c *parser.SubtractContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+
+	if leftType != Number && leftType != Null {
+		panic(`invalid left type`)
+	}
+	if rightType != Number && rightType != Null {
+		panic(`invalid right type`)
+	}
+
+	l.calc.pushFunction(l.calc.subtractNumbers)
+}
+
+func (l *secondPassListener) EnterMultiply(c *parser.MultiplyContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+
+	if leftType != Number && leftType != Null {
+		panic(`invalid left type`)
+	}
+	if rightType != Number && rightType != Null {
+		panic(`invalid right type`)
+	}
+
+	l.calc.pushFunction(l.calc.multiplyNumbers)
+}
+
+func (l *secondPassListener) EnterDivide(c *parser.DivideContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+
+	if leftType != Number && leftType != Null {
+		panic(`invalid left type`)
+	}
+	if rightType != Number && rightType != Null {
+		panic(`invalid right type`)
+	}
+
+	l.calc.pushFunction(l.calc.divideNumbers)
+}
+
+func (l *secondPassListener) EnterEqual(_ *parser.EqualContext) {
+	l.calc.pushFunction(l.calc.equal)
+}
+
+func (l *secondPassListener) EnterGreaterThan(c *parser.GreaterThanContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+
+	if (leftType == Number || leftType == Null) && (rightType == Number || rightType == Null) {
+		l.calc.pushFunction(l.calc.numberGreaterThan)
+		return
+	}
+	panic(`invalid left or right type`)
 }

@@ -20,28 +20,53 @@ type firstPassListener struct {
 	parser.BaseAlteryxFormulasListener
 }
 
+func (l *firstPassListener) getSymbol(c antlr.ParserRuleContext) (int, bool) {
+	symbol, ok := l.symbols[c.GetStart()]
+	return symbol, ok
+}
+
+func (l *firstPassListener) setSymbol(c antlr.ParserRuleContext, value int) {
+	l.symbols[c.GetStart()] = value
+}
+
 func (l *firstPassListener) EnterNumberLiteral(c *parser.NumberLiteralContext) {
-	l.symbols[c.GetStart()] = Number
+	l.setSymbol(c, Number)
 }
 
 func (l *firstPassListener) EnterStringLiteral(c *parser.StringLiteralContext) {
-	l.symbols[c.GetStart()] = String
+	l.setSymbol(c, String)
 }
 
 func (l *firstPassListener) EnterDateLiteral(c *parser.DateLiteralContext) {
-	l.symbols[c.GetStart()] = Date
+	l.setSymbol(c, Date)
 }
 
 func (l *firstPassListener) EnterDatetimeLiteral(c *parser.DatetimeLiteralContext) {
-	l.symbols[c.GetStart()] = Date
+	l.setSymbol(c, Date)
 }
 
 func (l *firstPassListener) EnterBoolLiteral(c *parser.BoolLiteralContext) {
-	l.symbols[c.GetStart()] = Bool
+	l.setSymbol(c, Bool)
 }
 
 func (l *firstPassListener) EnterNullFunc(c *parser.NullFuncContext) {
-	l.symbols[c.GetStart()] = Null
+	l.setSymbol(c, Null)
+}
+
+func (l *firstPassListener) ExitAdd(c *parser.AddContext) {
+	leftType, ok := l.getSymbol(c.GetLeft())
+	if !ok {
+		panic(`left symbol does not have a type`)
+	}
+	rightType, ok := l.getSymbol(c.GetRight())
+	if !ok {
+		panic(`right symbol does not have a type`)
+	}
+	if leftType == Null {
+		l.setSymbol(c, rightType)
+	} else {
+		l.setSymbol(c, leftType)
+	}
 }
 
 func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {
@@ -54,13 +79,13 @@ func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {
 	}
 	switch fieldType {
 	case ByteType, Int16Type, Int32Type, Int64Type, FixedDecimalType, FloatType, DoubleType:
-		l.symbols[c.GetStart()] = Number
+		l.setSymbol(c, Number)
 	case BoolType:
-		l.symbols[c.GetStart()] = Bool
+		l.setSymbol(c, Bool)
 	case DateType, DateTimeType:
-		l.symbols[c.GetStart()] = Date
+		l.setSymbol(c, Date)
 	case StringType, WStringType, V_StringType, V_WStringType:
-		l.symbols[c.GetStart()] = String
+		l.setSymbol(c, String)
 	default:
 		c.SetException(InvalidFieldType(fieldName, fieldType, c))
 	}

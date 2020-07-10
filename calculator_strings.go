@@ -1,11 +1,8 @@
 package alteryx_formulas
 
 func (calc *calculator) concatenate() {
-	value1 := calc.popValue()
-	value2 := calc.popValue()
-	if value1 == nil || value2 == nil {
-		calc.pushValue(nil)
-		return
+	concatenate := func(left interface{}, right interface{}) interface{} {
+		return left.(string) + right.(string)
 	}
-	calc.pushValue(value1.(string) + value2.(string))
+	calc.ifNonNullLeftRight(concatenate)
 }

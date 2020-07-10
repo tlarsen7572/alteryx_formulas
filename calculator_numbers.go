@@ -1,11 +1,29 @@
 package alteryx_formulas
 
 func (calc *calculator) addNumbers() {
-	value1 := calc.popValue()
-	value2 := calc.popValue()
-	if value1 == nil || value2 == nil {
-		calc.pushValue(nil)
-		return
+	add := func(left interface{}, right interface{}) interface{} {
+		return left.(float64) + right.(float64)
 	}
-	calc.pushValue(value1.(float64) + value2.(float64))
+	calc.ifNonNullLeftRight(add)
+}
+
+func (calc *calculator) subtractNumbers() {
+	subtract := func(left interface{}, right interface{}) interface{} {
+		return left.(float64) - right.(float64)
+	}
+	calc.ifNonNullLeftRight(subtract)
+}
+
+func (calc *calculator) multiplyNumbers() {
+	multiply := func(left interface{}, right interface{}) interface{} {
+		return left.(float64) * right.(float64)
+	}
+	calc.ifNonNullLeftRight(multiply)
+}
+
+func (calc *calculator) divideNumbers() {
+	divide := func(left interface{}, right interface{}) interface{} {
+		return left.(float64) / right.(float64)
+	}
+	calc.ifNonNullLeftRight(divide)
 }

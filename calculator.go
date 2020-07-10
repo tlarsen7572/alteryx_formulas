@@ -74,3 +74,15 @@ func (calc *calculator) pushNumberField(fieldName string) {
 	}
 	calc.pushFunction(f)
 }
+
+type leftRightOperator func(left interface{}, right interface{}) interface{}
+
+func (calc *calculator) ifNonNullLeftRight(f leftRightOperator) {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(f(value1, value2))
+}
