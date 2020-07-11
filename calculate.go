@@ -1,6 +1,7 @@
 package alteryx_formulas
 
 import (
+	"fmt"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/tlarsen7572/alteryx_formulas/parser"
 	"time"
@@ -19,20 +20,53 @@ type RecordInfo interface {
 	GetFieldTypeByName(fieldName string) (string, error)
 }
 
-func Calculate(formula string, info RecordInfo) (interface{}, error) {
+func Calculate(formula string, info RecordInfo) (interface{}, []error) {
 	inputStream := antlr.NewInputStream(formula)
 	lexer := parser.NewAlteryxFormulasLexer(inputStream)
 	tokens := antlr.NewCommonTokenStream(lexer, antlr.LexerDefaultTokenChannel)
 	p := parser.NewAlteryxFormulasParser(tokens)
+	p.RemoveErrorListeners()
+	errors := &errorListener{}
+	p.AddErrorListener(errors)
 	tree := p.Expr()
 	walker := antlr.ParseTreeWalker{}
 	firstListener := &firstPassListener{recordInfo: info, symbols: make(map[interface{}]int)}
 	walker.Walk(firstListener, tree)
+
+	if len(errors.errs) > 0 {
+		return nil, errors.errs
+	}
+
 	secondListener := &secondPassListener{symbols: firstListener.symbols, calc: &calculator{recordInfo: info}}
 	antlr.ParseTreeWalkerDefault.Walk(secondListener, tree)
+
+	if len(errors.errs) > 0 {
+		return nil, errors.errs
+	}
+
 	calc := secondListener.calc
 	result := calc.Calculate()
-	return result, nil
+	return result, errors.errs
+}
+
+type errorListener struct {
+	errs []error
+}
+
+func (l *errorListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+	l.errs = append(l.errs, fmt.Errorf(`line %v:%v: %v`, line, column, msg))
+}
+
+func (l *errorListener) ReportAmbiguity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, exact bool, ambigAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+	panic("implement me")
+}
+
+func (l *errorListener) ReportAttemptingFullContext(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, conflictingAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+	panic("implement me")
+}
+
+func (l *errorListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex, prediction int, configs antlr.ATNConfigSet) {
+	panic("implement me")
 }
 
 const (

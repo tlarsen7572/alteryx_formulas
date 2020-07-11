@@ -86,7 +86,7 @@ func (l *secondPassListener) EnterAdd(c *parser.AddContext) {
 		l.calc.pushFunction(l.calc.addNumbers)
 		return
 	}
-	panic(`invalid left and right type`)
+	c.GetParser().NotifyErrorListeners(`left and right arguments are not the same type`, c.GetStart(), InvalidType(``, c))
 }
 
 func (l *secondPassListener) EnterSubtract(c *parser.SubtractContext) {

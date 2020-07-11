@@ -91,36 +91,44 @@ func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {
 	}
 }
 
-func MissingField(missingField string, c antlr.ParserRuleContext) FieldException {
-	return FieldException{
+func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
+	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),
 		InputStream:    c.GetStart().GetInputStream(),
 		OffendingToken: c.GetStart(),
 	}
 }
 
-func InvalidFieldType(field string, fieldType string, c antlr.ParserRuleContext) FieldException {
-	return FieldException{
+func InvalidFieldType(field string, fieldType string, c antlr.ParserRuleContext) FormulasException {
+	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' has type '%v' which cannot be used in formulas`, field, fieldType),
 		InputStream:    c.GetStart().GetInputStream(),
 		OffendingToken: c.GetStart(),
 	}
 }
 
-type FieldException struct {
+func InvalidType(message string, c antlr.ParserRuleContext) FormulasException {
+	return FormulasException{
+		Message:        message,
+		InputStream:    c.GetStart().GetInputStream(),
+		OffendingToken: c.GetStart(),
+	}
+}
+
+type FormulasException struct {
 	Message        string
 	InputStream    antlr.IntStream
 	OffendingToken antlr.Token
 }
 
-func (e FieldException) GetOffendingToken() antlr.Token {
+func (e FormulasException) GetOffendingToken() antlr.Token {
 	return e.OffendingToken
 }
 
-func (e FieldException) GetMessage() string {
+func (e FormulasException) GetMessage() string {
 	return e.Message
 }
 
-func (e FieldException) GetInputStream() antlr.IntStream {
+func (e FormulasException) GetInputStream() antlr.IntStream {
 	return e.InputStream
 }
