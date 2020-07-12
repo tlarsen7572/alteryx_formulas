@@ -170,6 +170,101 @@ func TestNumberLessThan(t *testing.T) {
 	}
 }
 
+func TestNumberLessEqual(t *testing.T) {
+	result, err := f.Calculate(`1 <= 2`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`2 <= 2`, nil)
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`3 <= 2`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestNumberNotEqual(t *testing.T) {
+	result, err := f.Calculate(`1 != 2`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`2 != 2`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestNumberIn(t *testing.T) {
+	result, err := f.Calculate(`1 in (1,2,3,4)`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`1 in (2,3,4)`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestNumberNotIn(t *testing.T) {
+	result, err := f.Calculate(`1 not in (2,3,4)`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`1 not in (1,2,3,4)`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestIf(t *testing.T) {
+	result, err := f.Calculate(`if 1=1 THEN 2 else 3 ENDIF`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != 2.0 {
+		t.Fatalf(`expected 2 but got %v`, result)
+	}
+}
+
+func TestElse(t *testing.T) {
+	result, err := f.Calculate(`if 1=0 THEN 2 else 3 ENDIF`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result)
+	}
+}
+
+func TestElseIf(t *testing.T) {
+	result, err := f.Calculate(`if 1=0 THEN 2 elseif 1=1 THEN 4 ELSE 3 ENDIF`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != 4.0 {
+		t.Fatalf(`expected 4 but got %v`, result)
+	}
+}
+
 func TestIntField(t *testing.T) {
 	recordInfo := &mockSingleFieldRecord{
 		value:     1,

@@ -27,3 +27,35 @@ func (calc *calculator) divideNumbers() {
 	}
 	calc.ifNonNullLeftRight(divide)
 }
+
+func (calc *calculator) numberIn() {
+	exprCount := calc.popValue().(int)
+	exprs := make([]interface{}, exprCount)
+	for i := 0; i < exprCount; i++ {
+		exprs[i] = calc.popValue()
+	}
+	baseValue := exprs[0]
+	for i := 1; i < exprCount; i++ {
+		if baseValue == exprs[i] {
+			calc.pushValue(true)
+			return
+		}
+	}
+	calc.pushValue(false)
+}
+
+func (calc *calculator) numberNotIn() {
+	exprCount := calc.popValue().(int)
+	exprs := make([]interface{}, exprCount)
+	for i := 0; i < exprCount; i++ {
+		exprs[i] = calc.popValue()
+	}
+	baseValue := exprs[0]
+	for i := 1; i < exprCount; i++ {
+		if baseValue == exprs[i] {
+			calc.pushValue(false)
+			return
+		}
+	}
+	calc.pushValue(true)
+}

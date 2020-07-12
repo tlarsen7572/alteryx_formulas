@@ -87,12 +87,6 @@ func (s *BaseAlteryxFormulasListener) EnterStringLiteral(ctx *StringLiteralConte
 // ExitStringLiteral is called when production stringLiteral is exited.
 func (s *BaseAlteryxFormulasListener) ExitStringLiteral(ctx *StringLiteralContext) {}
 
-// EnterExprElseIf is called when production exprElseIf is entered.
-func (s *BaseAlteryxFormulasListener) EnterExprElseIf(ctx *ExprElseIfContext) {}
-
-// ExitExprElseIf is called when production exprElseIf is exited.
-func (s *BaseAlteryxFormulasListener) ExitExprElseIf(ctx *ExprElseIfContext) {}
-
 // EnterAnd is called when production and is entered.
 func (s *BaseAlteryxFormulasListener) EnterAnd(ctx *AndContext) {}
 

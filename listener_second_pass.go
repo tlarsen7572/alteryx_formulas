@@ -132,6 +132,10 @@ func (l *secondPassListener) EnterEqual(_ *parser.EqualContext) {
 	l.calc.pushFunction(l.calc.equal)
 }
 
+func (l *secondPassListener) EnterNotEqual(_ *parser.NotEqualContext) {
+	l.calc.pushFunction(l.calc.notEqual)
+}
+
 func (l *secondPassListener) EnterGreaterThan(c *parser.GreaterThanContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 
@@ -160,4 +164,42 @@ func (l *secondPassListener) EnterLessThan(c *parser.LessThanContext) {
 		return
 	}
 	panic(`invalid left or right type`)
+}
+
+func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+
+	if (leftType == Number || leftType == Null) && (rightType == Number || rightType == Null) {
+		l.calc.pushFunction(l.calc.numberLessEqual)
+		return
+	}
+	panic(`invalid left or right type`)
+}
+
+func (l *secondPassListener) EnterIn(c *parser.InContext) {
+	exprType := l.symbols[c.Expr(0)]
+	if exprType == Number || exprType == Null {
+		l.calc.pushFunction(l.calc.numberIn)
+		exprs := len(c.AllExpr())
+		l.calc.pushValueFunc(exprs)
+		return
+	}
+	panic(`invalid type`)
+}
+
+func (l *secondPassListener) EnterNotIn(c *parser.NotInContext) {
+	exprType := l.symbols[c.Expr(0)]
+	if exprType == Number || exprType == Null {
+		l.calc.pushFunction(l.calc.numberNotIn)
+		exprs := len(c.AllExpr())
+		l.calc.pushValueFunc(exprs)
+		return
+	}
+	panic(`invalid type`)
+}
+
+func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {
+	exprCount := len(c.AllExpr())
+	l.calc.pushFunction(l.calc.exprIf)
+	l.calc.pushValueFunc(exprCount)
 }

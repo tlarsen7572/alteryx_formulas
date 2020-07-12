@@ -16,15 +16,11 @@ expr
     | expr Not In '(' (expr (',' expr)*)? ')'                        # notIn
     | left=expr (And | '&&') right=expr                              # and
     | left=expr (Or | '||') right=expr                               # or
-    | If   ifStmnt=expr
-      Then thenStmnt=expr
-      Else elseStmnt=expr
-      Endif                                                          # exprIf
     | If      ifStmnt=expr
       Then    thenStmnt=expr
-      (Elseif elseIfStmnt=expr Then elseIfThenStmnt=expr)+
+      (Elseif ifStmnt=expr Then thenStmnt=expr)*
       Else    elseStmnt=expr
-      Endif                                                          # exprElseIf
+      Endif                                                          # exprIf
     | function                                                       # exprFunction
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral

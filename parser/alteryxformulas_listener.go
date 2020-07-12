@@ -41,9 +41,6 @@ type AlteryxFormulasListener interface {
 	// EnterStringLiteral is called when entering the stringLiteral production.
 	EnterStringLiteral(c *StringLiteralContext)
 
-	// EnterExprElseIf is called when entering the exprElseIf production.
-	EnterExprElseIf(c *ExprElseIfContext)
-
 	// EnterAnd is called when entering the and production.
 	EnterAnd(c *AndContext)
 
@@ -127,9 +124,6 @@ type AlteryxFormulasListener interface {
 
 	// ExitStringLiteral is called when exiting the stringLiteral production.
 	ExitStringLiteral(c *StringLiteralContext)
-
-	// ExitExprElseIf is called when exiting the exprElseIf production.
-	ExitExprElseIf(c *ExprElseIfContext)
 
 	// ExitAnd is called when exiting the and production.
 	ExitAnd(c *AndContext)

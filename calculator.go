@@ -86,3 +86,20 @@ func (calc *calculator) ifNonNullLeftRight(f leftRightOperator) {
 	}
 	calc.pushValue(f(value1, value2))
 }
+
+func (calc *calculator) exprIf() {
+	exprCount := calc.popValue().(int)
+	exprs := make([]interface{}, exprCount)
+	for i := 0; i < exprCount; i++ {
+		exprs[i] = calc.popValue()
+	}
+	ifCount := (exprCount - 1) / 2
+	for i := 0; i < ifCount; i++ {
+		if exprs[i*2] == true {
+			valueIndex := (i * 2) + 1
+			calc.pushValue(exprs[valueIndex])
+			return
+		}
+	}
+	calc.pushValue(exprs[exprCount-1])
+}
