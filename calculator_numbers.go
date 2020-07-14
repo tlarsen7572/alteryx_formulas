@@ -1,5 +1,7 @@
 package alteryx_formulas
 
+import "math"
+
 func (calc *calculator) addNumbers() {
 	add := func(left interface{}, right interface{}) interface{} {
 		return left.(float64) + right.(float64)
@@ -58,4 +60,26 @@ func (calc *calculator) numberNotIn() {
 		}
 	}
 	calc.pushValue(true)
+}
+
+func (calc *calculator) pow() {
+	value := calc.popValue().(float64)
+	power := calc.popValue().(float64)
+	calc.pushValue(math.Pow(value, power))
+}
+
+func (calc *calculator) numberMin() {
+	arguments := calc.popValue().(int)
+	var min float64
+	for i := 0; i < arguments; i++ {
+		if i == 0 {
+			min = calc.popValue().(float64)
+			continue
+		}
+		nextValue := calc.popValue().(float64)
+		if nextValue < min {
+			min = nextValue
+		}
+	}
+	calc.pushValue(min)
 }

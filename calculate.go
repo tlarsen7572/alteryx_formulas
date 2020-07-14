@@ -30,7 +30,7 @@ func Calculate(formula string, info RecordInfo) (interface{}, []error) {
 	p.AddErrorListener(errors)
 	tree := p.Expr()
 	walker := antlr.ParseTreeWalker{}
-	firstListener := &firstPassListener{recordInfo: info, symbols: make(map[interface{}]int)}
+	firstListener := &firstPassListener{recordInfo: info, symbols: make(map[antlr.ParserRuleContext]int)}
 	walker.Walk(firstListener, tree)
 
 	if len(errors.errs) > 0 {

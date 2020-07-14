@@ -350,6 +350,36 @@ func TestBadSyntax(t *testing.T) {
 	t.Logf(fmt.Sprintf(`%v`, err))
 }
 
+func TestPow(t *testing.T) {
+	result, errs := f.Calculate(`POW(2,3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 8.0 {
+		t.Fatalf(`expected 8 but got: %v`, result)
+	}
+}
+
+func TestMinNumber(t *testing.T) {
+	result, errs := f.Calculate(`min(10, 3,5,7,8)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result)
+	}
+}
+
+func TestLotsOfNesting(t *testing.T) {
+	result, errs := f.Calculate(`min(10,min(6,7,min(min(3,4),11),16,12),5,7,8)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

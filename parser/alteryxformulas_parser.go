@@ -1,4 +1,4 @@
-// Code generated from C:/repositories/alteryx_formulas/grammar\AlteryxFormulas.g4 by ANTLR 4.8. DO NOT EDIT.
+// Code generated from /Users/tlarsen/Documents/Repositories/alteryx_formulas/grammar/AlteryxFormulas.g4 by ANTLR 4.8. DO NOT EDIT.
 
 package parser // AlteryxFormulas
 
@@ -16,76 +16,73 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 40, 151,
-	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 23, 10, 2, 12, 2,
-	14, 2, 26, 11, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 5, 2, 44, 10, 2, 3, 2, 3, 2,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 40, 143,
+	4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 19, 10, 2, 12, 2, 14, 2, 22, 11, 2, 3, 2,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 6, 2, 42, 10, 2, 13, 2, 14, 2, 43, 3, 2,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 6, 2, 53, 10, 2, 13, 2, 14, 2, 54,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	3, 2, 3, 2, 5, 2, 71, 10, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 88, 10, 2, 12, 2, 14, 2, 91, 11, 2, 5, 2,
-	93, 10, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 103, 10,
-	2, 12, 2, 14, 2, 106, 11, 2, 5, 2, 108, 10, 2, 3, 2, 7, 2, 111, 10, 2,
-	12, 2, 14, 2, 114, 11, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 3, 128, 10, 3, 13, 3, 14, 3, 129, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 3, 139, 10, 3, 13, 3, 14, 3, 140, 3,
-	3, 3, 3, 3, 3, 3, 3, 5, 3, 147, 10, 3, 3, 4, 3, 4, 3, 4, 2, 3, 2, 5, 2,
-	4, 6, 2, 5, 4, 2, 16, 16, 25, 25, 4, 2, 17, 17, 26, 26, 3, 2, 38, 39, 2,
-	182, 2, 43, 3, 2, 2, 2, 4, 146, 3, 2, 2, 2, 6, 148, 3, 2, 2, 2, 8, 9, 8,
-	2, 1, 2, 9, 10, 7, 3, 2, 2, 10, 11, 5, 2, 2, 2, 11, 12, 7, 4, 2, 2, 12,
-	44, 3, 2, 2, 2, 13, 14, 7, 27, 2, 2, 14, 15, 5, 2, 2, 2, 15, 16, 7, 28,
-	2, 2, 16, 24, 5, 2, 2, 2, 17, 18, 7, 30, 2, 2, 18, 19, 5, 2, 2, 2, 19,
-	20, 7, 28, 2, 2, 20, 21, 5, 2, 2, 2, 21, 23, 3, 2, 2, 2, 22, 17, 3, 2,
-	2, 2, 23, 26, 3, 2, 2, 2, 24, 22, 3, 2, 2, 2, 24, 25, 3, 2, 2, 2, 25, 27,
-	3, 2, 2, 2, 26, 24, 3, 2, 2, 2, 27, 28, 7, 29, 2, 2, 28, 29, 5, 2, 2, 2,
-	29, 30, 7, 31, 2, 2, 30, 44, 3, 2, 2, 2, 31, 44, 5, 4, 3, 2, 32, 44, 7,
-	33, 2, 2, 33, 34, 7, 8, 2, 2, 34, 44, 7, 33, 2, 2, 35, 44, 7, 34, 2, 2,
-	36, 37, 7, 8, 2, 2, 37, 44, 7, 34, 2, 2, 38, 44, 5, 6, 4, 2, 39, 44, 7,
-	36, 2, 2, 40, 44, 7, 35, 2, 2, 41, 44, 7, 32, 2, 2, 42, 44, 7, 37, 2, 2,
-	43, 8, 3, 2, 2, 2, 43, 13, 3, 2, 2, 2, 43, 31, 3, 2, 2, 2, 43, 32, 3, 2,
-	2, 2, 43, 33, 3, 2, 2, 2, 43, 35, 3, 2, 2, 2, 43, 36, 3, 2, 2, 2, 43, 38,
-	3, 2, 2, 2, 43, 39, 3, 2, 2, 2, 43, 40, 3, 2, 2, 2, 43, 41, 3, 2, 2, 2,
-	43, 42, 3, 2, 2, 2, 44, 112, 3, 2, 2, 2, 45, 46, 12, 27, 2, 2, 46, 47,
-	7, 5, 2, 2, 47, 111, 5, 2, 2, 28, 48, 49, 12, 26, 2, 2, 49, 50, 7, 6, 2,
-	2, 50, 111, 5, 2, 2, 27, 51, 52, 12, 25, 2, 2, 52, 53, 7, 7, 2, 2, 53,
-	111, 5, 2, 2, 26, 54, 55, 12, 24, 2, 2, 55, 56, 7, 8, 2, 2, 56, 111, 5,
-	2, 2, 25, 57, 58, 12, 23, 2, 2, 58, 59, 7, 9, 2, 2, 59, 111, 5, 2, 2, 24,
-	60, 61, 12, 22, 2, 2, 61, 62, 7, 10, 2, 2, 62, 111, 5, 2, 2, 23, 63, 64,
-	12, 21, 2, 2, 64, 65, 7, 11, 2, 2, 65, 111, 5, 2, 2, 22, 66, 67, 12, 20,
-	2, 2, 67, 68, 7, 12, 2, 2, 68, 111, 5, 2, 2, 21, 69, 70, 12, 19, 2, 2,
-	70, 71, 7, 13, 2, 2, 71, 111, 5, 2, 2, 20, 72, 73, 12, 18, 2, 2, 73, 74,
-	7, 14, 2, 2, 74, 111, 5, 2, 2, 19, 75, 76, 12, 15, 2, 2, 76, 77, 9, 2,
-	2, 2, 77, 111, 5, 2, 2, 16, 78, 79, 12, 14, 2, 2, 79, 80, 9, 3, 2, 2, 80,
-	111, 5, 2, 2, 15, 81, 82, 12, 17, 2, 2, 82, 83, 7, 23, 2, 2, 83, 92, 7,
-	3, 2, 2, 84, 89, 5, 2, 2, 2, 85, 86, 7, 15, 2, 2, 86, 88, 5, 2, 2, 2, 87,
-	85, 3, 2, 2, 2, 88, 91, 3, 2, 2, 2, 89, 87, 3, 2, 2, 2, 89, 90, 3, 2, 2,
-	2, 90, 93, 3, 2, 2, 2, 91, 89, 3, 2, 2, 2, 92, 84, 3, 2, 2, 2, 92, 93,
-	3, 2, 2, 2, 93, 94, 3, 2, 2, 2, 94, 111, 7, 4, 2, 2, 95, 96, 12, 16, 2,
-	2, 96, 97, 7, 24, 2, 2, 97, 98, 7, 23, 2, 2, 98, 107, 7, 3, 2, 2, 99, 104,
-	5, 2, 2, 2, 100, 101, 7, 15, 2, 2, 101, 103, 5, 2, 2, 2, 102, 100, 3, 2,
-	2, 2, 103, 106, 3, 2, 2, 2, 104, 102, 3, 2, 2, 2, 104, 105, 3, 2, 2, 2,
-	105, 108, 3, 2, 2, 2, 106, 104, 3, 2, 2, 2, 107, 99, 3, 2, 2, 2, 107, 108,
-	3, 2, 2, 2, 108, 109, 3, 2, 2, 2, 109, 111, 7, 4, 2, 2, 110, 45, 3, 2,
-	2, 2, 110, 48, 3, 2, 2, 2, 110, 51, 3, 2, 2, 2, 110, 54, 3, 2, 2, 2, 110,
-	57, 3, 2, 2, 2, 110, 60, 3, 2, 2, 2, 110, 63, 3, 2, 2, 2, 110, 66, 3, 2,
-	2, 2, 110, 69, 3, 2, 2, 2, 110, 72, 3, 2, 2, 2, 110, 75, 3, 2, 2, 2, 110,
-	78, 3, 2, 2, 2, 110, 81, 3, 2, 2, 2, 110, 95, 3, 2, 2, 2, 111, 114, 3,
-	2, 2, 2, 112, 110, 3, 2, 2, 2, 112, 113, 3, 2, 2, 2, 113, 3, 3, 2, 2, 2,
-	114, 112, 3, 2, 2, 2, 115, 116, 7, 19, 2, 2, 116, 117, 7, 3, 2, 2, 117,
-	118, 5, 2, 2, 2, 118, 119, 7, 15, 2, 2, 119, 120, 5, 2, 2, 2, 120, 121,
-	7, 4, 2, 2, 121, 147, 3, 2, 2, 2, 122, 123, 7, 20, 2, 2, 123, 124, 7, 3,
-	2, 2, 124, 127, 5, 2, 2, 2, 125, 126, 7, 15, 2, 2, 126, 128, 5, 2, 2, 2,
-	127, 125, 3, 2, 2, 2, 128, 129, 3, 2, 2, 2, 129, 127, 3, 2, 2, 2, 129,
-	130, 3, 2, 2, 2, 130, 131, 3, 2, 2, 2, 131, 132, 7, 4, 2, 2, 132, 147,
-	3, 2, 2, 2, 133, 134, 7, 21, 2, 2, 134, 135, 7, 3, 2, 2, 135, 138, 5, 2,
-	2, 2, 136, 137, 7, 15, 2, 2, 137, 139, 5, 2, 2, 2, 138, 136, 3, 2, 2, 2,
-	139, 140, 3, 2, 2, 2, 140, 138, 3, 2, 2, 2, 140, 141, 3, 2, 2, 2, 141,
-	142, 3, 2, 2, 2, 142, 143, 7, 4, 2, 2, 143, 147, 3, 2, 2, 2, 144, 145,
-	7, 22, 2, 2, 145, 147, 7, 18, 2, 2, 146, 115, 3, 2, 2, 2, 146, 122, 3,
-	2, 2, 2, 146, 133, 3, 2, 2, 2, 146, 144, 3, 2, 2, 2, 147, 5, 3, 2, 2, 2,
-	148, 149, 9, 4, 2, 2, 149, 7, 3, 2, 2, 2, 13, 24, 43, 89, 92, 104, 107,
-	110, 112, 129, 140, 146,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 7, 2,
+	115, 10, 2, 12, 2, 14, 2, 118, 11, 2, 5, 2, 120, 10, 2, 3, 2, 3, 2, 3,
+	2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 130, 10, 2, 12, 2, 14, 2, 133, 11,
+	2, 5, 2, 135, 10, 2, 3, 2, 7, 2, 138, 10, 2, 12, 2, 14, 2, 141, 11, 2,
+	3, 2, 2, 3, 2, 3, 2, 2, 4, 4, 2, 16, 16, 25, 25, 4, 2, 17, 17, 26, 26,
+	2, 177, 2, 70, 3, 2, 2, 2, 4, 5, 8, 2, 1, 2, 5, 6, 7, 3, 2, 2, 6, 7, 5,
+	2, 2, 2, 7, 8, 7, 4, 2, 2, 8, 71, 3, 2, 2, 2, 9, 10, 7, 27, 2, 2, 10, 11,
+	5, 2, 2, 2, 11, 12, 7, 28, 2, 2, 12, 20, 5, 2, 2, 2, 13, 14, 7, 30, 2,
+	2, 14, 15, 5, 2, 2, 2, 15, 16, 7, 28, 2, 2, 16, 17, 5, 2, 2, 2, 17, 19,
+	3, 2, 2, 2, 18, 13, 3, 2, 2, 2, 19, 22, 3, 2, 2, 2, 20, 18, 3, 2, 2, 2,
+	20, 21, 3, 2, 2, 2, 21, 23, 3, 2, 2, 2, 22, 20, 3, 2, 2, 2, 23, 24, 7,
+	29, 2, 2, 24, 25, 5, 2, 2, 2, 25, 26, 7, 31, 2, 2, 26, 71, 3, 2, 2, 2,
+	27, 28, 7, 22, 2, 2, 28, 71, 7, 18, 2, 2, 29, 30, 7, 19, 2, 2, 30, 31,
+	7, 3, 2, 2, 31, 32, 5, 2, 2, 2, 32, 33, 7, 15, 2, 2, 33, 34, 5, 2, 2, 2,
+	34, 35, 7, 4, 2, 2, 35, 71, 3, 2, 2, 2, 36, 37, 7, 20, 2, 2, 37, 38, 7,
+	3, 2, 2, 38, 41, 5, 2, 2, 2, 39, 40, 7, 15, 2, 2, 40, 42, 5, 2, 2, 2, 41,
+	39, 3, 2, 2, 2, 42, 43, 3, 2, 2, 2, 43, 41, 3, 2, 2, 2, 43, 44, 3, 2, 2,
+	2, 44, 45, 3, 2, 2, 2, 45, 46, 7, 4, 2, 2, 46, 71, 3, 2, 2, 2, 47, 48,
+	7, 21, 2, 2, 48, 49, 7, 3, 2, 2, 49, 52, 5, 2, 2, 2, 50, 51, 7, 15, 2,
+	2, 51, 53, 5, 2, 2, 2, 52, 50, 3, 2, 2, 2, 53, 54, 3, 2, 2, 2, 54, 52,
+	3, 2, 2, 2, 54, 55, 3, 2, 2, 2, 55, 56, 3, 2, 2, 2, 56, 57, 7, 4, 2, 2,
+	57, 71, 3, 2, 2, 2, 58, 71, 7, 33, 2, 2, 59, 60, 7, 8, 2, 2, 60, 71, 7,
+	33, 2, 2, 61, 71, 7, 34, 2, 2, 62, 63, 7, 8, 2, 2, 63, 71, 7, 34, 2, 2,
+	64, 71, 7, 38, 2, 2, 65, 71, 7, 39, 2, 2, 66, 71, 7, 36, 2, 2, 67, 71,
+	7, 35, 2, 2, 68, 71, 7, 32, 2, 2, 69, 71, 7, 37, 2, 2, 70, 4, 3, 2, 2,
+	2, 70, 9, 3, 2, 2, 2, 70, 27, 3, 2, 2, 2, 70, 29, 3, 2, 2, 2, 70, 36, 3,
+	2, 2, 2, 70, 47, 3, 2, 2, 2, 70, 58, 3, 2, 2, 2, 70, 59, 3, 2, 2, 2, 70,
+	61, 3, 2, 2, 2, 70, 62, 3, 2, 2, 2, 70, 64, 3, 2, 2, 2, 70, 65, 3, 2, 2,
+	2, 70, 66, 3, 2, 2, 2, 70, 67, 3, 2, 2, 2, 70, 68, 3, 2, 2, 2, 70, 69,
+	3, 2, 2, 2, 71, 139, 3, 2, 2, 2, 72, 73, 12, 31, 2, 2, 73, 74, 7, 5, 2,
+	2, 74, 138, 5, 2, 2, 32, 75, 76, 12, 30, 2, 2, 76, 77, 7, 6, 2, 2, 77,
+	138, 5, 2, 2, 31, 78, 79, 12, 29, 2, 2, 79, 80, 7, 7, 2, 2, 80, 138, 5,
+	2, 2, 30, 81, 82, 12, 28, 2, 2, 82, 83, 7, 8, 2, 2, 83, 138, 5, 2, 2, 29,
+	84, 85, 12, 27, 2, 2, 85, 86, 7, 9, 2, 2, 86, 138, 5, 2, 2, 28, 87, 88,
+	12, 26, 2, 2, 88, 89, 7, 10, 2, 2, 89, 138, 5, 2, 2, 27, 90, 91, 12, 25,
+	2, 2, 91, 92, 7, 11, 2, 2, 92, 138, 5, 2, 2, 26, 93, 94, 12, 24, 2, 2,
+	94, 95, 7, 12, 2, 2, 95, 138, 5, 2, 2, 25, 96, 97, 12, 23, 2, 2, 97, 98,
+	7, 13, 2, 2, 98, 138, 5, 2, 2, 24, 99, 100, 12, 22, 2, 2, 100, 101, 7,
+	14, 2, 2, 101, 138, 5, 2, 2, 23, 102, 103, 12, 19, 2, 2, 103, 104, 9, 2,
+	2, 2, 104, 138, 5, 2, 2, 20, 105, 106, 12, 18, 2, 2, 106, 107, 9, 3, 2,
+	2, 107, 138, 5, 2, 2, 19, 108, 109, 12, 21, 2, 2, 109, 110, 7, 23, 2, 2,
+	110, 119, 7, 3, 2, 2, 111, 116, 5, 2, 2, 2, 112, 113, 7, 15, 2, 2, 113,
+	115, 5, 2, 2, 2, 114, 112, 3, 2, 2, 2, 115, 118, 3, 2, 2, 2, 116, 114,
+	3, 2, 2, 2, 116, 117, 3, 2, 2, 2, 117, 120, 3, 2, 2, 2, 118, 116, 3, 2,
+	2, 2, 119, 111, 3, 2, 2, 2, 119, 120, 3, 2, 2, 2, 120, 121, 3, 2, 2, 2,
+	121, 138, 7, 4, 2, 2, 122, 123, 12, 20, 2, 2, 123, 124, 7, 24, 2, 2, 124,
+	125, 7, 23, 2, 2, 125, 134, 7, 3, 2, 2, 126, 131, 5, 2, 2, 2, 127, 128,
+	7, 15, 2, 2, 128, 130, 5, 2, 2, 2, 129, 127, 3, 2, 2, 2, 130, 133, 3, 2,
+	2, 2, 131, 129, 3, 2, 2, 2, 131, 132, 3, 2, 2, 2, 132, 135, 3, 2, 2, 2,
+	133, 131, 3, 2, 2, 2, 134, 126, 3, 2, 2, 2, 134, 135, 3, 2, 2, 2, 135,
+	136, 3, 2, 2, 2, 136, 138, 7, 4, 2, 2, 137, 72, 3, 2, 2, 2, 137, 75, 3,
+	2, 2, 2, 137, 78, 3, 2, 2, 2, 137, 81, 3, 2, 2, 2, 137, 84, 3, 2, 2, 2,
+	137, 87, 3, 2, 2, 2, 137, 90, 3, 2, 2, 2, 137, 93, 3, 2, 2, 2, 137, 96,
+	3, 2, 2, 2, 137, 99, 3, 2, 2, 2, 137, 102, 3, 2, 2, 2, 137, 105, 3, 2,
+	2, 2, 137, 108, 3, 2, 2, 2, 137, 122, 3, 2, 2, 2, 138, 141, 3, 2, 2, 2,
+	139, 137, 3, 2, 2, 2, 139, 140, 3, 2, 2, 2, 140, 3, 3, 2, 2, 2, 141, 139,
+	3, 2, 2, 2, 12, 20, 43, 54, 70, 116, 119, 131, 134, 137, 139,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -102,7 +99,7 @@ var symbolicNames = []string{
 }
 
 var ruleNames = []string{
-	"expr", "function", "str",
+	"expr",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -173,12 +170,8 @@ const (
 	AlteryxFormulasParserWhitespace        = 38
 )
 
-// AlteryxFormulasParser rules.
-const (
-	AlteryxFormulasParserRULE_expr     = 0
-	AlteryxFormulasParserRULE_function = 1
-	AlteryxFormulasParserRULE_str      = 2
-)
+// AlteryxFormulasParserRULE_expr is the AlteryxFormulasParser rule.
+const AlteryxFormulasParserRULE_expr = 0
 
 // IExprContext is an interface to support dynamic dispatch.
 type IExprContext interface {
@@ -228,6 +221,664 @@ func (s *ExprContext) GetRuleContext() antlr.RuleContext {
 
 func (s *ExprContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+type MaxFuncContext struct {
+	*ExprContext
+}
+
+func NewMaxFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MaxFuncContext {
+	var p = new(MaxFuncContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *MaxFuncContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *MaxFuncContext) Max() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserMax, 0)
+}
+
+func (s *MaxFuncContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *MaxFuncContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *MaxFuncContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterMaxFunc(s)
+	}
+}
+
+func (s *MaxFuncContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitMaxFunc(s)
+	}
+}
+
+type BoolLiteralContext struct {
+	*ExprContext
+}
+
+func NewBoolLiteralContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *BoolLiteralContext {
+	var p = new(BoolLiteralContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *BoolLiteralContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *BoolLiteralContext) Bool() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserBool, 0)
+}
+
+func (s *BoolLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterBoolLiteral(s)
+	}
+}
+
+func (s *BoolLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitBoolLiteral(s)
+	}
+}
+
+type MinFuncContext struct {
+	*ExprContext
+}
+
+func NewMinFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MinFuncContext {
+	var p = new(MinFuncContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *MinFuncContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *MinFuncContext) Min() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserMin, 0)
+}
+
+func (s *MinFuncContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *MinFuncContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *MinFuncContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterMinFunc(s)
+	}
+}
+
+func (s *MinFuncContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitMinFunc(s)
+	}
+}
+
+type AndContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewAndContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *AndContext {
+	var p = new(AndContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *AndContext) GetLeft() IExprContext { return s.left }
+
+func (s *AndContext) GetRight() IExprContext { return s.right }
+
+func (s *AndContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *AndContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *AndContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *AndContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *AndContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *AndContext) And() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserAnd, 0)
+}
+
+func (s *AndContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterAnd(s)
+	}
+}
+
+func (s *AndContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitAnd(s)
+	}
+}
+
+type LessThanContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewLessThanContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LessThanContext {
+	var p = new(LessThanContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *LessThanContext) GetLeft() IExprContext { return s.left }
+
+func (s *LessThanContext) GetRight() IExprContext { return s.right }
+
+func (s *LessThanContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *LessThanContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *LessThanContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *LessThanContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *LessThanContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *LessThanContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterLessThan(s)
+	}
+}
+
+func (s *LessThanContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitLessThan(s)
+	}
+}
+
+type DivideContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewDivideContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DivideContext {
+	var p = new(DivideContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *DivideContext) GetLeft() IExprContext { return s.left }
+
+func (s *DivideContext) GetRight() IExprContext { return s.right }
+
+func (s *DivideContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *DivideContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *DivideContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *DivideContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *DivideContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *DivideContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterDivide(s)
+	}
+}
+
+func (s *DivideContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitDivide(s)
+	}
+}
+
+type NotInContext struct {
+	*ExprContext
+}
+
+func NewNotInContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NotInContext {
+	var p = new(NotInContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *NotInContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NotInContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *NotInContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *NotInContext) Not() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserNot, 0)
+}
+
+func (s *NotInContext) In() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserIn, 0)
+}
+
+func (s *NotInContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterNotIn(s)
+	}
+}
+
+func (s *NotInContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitNotIn(s)
+	}
+}
+
+type ExprIfContext struct {
+	*ExprContext
+	ifStmnt   IExprContext
+	thenStmnt IExprContext
+	elseStmnt IExprContext
+}
+
+func NewExprIfContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ExprIfContext {
+	var p = new(ExprIfContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *ExprIfContext) GetIfStmnt() IExprContext { return s.ifStmnt }
+
+func (s *ExprIfContext) GetThenStmnt() IExprContext { return s.thenStmnt }
+
+func (s *ExprIfContext) GetElseStmnt() IExprContext { return s.elseStmnt }
+
+func (s *ExprIfContext) SetIfStmnt(v IExprContext) { s.ifStmnt = v }
+
+func (s *ExprIfContext) SetThenStmnt(v IExprContext) { s.thenStmnt = v }
+
+func (s *ExprIfContext) SetElseStmnt(v IExprContext) { s.elseStmnt = v }
+
+func (s *ExprIfContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *ExprIfContext) If() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserIf, 0)
+}
+
+func (s *ExprIfContext) AllThen() []antlr.TerminalNode {
+	return s.GetTokens(AlteryxFormulasParserThen)
+}
+
+func (s *ExprIfContext) Then(i int) antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserThen, i)
+}
+
+func (s *ExprIfContext) Else() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserElse, 0)
+}
+
+func (s *ExprIfContext) Endif() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserEndif, 0)
+}
+
+func (s *ExprIfContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *ExprIfContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *ExprIfContext) AllElseif() []antlr.TerminalNode {
+	return s.GetTokens(AlteryxFormulasParserElseif)
+}
+
+func (s *ExprIfContext) Elseif(i int) antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserElseif, i)
+}
+
+func (s *ExprIfContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterExprIf(s)
+	}
+}
+
+func (s *ExprIfContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitExprIf(s)
+	}
+}
+
+type MultiplyContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewMultiplyContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MultiplyContext {
+	var p = new(MultiplyContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *MultiplyContext) GetLeft() IExprContext { return s.left }
+
+func (s *MultiplyContext) GetRight() IExprContext { return s.right }
+
+func (s *MultiplyContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *MultiplyContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *MultiplyContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *MultiplyContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *MultiplyContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *MultiplyContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterMultiply(s)
+	}
+}
+
+func (s *MultiplyContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitMultiply(s)
+	}
+}
+
+type ExprFieldContext struct {
+	*ExprContext
+}
+
+func NewExprFieldContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ExprFieldContext {
+	var p = new(ExprFieldContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *ExprFieldContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *ExprFieldContext) Field() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserField, 0)
+}
+
+func (s *ExprFieldContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterExprField(s)
+	}
+}
+
+func (s *ExprFieldContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitExprField(s)
+	}
+}
+
+type GreaterThanContext struct {
+	*ExprContext
+	left  IExprContext
+	right IExprContext
+}
+
+func NewGreaterThanContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *GreaterThanContext {
+	var p = new(GreaterThanContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *GreaterThanContext) GetLeft() IExprContext { return s.left }
+
+func (s *GreaterThanContext) GetRight() IExprContext { return s.right }
+
+func (s *GreaterThanContext) SetLeft(v IExprContext) { s.left = v }
+
+func (s *GreaterThanContext) SetRight(v IExprContext) { s.right = v }
+
+func (s *GreaterThanContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *GreaterThanContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *GreaterThanContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *GreaterThanContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterGreaterThan(s)
+	}
+}
+
+func (s *GreaterThanContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitGreaterThan(s)
+	}
 }
 
 type AddContext struct {
@@ -290,46 +941,6 @@ func (s *AddContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *AddContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
 		listenerT.ExitAdd(s)
-	}
-}
-
-type ExprFunctionContext struct {
-	*ExprContext
-}
-
-func NewExprFunctionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ExprFunctionContext {
-	var p = new(ExprFunctionContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *ExprFunctionContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ExprFunctionContext) Function() IFunctionContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFunctionContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IFunctionContext)
-}
-
-func (s *ExprFunctionContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterExprFunction(s)
-	}
-}
-
-func (s *ExprFunctionContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitExprFunction(s)
 	}
 }
 
@@ -623,12 +1234,12 @@ func (s *ParenthesisContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
-type BoolLiteralContext struct {
+type PowFuncContext struct {
 	*ExprContext
 }
 
-func NewBoolLiteralContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *BoolLiteralContext {
-	var p = new(BoolLiteralContext)
+func NewPowFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *PowFuncContext {
+	var p = new(PowFuncContext)
 
 	p.ExprContext = NewEmptyExprContext()
 	p.parser = parser
@@ -637,23 +1248,46 @@ func NewBoolLiteralContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *Bo
 	return p
 }
 
-func (s *BoolLiteralContext) GetRuleContext() antlr.RuleContext {
+func (s *PowFuncContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *BoolLiteralContext) Bool() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserBool, 0)
+func (s *PowFuncContext) Pow() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserPow, 0)
 }
 
-func (s *BoolLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *PowFuncContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *PowFuncContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *PowFuncContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterBoolLiteral(s)
+		listenerT.EnterPowFunc(s)
 	}
 }
 
-func (s *BoolLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *PowFuncContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitBoolLiteral(s)
+		listenerT.ExitPowFunc(s)
 	}
 }
 
@@ -720,6 +1354,40 @@ func (s *EqualContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+type NullFuncContext struct {
+	*ExprContext
+}
+
+func NewNullFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NullFuncContext {
+	var p = new(NullFuncContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *NullFuncContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NullFuncContext) Null() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserNull, 0)
+}
+
+func (s *NullFuncContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterNullFunc(s)
+	}
+}
+
+func (s *NullFuncContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitNullFunc(s)
+	}
+}
+
 type DatetimeLiteralContext struct {
 	*ExprContext
 }
@@ -772,14 +1440,12 @@ func (s *StringLiteralContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *StringLiteralContext) Str() IStrContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IStrContext)(nil)).Elem(), 0)
+func (s *StringLiteralContext) SingleQuoteString() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserSingleQuoteString, 0)
+}
 
-	if t == nil {
-		return nil
-	}
-
-	return t.(IStrContext)
+func (s *StringLiteralContext) DoubleQuoteString() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserDoubleQuoteString, 0)
 }
 
 func (s *StringLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
@@ -791,136 +1457,6 @@ func (s *StringLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *StringLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
 		listenerT.ExitStringLiteral(s)
-	}
-}
-
-type AndContext struct {
-	*ExprContext
-	left  IExprContext
-	right IExprContext
-}
-
-func NewAndContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *AndContext {
-	var p = new(AndContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *AndContext) GetLeft() IExprContext { return s.left }
-
-func (s *AndContext) GetRight() IExprContext { return s.right }
-
-func (s *AndContext) SetLeft(v IExprContext) { s.left = v }
-
-func (s *AndContext) SetRight(v IExprContext) { s.right = v }
-
-func (s *AndContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *AndContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *AndContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *AndContext) And() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserAnd, 0)
-}
-
-func (s *AndContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterAnd(s)
-	}
-}
-
-func (s *AndContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitAnd(s)
-	}
-}
-
-type LessThanContext struct {
-	*ExprContext
-	left  IExprContext
-	right IExprContext
-}
-
-func NewLessThanContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LessThanContext {
-	var p = new(LessThanContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *LessThanContext) GetLeft() IExprContext { return s.left }
-
-func (s *LessThanContext) GetRight() IExprContext { return s.right }
-
-func (s *LessThanContext) SetLeft(v IExprContext) { s.left = v }
-
-func (s *LessThanContext) SetRight(v IExprContext) { s.right = v }
-
-func (s *LessThanContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *LessThanContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *LessThanContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *LessThanContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterLessThan(s)
-	}
-}
-
-func (s *LessThanContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitLessThan(s)
 	}
 }
 
@@ -955,69 +1491,6 @@ func (s *DateLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *DateLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
 		listenerT.ExitDateLiteral(s)
-	}
-}
-
-type DivideContext struct {
-	*ExprContext
-	left  IExprContext
-	right IExprContext
-}
-
-func NewDivideContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *DivideContext {
-	var p = new(DivideContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *DivideContext) GetLeft() IExprContext { return s.left }
-
-func (s *DivideContext) GetRight() IExprContext { return s.right }
-
-func (s *DivideContext) SetLeft(v IExprContext) { s.left = v }
-
-func (s *DivideContext) SetRight(v IExprContext) { s.right = v }
-
-func (s *DivideContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *DivideContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *DivideContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *DivideContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterDivide(s)
-	}
-}
-
-func (s *DivideContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitDivide(s)
 	}
 }
 
@@ -1084,163 +1557,6 @@ func (s *GreaterEqualContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
-type NotInContext struct {
-	*ExprContext
-}
-
-func NewNotInContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NotInContext {
-	var p = new(NotInContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *NotInContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *NotInContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *NotInContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *NotInContext) Not() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserNot, 0)
-}
-
-func (s *NotInContext) In() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserIn, 0)
-}
-
-func (s *NotInContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterNotIn(s)
-	}
-}
-
-func (s *NotInContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitNotIn(s)
-	}
-}
-
-type ExprIfContext struct {
-	*ExprContext
-	ifStmnt   IExprContext
-	thenStmnt IExprContext
-	elseStmnt IExprContext
-}
-
-func NewExprIfContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ExprIfContext {
-	var p = new(ExprIfContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *ExprIfContext) GetIfStmnt() IExprContext { return s.ifStmnt }
-
-func (s *ExprIfContext) GetThenStmnt() IExprContext { return s.thenStmnt }
-
-func (s *ExprIfContext) GetElseStmnt() IExprContext { return s.elseStmnt }
-
-func (s *ExprIfContext) SetIfStmnt(v IExprContext) { s.ifStmnt = v }
-
-func (s *ExprIfContext) SetThenStmnt(v IExprContext) { s.thenStmnt = v }
-
-func (s *ExprIfContext) SetElseStmnt(v IExprContext) { s.elseStmnt = v }
-
-func (s *ExprIfContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ExprIfContext) If() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserIf, 0)
-}
-
-func (s *ExprIfContext) AllThen() []antlr.TerminalNode {
-	return s.GetTokens(AlteryxFormulasParserThen)
-}
-
-func (s *ExprIfContext) Then(i int) antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserThen, i)
-}
-
-func (s *ExprIfContext) Else() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserElse, 0)
-}
-
-func (s *ExprIfContext) Endif() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserEndif, 0)
-}
-
-func (s *ExprIfContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *ExprIfContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *ExprIfContext) AllElseif() []antlr.TerminalNode {
-	return s.GetTokens(AlteryxFormulasParserElseif)
-}
-
-func (s *ExprIfContext) Elseif(i int) antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserElseif, i)
-}
-
-func (s *ExprIfContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterExprIf(s)
-	}
-}
-
-func (s *ExprIfContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitExprIf(s)
-	}
-}
-
 type LessEqualContext struct {
 	*ExprContext
 	left  IExprContext
@@ -1304,69 +1620,6 @@ func (s *LessEqualContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
-type MultiplyContext struct {
-	*ExprContext
-	left  IExprContext
-	right IExprContext
-}
-
-func NewMultiplyContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MultiplyContext {
-	var p = new(MultiplyContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *MultiplyContext) GetLeft() IExprContext { return s.left }
-
-func (s *MultiplyContext) GetRight() IExprContext { return s.right }
-
-func (s *MultiplyContext) SetLeft(v IExprContext) { s.left = v }
-
-func (s *MultiplyContext) SetRight(v IExprContext) { s.right = v }
-
-func (s *MultiplyContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *MultiplyContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *MultiplyContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *MultiplyContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterMultiply(s)
-	}
-}
-
-func (s *MultiplyContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitMultiply(s)
-	}
-}
-
 type NumberLiteralContext struct {
 	*ExprContext
 }
@@ -1405,103 +1658,6 @@ func (s *NumberLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
-type ExprFieldContext struct {
-	*ExprContext
-}
-
-func NewExprFieldContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *ExprFieldContext {
-	var p = new(ExprFieldContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *ExprFieldContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *ExprFieldContext) Field() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserField, 0)
-}
-
-func (s *ExprFieldContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterExprField(s)
-	}
-}
-
-func (s *ExprFieldContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitExprField(s)
-	}
-}
-
-type GreaterThanContext struct {
-	*ExprContext
-	left  IExprContext
-	right IExprContext
-}
-
-func NewGreaterThanContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *GreaterThanContext {
-	var p = new(GreaterThanContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *GreaterThanContext) GetLeft() IExprContext { return s.left }
-
-func (s *GreaterThanContext) GetRight() IExprContext { return s.right }
-
-func (s *GreaterThanContext) SetLeft(v IExprContext) { s.left = v }
-
-func (s *GreaterThanContext) SetRight(v IExprContext) { s.right = v }
-
-func (s *GreaterThanContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *GreaterThanContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *GreaterThanContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *GreaterThanContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterGreaterThan(s)
-	}
-}
-
-func (s *GreaterThanContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitGreaterThan(s)
-	}
-}
-
 func (p *AlteryxFormulasParser) Expr() (localctx IExprContext) {
 	return p.expr(0)
 }
@@ -1535,24 +1691,24 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(41)
+	p.SetState(68)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 1, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext()) {
 	case 1:
 		localctx = NewParenthesisContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 
 		{
-			p.SetState(7)
+			p.SetState(3)
 			p.Match(AlteryxFormulasParserT__0)
 		}
 		{
-			p.SetState(8)
+			p.SetState(4)
 			p.expr(0)
 		}
 		{
-			p.SetState(9)
+			p.SetState(5)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
@@ -1561,113 +1717,193 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(11)
+			p.SetState(7)
 			p.Match(AlteryxFormulasParserIf)
 		}
 		{
-			p.SetState(12)
+			p.SetState(8)
 
 			var _x = p.expr(0)
 
 			localctx.(*ExprIfContext).ifStmnt = _x
 		}
 		{
-			p.SetState(13)
+			p.SetState(9)
 			p.Match(AlteryxFormulasParserThen)
 		}
 		{
-			p.SetState(14)
+			p.SetState(10)
 
 			var _x = p.expr(0)
 
 			localctx.(*ExprIfContext).thenStmnt = _x
 		}
-		p.SetState(22)
+		p.SetState(18)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for _la == AlteryxFormulasParserElseif {
 			{
-				p.SetState(15)
+				p.SetState(11)
 				p.Match(AlteryxFormulasParserElseif)
 			}
 			{
-				p.SetState(16)
+				p.SetState(12)
 
 				var _x = p.expr(0)
 
 				localctx.(*ExprIfContext).ifStmnt = _x
 			}
 			{
-				p.SetState(17)
+				p.SetState(13)
 				p.Match(AlteryxFormulasParserThen)
 			}
 			{
-				p.SetState(18)
+				p.SetState(14)
 
 				var _x = p.expr(0)
 
 				localctx.(*ExprIfContext).thenStmnt = _x
 			}
 
-			p.SetState(24)
+			p.SetState(20)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(25)
+			p.SetState(21)
 			p.Match(AlteryxFormulasParserElse)
 		}
 		{
-			p.SetState(26)
+			p.SetState(22)
 
 			var _x = p.expr(0)
 
 			localctx.(*ExprIfContext).elseStmnt = _x
 		}
 		{
-			p.SetState(27)
+			p.SetState(23)
 			p.Match(AlteryxFormulasParserEndif)
 		}
 
 	case 3:
-		localctx = NewExprFunctionContext(p, localctx)
+		localctx = NewNullFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(29)
-			p.Function()
+			p.SetState(25)
+			p.Match(AlteryxFormulasParserNull)
+		}
+		{
+			p.SetState(26)
+			p.Match(AlteryxFormulasParserT__15)
 		}
 
 	case 4:
-		localctx = NewNumberLiteralContext(p, localctx)
+		localctx = NewPowFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
+		{
+			p.SetState(27)
+			p.Match(AlteryxFormulasParserPow)
+		}
+		{
+			p.SetState(28)
+			p.Match(AlteryxFormulasParserT__0)
+		}
+		{
+			p.SetState(29)
+			p.expr(0)
+		}
 		{
 			p.SetState(30)
-			p.Match(AlteryxFormulasParserInteger)
+			p.Match(AlteryxFormulasParserT__12)
 		}
-
-	case 5:
-		localctx = NewNumberLiteralContext(p, localctx)
-		p.SetParserRuleContext(localctx)
-		_prevctx = localctx
 		{
 			p.SetState(31)
-			p.Match(AlteryxFormulasParserT__5)
+			p.expr(0)
 		}
 		{
 			p.SetState(32)
-			p.Match(AlteryxFormulasParserInteger)
+			p.Match(AlteryxFormulasParserT__1)
 		}
 
-	case 6:
-		localctx = NewNumberLiteralContext(p, localctx)
+	case 5:
+		localctx = NewMinFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(33)
-			p.Match(AlteryxFormulasParserDecimal)
+			p.SetState(34)
+			p.Match(AlteryxFormulasParserMin)
+		}
+		{
+			p.SetState(35)
+			p.Match(AlteryxFormulasParserT__0)
+		}
+		{
+			p.SetState(36)
+			p.expr(0)
+		}
+		p.SetState(39)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ok := true; ok; ok = _la == AlteryxFormulasParserT__12 {
+			{
+				p.SetState(37)
+				p.Match(AlteryxFormulasParserT__12)
+			}
+			{
+				p.SetState(38)
+				p.expr(0)
+			}
+
+			p.SetState(41)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(43)
+			p.Match(AlteryxFormulasParserT__1)
+		}
+
+	case 6:
+		localctx = NewMaxFuncContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(45)
+			p.Match(AlteryxFormulasParserMax)
+		}
+		{
+			p.SetState(46)
+			p.Match(AlteryxFormulasParserT__0)
+		}
+		{
+			p.SetState(47)
+			p.expr(0)
+		}
+		p.SetState(50)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ok := true; ok; ok = _la == AlteryxFormulasParserT__12 {
+			{
+				p.SetState(48)
+				p.Match(AlteryxFormulasParserT__12)
+			}
+			{
+				p.SetState(49)
+				p.expr(0)
+			}
+
+			p.SetState(52)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(54)
+			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 7:
@@ -1675,64 +1911,104 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(34)
-			p.Match(AlteryxFormulasParserT__5)
-		}
-		{
-			p.SetState(35)
-			p.Match(AlteryxFormulasParserDecimal)
+			p.SetState(56)
+			p.Match(AlteryxFormulasParserInteger)
 		}
 
 	case 8:
+		localctx = NewNumberLiteralContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(57)
+			p.Match(AlteryxFormulasParserT__5)
+		}
+		{
+			p.SetState(58)
+			p.Match(AlteryxFormulasParserInteger)
+		}
+
+	case 9:
+		localctx = NewNumberLiteralContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(59)
+			p.Match(AlteryxFormulasParserDecimal)
+		}
+
+	case 10:
+		localctx = NewNumberLiteralContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(60)
+			p.Match(AlteryxFormulasParserT__5)
+		}
+		{
+			p.SetState(61)
+			p.Match(AlteryxFormulasParserDecimal)
+		}
+
+	case 11:
 		localctx = NewStringLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(36)
-			p.Str()
+			p.SetState(62)
+			p.Match(AlteryxFormulasParserSingleQuoteString)
 		}
 
-	case 9:
+	case 12:
+		localctx = NewStringLiteralContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(63)
+			p.Match(AlteryxFormulasParserDoubleQuoteString)
+		}
+
+	case 13:
 		localctx = NewDatetimeLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(37)
+			p.SetState(64)
 			p.Match(AlteryxFormulasParserDatetime)
 		}
 
-	case 10:
+	case 14:
 		localctx = NewDateLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(38)
+			p.SetState(65)
 			p.Match(AlteryxFormulasParserDate)
 		}
 
-	case 11:
+	case 15:
 		localctx = NewBoolLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(39)
+			p.SetState(66)
 			p.Match(AlteryxFormulasParserBool)
 		}
 
-	case 12:
+	case 16:
 		localctx = NewExprFieldContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(40)
+			p.SetState(67)
 			p.Match(AlteryxFormulasParserField)
 		}
 
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(110)
+	p.SetState(137)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 9, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
@@ -1740,27 +2016,27 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(108)
+			p.SetState(135)
 			p.GetErrorHandler().Sync(p)
-			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext()) {
+			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 8, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewMultiplyContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*MultiplyContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(43)
+				p.SetState(70)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 25)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 25)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 29)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 29)", ""))
 				}
 				{
-					p.SetState(44)
+					p.SetState(71)
 					p.Match(AlteryxFormulasParserT__2)
 				}
 				{
-					p.SetState(45)
+					p.SetState(72)
 
-					var _x = p.expr(26)
+					var _x = p.expr(30)
 
 					localctx.(*MultiplyContext).right = _x
 				}
@@ -1770,19 +2046,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*DivideContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(46)
+				p.SetState(73)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 24)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 24)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 28)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 28)", ""))
 				}
 				{
-					p.SetState(47)
+					p.SetState(74)
 					p.Match(AlteryxFormulasParserT__3)
 				}
 				{
-					p.SetState(48)
+					p.SetState(75)
 
-					var _x = p.expr(25)
+					var _x = p.expr(29)
 
 					localctx.(*DivideContext).right = _x
 				}
@@ -1792,19 +2068,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*AddContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(49)
+				p.SetState(76)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 23)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 23)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 27)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 27)", ""))
 				}
 				{
-					p.SetState(50)
+					p.SetState(77)
 					p.Match(AlteryxFormulasParserT__4)
 				}
 				{
-					p.SetState(51)
+					p.SetState(78)
 
-					var _x = p.expr(24)
+					var _x = p.expr(28)
 
 					localctx.(*AddContext).right = _x
 				}
@@ -1814,19 +2090,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*SubtractContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(52)
+				p.SetState(79)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 22)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 22)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 26)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 26)", ""))
 				}
 				{
-					p.SetState(53)
+					p.SetState(80)
 					p.Match(AlteryxFormulasParserT__5)
 				}
 				{
-					p.SetState(54)
+					p.SetState(81)
 
-					var _x = p.expr(23)
+					var _x = p.expr(27)
 
 					localctx.(*SubtractContext).right = _x
 				}
@@ -1836,19 +2112,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*EqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(55)
+				p.SetState(82)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 21)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 21)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 25)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 25)", ""))
 				}
 				{
-					p.SetState(56)
+					p.SetState(83)
 					p.Match(AlteryxFormulasParserT__6)
 				}
 				{
-					p.SetState(57)
+					p.SetState(84)
 
-					var _x = p.expr(22)
+					var _x = p.expr(26)
 
 					localctx.(*EqualContext).right = _x
 				}
@@ -1858,19 +2134,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*GreaterThanContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(58)
+				p.SetState(85)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 20)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 20)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 24)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 24)", ""))
 				}
 				{
-					p.SetState(59)
+					p.SetState(86)
 					p.Match(AlteryxFormulasParserT__7)
 				}
 				{
-					p.SetState(60)
+					p.SetState(87)
 
-					var _x = p.expr(21)
+					var _x = p.expr(25)
 
 					localctx.(*GreaterThanContext).right = _x
 				}
@@ -1880,19 +2156,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*GreaterEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(61)
+				p.SetState(88)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 19)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 19)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 23)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 23)", ""))
 				}
 				{
-					p.SetState(62)
+					p.SetState(89)
 					p.Match(AlteryxFormulasParserT__8)
 				}
 				{
-					p.SetState(63)
+					p.SetState(90)
 
-					var _x = p.expr(20)
+					var _x = p.expr(24)
 
 					localctx.(*GreaterEqualContext).right = _x
 				}
@@ -1902,19 +2178,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*LessThanContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(64)
+				p.SetState(91)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 18)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 18)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 22)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 22)", ""))
 				}
 				{
-					p.SetState(65)
+					p.SetState(92)
 					p.Match(AlteryxFormulasParserT__9)
 				}
 				{
-					p.SetState(66)
+					p.SetState(93)
 
-					var _x = p.expr(19)
+					var _x = p.expr(23)
 
 					localctx.(*LessThanContext).right = _x
 				}
@@ -1924,19 +2200,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*LessEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(67)
+				p.SetState(94)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 17)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 17)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 21)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 21)", ""))
 				}
 				{
-					p.SetState(68)
+					p.SetState(95)
 					p.Match(AlteryxFormulasParserT__10)
 				}
 				{
-					p.SetState(69)
+					p.SetState(96)
 
-					var _x = p.expr(18)
+					var _x = p.expr(22)
 
 					localctx.(*LessEqualContext).right = _x
 				}
@@ -1946,19 +2222,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*NotEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(70)
+				p.SetState(97)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 16)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 16)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 20)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 20)", ""))
 				}
 				{
-					p.SetState(71)
+					p.SetState(98)
 					p.Match(AlteryxFormulasParserT__11)
 				}
 				{
-					p.SetState(72)
+					p.SetState(99)
 
-					var _x = p.expr(17)
+					var _x = p.expr(21)
 
 					localctx.(*NotEqualContext).right = _x
 				}
@@ -1968,13 +2244,13 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*AndContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(73)
+				p.SetState(100)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 13)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 13)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 17)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 17)", ""))
 				}
 				{
-					p.SetState(74)
+					p.SetState(101)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == AlteryxFormulasParserT__13 || _la == AlteryxFormulasParserAnd) {
@@ -1985,9 +2261,9 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(75)
+					p.SetState(102)
 
-					var _x = p.expr(14)
+					var _x = p.expr(18)
 
 					localctx.(*AndContext).right = _x
 				}
@@ -1997,13 +2273,13 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*OrContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(76)
+				p.SetState(103)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 12)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 12)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 16)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 16)", ""))
 				}
 				{
-					p.SetState(77)
+					p.SetState(104)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == AlteryxFormulasParserT__14 || _la == AlteryxFormulasParserOr) {
@@ -2014,9 +2290,9 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(78)
+					p.SetState(105)
 
-					var _x = p.expr(13)
+					var _x = p.expr(17)
 
 					localctx.(*OrContext).right = _x
 				}
@@ -2024,619 +2300,113 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 			case 13:
 				localctx = NewInContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(79)
+				p.SetState(106)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 15)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 15)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 19)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 19)", ""))
 				}
 				{
-					p.SetState(80)
+					p.SetState(107)
 					p.Match(AlteryxFormulasParserIn)
 				}
 				{
-					p.SetState(81)
+					p.SetState(108)
 					p.Match(AlteryxFormulasParserT__0)
 				}
-				p.SetState(90)
+				p.SetState(117)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
 				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserPow)|(1<<AlteryxFormulasParserMin)|(1<<AlteryxFormulasParserMax)|(1<<AlteryxFormulasParserNull)|(1<<AlteryxFormulasParserIf)|(1<<AlteryxFormulasParserBool)|(1<<AlteryxFormulasParserInteger))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserDecimal-32))|(1<<(AlteryxFormulasParserDate-32))|(1<<(AlteryxFormulasParserDatetime-32))|(1<<(AlteryxFormulasParserField-32))|(1<<(AlteryxFormulasParserSingleQuoteString-32))|(1<<(AlteryxFormulasParserDoubleQuoteString-32)))) != 0) {
 					{
-						p.SetState(82)
+						p.SetState(109)
 						p.expr(0)
 					}
-					p.SetState(87)
+					p.SetState(114)
 					p.GetErrorHandler().Sync(p)
 					_la = p.GetTokenStream().LA(1)
 
 					for _la == AlteryxFormulasParserT__12 {
 						{
-							p.SetState(83)
+							p.SetState(110)
 							p.Match(AlteryxFormulasParserT__12)
 						}
 						{
-							p.SetState(84)
+							p.SetState(111)
 							p.expr(0)
 						}
 
-						p.SetState(89)
+						p.SetState(116)
 						p.GetErrorHandler().Sync(p)
 						_la = p.GetTokenStream().LA(1)
 					}
 
 				}
 				{
-					p.SetState(92)
+					p.SetState(119)
 					p.Match(AlteryxFormulasParserT__1)
 				}
 
 			case 14:
 				localctx = NewNotInContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(93)
+				p.SetState(120)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 14)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 14)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 18)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 18)", ""))
 				}
 				{
-					p.SetState(94)
+					p.SetState(121)
 					p.Match(AlteryxFormulasParserNot)
 				}
 				{
-					p.SetState(95)
+					p.SetState(122)
 					p.Match(AlteryxFormulasParserIn)
 				}
 				{
-					p.SetState(96)
+					p.SetState(123)
 					p.Match(AlteryxFormulasParserT__0)
 				}
-				p.SetState(105)
+				p.SetState(132)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
 				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserPow)|(1<<AlteryxFormulasParserMin)|(1<<AlteryxFormulasParserMax)|(1<<AlteryxFormulasParserNull)|(1<<AlteryxFormulasParserIf)|(1<<AlteryxFormulasParserBool)|(1<<AlteryxFormulasParserInteger))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserDecimal-32))|(1<<(AlteryxFormulasParserDate-32))|(1<<(AlteryxFormulasParserDatetime-32))|(1<<(AlteryxFormulasParserField-32))|(1<<(AlteryxFormulasParserSingleQuoteString-32))|(1<<(AlteryxFormulasParserDoubleQuoteString-32)))) != 0) {
 					{
-						p.SetState(97)
+						p.SetState(124)
 						p.expr(0)
 					}
-					p.SetState(102)
+					p.SetState(129)
 					p.GetErrorHandler().Sync(p)
 					_la = p.GetTokenStream().LA(1)
 
 					for _la == AlteryxFormulasParserT__12 {
 						{
-							p.SetState(98)
+							p.SetState(125)
 							p.Match(AlteryxFormulasParserT__12)
 						}
 						{
-							p.SetState(99)
+							p.SetState(126)
 							p.expr(0)
 						}
 
-						p.SetState(104)
+						p.SetState(131)
 						p.GetErrorHandler().Sync(p)
 						_la = p.GetTokenStream().LA(1)
 					}
 
 				}
 				{
-					p.SetState(107)
+					p.SetState(134)
 					p.Match(AlteryxFormulasParserT__1)
 				}
 
 			}
 
 		}
-		p.SetState(112)
+		p.SetState(139)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 7, p.GetParserRuleContext())
-	}
-
-	return localctx
-}
-
-// IFunctionContext is an interface to support dynamic dispatch.
-type IFunctionContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// IsFunctionContext differentiates from other interfaces.
-	IsFunctionContext()
-}
-
-type FunctionContext struct {
-	*antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyFunctionContext() *FunctionContext {
-	var p = new(FunctionContext)
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AlteryxFormulasParserRULE_function
-	return p
-}
-
-func (*FunctionContext) IsFunctionContext() {}
-
-func NewFunctionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FunctionContext {
-	var p = new(FunctionContext)
-
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = AlteryxFormulasParserRULE_function
-
-	return p
-}
-
-func (s *FunctionContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *FunctionContext) CopyFrom(ctx *FunctionContext) {
-	s.BaseParserRuleContext.CopyFrom(ctx.BaseParserRuleContext)
-}
-
-func (s *FunctionContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *FunctionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-type MaxFuncContext struct {
-	*FunctionContext
-}
-
-func NewMaxFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MaxFuncContext {
-	var p = new(MaxFuncContext)
-
-	p.FunctionContext = NewEmptyFunctionContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*FunctionContext))
-
-	return p
-}
-
-func (s *MaxFuncContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *MaxFuncContext) Max() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserMax, 0)
-}
-
-func (s *MaxFuncContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *MaxFuncContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *MaxFuncContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterMaxFunc(s)
-	}
-}
-
-func (s *MaxFuncContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitMaxFunc(s)
-	}
-}
-
-type NullFuncContext struct {
-	*FunctionContext
-}
-
-func NewNullFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NullFuncContext {
-	var p = new(NullFuncContext)
-
-	p.FunctionContext = NewEmptyFunctionContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*FunctionContext))
-
-	return p
-}
-
-func (s *NullFuncContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *NullFuncContext) Null() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserNull, 0)
-}
-
-func (s *NullFuncContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterNullFunc(s)
-	}
-}
-
-func (s *NullFuncContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitNullFunc(s)
-	}
-}
-
-type MinFuncContext struct {
-	*FunctionContext
-}
-
-func NewMinFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *MinFuncContext {
-	var p = new(MinFuncContext)
-
-	p.FunctionContext = NewEmptyFunctionContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*FunctionContext))
-
-	return p
-}
-
-func (s *MinFuncContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *MinFuncContext) Min() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserMin, 0)
-}
-
-func (s *MinFuncContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *MinFuncContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *MinFuncContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterMinFunc(s)
-	}
-}
-
-func (s *MinFuncContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitMinFunc(s)
-	}
-}
-
-type PowFuncContext struct {
-	*FunctionContext
-}
-
-func NewPowFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *PowFuncContext {
-	var p = new(PowFuncContext)
-
-	p.FunctionContext = NewEmptyFunctionContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*FunctionContext))
-
-	return p
-}
-
-func (s *PowFuncContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *PowFuncContext) Pow() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserPow, 0)
-}
-
-func (s *PowFuncContext) AllExpr() []IExprContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
-	var tst = make([]IExprContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IExprContext)
-		}
-	}
-
-	return tst
-}
-
-func (s *PowFuncContext) Expr(i int) IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *PowFuncContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterPowFunc(s)
-	}
-}
-
-func (s *PowFuncContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitPowFunc(s)
-	}
-}
-
-func (p *AlteryxFormulasParser) Function() (localctx IFunctionContext) {
-	localctx = NewFunctionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, AlteryxFormulasParserRULE_function)
-	var _la int
-
-	defer func() {
-		p.ExitRule()
-	}()
-
-	defer func() {
-		if err := recover(); err != nil {
-			if v, ok := err.(antlr.RecognitionException); ok {
-				localctx.SetException(v)
-				p.GetErrorHandler().ReportError(p, v)
-				p.GetErrorHandler().Recover(p, v)
-			} else {
-				panic(err)
-			}
-		}
-	}()
-
-	p.SetState(144)
-	p.GetErrorHandler().Sync(p)
-
-	switch p.GetTokenStream().LA(1) {
-	case AlteryxFormulasParserPow:
-		localctx = NewPowFuncContext(p, localctx)
-		p.EnterOuterAlt(localctx, 1)
-		{
-			p.SetState(113)
-			p.Match(AlteryxFormulasParserPow)
-		}
-		{
-			p.SetState(114)
-			p.Match(AlteryxFormulasParserT__0)
-		}
-		{
-			p.SetState(115)
-			p.expr(0)
-		}
-		{
-			p.SetState(116)
-			p.Match(AlteryxFormulasParserT__12)
-		}
-		{
-			p.SetState(117)
-			p.expr(0)
-		}
-		{
-			p.SetState(118)
-			p.Match(AlteryxFormulasParserT__1)
-		}
-
-	case AlteryxFormulasParserMin:
-		localctx = NewMinFuncContext(p, localctx)
-		p.EnterOuterAlt(localctx, 2)
-		{
-			p.SetState(120)
-			p.Match(AlteryxFormulasParserMin)
-		}
-		{
-			p.SetState(121)
-			p.Match(AlteryxFormulasParserT__0)
-		}
-		{
-			p.SetState(122)
-			p.expr(0)
-		}
-		p.SetState(125)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for ok := true; ok; ok = _la == AlteryxFormulasParserT__12 {
-			{
-				p.SetState(123)
-				p.Match(AlteryxFormulasParserT__12)
-			}
-			{
-				p.SetState(124)
-				p.expr(0)
-			}
-
-			p.SetState(127)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
-		{
-			p.SetState(129)
-			p.Match(AlteryxFormulasParserT__1)
-		}
-
-	case AlteryxFormulasParserMax:
-		localctx = NewMaxFuncContext(p, localctx)
-		p.EnterOuterAlt(localctx, 3)
-		{
-			p.SetState(131)
-			p.Match(AlteryxFormulasParserMax)
-		}
-		{
-			p.SetState(132)
-			p.Match(AlteryxFormulasParserT__0)
-		}
-		{
-			p.SetState(133)
-			p.expr(0)
-		}
-		p.SetState(136)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for ok := true; ok; ok = _la == AlteryxFormulasParserT__12 {
-			{
-				p.SetState(134)
-				p.Match(AlteryxFormulasParserT__12)
-			}
-			{
-				p.SetState(135)
-				p.expr(0)
-			}
-
-			p.SetState(138)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
-		{
-			p.SetState(140)
-			p.Match(AlteryxFormulasParserT__1)
-		}
-
-	case AlteryxFormulasParserNull:
-		localctx = NewNullFuncContext(p, localctx)
-		p.EnterOuterAlt(localctx, 4)
-		{
-			p.SetState(142)
-			p.Match(AlteryxFormulasParserNull)
-		}
-		{
-			p.SetState(143)
-			p.Match(AlteryxFormulasParserT__15)
-		}
-
-	default:
-		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
-	}
-
-	return localctx
-}
-
-// IStrContext is an interface to support dynamic dispatch.
-type IStrContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// IsStrContext differentiates from other interfaces.
-	IsStrContext()
-}
-
-type StrContext struct {
-	*antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyStrContext() *StrContext {
-	var p = new(StrContext)
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AlteryxFormulasParserRULE_str
-	return p
-}
-
-func (*StrContext) IsStrContext() {}
-
-func NewStrContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *StrContext {
-	var p = new(StrContext)
-
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = AlteryxFormulasParserRULE_str
-
-	return p
-}
-
-func (s *StrContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *StrContext) SingleQuoteString() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserSingleQuoteString, 0)
-}
-
-func (s *StrContext) DoubleQuoteString() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserDoubleQuoteString, 0)
-}
-
-func (s *StrContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *StrContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *StrContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterStr(s)
-	}
-}
-
-func (s *StrContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitStr(s)
-	}
-}
-
-func (p *AlteryxFormulasParser) Str() (localctx IStrContext) {
-	localctx = NewStrContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, AlteryxFormulasParserRULE_str)
-	var _la int
-
-	defer func() {
-		p.ExitRule()
-	}()
-
-	defer func() {
-		if err := recover(); err != nil {
-			if v, ok := err.(antlr.RecognitionException); ok {
-				localctx.SetException(v)
-				p.GetErrorHandler().ReportError(p, v)
-				p.GetErrorHandler().Recover(p, v)
-			} else {
-				panic(err)
-			}
-		}
-	}()
-
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(146)
-		_la = p.GetTokenStream().LA(1)
-
-		if !(_la == AlteryxFormulasParserSingleQuoteString || _la == AlteryxFormulasParserDoubleQuoteString) {
-			p.GetErrorHandler().RecoverInline(p)
-		} else {
-			p.GetErrorHandler().ReportMatch(p)
-			p.Consume()
-		}
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 9, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -2659,46 +2429,46 @@ func (p *AlteryxFormulasParser) Sempred(localctx antlr.RuleContext, ruleIndex, p
 func (p *AlteryxFormulasParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
 	switch predIndex {
 	case 0:
-		return p.Precpred(p.GetParserRuleContext(), 25)
+		return p.Precpred(p.GetParserRuleContext(), 29)
 
 	case 1:
-		return p.Precpred(p.GetParserRuleContext(), 24)
+		return p.Precpred(p.GetParserRuleContext(), 28)
 
 	case 2:
-		return p.Precpred(p.GetParserRuleContext(), 23)
+		return p.Precpred(p.GetParserRuleContext(), 27)
 
 	case 3:
-		return p.Precpred(p.GetParserRuleContext(), 22)
+		return p.Precpred(p.GetParserRuleContext(), 26)
 
 	case 4:
-		return p.Precpred(p.GetParserRuleContext(), 21)
+		return p.Precpred(p.GetParserRuleContext(), 25)
 
 	case 5:
-		return p.Precpred(p.GetParserRuleContext(), 20)
+		return p.Precpred(p.GetParserRuleContext(), 24)
 
 	case 6:
-		return p.Precpred(p.GetParserRuleContext(), 19)
+		return p.Precpred(p.GetParserRuleContext(), 23)
 
 	case 7:
-		return p.Precpred(p.GetParserRuleContext(), 18)
+		return p.Precpred(p.GetParserRuleContext(), 22)
 
 	case 8:
-		return p.Precpred(p.GetParserRuleContext(), 17)
+		return p.Precpred(p.GetParserRuleContext(), 21)
 
 	case 9:
-		return p.Precpred(p.GetParserRuleContext(), 16)
+		return p.Precpred(p.GetParserRuleContext(), 20)
 
 	case 10:
-		return p.Precpred(p.GetParserRuleContext(), 13)
+		return p.Precpred(p.GetParserRuleContext(), 17)
 
 	case 11:
-		return p.Precpred(p.GetParserRuleContext(), 12)
+		return p.Precpred(p.GetParserRuleContext(), 16)
 
 	case 12:
-		return p.Precpred(p.GetParserRuleContext(), 15)
+		return p.Precpred(p.GetParserRuleContext(), 19)
 
 	case 13:
-		return p.Precpred(p.GetParserRuleContext(), 14)
+		return p.Precpred(p.GetParserRuleContext(), 18)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))

@@ -15,18 +15,18 @@ const (
 )
 
 type firstPassListener struct {
-	symbols    map[interface{}]int
+	symbols    map[antlr.ParserRuleContext]int
 	recordInfo RecordInfo
 	parser.BaseAlteryxFormulasListener
 }
 
 func (l *firstPassListener) getSymbol(c antlr.ParserRuleContext) (int, bool) {
-	symbol, ok := l.symbols[c.GetStart()]
+	symbol, ok := l.symbols[c]
 	return symbol, ok
 }
 
 func (l *firstPassListener) setSymbol(c antlr.ParserRuleContext, value int) {
-	l.symbols[c.GetStart()] = value
+	l.symbols[c] = value
 }
 
 func (l *firstPassListener) EnterNumberLiteral(c *parser.NumberLiteralContext) {
@@ -49,11 +49,27 @@ func (l *firstPassListener) EnterBoolLiteral(c *parser.BoolLiteralContext) {
 	l.setSymbol(c, Bool)
 }
 
-func (l *firstPassListener) EnterNullFunc(c *parser.NullFuncContext) {
+func (l *firstPassListener) ExitNullFunc(c *parser.NullFuncContext) {
 	l.setSymbol(c, Null)
 }
 
 func (l *firstPassListener) ExitAdd(c *parser.AddContext) {
+	leftType, ok := l.getSymbol(c.GetLeft())
+	if !ok {
+		panic(`left symbol does not have a type`)
+	}
+	rightType, ok := l.getSymbol(c.GetRight())
+	if !ok {
+		panic(`right symbol does not have a type`)
+	}
+	if leftType == Null {
+		l.setSymbol(c, rightType)
+	} else {
+		l.setSymbol(c, leftType)
+	}
+}
+
+func (l *firstPassListener) ExitSubtract(c *parser.SubtractContext) {
 	leftType, ok := l.getSymbol(c.GetLeft())
 	if !ok {
 		panic(`left symbol does not have a type`)
@@ -89,6 +105,55 @@ func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {
 	default:
 		c.SetException(InvalidFieldType(fieldName, fieldType, c))
 	}
+}
+
+func (l *firstPassListener) ExitIn(c *parser.InContext) {
+	exprs := c.AllExpr()
+	exprCount := len(exprs)
+	for i := 0; i < exprCount; i++ {
+		argType, ok := l.getSymbol(exprs[i])
+		if !ok {
+			panic(`symbol not found for in argument`)
+		}
+		if argType == Null {
+			continue
+		}
+		l.setSymbol(c, argType)
+	}
+	l.setSymbol(c, Null)
+}
+
+func (l *firstPassListener) ExitNotIn(c *parser.NotInContext) {
+	exprs := c.AllExpr()
+	exprCount := len(exprs)
+	for i := 0; i < exprCount; i++ {
+		argType, ok := l.getSymbol(exprs[i])
+		if !ok {
+			panic(`symbol not found for in argument`)
+		}
+		if argType == Null {
+			continue
+		}
+		l.setSymbol(c, argType)
+	}
+	l.setSymbol(c, Null)
+}
+
+func (l *firstPassListener) ExitMinFunc(c *parser.MinFuncContext) {
+	exprs := c.AllExpr()
+	exprCount := len(exprs)
+	for i := 0; i < exprCount; i++ {
+		argType, ok := l.getSymbol(exprs[i])
+		if !ok {
+			panic(`min argument does not have a type`)
+		}
+		if argType == Null {
+			continue
+		}
+		l.setSymbol(c, argType)
+		return
+	}
+	l.setSymbol(c, Null)
 }
 
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {

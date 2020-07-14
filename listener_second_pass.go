@@ -9,12 +9,12 @@ import (
 
 type secondPassListener struct {
 	calc    *calculator
-	symbols map[interface{}]int
+	symbols map[antlr.ParserRuleContext]int
 	parser.BaseAlteryxFormulasListener
 }
 
 func (l *secondPassListener) getSymbol(c antlr.ParserRuleContext) (int, bool) {
-	symbol, ok := l.symbols[c.GetStart()]
+	symbol, ok := l.symbols[c]
 	return symbol, ok
 }
 
@@ -177,7 +177,10 @@ func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
 }
 
 func (l *secondPassListener) EnterIn(c *parser.InContext) {
-	exprType := l.symbols[c.Expr(0)]
+	exprType, ok := l.getSymbol(c)
+	if !ok {
+		panic(`in symbol does not have a type`)
+	}
 	if exprType == Number || exprType == Null {
 		l.calc.pushFunction(l.calc.numberIn)
 		exprs := len(c.AllExpr())
@@ -188,7 +191,10 @@ func (l *secondPassListener) EnterIn(c *parser.InContext) {
 }
 
 func (l *secondPassListener) EnterNotIn(c *parser.NotInContext) {
-	exprType := l.symbols[c.Expr(0)]
+	exprType, ok := l.getSymbol(c)
+	if !ok {
+		panic(`not in symbol does not have a type`)
+	}
 	if exprType == Number || exprType == Null {
 		l.calc.pushFunction(l.calc.numberNotIn)
 		exprs := len(c.AllExpr())
@@ -201,5 +207,37 @@ func (l *secondPassListener) EnterNotIn(c *parser.NotInContext) {
 func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {
 	exprCount := len(c.AllExpr())
 	l.calc.pushFunction(l.calc.exprIf)
+	l.calc.pushValueFunc(exprCount)
+}
+
+func (l *secondPassListener) EnterPowFunc(c *parser.PowFuncContext) {
+	valueType, ok := l.getSymbol(c.Expr(0))
+	if !ok {
+		panic(`value symbol does not have a type`)
+	}
+	powerType, ok := l.getSymbol(c.Expr(1))
+	if !ok {
+		panic(`power symbol does not have a type`)
+	}
+	if (valueType == Number || valueType == Null) && (powerType == Number || powerType == Null) {
+		l.calc.pushFunction(l.calc.pow)
+		return
+	}
+	panic(`value or power are not numbers`)
+}
+
+func (l *secondPassListener) EnterMinFunc(c *parser.MinFuncContext) {
+	dataType, ok := l.getSymbol(c)
+	if !ok {
+		panic(`min does not have a type`)
+	}
+
+	exprCount := len(c.AllExpr())
+	switch dataType {
+	case Number:
+		l.calc.pushFunction(l.calc.numberMin)
+	default:
+		panic(`invalid type`)
+	}
 	l.calc.pushValueFunc(exprCount)
 }

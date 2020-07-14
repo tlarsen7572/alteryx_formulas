@@ -21,28 +21,20 @@ expr
       (Elseif ifStmnt=expr Then thenStmnt=expr)*
       Else    elseStmnt=expr
       Endif                                                          # exprIf
-    | function                                                       # exprFunction
+    | Null '()'                                                      # nullFunc
+    | Pow '(' expr ',' expr ')'                                      # powFunc
+    | Min '(' expr (',' expr)+ ')'                                   # minFunc
+    | Max '(' expr (',' expr)+ ')'                                   # maxFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
     | '-'Decimal                                                     # numberLiteral
-    | str                                                            # stringLiteral
+    | SingleQuoteString                                              # stringLiteral
+    | DoubleQuoteString                                              # stringLiteral
     | Datetime                                                       # datetimeLiteral
     | Date                                                           # dateLiteral
     | Bool                                                           # boolLiteral
     | Field                                                          # exprField
-    ;
-
-function
-    : Pow '(' expr ',' expr ')'                                      # powFunc
-    | Min '(' expr (',' expr)+ ')'                                   # minFunc
-    | Max '(' expr (',' expr)+ ')'                                   # maxFunc
-    | Null '()'                                                      # nullFunc
-    ;
-
-str
-    : SingleQuoteString
-    | DoubleQuoteString
     ;
 
 // Case-insensitive function names
