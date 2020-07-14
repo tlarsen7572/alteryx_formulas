@@ -3,6 +3,7 @@ package alteryx_formulas_test
 import (
 	"fmt"
 	f "github.com/tlarsen7572/alteryx_formulas"
+	"math"
 	"testing"
 	"time"
 )
@@ -417,6 +418,16 @@ func TestAbs(t *testing.T) {
 	result, _ = f.Calculate(`abs(-20)`, nil)
 	if result != 20.0 {
 		t.Fatalf(`expected 20 but got %v`, result)
+	}
+}
+
+func TestAcos(t *testing.T) {
+	result, errs := f.Calculate(`acos(0.5)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if expectedVal := math.Acos(0.5); result != expectedVal {
+		t.Fatalf(`expected %v but got %v`, expectedVal, result)
 	}
 }
 

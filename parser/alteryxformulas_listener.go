@@ -14,6 +14,9 @@ type AlteryxFormulasListener interface {
 	// EnterBoolLiteral is called when entering the boolLiteral production.
 	EnterBoolLiteral(c *BoolLiteralContext)
 
+	// EnterAcosFunc is called when entering the acosFunc production.
+	EnterAcosFunc(c *AcosFuncContext)
+
 	// EnterMinFunc is called when entering the minFunc production.
 	EnterMinFunc(c *MinFuncContext)
 
@@ -97,6 +100,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitBoolLiteral is called when exiting the boolLiteral production.
 	ExitBoolLiteral(c *BoolLiteralContext)
+
+	// ExitAcosFunc is called when exiting the acosFunc production.
+	ExitAcosFunc(c *AcosFuncContext)
 
 	// ExitMinFunc is called when exiting the minFunc production.
 	ExitMinFunc(c *MinFuncContext)

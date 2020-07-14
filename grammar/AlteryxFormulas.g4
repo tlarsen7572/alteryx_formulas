@@ -23,6 +23,7 @@ expr
       Endif                                                          # exprIf
     | Iif '(' expr ',' expr ',' expr ')'                             # iifFunc
     | Abs '(' expr ')'                                               # absFunc
+    | Acos '(' expr ')'                                              # acosFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -40,12 +41,13 @@ expr
     ;
 
 // Case-insensitive function names
-Abs : A B S ;
-Pow : P O W ;
-Min : M I N ;
-Max : M A X ;
-Null: N U L L ;
-Iif : I I F ;
+Abs  : A B S ;
+Acos : A C O S ;
+Pow  : P O W ;
+Min  : M I N ;
+Max  : M A X ;
+Null : N U L L ;
+Iif  : I I F ;
 
 // Case-insensitive keywords
 In     : I N ;

@@ -33,6 +33,12 @@ func (s *BaseAlteryxFormulasListener) EnterBoolLiteral(ctx *BoolLiteralContext) 
 // ExitBoolLiteral is called when production boolLiteral is exited.
 func (s *BaseAlteryxFormulasListener) ExitBoolLiteral(ctx *BoolLiteralContext) {}
 
+// EnterAcosFunc is called when production acosFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterAcosFunc(ctx *AcosFuncContext) {}
+
+// ExitAcosFunc is called when production acosFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitAcosFunc(ctx *AcosFuncContext) {}
+
 // EnterMinFunc is called when production minFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterMinFunc(ctx *MinFuncContext) {}
 

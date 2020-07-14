@@ -115,3 +115,8 @@ func (calc *calculator) abs() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Abs(expr))
 }
+
+func (calc *calculator) acos() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Acos(expr))
+}

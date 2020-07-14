@@ -295,3 +295,7 @@ func (l *secondPassListener) EnterIifFunc(c *parser.IifFuncContext) {
 func (l *secondPassListener) EnterAbsFunc(_ *parser.AbsFuncContext) {
 	l.calc.pushFunction(l.calc.abs)
 }
+
+func (l *secondPassListener) EnterAcosFunc(_ *parser.AcosFuncContext) {
+	l.calc.pushFunction(l.calc.acos)
+}
