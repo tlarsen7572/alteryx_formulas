@@ -307,3 +307,7 @@ func (l *secondPassListener) EnterAsinFunc(_ *parser.AsinFuncContext) {
 func (l *secondPassListener) EnterAtanFunc(_ *parser.AtanFuncContext) {
 	l.calc.pushFunction(l.calc.atan)
 }
+
+func (l *secondPassListener) EnterAtan2Func(_ *parser.Atan2FuncContext) {
+	l.calc.pushFunction(l.calc.atan2)
+}

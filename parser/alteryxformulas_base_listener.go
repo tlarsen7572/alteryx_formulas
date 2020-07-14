@@ -201,6 +201,12 @@ func (s *BaseAlteryxFormulasListener) EnterLessEqual(ctx *LessEqualContext) {}
 // ExitLessEqual is called when production lessEqual is exited.
 func (s *BaseAlteryxFormulasListener) ExitLessEqual(ctx *LessEqualContext) {}
 
+// EnterAtan2Func is called when production atan2Func is entered.
+func (s *BaseAlteryxFormulasListener) EnterAtan2Func(ctx *Atan2FuncContext) {}
+
+// ExitAtan2Func is called when production atan2Func is exited.
+func (s *BaseAlteryxFormulasListener) ExitAtan2Func(ctx *Atan2FuncContext) {}
+
 // EnterNumberLiteral is called when production numberLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterNumberLiteral(ctx *NumberLiteralContext) {}
 

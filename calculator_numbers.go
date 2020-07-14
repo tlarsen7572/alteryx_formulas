@@ -130,3 +130,9 @@ func (calc *calculator) atan() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Atan(expr))
 }
+
+func (calc *calculator) atan2() {
+	expr1 := calc.popValue().(float64)
+	expr2 := calc.popValue().(float64)
+	calc.pushValue(math.Atan2(expr1, expr2))
+}

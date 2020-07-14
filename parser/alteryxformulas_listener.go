@@ -98,6 +98,9 @@ type AlteryxFormulasListener interface {
 	// EnterLessEqual is called when entering the lessEqual production.
 	EnterLessEqual(c *LessEqualContext)
 
+	// EnterAtan2Func is called when entering the atan2Func production.
+	EnterAtan2Func(c *Atan2FuncContext)
+
 	// EnterNumberLiteral is called when entering the numberLiteral production.
 	EnterNumberLiteral(c *NumberLiteralContext)
 
@@ -190,6 +193,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitLessEqual is called when exiting the lessEqual production.
 	ExitLessEqual(c *LessEqualContext)
+
+	// ExitAtan2Func is called when exiting the atan2Func production.
+	ExitAtan2Func(c *Atan2FuncContext)
 
 	// ExitNumberLiteral is called when exiting the numberLiteral production.
 	ExitNumberLiteral(c *NumberLiteralContext)

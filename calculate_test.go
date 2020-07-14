@@ -441,6 +441,16 @@ func TestAtan(t *testing.T) {
 	}
 }
 
+func TestAtan2(t *testing.T) {
+	result, errs := f.Calculate(`atan2(4, -3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if expectedVal := math.Atan2(4, -3); result != expectedVal {
+		t.Fatalf(`expected %v but got %v`, expectedVal, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool
