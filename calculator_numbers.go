@@ -1,6 +1,8 @@
 package alteryx_formulas
 
-import "math"
+import (
+	"math"
+)
 
 func (calc *calculator) addNumbers() {
 	add := func(left interface{}, right interface{}) interface{} {
@@ -163,4 +165,15 @@ func (calc *calculator) cos() {
 func (calc *calculator) cosh() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Cosh(expr))
+}
+
+func (calc *calculator) distance() {
+	fromLat := calc.popValue().(float64)
+	fromLon := calc.popValue().(float64)
+	toLat := calc.popValue().(float64)
+	toLon := calc.popValue().(float64)
+
+	distance, _ := calc.geo.To(fromLat, fromLon, toLat, toLon)
+
+	calc.pushValue(distance)
 }

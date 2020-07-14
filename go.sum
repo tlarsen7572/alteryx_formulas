@@ -1,2 +1,4 @@
+github.com/StefanSchroeder/Golang-Ellipsoid v0.0.0-20200517175959-a1e334974e08 h1:hdQG2aOGjd+r2eCCgqjJ8se70KFpF+hoCgeLmVF87Bk=
+github.com/StefanSchroeder/Golang-Ellipsoid v0.0.0-20200517175959-a1e334974e08/go.mod h1:6/CMhlAhQVieQT0vgVvr6VfWJj21dQV7Ns6yOLuLnF8=
 github.com/antlr/antlr4 v0.0.0-20200622152914-7a6db6a50abf h1:UlbXPfeI3bqmIOVsJo9skZg5GtdinV1q4haA1t4I9BM=
 github.com/antlr/antlr4 v0.0.0-20200622152914-7a6db6a50abf/go.mod h1:T7PbCXFs94rrTttyxjbyT5+/1V8T2TYDejxUfHJjw1Y=

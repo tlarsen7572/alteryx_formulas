@@ -39,6 +39,12 @@ func (s *BaseAlteryxFormulasListener) EnterCosFunc(ctx *CosFuncContext) {}
 // ExitCosFunc is called when production cosFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCosFunc(ctx *CosFuncContext) {}
 
+// EnterDistanceFunc is called when production distanceFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterDistanceFunc(ctx *DistanceFuncContext) {}
+
+// ExitDistanceFunc is called when production distanceFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitDistanceFunc(ctx *DistanceFuncContext) {}
+
 // EnterBoolLiteral is called when production boolLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterBoolLiteral(ctx *BoolLiteralContext) {}
 

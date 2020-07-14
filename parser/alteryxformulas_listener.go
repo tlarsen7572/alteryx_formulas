@@ -17,6 +17,9 @@ type AlteryxFormulasListener interface {
 	// EnterCosFunc is called when entering the cosFunc production.
 	EnterCosFunc(c *CosFuncContext)
 
+	// EnterDistanceFunc is called when entering the distanceFunc production.
+	EnterDistanceFunc(c *DistanceFuncContext)
+
 	// EnterBoolLiteral is called when entering the boolLiteral production.
 	EnterBoolLiteral(c *BoolLiteralContext)
 
@@ -124,6 +127,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitCosFunc is called when exiting the cosFunc production.
 	ExitCosFunc(c *CosFuncContext)
+
+	// ExitDistanceFunc is called when exiting the distanceFunc production.
+	ExitDistanceFunc(c *DistanceFuncContext)
 
 	// ExitBoolLiteral is called when exiting the boolLiteral production.
 	ExitBoolLiteral(c *BoolLiteralContext)

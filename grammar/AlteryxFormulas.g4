@@ -31,6 +31,7 @@ expr
     | Ceil '(' expr ')'                                              # ceilFunc
     | Cos '(' expr ')'                                               # cosFunc
     | Cosh '(' expr ')'                                              # coshFunc
+    | Distance '(' expr ',' expr ',' expr ',' expr ')'               # distanceFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -56,7 +57,8 @@ Atan2   : A T A N '2' ;
 Average : A V E R A G E ;
 Ceil    : C E I L ;
 Cos     : C O S ;
-Cosh     : C O S H ;
+Cosh    : C O S H ;
+Distance: D I S T A N C E ;
 Pow     : P O W ;
 Min     : M I N ;
 Max     : M A X ;

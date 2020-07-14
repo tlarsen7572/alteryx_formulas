@@ -2,6 +2,7 @@ package alteryx_formulas
 
 import (
 	"fmt"
+	"github.com/StefanSchroeder/Golang-Ellipsoid/ellipsoid"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/tlarsen7572/alteryx_formulas/parser"
 	"strconv"
@@ -328,4 +329,10 @@ func (l *secondPassListener) EnterCosFunc(_ *parser.CosFuncContext) {
 
 func (l *secondPassListener) EnterCoshFunc(_ *parser.CoshFuncContext) {
 	l.calc.pushFunction(l.calc.cosh)
+}
+
+func (l *secondPassListener) EnterDistanceFunc(_ *parser.DistanceFuncContext) {
+	l.calc.geo = ellipsoid.Init("WGS84", ellipsoid.Degrees, ellipsoid.Mile, ellipsoid.LongitudeIsSymmetric, ellipsoid.BearingIsSymmetric)
+
+	l.calc.pushFunction(l.calc.distance)
 }

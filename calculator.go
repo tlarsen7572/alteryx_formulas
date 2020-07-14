@@ -1,9 +1,12 @@
 package alteryx_formulas
 
+import "github.com/StefanSchroeder/Golang-Ellipsoid/ellipsoid"
+
 type calculator struct {
 	functions  []func()
 	values     []interface{}
 	recordInfo RecordInfo
+	geo        ellipsoid.Ellipsoid
 }
 
 func (calc *calculator) Calculate() interface{} {

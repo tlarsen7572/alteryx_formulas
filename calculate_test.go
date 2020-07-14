@@ -491,6 +491,18 @@ func TestCos(t *testing.T) {
 	}
 }
 
+func TestDistance(t *testing.T) {
+	result, errs := f.Calculate(`distance(42,-90,43,-80)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	value := result.(float64)
+	if value < 514.5 || value > 515.5 {
+		t.Fatalf(`expected between 515 and 516 but got %v`, result)
+	}
+	t.Logf(`%v`, value)
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool
