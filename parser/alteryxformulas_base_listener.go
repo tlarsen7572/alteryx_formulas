@@ -129,6 +129,12 @@ func (s *BaseAlteryxFormulasListener) EnterOr(ctx *OrContext) {}
 // ExitOr is called when production or is exited.
 func (s *BaseAlteryxFormulasListener) ExitOr(ctx *OrContext) {}
 
+// EnterCoshFunc is called when production coshFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterCoshFunc(ctx *CoshFuncContext) {}
+
+// ExitCoshFunc is called when production coshFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitCoshFunc(ctx *CoshFuncContext) {}
+
 // EnterIn is called when production in is entered.
 func (s *BaseAlteryxFormulasListener) EnterIn(ctx *InContext) {}
 

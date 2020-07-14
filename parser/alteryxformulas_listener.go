@@ -62,6 +62,9 @@ type AlteryxFormulasListener interface {
 	// EnterOr is called when entering the or production.
 	EnterOr(c *OrContext)
 
+	// EnterCoshFunc is called when entering the coshFunc production.
+	EnterCoshFunc(c *CoshFuncContext)
+
 	// EnterIn is called when entering the in production.
 	EnterIn(c *InContext)
 
@@ -166,6 +169,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitOr is called when exiting the or production.
 	ExitOr(c *OrContext)
+
+	// ExitCoshFunc is called when exiting the coshFunc production.
+	ExitCoshFunc(c *CoshFuncContext)
 
 	// ExitIn is called when exiting the in production.
 	ExitIn(c *InContext)

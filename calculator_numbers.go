@@ -159,3 +159,8 @@ func (calc *calculator) cos() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Cos(expr))
 }
+
+func (calc *calculator) cosh() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Cosh(expr))
+}

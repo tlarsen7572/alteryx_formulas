@@ -325,3 +325,7 @@ func (l *secondPassListener) EnterCeilFunc(_ *parser.CeilFuncContext) {
 func (l *secondPassListener) EnterCosFunc(_ *parser.CosFuncContext) {
 	l.calc.pushFunction(l.calc.cos)
 }
+
+func (l *secondPassListener) EnterCoshFunc(_ *parser.CoshFuncContext) {
+	l.calc.pushFunction(l.calc.cosh)
+}
