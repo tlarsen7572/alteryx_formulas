@@ -177,6 +177,12 @@ func (s *BaseAlteryxFormulasListener) EnterStringLiteral(ctx *StringLiteralConte
 // ExitStringLiteral is called when production stringLiteral is exited.
 func (s *BaseAlteryxFormulasListener) ExitStringLiteral(ctx *StringLiteralContext) {}
 
+// EnterAverageFunc is called when production averageFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterAverageFunc(ctx *AverageFuncContext) {}
+
+// ExitAverageFunc is called when production averageFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitAverageFunc(ctx *AverageFuncContext) {}
+
 // EnterDateLiteral is called when production dateLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterDateLiteral(ctx *DateLiteralContext) {}
 

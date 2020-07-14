@@ -27,6 +27,7 @@ expr
     | Asin '(' expr ')'                                              # asinFunc
     | Atan '(' expr ')'                                              # atanFunc
     | Atan2 '(' expr ',' expr ')'                                    # atan2Func
+    | Average '(' expr (',' expr)* ')'                               # averageFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -44,16 +45,17 @@ expr
     ;
 
 // Case-insensitive function names
-Abs  : A B S ;
-Acos : A C O S ;
-Asin : A S I N ;
-Atan : A T A N ;
-Atan2: A T A N '2' ;
-Pow  : P O W ;
-Min  : M I N ;
-Max  : M A X ;
-Null : N U L L ;
-Iif  : I I F ;
+Abs     : A B S ;
+Acos    : A C O S ;
+Asin    : A S I N ;
+Atan    : A T A N ;
+Atan2   : A T A N '2' ;
+Average : A V E R A G E ;
+Pow     : P O W ;
+Min     : M I N ;
+Max     : M A X ;
+Null    : N U L L ;
+Iif     : I I F ;
 
 // Case-insensitive keywords
 In     : I N ;

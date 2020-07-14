@@ -136,3 +136,16 @@ func (calc *calculator) atan2() {
 	expr2 := calc.popValue().(float64)
 	calc.pushValue(math.Atan2(expr1, expr2))
 }
+
+func (calc *calculator) average() {
+	exprCount := calc.popValue().(int)
+	sum := 0.0
+	for i := 0; i < exprCount; i++ {
+		value := calc.popValue()
+		if value == nil {
+			continue
+		}
+		sum += value.(float64)
+	}
+	calc.pushValue(sum / float64(exprCount))
+}

@@ -86,6 +86,9 @@ type AlteryxFormulasListener interface {
 	// EnterStringLiteral is called when entering the stringLiteral production.
 	EnterStringLiteral(c *StringLiteralContext)
 
+	// EnterAverageFunc is called when entering the averageFunc production.
+	EnterAverageFunc(c *AverageFuncContext)
+
 	// EnterDateLiteral is called when entering the dateLiteral production.
 	EnterDateLiteral(c *DateLiteralContext)
 
@@ -181,6 +184,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitStringLiteral is called when exiting the stringLiteral production.
 	ExitStringLiteral(c *StringLiteralContext)
+
+	// ExitAverageFunc is called when exiting the averageFunc production.
+	ExitAverageFunc(c *AverageFuncContext)
 
 	// ExitDateLiteral is called when exiting the dateLiteral production.
 	ExitDateLiteral(c *DateLiteralContext)

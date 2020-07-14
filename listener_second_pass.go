@@ -311,3 +311,9 @@ func (l *secondPassListener) EnterAtanFunc(_ *parser.AtanFuncContext) {
 func (l *secondPassListener) EnterAtan2Func(_ *parser.Atan2FuncContext) {
 	l.calc.pushFunction(l.calc.atan2)
 }
+
+func (l *secondPassListener) EnterAverageFunc(c *parser.AverageFuncContext) {
+	exprCount := len(c.AllExpr())
+	l.calc.pushFunction(l.calc.average)
+	l.calc.pushValueFunc(exprCount)
+}

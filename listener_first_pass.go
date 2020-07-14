@@ -217,6 +217,10 @@ func (l *firstPassListener) ExitAtan2Func(c *parser.Atan2FuncContext) {
 	l.setSymbol(c, Number)
 }
 
+func (l *firstPassListener) ExitAverageFunc(c *parser.AverageFuncContext) {
+	l.setSymbol(c, Number)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),
