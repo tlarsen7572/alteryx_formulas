@@ -99,3 +99,14 @@ func (calc *calculator) numberMax() {
 	}
 	calc.pushValue(max)
 }
+
+func (calc *calculator) numberIif() {
+	question := calc.popValue().(bool)
+	thenValue := calc.popValue().(float64)
+	elseValue := calc.popValue().(float64)
+	if question {
+		calc.pushValue(thenValue)
+	} else {
+		calc.pushValue(elseValue)
+	}
+}

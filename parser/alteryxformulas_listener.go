@@ -62,6 +62,9 @@ type AlteryxFormulasListener interface {
 	// EnterPowFunc is called when entering the powFunc production.
 	EnterPowFunc(c *PowFuncContext)
 
+	// EnterIifFunc is called when entering the iifFunc production.
+	EnterIifFunc(c *IifFuncContext)
+
 	// EnterEqual is called when entering the equal production.
 	EnterEqual(c *EqualContext)
 
@@ -139,6 +142,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitPowFunc is called when exiting the powFunc production.
 	ExitPowFunc(c *PowFuncContext)
+
+	// ExitIifFunc is called when exiting the iifFunc production.
+	ExitIifFunc(c *IifFuncContext)
 
 	// ExitEqual is called when exiting the equal production.
 	ExitEqual(c *EqualContext)

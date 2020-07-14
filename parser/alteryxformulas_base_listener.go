@@ -129,6 +129,12 @@ func (s *BaseAlteryxFormulasListener) EnterPowFunc(ctx *PowFuncContext) {}
 // ExitPowFunc is called when production powFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitPowFunc(ctx *PowFuncContext) {}
 
+// EnterIifFunc is called when production iifFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterIifFunc(ctx *IifFuncContext) {}
+
+// ExitIifFunc is called when production iifFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitIifFunc(ctx *IifFuncContext) {}
+
 // EnterEqual is called when production equal is entered.
 func (s *BaseAlteryxFormulasListener) EnterEqual(ctx *EqualContext) {}
 

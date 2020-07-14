@@ -189,6 +189,14 @@ func (l *firstPassListener) ExitMaxFunc(c *parser.MaxFuncContext) {
 	l.setSymbol(c, Null)
 }
 
+func (l *firstPassListener) ExitIifFunc(c *parser.IifFuncContext) {
+	thenType, ok := l.getSymbol(c.Expr(1))
+	if !ok {
+		panic(`then symbol does not have a type`)
+	}
+	l.setSymbol(c, thenType)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

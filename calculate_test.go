@@ -390,6 +390,21 @@ func TestMaxNumber(t *testing.T) {
 	}
 }
 
+func TestIif(t *testing.T) {
+	result, errs := f.Calculate(`iif(1=1,2,3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 2.0 {
+		t.Fatalf(`expected 2 but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`iif(1=2,4,6)`, nil)
+	if result != 6.0 {
+		t.Fatalf(`expected 6 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

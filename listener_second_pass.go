@@ -277,3 +277,17 @@ func (l *secondPassListener) EnterMaxFunc(c *parser.MaxFuncContext) {
 	}
 	l.calc.pushValueFunc(exprCount)
 }
+
+func (l *secondPassListener) EnterIifFunc(c *parser.IifFuncContext) {
+	dataType, ok := l.getSymbol(c)
+	if !ok {
+		panic(`iif does not have a type`)
+	}
+
+	switch dataType {
+	case Number:
+		l.calc.pushFunction(l.calc.numberIif)
+	default:
+		panic(`invalid type`)
+	}
+}
