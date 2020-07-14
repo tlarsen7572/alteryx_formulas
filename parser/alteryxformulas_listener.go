@@ -14,6 +14,9 @@ type AlteryxFormulasListener interface {
 	// EnterCeilFunc is called when entering the ceilFunc production.
 	EnterCeilFunc(c *CeilFuncContext)
 
+	// EnterCosFunc is called when entering the cosFunc production.
+	EnterCosFunc(c *CosFuncContext)
+
 	// EnterBoolLiteral is called when entering the boolLiteral production.
 	EnterBoolLiteral(c *BoolLiteralContext)
 
@@ -115,6 +118,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitCeilFunc is called when exiting the ceilFunc production.
 	ExitCeilFunc(c *CeilFuncContext)
+
+	// ExitCosFunc is called when exiting the cosFunc production.
+	ExitCosFunc(c *CosFuncContext)
 
 	// ExitBoolLiteral is called when exiting the boolLiteral production.
 	ExitBoolLiteral(c *BoolLiteralContext)

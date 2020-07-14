@@ -154,3 +154,8 @@ func (calc *calculator) ceil() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Ceil(expr))
 }
+
+func (calc *calculator) cos() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Cos(expr))
+}

@@ -321,3 +321,7 @@ func (l *secondPassListener) EnterAverageFunc(c *parser.AverageFuncContext) {
 func (l *secondPassListener) EnterCeilFunc(_ *parser.CeilFuncContext) {
 	l.calc.pushFunction(l.calc.ceil)
 }
+
+func (l *secondPassListener) EnterCosFunc(_ *parser.CosFuncContext) {
+	l.calc.pushFunction(l.calc.cos)
+}

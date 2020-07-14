@@ -33,6 +33,12 @@ func (s *BaseAlteryxFormulasListener) EnterCeilFunc(ctx *CeilFuncContext) {}
 // ExitCeilFunc is called when production ceilFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCeilFunc(ctx *CeilFuncContext) {}
 
+// EnterCosFunc is called when production cosFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterCosFunc(ctx *CosFuncContext) {}
+
+// ExitCosFunc is called when production cosFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitCosFunc(ctx *CosFuncContext) {}
+
 // EnterBoolLiteral is called when production boolLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterBoolLiteral(ctx *BoolLiteralContext) {}
 

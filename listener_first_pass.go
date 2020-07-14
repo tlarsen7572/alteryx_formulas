@@ -225,6 +225,10 @@ func (l *firstPassListener) ExitCeilFunc(c *parser.CeilFuncContext) {
 	l.setSymbol(c, Number)
 }
 
+func (l *firstPassListener) ExitCosFunc(c *parser.CosFuncContext) {
+	l.setSymbol(c, Number)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

@@ -477,6 +477,16 @@ func TestCeil(t *testing.T) {
 		t.Fatalf(`expected no errors but got: %v`, errs)
 	}
 	if result != 2.0 {
+		t.Fatalf(`expected 2 but got %v`, result)
+	}
+}
+
+func TestCos(t *testing.T) {
+	result, errs := f.Calculate(`cos(0.5)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if expectedVal := math.Cos(0.5); result != expectedVal {
 		t.Fatalf(`expected 2.0 but got %v`, result)
 	}
 }
