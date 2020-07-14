@@ -54,6 +54,26 @@ func (l *firstPassListener) ExitNullFunc(c *parser.NullFuncContext) {
 }
 
 func (l *firstPassListener) ExitAdd(c *parser.AddContext) {
+	left, right := l.checkAndReturnLeftRightTypes(c)
+	l.setLeftRightSymbol(c, left, right)
+}
+
+func (l *firstPassListener) ExitSubtract(c *parser.SubtractContext) {
+	left, right := l.checkAndReturnLeftRightTypes(c)
+	l.setLeftRightSymbol(c, left, right)
+}
+
+func (l *firstPassListener) ExitMultiply(c *parser.MultiplyContext) {
+	left, right := l.checkAndReturnLeftRightTypes(c)
+	l.setLeftRightSymbol(c, left, right)
+}
+
+func (l *firstPassListener) ExitDivide(c *parser.DivideContext) {
+	left, right := l.checkAndReturnLeftRightTypes(c)
+	l.setLeftRightSymbol(c, left, right)
+}
+
+func (l *firstPassListener) checkAndReturnLeftRightTypes(c HasLeftRightTypes) (int, int) {
 	leftType, ok := l.getSymbol(c.GetLeft())
 	if !ok {
 		panic(`left symbol does not have a type`)
@@ -62,6 +82,10 @@ func (l *firstPassListener) ExitAdd(c *parser.AddContext) {
 	if !ok {
 		panic(`right symbol does not have a type`)
 	}
+	return leftType, rightType
+}
+
+func (l *firstPassListener) setLeftRightSymbol(c antlr.ParserRuleContext, leftType int, rightType int) {
 	if leftType == Null {
 		l.setSymbol(c, rightType)
 	} else {
@@ -69,20 +93,36 @@ func (l *firstPassListener) ExitAdd(c *parser.AddContext) {
 	}
 }
 
-func (l *firstPassListener) ExitSubtract(c *parser.SubtractContext) {
-	leftType, ok := l.getSymbol(c.GetLeft())
+func (l *firstPassListener) ExitEqual(c *parser.EqualContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitGreaterThan(c *parser.GreaterThanContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitGreaterEqual(c *parser.GreaterEqualContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitLessThan(c *parser.LessThanContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitLessEqual(c *parser.LessEqualContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitNotEqual(c *parser.NotEqualContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitExprIf(c *parser.ExprIfContext) {
+	thenType, ok := l.getSymbol(c.Expr(1))
 	if !ok {
-		panic(`left symbol does not have a type`)
+		panic(`then symbol does not have a type`)
 	}
-	rightType, ok := l.getSymbol(c.GetRight())
-	if !ok {
-		panic(`right symbol does not have a type`)
-	}
-	if leftType == Null {
-		l.setSymbol(c, rightType)
-	} else {
-		l.setSymbol(c, leftType)
-	}
+	l.setSymbol(c, thenType)
 }
 
 func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {
@@ -108,38 +148,31 @@ func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {
 }
 
 func (l *firstPassListener) ExitIn(c *parser.InContext) {
-	exprs := c.AllExpr()
-	exprCount := len(exprs)
-	for i := 0; i < exprCount; i++ {
-		argType, ok := l.getSymbol(exprs[i])
-		if !ok {
-			panic(`symbol not found for in argument`)
-		}
-		if argType == Null {
-			continue
-		}
-		l.setSymbol(c, argType)
-	}
-	l.setSymbol(c, Null)
+	l.setSymbol(c, Bool)
 }
 
 func (l *firstPassListener) ExitNotIn(c *parser.NotInContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitMinFunc(c *parser.MinFuncContext) {
 	exprs := c.AllExpr()
 	exprCount := len(exprs)
 	for i := 0; i < exprCount; i++ {
 		argType, ok := l.getSymbol(exprs[i])
 		if !ok {
-			panic(`symbol not found for in argument`)
+			panic(`min argument does not have a type`)
 		}
 		if argType == Null {
 			continue
 		}
 		l.setSymbol(c, argType)
+		return
 	}
 	l.setSymbol(c, Null)
 }
 
-func (l *firstPassListener) ExitMinFunc(c *parser.MinFuncContext) {
+func (l *firstPassListener) ExitMaxFunc(c *parser.MaxFuncContext) {
 	exprs := c.AllExpr()
 	exprCount := len(exprs)
 	for i := 0; i < exprCount; i++ {

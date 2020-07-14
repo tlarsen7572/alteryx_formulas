@@ -177,11 +177,9 @@ func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
 }
 
 func (l *secondPassListener) EnterIn(c *parser.InContext) {
-	exprType, ok := l.getSymbol(c)
-	if !ok {
-		panic(`in symbol does not have a type`)
-	}
-	if exprType == Number || exprType == Null {
+	inSymbol := l.checkTypeOfMultiExprs(c)
+
+	if inSymbol == Number || inSymbol == Null {
 		l.calc.pushFunction(l.calc.numberIn)
 		exprs := len(c.AllExpr())
 		l.calc.pushValueFunc(exprs)
@@ -191,17 +189,39 @@ func (l *secondPassListener) EnterIn(c *parser.InContext) {
 }
 
 func (l *secondPassListener) EnterNotIn(c *parser.NotInContext) {
-	exprType, ok := l.getSymbol(c)
-	if !ok {
-		panic(`not in symbol does not have a type`)
-	}
-	if exprType == Number || exprType == Null {
+	inSymbol := l.checkTypeOfMultiExprs(c)
+
+	if inSymbol == Number || inSymbol == Null {
 		l.calc.pushFunction(l.calc.numberNotIn)
 		exprs := len(c.AllExpr())
 		l.calc.pushValueFunc(exprs)
 		return
 	}
 	panic(`invalid type`)
+}
+
+type HasAllExpr interface {
+	AllExpr() []parser.IExprContext
+}
+
+func (l *secondPassListener) checkTypeOfMultiExprs(c HasAllExpr) int {
+	exprs := c.AllExpr()
+	exprCount := len(exprs)
+	inSymbol := Null
+	for i := 0; i < exprCount; i++ {
+		argType, ok := l.getSymbol(exprs[i])
+		if !ok {
+			panic(`symbol not found for in argument`)
+		}
+		if argType == Null {
+			continue
+		}
+		if inSymbol != Null && argType != inSymbol {
+			panic(fmt.Sprintf(`invalid type at parameter %v`, i))
+		}
+		inSymbol = argType
+	}
+	return inSymbol
 }
 
 func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {
@@ -236,6 +256,22 @@ func (l *secondPassListener) EnterMinFunc(c *parser.MinFuncContext) {
 	switch dataType {
 	case Number:
 		l.calc.pushFunction(l.calc.numberMin)
+	default:
+		panic(`invalid type`)
+	}
+	l.calc.pushValueFunc(exprCount)
+}
+
+func (l *secondPassListener) EnterMaxFunc(c *parser.MaxFuncContext) {
+	dataType, ok := l.getSymbol(c)
+	if !ok {
+		panic(`max does not have a type`)
+	}
+
+	exprCount := len(c.AllExpr())
+	switch dataType {
+	case Number:
+		l.calc.pushFunction(l.calc.numberMax)
 	default:
 		panic(`invalid type`)
 	}
