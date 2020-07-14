@@ -27,6 +27,12 @@ func (s *BaseAlteryxFormulasListener) EnterMaxFunc(ctx *MaxFuncContext) {}
 // ExitMaxFunc is called when production maxFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitMaxFunc(ctx *MaxFuncContext) {}
 
+// EnterCeilFunc is called when production ceilFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterCeilFunc(ctx *CeilFuncContext) {}
+
+// ExitCeilFunc is called when production ceilFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitCeilFunc(ctx *CeilFuncContext) {}
+
 // EnterBoolLiteral is called when production boolLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterBoolLiteral(ctx *BoolLiteralContext) {}
 

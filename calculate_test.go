@@ -471,6 +471,16 @@ func TestAverageWithNull(t *testing.T) {
 	}
 }
 
+func TestCeil(t *testing.T) {
+	result, errs := f.Calculate(`ceil(1.1)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 2.0 {
+		t.Fatalf(`expected 2.0 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

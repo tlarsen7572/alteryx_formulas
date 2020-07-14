@@ -11,6 +11,9 @@ type AlteryxFormulasListener interface {
 	// EnterMaxFunc is called when entering the maxFunc production.
 	EnterMaxFunc(c *MaxFuncContext)
 
+	// EnterCeilFunc is called when entering the ceilFunc production.
+	EnterCeilFunc(c *CeilFuncContext)
+
 	// EnterBoolLiteral is called when entering the boolLiteral production.
 	EnterBoolLiteral(c *BoolLiteralContext)
 
@@ -109,6 +112,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitMaxFunc is called when exiting the maxFunc production.
 	ExitMaxFunc(c *MaxFuncContext)
+
+	// ExitCeilFunc is called when exiting the ceilFunc production.
+	ExitCeilFunc(c *CeilFuncContext)
 
 	// ExitBoolLiteral is called when exiting the boolLiteral production.
 	ExitBoolLiteral(c *BoolLiteralContext)

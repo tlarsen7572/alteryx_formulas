@@ -28,6 +28,7 @@ expr
     | Atan '(' expr ')'                                              # atanFunc
     | Atan2 '(' expr ',' expr ')'                                    # atan2Func
     | Average '(' expr (',' expr)* ')'                               # averageFunc
+    | Ceil '(' expr ')'                                              # ceilFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -51,6 +52,7 @@ Asin    : A S I N ;
 Atan    : A T A N ;
 Atan2   : A T A N '2' ;
 Average : A V E R A G E ;
+Ceil    : C E I L ;
 Pow     : P O W ;
 Min     : M I N ;
 Max     : M A X ;

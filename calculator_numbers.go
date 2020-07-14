@@ -149,3 +149,8 @@ func (calc *calculator) average() {
 	}
 	calc.pushValue(sum / float64(exprCount))
 }
+
+func (calc *calculator) ceil() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Ceil(expr))
+}

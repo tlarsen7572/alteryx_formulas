@@ -317,3 +317,7 @@ func (l *secondPassListener) EnterAverageFunc(c *parser.AverageFuncContext) {
 	l.calc.pushFunction(l.calc.average)
 	l.calc.pushValueFunc(exprCount)
 }
+
+func (l *secondPassListener) EnterCeilFunc(_ *parser.CeilFuncContext) {
+	l.calc.pushFunction(l.calc.ceil)
+}
