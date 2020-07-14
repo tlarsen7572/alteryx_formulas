@@ -197,6 +197,10 @@ func (l *firstPassListener) ExitIifFunc(c *parser.IifFuncContext) {
 	l.setSymbol(c, thenType)
 }
 
+func (l *firstPassListener) ExitAbsFunc(c *parser.AbsFuncContext) {
+	l.setSymbol(c, Number)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

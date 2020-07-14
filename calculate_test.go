@@ -405,6 +405,21 @@ func TestIif(t *testing.T) {
 	}
 }
 
+func TestAbs(t *testing.T) {
+	result, errs := f.Calculate(`abs(10)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 10.0 {
+		t.Fatalf(`expected 10 but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`abs(-20)`, nil)
+	if result != 20.0 {
+		t.Fatalf(`expected 20 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

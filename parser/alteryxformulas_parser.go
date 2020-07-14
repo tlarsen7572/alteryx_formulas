@@ -16,77 +16,79 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 41, 152,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 42, 157,
 	4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 19, 10, 2, 12, 2, 14, 2, 22, 11, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 6, 2, 51, 10, 2, 13, 2, 14, 2, 52, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 6, 2, 62, 10, 2, 13, 2, 14, 2, 63, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 5, 2,
-	80, 10, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 6, 2, 56, 10, 2, 13, 2, 14, 2,
+	57, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 6, 2, 67, 10, 2, 13, 2, 14,
+	2, 68, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	3, 2, 3, 2, 3, 2, 5, 2, 85, 10, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 124, 10, 2, 12, 2,
-	14, 2, 127, 11, 2, 5, 2, 129, 10, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 7, 2, 139, 10, 2, 12, 2, 14, 2, 142, 11, 2, 5, 2, 144, 10,
-	2, 3, 2, 7, 2, 147, 10, 2, 12, 2, 14, 2, 150, 11, 2, 3, 2, 2, 3, 2, 3,
-	2, 2, 4, 4, 2, 16, 16, 26, 26, 4, 2, 17, 17, 27, 27, 2, 187, 2, 79, 3,
-	2, 2, 2, 4, 5, 8, 2, 1, 2, 5, 6, 7, 3, 2, 2, 6, 7, 5, 2, 2, 2, 7, 8, 7,
-	4, 2, 2, 8, 80, 3, 2, 2, 2, 9, 10, 7, 28, 2, 2, 10, 11, 5, 2, 2, 2, 11,
-	12, 7, 29, 2, 2, 12, 20, 5, 2, 2, 2, 13, 14, 7, 31, 2, 2, 14, 15, 5, 2,
-	2, 2, 15, 16, 7, 29, 2, 2, 16, 17, 5, 2, 2, 2, 17, 19, 3, 2, 2, 2, 18,
-	13, 3, 2, 2, 2, 19, 22, 3, 2, 2, 2, 20, 18, 3, 2, 2, 2, 20, 21, 3, 2, 2,
-	2, 21, 23, 3, 2, 2, 2, 22, 20, 3, 2, 2, 2, 23, 24, 7, 30, 2, 2, 24, 25,
-	5, 2, 2, 2, 25, 26, 7, 32, 2, 2, 26, 80, 3, 2, 2, 2, 27, 28, 7, 23, 2,
-	2, 28, 29, 7, 3, 2, 2, 29, 30, 5, 2, 2, 2, 30, 31, 7, 15, 2, 2, 31, 32,
-	5, 2, 2, 2, 32, 33, 7, 15, 2, 2, 33, 34, 5, 2, 2, 2, 34, 35, 7, 4, 2, 2,
-	35, 80, 3, 2, 2, 2, 36, 37, 7, 22, 2, 2, 37, 80, 7, 18, 2, 2, 38, 39, 7,
-	19, 2, 2, 39, 40, 7, 3, 2, 2, 40, 41, 5, 2, 2, 2, 41, 42, 7, 15, 2, 2,
-	42, 43, 5, 2, 2, 2, 43, 44, 7, 4, 2, 2, 44, 80, 3, 2, 2, 2, 45, 46, 7,
-	20, 2, 2, 46, 47, 7, 3, 2, 2, 47, 50, 5, 2, 2, 2, 48, 49, 7, 15, 2, 2,
-	49, 51, 5, 2, 2, 2, 50, 48, 3, 2, 2, 2, 51, 52, 3, 2, 2, 2, 52, 50, 3,
-	2, 2, 2, 52, 53, 3, 2, 2, 2, 53, 54, 3, 2, 2, 2, 54, 55, 7, 4, 2, 2, 55,
-	80, 3, 2, 2, 2, 56, 57, 7, 21, 2, 2, 57, 58, 7, 3, 2, 2, 58, 61, 5, 2,
-	2, 2, 59, 60, 7, 15, 2, 2, 60, 62, 5, 2, 2, 2, 61, 59, 3, 2, 2, 2, 62,
-	63, 3, 2, 2, 2, 63, 61, 3, 2, 2, 2, 63, 64, 3, 2, 2, 2, 64, 65, 3, 2, 2,
-	2, 65, 66, 7, 4, 2, 2, 66, 80, 3, 2, 2, 2, 67, 80, 7, 34, 2, 2, 68, 69,
-	7, 8, 2, 2, 69, 80, 7, 34, 2, 2, 70, 80, 7, 35, 2, 2, 71, 72, 7, 8, 2,
-	2, 72, 80, 7, 35, 2, 2, 73, 80, 7, 39, 2, 2, 74, 80, 7, 40, 2, 2, 75, 80,
-	7, 37, 2, 2, 76, 80, 7, 36, 2, 2, 77, 80, 7, 33, 2, 2, 78, 80, 7, 38, 2,
-	2, 79, 4, 3, 2, 2, 2, 79, 9, 3, 2, 2, 2, 79, 27, 3, 2, 2, 2, 79, 36, 3,
-	2, 2, 2, 79, 38, 3, 2, 2, 2, 79, 45, 3, 2, 2, 2, 79, 56, 3, 2, 2, 2, 79,
-	67, 3, 2, 2, 2, 79, 68, 3, 2, 2, 2, 79, 70, 3, 2, 2, 2, 79, 71, 3, 2, 2,
-	2, 79, 73, 3, 2, 2, 2, 79, 74, 3, 2, 2, 2, 79, 75, 3, 2, 2, 2, 79, 76,
-	3, 2, 2, 2, 79, 77, 3, 2, 2, 2, 79, 78, 3, 2, 2, 2, 80, 148, 3, 2, 2, 2,
-	81, 82, 12, 32, 2, 2, 82, 83, 7, 5, 2, 2, 83, 147, 5, 2, 2, 33, 84, 85,
-	12, 31, 2, 2, 85, 86, 7, 6, 2, 2, 86, 147, 5, 2, 2, 32, 87, 88, 12, 30,
-	2, 2, 88, 89, 7, 7, 2, 2, 89, 147, 5, 2, 2, 31, 90, 91, 12, 29, 2, 2, 91,
-	92, 7, 8, 2, 2, 92, 147, 5, 2, 2, 30, 93, 94, 12, 28, 2, 2, 94, 95, 7,
-	9, 2, 2, 95, 147, 5, 2, 2, 29, 96, 97, 12, 27, 2, 2, 97, 98, 7, 10, 2,
-	2, 98, 147, 5, 2, 2, 28, 99, 100, 12, 26, 2, 2, 100, 101, 7, 11, 2, 2,
-	101, 147, 5, 2, 2, 27, 102, 103, 12, 25, 2, 2, 103, 104, 7, 12, 2, 2, 104,
-	147, 5, 2, 2, 26, 105, 106, 12, 24, 2, 2, 106, 107, 7, 13, 2, 2, 107, 147,
-	5, 2, 2, 25, 108, 109, 12, 23, 2, 2, 109, 110, 7, 14, 2, 2, 110, 147, 5,
-	2, 2, 24, 111, 112, 12, 20, 2, 2, 112, 113, 9, 2, 2, 2, 113, 147, 5, 2,
-	2, 21, 114, 115, 12, 19, 2, 2, 115, 116, 9, 3, 2, 2, 116, 147, 5, 2, 2,
-	20, 117, 118, 12, 22, 2, 2, 118, 119, 7, 24, 2, 2, 119, 128, 7, 3, 2, 2,
-	120, 125, 5, 2, 2, 2, 121, 122, 7, 15, 2, 2, 122, 124, 5, 2, 2, 2, 123,
-	121, 3, 2, 2, 2, 124, 127, 3, 2, 2, 2, 125, 123, 3, 2, 2, 2, 125, 126,
-	3, 2, 2, 2, 126, 129, 3, 2, 2, 2, 127, 125, 3, 2, 2, 2, 128, 120, 3, 2,
-	2, 2, 128, 129, 3, 2, 2, 2, 129, 130, 3, 2, 2, 2, 130, 147, 7, 4, 2, 2,
-	131, 132, 12, 21, 2, 2, 132, 133, 7, 25, 2, 2, 133, 134, 7, 24, 2, 2, 134,
-	143, 7, 3, 2, 2, 135, 140, 5, 2, 2, 2, 136, 137, 7, 15, 2, 2, 137, 139,
-	5, 2, 2, 2, 138, 136, 3, 2, 2, 2, 139, 142, 3, 2, 2, 2, 140, 138, 3, 2,
-	2, 2, 140, 141, 3, 2, 2, 2, 141, 144, 3, 2, 2, 2, 142, 140, 3, 2, 2, 2,
-	143, 135, 3, 2, 2, 2, 143, 144, 3, 2, 2, 2, 144, 145, 3, 2, 2, 2, 145,
-	147, 7, 4, 2, 2, 146, 81, 3, 2, 2, 2, 146, 84, 3, 2, 2, 2, 146, 87, 3,
-	2, 2, 2, 146, 90, 3, 2, 2, 2, 146, 93, 3, 2, 2, 2, 146, 96, 3, 2, 2, 2,
-	146, 99, 3, 2, 2, 2, 146, 102, 3, 2, 2, 2, 146, 105, 3, 2, 2, 2, 146, 108,
-	3, 2, 2, 2, 146, 111, 3, 2, 2, 2, 146, 114, 3, 2, 2, 2, 146, 117, 3, 2,
-	2, 2, 146, 131, 3, 2, 2, 2, 147, 150, 3, 2, 2, 2, 148, 146, 3, 2, 2, 2,
-	148, 149, 3, 2, 2, 2, 149, 3, 3, 2, 2, 2, 150, 148, 3, 2, 2, 2, 12, 20,
-	52, 63, 79, 125, 128, 140, 143, 146, 148,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	7, 2, 129, 10, 2, 12, 2, 14, 2, 132, 11, 2, 5, 2, 134, 10, 2, 3, 2, 3,
+	2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 144, 10, 2, 12, 2, 14, 2,
+	147, 11, 2, 5, 2, 149, 10, 2, 3, 2, 7, 2, 152, 10, 2, 12, 2, 14, 2, 155,
+	11, 2, 3, 2, 2, 3, 2, 3, 2, 2, 4, 4, 2, 16, 16, 27, 27, 4, 2, 17, 17, 28,
+	28, 2, 193, 2, 84, 3, 2, 2, 2, 4, 5, 8, 2, 1, 2, 5, 6, 7, 3, 2, 2, 6, 7,
+	5, 2, 2, 2, 7, 8, 7, 4, 2, 2, 8, 85, 3, 2, 2, 2, 9, 10, 7, 29, 2, 2, 10,
+	11, 5, 2, 2, 2, 11, 12, 7, 30, 2, 2, 12, 20, 5, 2, 2, 2, 13, 14, 7, 32,
+	2, 2, 14, 15, 5, 2, 2, 2, 15, 16, 7, 30, 2, 2, 16, 17, 5, 2, 2, 2, 17,
+	19, 3, 2, 2, 2, 18, 13, 3, 2, 2, 2, 19, 22, 3, 2, 2, 2, 20, 18, 3, 2, 2,
+	2, 20, 21, 3, 2, 2, 2, 21, 23, 3, 2, 2, 2, 22, 20, 3, 2, 2, 2, 23, 24,
+	7, 31, 2, 2, 24, 25, 5, 2, 2, 2, 25, 26, 7, 33, 2, 2, 26, 85, 3, 2, 2,
+	2, 27, 28, 7, 24, 2, 2, 28, 29, 7, 3, 2, 2, 29, 30, 5, 2, 2, 2, 30, 31,
+	7, 15, 2, 2, 31, 32, 5, 2, 2, 2, 32, 33, 7, 15, 2, 2, 33, 34, 5, 2, 2,
+	2, 34, 35, 7, 4, 2, 2, 35, 85, 3, 2, 2, 2, 36, 37, 7, 19, 2, 2, 37, 38,
+	7, 3, 2, 2, 38, 39, 5, 2, 2, 2, 39, 40, 7, 4, 2, 2, 40, 85, 3, 2, 2, 2,
+	41, 42, 7, 23, 2, 2, 42, 85, 7, 18, 2, 2, 43, 44, 7, 20, 2, 2, 44, 45,
+	7, 3, 2, 2, 45, 46, 5, 2, 2, 2, 46, 47, 7, 15, 2, 2, 47, 48, 5, 2, 2, 2,
+	48, 49, 7, 4, 2, 2, 49, 85, 3, 2, 2, 2, 50, 51, 7, 21, 2, 2, 51, 52, 7,
+	3, 2, 2, 52, 55, 5, 2, 2, 2, 53, 54, 7, 15, 2, 2, 54, 56, 5, 2, 2, 2, 55,
+	53, 3, 2, 2, 2, 56, 57, 3, 2, 2, 2, 57, 55, 3, 2, 2, 2, 57, 58, 3, 2, 2,
+	2, 58, 59, 3, 2, 2, 2, 59, 60, 7, 4, 2, 2, 60, 85, 3, 2, 2, 2, 61, 62,
+	7, 22, 2, 2, 62, 63, 7, 3, 2, 2, 63, 66, 5, 2, 2, 2, 64, 65, 7, 15, 2,
+	2, 65, 67, 5, 2, 2, 2, 66, 64, 3, 2, 2, 2, 67, 68, 3, 2, 2, 2, 68, 66,
+	3, 2, 2, 2, 68, 69, 3, 2, 2, 2, 69, 70, 3, 2, 2, 2, 70, 71, 7, 4, 2, 2,
+	71, 85, 3, 2, 2, 2, 72, 85, 7, 35, 2, 2, 73, 74, 7, 8, 2, 2, 74, 85, 7,
+	35, 2, 2, 75, 85, 7, 36, 2, 2, 76, 77, 7, 8, 2, 2, 77, 85, 7, 36, 2, 2,
+	78, 85, 7, 40, 2, 2, 79, 85, 7, 41, 2, 2, 80, 85, 7, 38, 2, 2, 81, 85,
+	7, 37, 2, 2, 82, 85, 7, 34, 2, 2, 83, 85, 7, 39, 2, 2, 84, 4, 3, 2, 2,
+	2, 84, 9, 3, 2, 2, 2, 84, 27, 3, 2, 2, 2, 84, 36, 3, 2, 2, 2, 84, 41, 3,
+	2, 2, 2, 84, 43, 3, 2, 2, 2, 84, 50, 3, 2, 2, 2, 84, 61, 3, 2, 2, 2, 84,
+	72, 3, 2, 2, 2, 84, 73, 3, 2, 2, 2, 84, 75, 3, 2, 2, 2, 84, 76, 3, 2, 2,
+	2, 84, 78, 3, 2, 2, 2, 84, 79, 3, 2, 2, 2, 84, 80, 3, 2, 2, 2, 84, 81,
+	3, 2, 2, 2, 84, 82, 3, 2, 2, 2, 84, 83, 3, 2, 2, 2, 85, 153, 3, 2, 2, 2,
+	86, 87, 12, 33, 2, 2, 87, 88, 7, 5, 2, 2, 88, 152, 5, 2, 2, 34, 89, 90,
+	12, 32, 2, 2, 90, 91, 7, 6, 2, 2, 91, 152, 5, 2, 2, 33, 92, 93, 12, 31,
+	2, 2, 93, 94, 7, 7, 2, 2, 94, 152, 5, 2, 2, 32, 95, 96, 12, 30, 2, 2, 96,
+	97, 7, 8, 2, 2, 97, 152, 5, 2, 2, 31, 98, 99, 12, 29, 2, 2, 99, 100, 7,
+	9, 2, 2, 100, 152, 5, 2, 2, 30, 101, 102, 12, 28, 2, 2, 102, 103, 7, 10,
+	2, 2, 103, 152, 5, 2, 2, 29, 104, 105, 12, 27, 2, 2, 105, 106, 7, 11, 2,
+	2, 106, 152, 5, 2, 2, 28, 107, 108, 12, 26, 2, 2, 108, 109, 7, 12, 2, 2,
+	109, 152, 5, 2, 2, 27, 110, 111, 12, 25, 2, 2, 111, 112, 7, 13, 2, 2, 112,
+	152, 5, 2, 2, 26, 113, 114, 12, 24, 2, 2, 114, 115, 7, 14, 2, 2, 115, 152,
+	5, 2, 2, 25, 116, 117, 12, 21, 2, 2, 117, 118, 9, 2, 2, 2, 118, 152, 5,
+	2, 2, 22, 119, 120, 12, 20, 2, 2, 120, 121, 9, 3, 2, 2, 121, 152, 5, 2,
+	2, 21, 122, 123, 12, 23, 2, 2, 123, 124, 7, 25, 2, 2, 124, 133, 7, 3, 2,
+	2, 125, 130, 5, 2, 2, 2, 126, 127, 7, 15, 2, 2, 127, 129, 5, 2, 2, 2, 128,
+	126, 3, 2, 2, 2, 129, 132, 3, 2, 2, 2, 130, 128, 3, 2, 2, 2, 130, 131,
+	3, 2, 2, 2, 131, 134, 3, 2, 2, 2, 132, 130, 3, 2, 2, 2, 133, 125, 3, 2,
+	2, 2, 133, 134, 3, 2, 2, 2, 134, 135, 3, 2, 2, 2, 135, 152, 7, 4, 2, 2,
+	136, 137, 12, 22, 2, 2, 137, 138, 7, 26, 2, 2, 138, 139, 7, 25, 2, 2, 139,
+	148, 7, 3, 2, 2, 140, 145, 5, 2, 2, 2, 141, 142, 7, 15, 2, 2, 142, 144,
+	5, 2, 2, 2, 143, 141, 3, 2, 2, 2, 144, 147, 3, 2, 2, 2, 145, 143, 3, 2,
+	2, 2, 145, 146, 3, 2, 2, 2, 146, 149, 3, 2, 2, 2, 147, 145, 3, 2, 2, 2,
+	148, 140, 3, 2, 2, 2, 148, 149, 3, 2, 2, 2, 149, 150, 3, 2, 2, 2, 150,
+	152, 7, 4, 2, 2, 151, 86, 3, 2, 2, 2, 151, 89, 3, 2, 2, 2, 151, 92, 3,
+	2, 2, 2, 151, 95, 3, 2, 2, 2, 151, 98, 3, 2, 2, 2, 151, 101, 3, 2, 2, 2,
+	151, 104, 3, 2, 2, 2, 151, 107, 3, 2, 2, 2, 151, 110, 3, 2, 2, 2, 151,
+	113, 3, 2, 2, 2, 151, 116, 3, 2, 2, 2, 151, 119, 3, 2, 2, 2, 151, 122,
+	3, 2, 2, 2, 151, 136, 3, 2, 2, 2, 152, 155, 3, 2, 2, 2, 153, 151, 3, 2,
+	2, 2, 153, 154, 3, 2, 2, 2, 154, 3, 3, 2, 2, 2, 155, 153, 3, 2, 2, 2, 12,
+	20, 57, 68, 84, 130, 133, 145, 148, 151, 153,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -96,10 +98,10 @@ var literalNames = []string{
 	"'<='", "'!='", "','", "'&&'", "'||'", "'()'",
 }
 var symbolicNames = []string{
-	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Pow",
-	"Min", "Max", "Null", "Iif", "In", "Not", "And", "Or", "If", "Then", "Else",
-	"Elseif", "Endif", "Bool", "Integer", "Decimal", "Date", "Datetime", "Field",
-	"SingleQuoteString", "DoubleQuoteString", "Whitespace",
+	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Abs",
+	"Pow", "Min", "Max", "Null", "Iif", "In", "Not", "And", "Or", "If", "Then",
+	"Else", "Elseif", "Endif", "Bool", "Integer", "Decimal", "Date", "Datetime",
+	"Field", "SingleQuoteString", "DoubleQuoteString", "Whitespace",
 }
 
 var ruleNames = []string{
@@ -150,29 +152,30 @@ const (
 	AlteryxFormulasParserT__13             = 14
 	AlteryxFormulasParserT__14             = 15
 	AlteryxFormulasParserT__15             = 16
-	AlteryxFormulasParserPow               = 17
-	AlteryxFormulasParserMin               = 18
-	AlteryxFormulasParserMax               = 19
-	AlteryxFormulasParserNull              = 20
-	AlteryxFormulasParserIif               = 21
-	AlteryxFormulasParserIn                = 22
-	AlteryxFormulasParserNot               = 23
-	AlteryxFormulasParserAnd               = 24
-	AlteryxFormulasParserOr                = 25
-	AlteryxFormulasParserIf                = 26
-	AlteryxFormulasParserThen              = 27
-	AlteryxFormulasParserElse              = 28
-	AlteryxFormulasParserElseif            = 29
-	AlteryxFormulasParserEndif             = 30
-	AlteryxFormulasParserBool              = 31
-	AlteryxFormulasParserInteger           = 32
-	AlteryxFormulasParserDecimal           = 33
-	AlteryxFormulasParserDate              = 34
-	AlteryxFormulasParserDatetime          = 35
-	AlteryxFormulasParserField             = 36
-	AlteryxFormulasParserSingleQuoteString = 37
-	AlteryxFormulasParserDoubleQuoteString = 38
-	AlteryxFormulasParserWhitespace        = 39
+	AlteryxFormulasParserAbs               = 17
+	AlteryxFormulasParserPow               = 18
+	AlteryxFormulasParserMin               = 19
+	AlteryxFormulasParserMax               = 20
+	AlteryxFormulasParserNull              = 21
+	AlteryxFormulasParserIif               = 22
+	AlteryxFormulasParserIn                = 23
+	AlteryxFormulasParserNot               = 24
+	AlteryxFormulasParserAnd               = 25
+	AlteryxFormulasParserOr                = 26
+	AlteryxFormulasParserIf                = 27
+	AlteryxFormulasParserThen              = 28
+	AlteryxFormulasParserElse              = 29
+	AlteryxFormulasParserElseif            = 30
+	AlteryxFormulasParserEndif             = 31
+	AlteryxFormulasParserBool              = 32
+	AlteryxFormulasParserInteger           = 33
+	AlteryxFormulasParserDecimal           = 34
+	AlteryxFormulasParserDate              = 35
+	AlteryxFormulasParserDatetime          = 36
+	AlteryxFormulasParserField             = 37
+	AlteryxFormulasParserSingleQuoteString = 38
+	AlteryxFormulasParserDoubleQuoteString = 39
+	AlteryxFormulasParserWhitespace        = 40
 )
 
 // AlteryxFormulasParserRULE_expr is the AlteryxFormulasParser rule.
@@ -1619,6 +1622,50 @@ func (s *GreaterEqualContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+type AbsFuncContext struct {
+	*ExprContext
+}
+
+func NewAbsFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *AbsFuncContext {
+	var p = new(AbsFuncContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *AbsFuncContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *AbsFuncContext) Abs() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserAbs, 0)
+}
+
+func (s *AbsFuncContext) Expr() IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *AbsFuncContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterAbsFunc(s)
+	}
+}
+
+func (s *AbsFuncContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitAbsFunc(s)
+	}
+}
+
 type LessEqualContext struct {
 	*ExprContext
 	left  IExprContext
@@ -1753,7 +1800,7 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(77)
+	p.SetState(82)
 	p.GetErrorHandler().Sync(p)
 	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext()) {
 	case 1:
@@ -1886,132 +1933,144 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		}
 
 	case 4:
-		localctx = NewNullFuncContext(p, localctx)
+		localctx = NewAbsFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(34)
-			p.Match(AlteryxFormulasParserNull)
+			p.Match(AlteryxFormulasParserAbs)
 		}
 		{
 			p.SetState(35)
-			p.Match(AlteryxFormulasParserT__15)
+			p.Match(AlteryxFormulasParserT__0)
+		}
+		{
+			p.SetState(36)
+			p.expr(0)
+		}
+		{
+			p.SetState(37)
+			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 5:
+		localctx = NewNullFuncContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(39)
+			p.Match(AlteryxFormulasParserNull)
+		}
+		{
+			p.SetState(40)
+			p.Match(AlteryxFormulasParserT__15)
+		}
+
+	case 6:
 		localctx = NewPowFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(36)
+			p.SetState(41)
 			p.Match(AlteryxFormulasParserPow)
 		}
 		{
-			p.SetState(37)
+			p.SetState(42)
 			p.Match(AlteryxFormulasParserT__0)
 		}
 		{
-			p.SetState(38)
-			p.expr(0)
-		}
-		{
-			p.SetState(39)
-			p.Match(AlteryxFormulasParserT__12)
-		}
-		{
-			p.SetState(40)
-			p.expr(0)
-		}
-		{
-			p.SetState(41)
-			p.Match(AlteryxFormulasParserT__1)
-		}
-
-	case 6:
-		localctx = NewMinFuncContext(p, localctx)
-		p.SetParserRuleContext(localctx)
-		_prevctx = localctx
-		{
 			p.SetState(43)
-			p.Match(AlteryxFormulasParserMin)
+			p.expr(0)
 		}
 		{
 			p.SetState(44)
-			p.Match(AlteryxFormulasParserT__0)
+			p.Match(AlteryxFormulasParserT__12)
 		}
 		{
 			p.SetState(45)
 			p.expr(0)
 		}
-		p.SetState(48)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
-
-		for ok := true; ok; ok = _la == AlteryxFormulasParserT__12 {
-			{
-				p.SetState(46)
-				p.Match(AlteryxFormulasParserT__12)
-			}
-			{
-				p.SetState(47)
-				p.expr(0)
-			}
-
-			p.SetState(50)
-			p.GetErrorHandler().Sync(p)
-			_la = p.GetTokenStream().LA(1)
-		}
 		{
-			p.SetState(52)
+			p.SetState(46)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 7:
-		localctx = NewMaxFuncContext(p, localctx)
+		localctx = NewMinFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(54)
-			p.Match(AlteryxFormulasParserMax)
+			p.SetState(48)
+			p.Match(AlteryxFormulasParserMin)
 		}
 		{
-			p.SetState(55)
+			p.SetState(49)
 			p.Match(AlteryxFormulasParserT__0)
 		}
 		{
-			p.SetState(56)
+			p.SetState(50)
 			p.expr(0)
 		}
-		p.SetState(59)
+		p.SetState(53)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = _la == AlteryxFormulasParserT__12 {
 			{
-				p.SetState(57)
+				p.SetState(51)
 				p.Match(AlteryxFormulasParserT__12)
 			}
 			{
-				p.SetState(58)
+				p.SetState(52)
 				p.expr(0)
 			}
 
-			p.SetState(61)
+			p.SetState(55)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(63)
+			p.SetState(57)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 8:
-		localctx = NewNumberLiteralContext(p, localctx)
+		localctx = NewMaxFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(65)
-			p.Match(AlteryxFormulasParserInteger)
+			p.SetState(59)
+			p.Match(AlteryxFormulasParserMax)
+		}
+		{
+			p.SetState(60)
+			p.Match(AlteryxFormulasParserT__0)
+		}
+		{
+			p.SetState(61)
+			p.expr(0)
+		}
+		p.SetState(64)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		for ok := true; ok; ok = _la == AlteryxFormulasParserT__12 {
+			{
+				p.SetState(62)
+				p.Match(AlteryxFormulasParserT__12)
+			}
+			{
+				p.SetState(63)
+				p.expr(0)
+			}
+
+			p.SetState(66)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(68)
+			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 9:
@@ -2019,11 +2078,7 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(66)
-			p.Match(AlteryxFormulasParserT__5)
-		}
-		{
-			p.SetState(67)
+			p.SetState(70)
 			p.Match(AlteryxFormulasParserInteger)
 		}
 
@@ -2032,8 +2087,12 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(68)
-			p.Match(AlteryxFormulasParserDecimal)
+			p.SetState(71)
+			p.Match(AlteryxFormulasParserT__5)
+		}
+		{
+			p.SetState(72)
+			p.Match(AlteryxFormulasParserInteger)
 		}
 
 	case 11:
@@ -2041,21 +2100,21 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(69)
-			p.Match(AlteryxFormulasParserT__5)
-		}
-		{
-			p.SetState(70)
+			p.SetState(73)
 			p.Match(AlteryxFormulasParserDecimal)
 		}
 
 	case 12:
-		localctx = NewStringLiteralContext(p, localctx)
+		localctx = NewNumberLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(71)
-			p.Match(AlteryxFormulasParserSingleQuoteString)
+			p.SetState(74)
+			p.Match(AlteryxFormulasParserT__5)
+		}
+		{
+			p.SetState(75)
+			p.Match(AlteryxFormulasParserDecimal)
 		}
 
 	case 13:
@@ -2063,49 +2122,58 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(72)
-			p.Match(AlteryxFormulasParserDoubleQuoteString)
+			p.SetState(76)
+			p.Match(AlteryxFormulasParserSingleQuoteString)
 		}
 
 	case 14:
+		localctx = NewStringLiteralContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(77)
+			p.Match(AlteryxFormulasParserDoubleQuoteString)
+		}
+
+	case 15:
 		localctx = NewDatetimeLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(73)
+			p.SetState(78)
 			p.Match(AlteryxFormulasParserDatetime)
 		}
 
-	case 15:
+	case 16:
 		localctx = NewDateLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(74)
+			p.SetState(79)
 			p.Match(AlteryxFormulasParserDate)
 		}
 
-	case 16:
+	case 17:
 		localctx = NewBoolLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(75)
+			p.SetState(80)
 			p.Match(AlteryxFormulasParserBool)
 		}
 
-	case 17:
+	case 18:
 		localctx = NewExprFieldContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(76)
+			p.SetState(81)
 			p.Match(AlteryxFormulasParserField)
 		}
 
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(146)
+	p.SetState(151)
 	p.GetErrorHandler().Sync(p)
 	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 9, p.GetParserRuleContext())
 
@@ -2115,7 +2183,7 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(144)
+			p.SetState(149)
 			p.GetErrorHandler().Sync(p)
 			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 8, p.GetParserRuleContext()) {
 			case 1:
@@ -2123,19 +2191,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*MultiplyContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(79)
+				p.SetState(84)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 30)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 30)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 31)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 31)", ""))
 				}
 				{
-					p.SetState(80)
+					p.SetState(85)
 					p.Match(AlteryxFormulasParserT__2)
 				}
 				{
-					p.SetState(81)
+					p.SetState(86)
 
-					var _x = p.expr(31)
+					var _x = p.expr(32)
 
 					localctx.(*MultiplyContext).right = _x
 				}
@@ -2145,19 +2213,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*DivideContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(82)
+				p.SetState(87)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 29)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 29)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 30)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 30)", ""))
 				}
 				{
-					p.SetState(83)
+					p.SetState(88)
 					p.Match(AlteryxFormulasParserT__3)
 				}
 				{
-					p.SetState(84)
+					p.SetState(89)
 
-					var _x = p.expr(30)
+					var _x = p.expr(31)
 
 					localctx.(*DivideContext).right = _x
 				}
@@ -2167,19 +2235,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*AddContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(85)
+				p.SetState(90)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 28)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 28)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 29)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 29)", ""))
 				}
 				{
-					p.SetState(86)
+					p.SetState(91)
 					p.Match(AlteryxFormulasParserT__4)
 				}
 				{
-					p.SetState(87)
+					p.SetState(92)
 
-					var _x = p.expr(29)
+					var _x = p.expr(30)
 
 					localctx.(*AddContext).right = _x
 				}
@@ -2189,19 +2257,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*SubtractContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(88)
+				p.SetState(93)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 27)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 27)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 28)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 28)", ""))
 				}
 				{
-					p.SetState(89)
+					p.SetState(94)
 					p.Match(AlteryxFormulasParserT__5)
 				}
 				{
-					p.SetState(90)
+					p.SetState(95)
 
-					var _x = p.expr(28)
+					var _x = p.expr(29)
 
 					localctx.(*SubtractContext).right = _x
 				}
@@ -2211,19 +2279,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*EqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(91)
+				p.SetState(96)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 26)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 26)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 27)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 27)", ""))
 				}
 				{
-					p.SetState(92)
+					p.SetState(97)
 					p.Match(AlteryxFormulasParserT__6)
 				}
 				{
-					p.SetState(93)
+					p.SetState(98)
 
-					var _x = p.expr(27)
+					var _x = p.expr(28)
 
 					localctx.(*EqualContext).right = _x
 				}
@@ -2233,19 +2301,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*GreaterThanContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(94)
+				p.SetState(99)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 25)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 25)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 26)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 26)", ""))
 				}
 				{
-					p.SetState(95)
+					p.SetState(100)
 					p.Match(AlteryxFormulasParserT__7)
 				}
 				{
-					p.SetState(96)
+					p.SetState(101)
 
-					var _x = p.expr(26)
+					var _x = p.expr(27)
 
 					localctx.(*GreaterThanContext).right = _x
 				}
@@ -2255,19 +2323,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*GreaterEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(97)
+				p.SetState(102)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 24)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 24)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 25)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 25)", ""))
 				}
 				{
-					p.SetState(98)
+					p.SetState(103)
 					p.Match(AlteryxFormulasParserT__8)
 				}
 				{
-					p.SetState(99)
+					p.SetState(104)
 
-					var _x = p.expr(25)
+					var _x = p.expr(26)
 
 					localctx.(*GreaterEqualContext).right = _x
 				}
@@ -2277,19 +2345,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*LessThanContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(100)
+				p.SetState(105)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 23)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 23)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 24)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 24)", ""))
 				}
 				{
-					p.SetState(101)
+					p.SetState(106)
 					p.Match(AlteryxFormulasParserT__9)
 				}
 				{
-					p.SetState(102)
+					p.SetState(107)
 
-					var _x = p.expr(24)
+					var _x = p.expr(25)
 
 					localctx.(*LessThanContext).right = _x
 				}
@@ -2299,19 +2367,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*LessEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(103)
+				p.SetState(108)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 22)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 22)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 23)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 23)", ""))
 				}
 				{
-					p.SetState(104)
+					p.SetState(109)
 					p.Match(AlteryxFormulasParserT__10)
 				}
 				{
-					p.SetState(105)
+					p.SetState(110)
 
-					var _x = p.expr(23)
+					var _x = p.expr(24)
 
 					localctx.(*LessEqualContext).right = _x
 				}
@@ -2321,19 +2389,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*NotEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(106)
+				p.SetState(111)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 21)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 21)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 22)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 22)", ""))
 				}
 				{
-					p.SetState(107)
+					p.SetState(112)
 					p.Match(AlteryxFormulasParserT__11)
 				}
 				{
-					p.SetState(108)
+					p.SetState(113)
 
-					var _x = p.expr(22)
+					var _x = p.expr(23)
 
 					localctx.(*NotEqualContext).right = _x
 				}
@@ -2343,13 +2411,13 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*AndContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(109)
+				p.SetState(114)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 18)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 18)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 19)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 19)", ""))
 				}
 				{
-					p.SetState(110)
+					p.SetState(115)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == AlteryxFormulasParserT__13 || _la == AlteryxFormulasParserAnd) {
@@ -2360,9 +2428,9 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(111)
+					p.SetState(116)
 
-					var _x = p.expr(19)
+					var _x = p.expr(20)
 
 					localctx.(*AndContext).right = _x
 				}
@@ -2372,13 +2440,13 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*OrContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(112)
+				p.SetState(117)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 17)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 17)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 18)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 18)", ""))
 				}
 				{
-					p.SetState(113)
+					p.SetState(118)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == AlteryxFormulasParserT__14 || _la == AlteryxFormulasParserOr) {
@@ -2389,9 +2457,9 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(114)
+					p.SetState(119)
 
-					var _x = p.expr(18)
+					var _x = p.expr(19)
 
 					localctx.(*OrContext).right = _x
 				}
@@ -2399,111 +2467,111 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 			case 13:
 				localctx = NewInContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(115)
+				p.SetState(120)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 20)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 20)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 21)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 21)", ""))
 				}
 				{
-					p.SetState(116)
+					p.SetState(121)
 					p.Match(AlteryxFormulasParserIn)
 				}
 				{
-					p.SetState(117)
+					p.SetState(122)
 					p.Match(AlteryxFormulasParserT__0)
 				}
-				p.SetState(126)
+				p.SetState(131)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
-				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserPow)|(1<<AlteryxFormulasParserMin)|(1<<AlteryxFormulasParserMax)|(1<<AlteryxFormulasParserNull)|(1<<AlteryxFormulasParserIif)|(1<<AlteryxFormulasParserIf)|(1<<AlteryxFormulasParserBool))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserInteger-32))|(1<<(AlteryxFormulasParserDecimal-32))|(1<<(AlteryxFormulasParserDate-32))|(1<<(AlteryxFormulasParserDatetime-32))|(1<<(AlteryxFormulasParserField-32))|(1<<(AlteryxFormulasParserSingleQuoteString-32))|(1<<(AlteryxFormulasParserDoubleQuoteString-32)))) != 0) {
+				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserPow)|(1<<AlteryxFormulasParserMin)|(1<<AlteryxFormulasParserMax)|(1<<AlteryxFormulasParserNull)|(1<<AlteryxFormulasParserIif)|(1<<AlteryxFormulasParserIf))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserBool-32))|(1<<(AlteryxFormulasParserInteger-32))|(1<<(AlteryxFormulasParserDecimal-32))|(1<<(AlteryxFormulasParserDate-32))|(1<<(AlteryxFormulasParserDatetime-32))|(1<<(AlteryxFormulasParserField-32))|(1<<(AlteryxFormulasParserSingleQuoteString-32))|(1<<(AlteryxFormulasParserDoubleQuoteString-32)))) != 0) {
 					{
-						p.SetState(118)
+						p.SetState(123)
 						p.expr(0)
 					}
-					p.SetState(123)
+					p.SetState(128)
 					p.GetErrorHandler().Sync(p)
 					_la = p.GetTokenStream().LA(1)
 
 					for _la == AlteryxFormulasParserT__12 {
 						{
-							p.SetState(119)
+							p.SetState(124)
 							p.Match(AlteryxFormulasParserT__12)
 						}
 						{
-							p.SetState(120)
+							p.SetState(125)
 							p.expr(0)
 						}
 
-						p.SetState(125)
+						p.SetState(130)
 						p.GetErrorHandler().Sync(p)
 						_la = p.GetTokenStream().LA(1)
 					}
 
 				}
 				{
-					p.SetState(128)
+					p.SetState(133)
 					p.Match(AlteryxFormulasParserT__1)
 				}
 
 			case 14:
 				localctx = NewNotInContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(129)
+				p.SetState(134)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 19)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 19)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 20)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 20)", ""))
 				}
 				{
-					p.SetState(130)
+					p.SetState(135)
 					p.Match(AlteryxFormulasParserNot)
 				}
 				{
-					p.SetState(131)
+					p.SetState(136)
 					p.Match(AlteryxFormulasParserIn)
 				}
 				{
-					p.SetState(132)
+					p.SetState(137)
 					p.Match(AlteryxFormulasParserT__0)
 				}
-				p.SetState(141)
+				p.SetState(146)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
-				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserPow)|(1<<AlteryxFormulasParserMin)|(1<<AlteryxFormulasParserMax)|(1<<AlteryxFormulasParserNull)|(1<<AlteryxFormulasParserIif)|(1<<AlteryxFormulasParserIf)|(1<<AlteryxFormulasParserBool))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserInteger-32))|(1<<(AlteryxFormulasParserDecimal-32))|(1<<(AlteryxFormulasParserDate-32))|(1<<(AlteryxFormulasParserDatetime-32))|(1<<(AlteryxFormulasParserField-32))|(1<<(AlteryxFormulasParserSingleQuoteString-32))|(1<<(AlteryxFormulasParserDoubleQuoteString-32)))) != 0) {
+				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserPow)|(1<<AlteryxFormulasParserMin)|(1<<AlteryxFormulasParserMax)|(1<<AlteryxFormulasParserNull)|(1<<AlteryxFormulasParserIif)|(1<<AlteryxFormulasParserIf))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserBool-32))|(1<<(AlteryxFormulasParserInteger-32))|(1<<(AlteryxFormulasParserDecimal-32))|(1<<(AlteryxFormulasParserDate-32))|(1<<(AlteryxFormulasParserDatetime-32))|(1<<(AlteryxFormulasParserField-32))|(1<<(AlteryxFormulasParserSingleQuoteString-32))|(1<<(AlteryxFormulasParserDoubleQuoteString-32)))) != 0) {
 					{
-						p.SetState(133)
+						p.SetState(138)
 						p.expr(0)
 					}
-					p.SetState(138)
+					p.SetState(143)
 					p.GetErrorHandler().Sync(p)
 					_la = p.GetTokenStream().LA(1)
 
 					for _la == AlteryxFormulasParserT__12 {
 						{
-							p.SetState(134)
+							p.SetState(139)
 							p.Match(AlteryxFormulasParserT__12)
 						}
 						{
-							p.SetState(135)
+							p.SetState(140)
 							p.expr(0)
 						}
 
-						p.SetState(140)
+						p.SetState(145)
 						p.GetErrorHandler().Sync(p)
 						_la = p.GetTokenStream().LA(1)
 					}
 
 				}
 				{
-					p.SetState(143)
+					p.SetState(148)
 					p.Match(AlteryxFormulasParserT__1)
 				}
 
 			}
 
 		}
-		p.SetState(148)
+		p.SetState(153)
 		p.GetErrorHandler().Sync(p)
 		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 9, p.GetParserRuleContext())
 	}
@@ -2528,46 +2596,46 @@ func (p *AlteryxFormulasParser) Sempred(localctx antlr.RuleContext, ruleIndex, p
 func (p *AlteryxFormulasParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
 	switch predIndex {
 	case 0:
-		return p.Precpred(p.GetParserRuleContext(), 30)
+		return p.Precpred(p.GetParserRuleContext(), 31)
 
 	case 1:
-		return p.Precpred(p.GetParserRuleContext(), 29)
+		return p.Precpred(p.GetParserRuleContext(), 30)
 
 	case 2:
-		return p.Precpred(p.GetParserRuleContext(), 28)
+		return p.Precpred(p.GetParserRuleContext(), 29)
 
 	case 3:
-		return p.Precpred(p.GetParserRuleContext(), 27)
+		return p.Precpred(p.GetParserRuleContext(), 28)
 
 	case 4:
-		return p.Precpred(p.GetParserRuleContext(), 26)
+		return p.Precpred(p.GetParserRuleContext(), 27)
 
 	case 5:
-		return p.Precpred(p.GetParserRuleContext(), 25)
+		return p.Precpred(p.GetParserRuleContext(), 26)
 
 	case 6:
-		return p.Precpred(p.GetParserRuleContext(), 24)
+		return p.Precpred(p.GetParserRuleContext(), 25)
 
 	case 7:
-		return p.Precpred(p.GetParserRuleContext(), 23)
+		return p.Precpred(p.GetParserRuleContext(), 24)
 
 	case 8:
-		return p.Precpred(p.GetParserRuleContext(), 22)
+		return p.Precpred(p.GetParserRuleContext(), 23)
 
 	case 9:
-		return p.Precpred(p.GetParserRuleContext(), 21)
+		return p.Precpred(p.GetParserRuleContext(), 22)
 
 	case 10:
-		return p.Precpred(p.GetParserRuleContext(), 18)
+		return p.Precpred(p.GetParserRuleContext(), 19)
 
 	case 11:
-		return p.Precpred(p.GetParserRuleContext(), 17)
+		return p.Precpred(p.GetParserRuleContext(), 18)
 
 	case 12:
-		return p.Precpred(p.GetParserRuleContext(), 20)
+		return p.Precpred(p.GetParserRuleContext(), 21)
 
 	case 13:
-		return p.Precpred(p.GetParserRuleContext(), 19)
+		return p.Precpred(p.GetParserRuleContext(), 20)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))

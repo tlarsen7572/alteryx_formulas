@@ -83,6 +83,9 @@ type AlteryxFormulasListener interface {
 	// EnterGreaterEqual is called when entering the greaterEqual production.
 	EnterGreaterEqual(c *GreaterEqualContext)
 
+	// EnterAbsFunc is called when entering the absFunc production.
+	EnterAbsFunc(c *AbsFuncContext)
+
 	// EnterLessEqual is called when entering the lessEqual production.
 	EnterLessEqual(c *LessEqualContext)
 
@@ -163,6 +166,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitGreaterEqual is called when exiting the greaterEqual production.
 	ExitGreaterEqual(c *GreaterEqualContext)
+
+	// ExitAbsFunc is called when exiting the absFunc production.
+	ExitAbsFunc(c *AbsFuncContext)
 
 	// ExitLessEqual is called when exiting the lessEqual production.
 	ExitLessEqual(c *LessEqualContext)

@@ -291,3 +291,7 @@ func (l *secondPassListener) EnterIifFunc(c *parser.IifFuncContext) {
 		panic(`invalid type`)
 	}
 }
+
+func (l *secondPassListener) EnterAbsFunc(_ *parser.AbsFuncContext) {
+	l.calc.pushFunction(l.calc.abs)
+}

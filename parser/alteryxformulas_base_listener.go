@@ -171,6 +171,12 @@ func (s *BaseAlteryxFormulasListener) EnterGreaterEqual(ctx *GreaterEqualContext
 // ExitGreaterEqual is called when production greaterEqual is exited.
 func (s *BaseAlteryxFormulasListener) ExitGreaterEqual(ctx *GreaterEqualContext) {}
 
+// EnterAbsFunc is called when production absFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterAbsFunc(ctx *AbsFuncContext) {}
+
+// ExitAbsFunc is called when production absFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitAbsFunc(ctx *AbsFuncContext) {}
+
 // EnterLessEqual is called when production lessEqual is entered.
 func (s *BaseAlteryxFormulasListener) EnterLessEqual(ctx *LessEqualContext) {}
 

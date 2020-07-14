@@ -110,3 +110,8 @@ func (calc *calculator) numberIif() {
 		calc.pushValue(elseValue)
 	}
 }
+
+func (calc *calculator) abs() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Abs(expr))
+}

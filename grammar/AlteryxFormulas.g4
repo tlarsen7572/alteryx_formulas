@@ -22,6 +22,7 @@ expr
       Else    elseStmnt=expr
       Endif                                                          # exprIf
     | Iif '(' expr ',' expr ',' expr ')'                             # iifFunc
+    | Abs '(' expr ')'                                               # absFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -39,6 +40,7 @@ expr
     ;
 
 // Case-insensitive function names
+Abs : A B S ;
 Pow : P O W ;
 Min : M I N ;
 Max : M A X ;
