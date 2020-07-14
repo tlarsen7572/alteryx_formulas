@@ -81,6 +81,12 @@ func (s *BaseAlteryxFormulasListener) EnterMultiply(ctx *MultiplyContext) {}
 // ExitMultiply is called when production multiply is exited.
 func (s *BaseAlteryxFormulasListener) ExitMultiply(ctx *MultiplyContext) {}
 
+// EnterAtanFunc is called when production atanFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterAtanFunc(ctx *AtanFuncContext) {}
+
+// ExitAtanFunc is called when production atanFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitAtanFunc(ctx *AtanFuncContext) {}
+
 // EnterExprField is called when production exprField is entered.
 func (s *BaseAlteryxFormulasListener) EnterExprField(ctx *ExprFieldContext) {}
 

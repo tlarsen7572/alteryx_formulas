@@ -431,12 +431,12 @@ func TestAcos(t *testing.T) {
 	}
 }
 
-func TestAsin(t *testing.T) {
-	result, errs := f.Calculate(`asin(0.5)`, nil)
+func TestAtan(t *testing.T) {
+	result, errs := f.Calculate(`atan(0.8)`, nil)
 	if len(errs) > 0 {
 		t.Fatalf(`expected no errors but got: %v`, errs)
 	}
-	if expectedVal := math.Asin(0.5); result != expectedVal {
+	if expectedVal := math.Atan(0.8); result != expectedVal {
 		t.Fatalf(`expected %v but got %v`, expectedVal, result)
 	}
 }

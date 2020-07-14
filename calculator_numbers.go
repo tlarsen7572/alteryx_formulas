@@ -125,3 +125,8 @@ func (calc *calculator) asin() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Asin(expr))
 }
+
+func (calc *calculator) atan() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Atan(expr))
+}

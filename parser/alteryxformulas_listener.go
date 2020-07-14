@@ -38,6 +38,9 @@ type AlteryxFormulasListener interface {
 	// EnterMultiply is called when entering the multiply production.
 	EnterMultiply(c *MultiplyContext)
 
+	// EnterAtanFunc is called when entering the atanFunc production.
+	EnterAtanFunc(c *AtanFuncContext)
+
 	// EnterExprField is called when entering the exprField production.
 	EnterExprField(c *ExprFieldContext)
 
@@ -127,6 +130,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitMultiply is called when exiting the multiply production.
 	ExitMultiply(c *MultiplyContext)
+
+	// ExitAtanFunc is called when exiting the atanFunc production.
+	ExitAtanFunc(c *AtanFuncContext)
 
 	// ExitExprField is called when exiting the exprField production.
 	ExitExprField(c *ExprFieldContext)

@@ -25,6 +25,7 @@ expr
     | Abs '(' expr ')'                                               # absFunc
     | Acos '(' expr ')'                                              # acosFunc
     | Asin '(' expr ')'                                              # asinFunc
+    | Atan '(' expr ')'                                              # atanFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -45,6 +46,7 @@ expr
 Abs  : A B S ;
 Acos : A C O S ;
 Asin : A S I N ;
+Atan : A T A N ;
 Pow  : P O W ;
 Min  : M I N ;
 Max  : M A X ;
