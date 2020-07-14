@@ -431,6 +431,16 @@ func TestAcos(t *testing.T) {
 	}
 }
 
+func TestAsin(t *testing.T) {
+	result, errs := f.Calculate(`asin(0.5)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if expectedVal := math.Asin(0.5); result != expectedVal {
+		t.Fatalf(`expected %v but got %v`, expectedVal, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

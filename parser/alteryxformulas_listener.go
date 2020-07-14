@@ -44,6 +44,9 @@ type AlteryxFormulasListener interface {
 	// EnterGreaterThan is called when entering the greaterThan production.
 	EnterGreaterThan(c *GreaterThanContext)
 
+	// EnterAsinFunc is called when entering the asinFunc production.
+	EnterAsinFunc(c *AsinFuncContext)
+
 	// EnterAdd is called when entering the add production.
 	EnterAdd(c *AddContext)
 
@@ -130,6 +133,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitGreaterThan is called when exiting the greaterThan production.
 	ExitGreaterThan(c *GreaterThanContext)
+
+	// ExitAsinFunc is called when exiting the asinFunc production.
+	ExitAsinFunc(c *AsinFuncContext)
 
 	// ExitAdd is called when exiting the add production.
 	ExitAdd(c *AddContext)

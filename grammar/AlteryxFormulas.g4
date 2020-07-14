@@ -24,6 +24,7 @@ expr
     | Iif '(' expr ',' expr ',' expr ')'                             # iifFunc
     | Abs '(' expr ')'                                               # absFunc
     | Acos '(' expr ')'                                              # acosFunc
+    | Asin '(' expr ')'                                              # asinFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -43,6 +44,7 @@ expr
 // Case-insensitive function names
 Abs  : A B S ;
 Acos : A C O S ;
+Asin : A S I N ;
 Pow  : P O W ;
 Min  : M I N ;
 Max  : M A X ;

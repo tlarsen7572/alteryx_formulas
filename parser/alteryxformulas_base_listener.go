@@ -93,6 +93,12 @@ func (s *BaseAlteryxFormulasListener) EnterGreaterThan(ctx *GreaterThanContext) 
 // ExitGreaterThan is called when production greaterThan is exited.
 func (s *BaseAlteryxFormulasListener) ExitGreaterThan(ctx *GreaterThanContext) {}
 
+// EnterAsinFunc is called when production asinFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterAsinFunc(ctx *AsinFuncContext) {}
+
+// ExitAsinFunc is called when production asinFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitAsinFunc(ctx *AsinFuncContext) {}
+
 // EnterAdd is called when production add is entered.
 func (s *BaseAlteryxFormulasListener) EnterAdd(ctx *AddContext) {}
 
