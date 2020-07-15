@@ -523,6 +523,16 @@ func TestFloor(t *testing.T) {
 	}
 }
 
+func TestLog(t *testing.T) {
+	result, errs := f.Calculate(`log(14)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if expected := math.Log(14); result != expected {
+		t.Fatalf(`expected %v but got %v`, expected, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

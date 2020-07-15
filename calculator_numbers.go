@@ -187,3 +187,8 @@ func (calc *calculator) floor() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Floor(expr))
 }
+
+func (calc *calculator) log() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Log(expr))
+}

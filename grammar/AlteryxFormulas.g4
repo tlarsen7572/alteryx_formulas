@@ -34,6 +34,7 @@ expr
     | Distance '(' expr ',' expr ',' expr ',' expr ')'               # distanceFunc
     | Exp '(' expr ')'                                               # expFunc
     | Floor '(' expr ')'                                             # floorFunc
+    | Log '(' expr ')'                                               # logFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -63,6 +64,7 @@ Cosh    : C O S H ;
 Distance: D I S T A N C E ;
 Exp     : E X P ;
 Floor   : F L O O R ;
+Log     : L O G ;
 Pow     : P O W ;
 Min     : M I N ;
 Max     : M A X ;

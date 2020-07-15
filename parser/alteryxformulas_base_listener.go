@@ -249,6 +249,12 @@ func (s *BaseAlteryxFormulasListener) EnterAtan2Func(ctx *Atan2FuncContext) {}
 // ExitAtan2Func is called when production atan2Func is exited.
 func (s *BaseAlteryxFormulasListener) ExitAtan2Func(ctx *Atan2FuncContext) {}
 
+// EnterLogFunc is called when production logFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterLogFunc(ctx *LogFuncContext) {}
+
+// ExitLogFunc is called when production logFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitLogFunc(ctx *LogFuncContext) {}
+
 // EnterNumberLiteral is called when production numberLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterNumberLiteral(ctx *NumberLiteralContext) {}
 

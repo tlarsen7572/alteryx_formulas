@@ -122,6 +122,9 @@ type AlteryxFormulasListener interface {
 	// EnterAtan2Func is called when entering the atan2Func production.
 	EnterAtan2Func(c *Atan2FuncContext)
 
+	// EnterLogFunc is called when entering the logFunc production.
+	EnterLogFunc(c *LogFuncContext)
+
 	// EnterNumberLiteral is called when entering the numberLiteral production.
 	EnterNumberLiteral(c *NumberLiteralContext)
 
@@ -238,6 +241,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitAtan2Func is called when exiting the atan2Func production.
 	ExitAtan2Func(c *Atan2FuncContext)
+
+	// ExitLogFunc is called when exiting the logFunc production.
+	ExitLogFunc(c *LogFuncContext)
 
 	// ExitNumberLiteral is called when exiting the numberLiteral production.
 	ExitNumberLiteral(c *NumberLiteralContext)

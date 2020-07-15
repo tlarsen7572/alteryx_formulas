@@ -344,3 +344,7 @@ func (l *secondPassListener) EnterExpFunc(_ *parser.ExpFuncContext) {
 func (l *secondPassListener) EnterFloorFunc(_ *parser.FloorFuncContext) {
 	l.calc.pushFunction(l.calc.floor)
 }
+
+func (l *secondPassListener) EnterLogFunc(_ *parser.LogFuncContext) {
+	l.calc.pushFunction(l.calc.log)
+}
