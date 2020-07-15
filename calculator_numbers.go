@@ -28,6 +28,9 @@ func (calc *calculator) multiplyNumbers() {
 
 func (calc *calculator) divideNumbers() {
 	divide := func(left interface{}, right interface{}) interface{} {
+		if right.(float64) == 0 {
+			return nil
+		}
 		return left.(float64) / right.(float64)
 	}
 	calc.ifNonNullLeftRight(divide)
