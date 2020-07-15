@@ -2,6 +2,7 @@ package alteryx_formulas
 
 import (
 	"math"
+	"sort"
 )
 
 func (calc *calculator) addNumbers() {
@@ -196,4 +197,22 @@ func (calc *calculator) log() {
 func (calc *calculator) log10() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Log10(expr))
+}
+
+func (calc *calculator) median() {
+	exprCount := calc.popValue().(int)
+	exprs := make([]float64, exprCount)
+	for i := 0; i < exprCount; i++ {
+		exprs[i] = calc.popValue().(float64)
+	}
+	sort.Float64s(exprs)
+	var value float64
+	if exprCount%2 > 0 {
+		valueIndex := int(math.Floor(float64(exprCount) / 2))
+		value = exprs[valueIndex]
+	} else {
+		valueIndex := exprCount / 2
+		value = (exprs[valueIndex] + exprs[valueIndex-1]) / 2
+	}
+	calc.pushValue(value)
 }

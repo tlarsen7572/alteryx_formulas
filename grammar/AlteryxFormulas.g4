@@ -36,6 +36,7 @@ expr
     | Floor '(' expr ')'                                             # floorFunc
     | Log '(' expr ')'                                               # logFunc
     | Log10 '(' expr ')'                                             # log10Func
+    | Median '(' expr (',' expr)* ')'                                # medianFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -67,6 +68,7 @@ Exp     : E X P ;
 Floor   : F L O O R ;
 Log     : L O G ;
 Log10   : L O G '10' ;
+Median  : M E D I A N ;
 Pow     : P O W ;
 Min     : M I N ;
 Max     : M A X ;

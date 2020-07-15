@@ -95,6 +95,9 @@ type AlteryxFormulasListener interface {
 	// EnterIifFunc is called when entering the iifFunc production.
 	EnterIifFunc(c *IifFuncContext)
 
+	// EnterMedianFunc is called when entering the medianFunc production.
+	EnterMedianFunc(c *MedianFuncContext)
+
 	// EnterEqual is called when entering the equal production.
 	EnterEqual(c *EqualContext)
 
@@ -217,6 +220,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitIifFunc is called when exiting the iifFunc production.
 	ExitIifFunc(c *IifFuncContext)
+
+	// ExitMedianFunc is called when exiting the medianFunc production.
+	ExitMedianFunc(c *MedianFuncContext)
 
 	// ExitEqual is called when exiting the equal production.
 	ExitEqual(c *EqualContext)

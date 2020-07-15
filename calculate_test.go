@@ -543,6 +543,26 @@ func TestLog10(t *testing.T) {
 	}
 }
 
+func TestMedianWithOddElements(t *testing.T) {
+	result, errs := f.Calculate(`median(5,4,3,7,6)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 5.0 {
+		t.Fatalf(`expected 5 but got %v`, result)
+	}
+}
+
+func TestMedianWithEvenElements(t *testing.T) {
+	result, errs := f.Calculate(`median(5,4,3,7)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 4.5 {
+		t.Fatalf(`expected 4.5 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

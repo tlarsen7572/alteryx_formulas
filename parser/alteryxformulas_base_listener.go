@@ -195,6 +195,12 @@ func (s *BaseAlteryxFormulasListener) EnterIifFunc(ctx *IifFuncContext) {}
 // ExitIifFunc is called when production iifFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitIifFunc(ctx *IifFuncContext) {}
 
+// EnterMedianFunc is called when production medianFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterMedianFunc(ctx *MedianFuncContext) {}
+
+// ExitMedianFunc is called when production medianFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitMedianFunc(ctx *MedianFuncContext) {}
+
 // EnterEqual is called when production equal is entered.
 func (s *BaseAlteryxFormulasListener) EnterEqual(ctx *EqualContext) {}
 

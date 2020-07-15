@@ -352,3 +352,9 @@ func (l *secondPassListener) EnterLogFunc(_ *parser.LogFuncContext) {
 func (l *secondPassListener) EnterLog10Func(_ *parser.Log10FuncContext) {
 	l.calc.pushFunction(l.calc.log10)
 }
+
+func (l *secondPassListener) EnterMedianFunc(c *parser.MedianFuncContext) {
+	exprCount := len(c.AllExpr())
+	l.calc.pushFunction(l.calc.median)
+	l.calc.pushValueFunc(exprCount)
+}
