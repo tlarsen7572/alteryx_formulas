@@ -8,6 +8,9 @@ import "github.com/antlr/antlr4/runtime/Go/antlr"
 type AlteryxFormulasListener interface {
 	antlr.ParseTreeListener
 
+	// EnterLog10Func is called when entering the log10Func production.
+	EnterLog10Func(c *Log10FuncContext)
+
 	// EnterMaxFunc is called when entering the maxFunc production.
 	EnterMaxFunc(c *MaxFuncContext)
 
@@ -127,6 +130,9 @@ type AlteryxFormulasListener interface {
 
 	// EnterNumberLiteral is called when entering the numberLiteral production.
 	EnterNumberLiteral(c *NumberLiteralContext)
+
+	// ExitLog10Func is called when exiting the log10Func production.
+	ExitLog10Func(c *Log10FuncContext)
 
 	// ExitMaxFunc is called when exiting the maxFunc production.
 	ExitMaxFunc(c *MaxFuncContext)

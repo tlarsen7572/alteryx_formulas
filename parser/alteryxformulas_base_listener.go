@@ -21,6 +21,12 @@ func (s *BaseAlteryxFormulasListener) EnterEveryRule(ctx antlr.ParserRuleContext
 // ExitEveryRule is called when any rule is exited.
 func (s *BaseAlteryxFormulasListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
 
+// EnterLog10Func is called when production log10Func is entered.
+func (s *BaseAlteryxFormulasListener) EnterLog10Func(ctx *Log10FuncContext) {}
+
+// ExitLog10Func is called when production log10Func is exited.
+func (s *BaseAlteryxFormulasListener) ExitLog10Func(ctx *Log10FuncContext) {}
+
 // EnterMaxFunc is called when production maxFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterMaxFunc(ctx *MaxFuncContext) {}
 

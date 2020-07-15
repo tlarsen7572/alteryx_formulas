@@ -192,3 +192,8 @@ func (calc *calculator) log() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Log(expr))
 }
+
+func (calc *calculator) log10() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Log10(expr))
+}
