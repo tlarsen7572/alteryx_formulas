@@ -182,3 +182,8 @@ func (calc *calculator) exp() {
 	expr := calc.popValue().(float64)
 	calc.pushValue(math.Exp(expr))
 }
+
+func (calc *calculator) floor() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Floor(expr))
+}

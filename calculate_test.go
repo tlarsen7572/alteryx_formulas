@@ -513,6 +513,16 @@ func TestExp(t *testing.T) {
 	}
 }
 
+func TestFloor(t *testing.T) {
+	result, errs := f.Calculate(`fLoor(5.5)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 5.0 {
+		t.Fatalf(`expected 5 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

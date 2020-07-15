@@ -340,3 +340,7 @@ func (l *secondPassListener) EnterDistanceFunc(_ *parser.DistanceFuncContext) {
 func (l *secondPassListener) EnterExpFunc(_ *parser.ExpFuncContext) {
 	l.calc.pushFunction(l.calc.exp)
 }
+
+func (l *secondPassListener) EnterFloorFunc(_ *parser.FloorFuncContext) {
+	l.calc.pushFunction(l.calc.floor)
+}

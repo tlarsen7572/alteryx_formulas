@@ -35,6 +35,9 @@ type AlteryxFormulasListener interface {
 	// EnterLessThan is called when entering the lessThan production.
 	EnterLessThan(c *LessThanContext)
 
+	// EnterFloorFunc is called when entering the floorFunc production.
+	EnterFloorFunc(c *FloorFuncContext)
+
 	// EnterDivide is called when entering the divide production.
 	EnterDivide(c *DivideContext)
 
@@ -148,6 +151,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitLessThan is called when exiting the lessThan production.
 	ExitLessThan(c *LessThanContext)
+
+	// ExitFloorFunc is called when exiting the floorFunc production.
+	ExitFloorFunc(c *FloorFuncContext)
 
 	// ExitDivide is called when exiting the divide production.
 	ExitDivide(c *DivideContext)
