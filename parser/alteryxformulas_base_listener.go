@@ -147,6 +147,12 @@ func (s *BaseAlteryxFormulasListener) EnterIn(ctx *InContext) {}
 // ExitIn is called when production in is exited.
 func (s *BaseAlteryxFormulasListener) ExitIn(ctx *InContext) {}
 
+// EnterExpFunc is called when production expFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterExpFunc(ctx *ExpFuncContext) {}
+
+// ExitExpFunc is called when production expFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitExpFunc(ctx *ExpFuncContext) {}
+
 // EnterSubtract is called when production subtract is entered.
 func (s *BaseAlteryxFormulasListener) EnterSubtract(ctx *SubtractContext) {}
 

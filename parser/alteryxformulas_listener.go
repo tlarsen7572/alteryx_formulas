@@ -71,6 +71,9 @@ type AlteryxFormulasListener interface {
 	// EnterIn is called when entering the in production.
 	EnterIn(c *InContext)
 
+	// EnterExpFunc is called when entering the expFunc production.
+	EnterExpFunc(c *ExpFuncContext)
+
 	// EnterSubtract is called when entering the subtract production.
 	EnterSubtract(c *SubtractContext)
 
@@ -181,6 +184,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitIn is called when exiting the in production.
 	ExitIn(c *InContext)
+
+	// ExitExpFunc is called when exiting the expFunc production.
+	ExitExpFunc(c *ExpFuncContext)
 
 	// ExitSubtract is called when exiting the subtract production.
 	ExitSubtract(c *SubtractContext)

@@ -177,3 +177,8 @@ func (calc *calculator) distance() {
 
 	calc.pushValue(distance)
 }
+
+func (calc *calculator) exp() {
+	expr := calc.popValue().(float64)
+	calc.pushValue(math.Exp(expr))
+}

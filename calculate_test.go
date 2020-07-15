@@ -503,6 +503,16 @@ func TestDistance(t *testing.T) {
 	t.Logf(`%v`, value)
 }
 
+func TestExp(t *testing.T) {
+	result, errs := f.Calculate(`exp(4)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if expected := math.Exp(4); result != expected {
+		t.Fatalf(`expected %v but got %v`, expected, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

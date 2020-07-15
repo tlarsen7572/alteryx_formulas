@@ -336,3 +336,7 @@ func (l *secondPassListener) EnterDistanceFunc(_ *parser.DistanceFuncContext) {
 
 	l.calc.pushFunction(l.calc.distance)
 }
+
+func (l *secondPassListener) EnterExpFunc(_ *parser.ExpFuncContext) {
+	l.calc.pushFunction(l.calc.exp)
+}
