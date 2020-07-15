@@ -37,6 +37,7 @@ expr
     | Log '(' expr ')'                                               # logFunc
     | Log10 '(' expr ')'                                             # log10Func
     | Median '(' expr (',' expr)* ')'                                # medianFunc
+    | Mod '(' expr (',' expr)* ')'                                   # modFunc
     | Null '()'                                                      # nullFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -69,6 +70,7 @@ Floor   : F L O O R ;
 Log     : L O G ;
 Log10   : L O G '10' ;
 Median  : M E D I A N ;
+Mod     : M O D ;
 Pow     : P O W ;
 Min     : M I N ;
 Max     : M A X ;

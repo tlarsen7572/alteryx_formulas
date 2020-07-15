@@ -219,6 +219,12 @@ func (s *BaseAlteryxFormulasListener) EnterDatetimeLiteral(ctx *DatetimeLiteralC
 // ExitDatetimeLiteral is called when production datetimeLiteral is exited.
 func (s *BaseAlteryxFormulasListener) ExitDatetimeLiteral(ctx *DatetimeLiteralContext) {}
 
+// EnterModFunc is called when production modFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterModFunc(ctx *ModFuncContext) {}
+
+// ExitModFunc is called when production modFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitModFunc(ctx *ModFuncContext) {}
+
 // EnterStringLiteral is called when production stringLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterStringLiteral(ctx *StringLiteralContext) {}
 

@@ -107,6 +107,9 @@ type AlteryxFormulasListener interface {
 	// EnterDatetimeLiteral is called when entering the datetimeLiteral production.
 	EnterDatetimeLiteral(c *DatetimeLiteralContext)
 
+	// EnterModFunc is called when entering the modFunc production.
+	EnterModFunc(c *ModFuncContext)
+
 	// EnterStringLiteral is called when entering the stringLiteral production.
 	EnterStringLiteral(c *StringLiteralContext)
 
@@ -232,6 +235,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitDatetimeLiteral is called when exiting the datetimeLiteral production.
 	ExitDatetimeLiteral(c *DatetimeLiteralContext)
+
+	// ExitModFunc is called when exiting the modFunc production.
+	ExitModFunc(c *ModFuncContext)
 
 	// ExitStringLiteral is called when exiting the stringLiteral production.
 	ExitStringLiteral(c *StringLiteralContext)

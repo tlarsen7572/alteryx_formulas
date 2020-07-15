@@ -563,6 +563,26 @@ func TestMedianWithEvenElements(t *testing.T) {
 	}
 }
 
+func TestMod(t *testing.T) {
+	result, errs := f.Calculate(`mod(6,4)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 2.0 {
+		t.Fatalf(`expected 2 but got %v`, result)
+	}
+}
+
+func TestModWithDecimal(t *testing.T) {
+	result, errs := f.Calculate(`mod(6,0.4)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

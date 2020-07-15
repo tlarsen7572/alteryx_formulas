@@ -216,3 +216,14 @@ func (calc *calculator) median() {
 	}
 	calc.pushValue(value)
 }
+
+func (calc *calculator) mod() {
+	dividend := int(calc.popValue().(float64))
+	divisor := int(calc.popValue().(float64))
+	if divisor == 0 {
+		calc.pushValue(nil)
+		return
+	}
+	remainder := dividend % divisor
+	calc.pushValue(float64(remainder))
+}
