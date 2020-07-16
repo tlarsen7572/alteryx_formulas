@@ -662,6 +662,48 @@ func TestRandIntDistribution(t *testing.T) {
 	t.Logf(`%v`, results)
 }
 
+func TestRound(t *testing.T) {
+	result, errs := f.Calculate(`round(55.34, 2)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 56.0 {
+		t.Fatalf(`expected 56 but got %v`, result)
+	}
+	result, _ = f.Calculate(`round(41.1, 10)`, nil)
+	if result != 40.0 {
+		t.Fatalf(`expected 40 but got %v`, result)
+	}
+	result, _ = f.Calculate(`round(1.227, 0.01)`, nil)
+	if result != 1.23 {
+		t.Fatalf(`expected 1.23 but got %v`, result)
+	}
+	result, _ = f.Calculate(`round(-1.227, 0.01)`, nil)
+	if result != -1.23 {
+		t.Fatalf(`expected -1.23 but got %v`, result)
+	}
+}
+
+func TestRoundToMultipleOfZero(t *testing.T) {
+	result, errs := f.Calculate(`round(11, 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got: %v`, result)
+	}
+}
+
+func TestRoundToNegativeMultiple(t *testing.T) {
+	result, errs := f.Calculate(`round(10.2, -1)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 10.0 {
+		t.Fatalf(`expected 10 but got: %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

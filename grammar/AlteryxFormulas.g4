@@ -45,6 +45,7 @@ expr
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Rand '()'                                                      # randFunc
     | RandInt '(' expr ')'                                           # randIntFunc
+    | Round '(' expr ',' expr ')'                                    # roundFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
@@ -81,6 +82,7 @@ Pi      : P I ;
 Pow     : P O W ;
 Rand    : R A N D ;
 RandInt : R A N D I N T ;
+Round   : R O U N D ;
 Iif     : I I F ;
 
 // Case-insensitive keywords

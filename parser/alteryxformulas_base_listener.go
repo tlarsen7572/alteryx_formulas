@@ -135,6 +135,12 @@ func (s *BaseAlteryxFormulasListener) EnterAtanFunc(ctx *AtanFuncContext) {}
 // ExitAtanFunc is called when production atanFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitAtanFunc(ctx *AtanFuncContext) {}
 
+// EnterRoundFunc is called when production roundFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterRoundFunc(ctx *RoundFuncContext) {}
+
+// ExitRoundFunc is called when production roundFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitRoundFunc(ctx *RoundFuncContext) {}
+
 // EnterExprField is called when production exprField is entered.
 func (s *BaseAlteryxFormulasListener) EnterExprField(ctx *ExprFieldContext) {}
 

@@ -65,6 +65,9 @@ type AlteryxFormulasListener interface {
 	// EnterAtanFunc is called when entering the atanFunc production.
 	EnterAtanFunc(c *AtanFuncContext)
 
+	// EnterRoundFunc is called when entering the roundFunc production.
+	EnterRoundFunc(c *RoundFuncContext)
+
 	// EnterExprField is called when entering the exprField production.
 	EnterExprField(c *ExprFieldContext)
 
@@ -202,6 +205,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitAtanFunc is called when exiting the atanFunc production.
 	ExitAtanFunc(c *AtanFuncContext)
+
+	// ExitRoundFunc is called when exiting the roundFunc production.
+	ExitRoundFunc(c *RoundFuncContext)
 
 	// ExitExprField is called when exiting the exprField production.
 	ExitExprField(c *ExprFieldContext)

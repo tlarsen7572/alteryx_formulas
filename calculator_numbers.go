@@ -248,3 +248,25 @@ func (calc *calculator) randInt() {
 	value := rand.Float64() * ceiling
 	calc.pushValue(math.Floor(value))
 }
+
+func (calc *calculator) round() {
+	value := calc.popValue().(float64)
+	multiple := calc.popValue().(float64)
+	if multiple == 0 {
+		calc.pushValue(nil)
+		return
+	}
+	floor, _ := math.Modf(value / multiple)
+	floor = floor * multiple
+	var ceiling float64
+	if value >= 0 {
+		ceiling = floor + multiple
+	} else {
+		ceiling = floor - multiple
+	}
+	if math.Abs(value-floor) < math.Abs(value-ceiling) {
+		calc.pushValue(floor)
+	} else {
+		calc.pushValue(ceiling)
+	}
+}
