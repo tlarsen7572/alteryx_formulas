@@ -366,3 +366,7 @@ func (l *secondPassListener) EnterModFunc(_ *parser.ModFuncContext) {
 func (l *secondPassListener) EnterPiFunc(_ *parser.PiFuncContext) {
 	l.calc.pushFunction(l.calc.pi)
 }
+
+func (l *secondPassListener) EnterRandFunc(_ *parser.RandFuncContext) {
+	l.calc.pushFunction(l.calc.rand)
+}

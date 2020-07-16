@@ -603,6 +603,23 @@ func TestPi(t *testing.T) {
 	}
 }
 
+func TestRand(t *testing.T) {
+	result, errs := f.Calculate(`rand()`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	value := result.(float64)
+	if value < 0 || value > 1 {
+		t.Fatalf(`expected a random value between 0 and 1 but got %v`, value)
+	}
+	t.Logf(`first value: %v`, result)
+	result, _ = f.Calculate(`rand()`, nil)
+	if result == value {
+		t.Fatalf(`expected a second, different value but got the same`)
+	}
+	t.Logf(`second value: %v`, result)
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

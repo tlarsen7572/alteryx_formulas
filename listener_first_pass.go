@@ -265,6 +265,10 @@ func (l *firstPassListener) ExitPiFunc(c *parser.PiFuncContext) {
 	l.setSymbol(c, Number)
 }
 
+func (l *firstPassListener) ExitRandFunc(c *parser.RandFuncContext) {
+	l.setSymbol(c, Number)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

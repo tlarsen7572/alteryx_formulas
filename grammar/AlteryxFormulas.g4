@@ -36,13 +36,14 @@ expr
     | Floor '(' expr ')'                                             # floorFunc
     | Log '(' expr ')'                                               # logFunc
     | Log10 '(' expr ')'                                             # log10Func
+    | Max '(' expr (',' expr)+ ')'                                   # maxFunc
     | Median '(' expr (',' expr)* ')'                                # medianFunc
+    | Min '(' expr (',' expr)+ ')'                                   # minFunc
     | Mod '(' expr (',' expr)* ')'                                   # modFunc
     | Null '()'                                                      # nullFunc
     | Pi '()'                                                        # piFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
-    | Min '(' expr (',' expr)+ ')'                                   # minFunc
-    | Max '(' expr (',' expr)+ ')'                                   # maxFunc
+    | Rand '()'                                                      # randFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
@@ -70,13 +71,14 @@ Exp     : E X P ;
 Floor   : F L O O R ;
 Log     : L O G ;
 Log10   : L O G '10' ;
+Max     : M A X ;
 Median  : M E D I A N ;
+Min     : M I N ;
 Mod     : M O D ;
+Null    : N U L L ;
 Pi      : P I ;
 Pow     : P O W ;
-Min     : M I N ;
-Max     : M A X ;
-Null    : N U L L ;
+Rand    : R A N D ;
 Iif     : I I F ;
 
 // Case-insensitive keywords

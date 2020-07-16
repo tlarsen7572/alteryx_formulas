@@ -63,17 +63,23 @@ func (s *BaseAlteryxFormulasListener) EnterAcosFunc(ctx *AcosFuncContext) {}
 // ExitAcosFunc is called when production acosFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitAcosFunc(ctx *AcosFuncContext) {}
 
-// EnterPiFunc is called when production piFunc is entered.
-func (s *BaseAlteryxFormulasListener) EnterPiFunc(ctx *PiFuncContext) {}
+// EnterRandFunc is called when production randFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterRandFunc(ctx *RandFuncContext) {}
 
-// ExitPiFunc is called when production piFunc is exited.
-func (s *BaseAlteryxFormulasListener) ExitPiFunc(ctx *PiFuncContext) {}
+// ExitRandFunc is called when production randFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitRandFunc(ctx *RandFuncContext) {}
 
 // EnterMinFunc is called when production minFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterMinFunc(ctx *MinFuncContext) {}
 
 // ExitMinFunc is called when production minFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitMinFunc(ctx *MinFuncContext) {}
+
+// EnterPiFunc is called when production piFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterPiFunc(ctx *PiFuncContext) {}
+
+// ExitPiFunc is called when production piFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitPiFunc(ctx *PiFuncContext) {}
 
 // EnterAnd is called when production and is entered.
 func (s *BaseAlteryxFormulasListener) EnterAnd(ctx *AndContext) {}

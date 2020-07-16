@@ -2,6 +2,7 @@ package alteryx_formulas
 
 import (
 	"math"
+	"math/rand"
 	"sort"
 )
 
@@ -233,4 +234,8 @@ func (calc *calculator) mod() {
 
 func (calc *calculator) pi() {
 	calc.pushValue(math.Pi)
+}
+
+func (calc *calculator) rand() {
+	calc.pushValue(rand.Float64())
 }
