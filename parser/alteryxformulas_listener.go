@@ -29,6 +29,9 @@ type AlteryxFormulasListener interface {
 	// EnterAcosFunc is called when entering the acosFunc production.
 	EnterAcosFunc(c *AcosFuncContext)
 
+	// EnterPiFunc is called when entering the piFunc production.
+	EnterPiFunc(c *PiFuncContext)
+
 	// EnterMinFunc is called when entering the minFunc production.
 	EnterMinFunc(c *MinFuncContext)
 
@@ -157,6 +160,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitAcosFunc is called when exiting the acosFunc production.
 	ExitAcosFunc(c *AcosFuncContext)
+
+	// ExitPiFunc is called when exiting the piFunc production.
+	ExitPiFunc(c *PiFuncContext)
 
 	// ExitMinFunc is called when exiting the minFunc production.
 	ExitMinFunc(c *MinFuncContext)

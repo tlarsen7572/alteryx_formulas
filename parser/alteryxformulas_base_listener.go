@@ -63,6 +63,12 @@ func (s *BaseAlteryxFormulasListener) EnterAcosFunc(ctx *AcosFuncContext) {}
 // ExitAcosFunc is called when production acosFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitAcosFunc(ctx *AcosFuncContext) {}
 
+// EnterPiFunc is called when production piFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterPiFunc(ctx *PiFuncContext) {}
+
+// ExitPiFunc is called when production piFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitPiFunc(ctx *PiFuncContext) {}
+
 // EnterMinFunc is called when production minFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterMinFunc(ctx *MinFuncContext) {}
 

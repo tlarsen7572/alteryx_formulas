@@ -362,3 +362,7 @@ func (l *secondPassListener) EnterMedianFunc(c *parser.MedianFuncContext) {
 func (l *secondPassListener) EnterModFunc(_ *parser.ModFuncContext) {
 	l.calc.pushFunction(l.calc.mod)
 }
+
+func (l *secondPassListener) EnterPiFunc(_ *parser.PiFuncContext) {
+	l.calc.pushFunction(l.calc.pi)
+}

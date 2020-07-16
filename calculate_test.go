@@ -593,6 +593,16 @@ func TestDivideByZero(t *testing.T) {
 	}
 }
 
+func TestPi(t *testing.T) {
+	result, errs := f.Calculate(`pi()`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != math.Pi {
+		t.Fatalf(`expected %v but got %v`, math.Pi, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

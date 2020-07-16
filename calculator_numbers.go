@@ -230,3 +230,7 @@ func (calc *calculator) mod() {
 	remainder := dividend % divisor
 	calc.pushValue(float64(remainder))
 }
+
+func (calc *calculator) pi() {
+	calc.pushValue(math.Pi)
+}

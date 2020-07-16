@@ -39,6 +39,7 @@ expr
     | Median '(' expr (',' expr)* ')'                                # medianFunc
     | Mod '(' expr (',' expr)* ')'                                   # modFunc
     | Null '()'                                                      # nullFunc
+    | Pi '()'                                                        # piFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
     | Max '(' expr (',' expr)+ ')'                                   # maxFunc
@@ -71,6 +72,7 @@ Log     : L O G ;
 Log10   : L O G '10' ;
 Median  : M E D I A N ;
 Mod     : M O D ;
+Pi      : P I ;
 Pow     : P O W ;
 Min     : M I N ;
 Max     : M A X ;
