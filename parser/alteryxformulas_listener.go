@@ -122,6 +122,9 @@ type AlteryxFormulasListener interface {
 	// EnterModFunc is called when entering the modFunc production.
 	EnterModFunc(c *ModFuncContext)
 
+	// EnterSinFunc is called when entering the sinFunc production.
+	EnterSinFunc(c *SinFuncContext)
+
 	// EnterStringLiteral is called when entering the stringLiteral production.
 	EnterStringLiteral(c *StringLiteralContext)
 
@@ -262,6 +265,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitModFunc is called when exiting the modFunc production.
 	ExitModFunc(c *ModFuncContext)
+
+	// ExitSinFunc is called when exiting the sinFunc production.
+	ExitSinFunc(c *SinFuncContext)
 
 	// ExitStringLiteral is called when exiting the stringLiteral production.
 	ExitStringLiteral(c *StringLiteralContext)

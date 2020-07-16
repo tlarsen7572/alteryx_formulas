@@ -704,6 +704,16 @@ func TestRoundToNegativeMultiple(t *testing.T) {
 	}
 }
 
+func TestSin(t *testing.T) {
+	result, errs := f.Calculate(`round(sin(0.523599),0.001)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.5 {
+		t.Fatalf(`expected 0.5 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

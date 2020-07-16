@@ -249,6 +249,12 @@ func (s *BaseAlteryxFormulasListener) EnterModFunc(ctx *ModFuncContext) {}
 // ExitModFunc is called when production modFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitModFunc(ctx *ModFuncContext) {}
 
+// EnterSinFunc is called when production sinFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterSinFunc(ctx *SinFuncContext) {}
+
+// ExitSinFunc is called when production sinFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitSinFunc(ctx *SinFuncContext) {}
+
 // EnterStringLiteral is called when production stringLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterStringLiteral(ctx *StringLiteralContext) {}
 

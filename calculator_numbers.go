@@ -270,3 +270,8 @@ func (calc *calculator) round() {
 		calc.pushValue(ceiling)
 	}
 }
+
+func (calc *calculator) sin() {
+	radians := calc.popValue().(float64)
+	calc.pushValue(math.Sin(radians))
+}

@@ -378,3 +378,7 @@ func (l *secondPassListener) EnterRandIntFunc(_ *parser.RandIntFuncContext) {
 func (l *secondPassListener) EnterRoundFunc(_ *parser.RoundFuncContext) {
 	l.calc.pushFunction(l.calc.round)
 }
+
+func (l *secondPassListener) EnterSinFunc(_ *parser.SinFuncContext) {
+	l.calc.pushFunction(l.calc.sin)
+}
