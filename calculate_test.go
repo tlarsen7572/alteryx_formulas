@@ -620,6 +620,48 @@ func TestRand(t *testing.T) {
 	t.Logf(`second value: %v`, result)
 }
 
+func TestRandInt(t *testing.T) {
+	result, errs := f.Calculate(`randint(10)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	value := result.(float64)
+	if value < 0 || value > 10 {
+		t.Fatalf(`expected a random value between 0 and 10 but got %v`, value)
+	}
+	if math.Mod(value, 1.0) > 0 {
+		t.Fatalf(`expected an integer but got a decimal`)
+	}
+	t.Logf(`value: %v`, result)
+}
+
+func TestRandIntDistribution(t *testing.T) {
+	results := map[float64]int{
+		0:  0,
+		1:  0,
+		2:  0,
+		3:  0,
+		4:  0,
+		5:  0,
+		6:  0,
+		7:  0,
+		8:  0,
+		9:  0,
+		10: 0,
+	}
+
+	for i := 0; i < 1000; i++ {
+		result, _ := f.Calculate(`randInt(10)`, nil)
+		results[result.(float64)]++
+	}
+	for key, value := range results {
+		if value == 0 {
+			t.Fatalf(`expecting all integers from 0 to 10 to have a count of at least 1 but %v had 0`, key)
+		}
+	}
+	t.Logf(`%v`, results)
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

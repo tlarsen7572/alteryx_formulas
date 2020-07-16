@@ -20,6 +20,9 @@ type AlteryxFormulasListener interface {
 	// EnterCosFunc is called when entering the cosFunc production.
 	EnterCosFunc(c *CosFuncContext)
 
+	// EnterRandIntFunc is called when entering the randIntFunc production.
+	EnterRandIntFunc(c *RandIntFuncContext)
+
 	// EnterDistanceFunc is called when entering the distanceFunc production.
 	EnterDistanceFunc(c *DistanceFuncContext)
 
@@ -154,6 +157,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitCosFunc is called when exiting the cosFunc production.
 	ExitCosFunc(c *CosFuncContext)
+
+	// ExitRandIntFunc is called when exiting the randIntFunc production.
+	ExitRandIntFunc(c *RandIntFuncContext)
 
 	// ExitDistanceFunc is called when exiting the distanceFunc production.
 	ExitDistanceFunc(c *DistanceFuncContext)

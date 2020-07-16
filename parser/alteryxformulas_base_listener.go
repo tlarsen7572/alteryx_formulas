@@ -45,6 +45,12 @@ func (s *BaseAlteryxFormulasListener) EnterCosFunc(ctx *CosFuncContext) {}
 // ExitCosFunc is called when production cosFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCosFunc(ctx *CosFuncContext) {}
 
+// EnterRandIntFunc is called when production randIntFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterRandIntFunc(ctx *RandIntFuncContext) {}
+
+// ExitRandIntFunc is called when production randIntFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitRandIntFunc(ctx *RandIntFuncContext) {}
+
 // EnterDistanceFunc is called when production distanceFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterDistanceFunc(ctx *DistanceFuncContext) {}
 

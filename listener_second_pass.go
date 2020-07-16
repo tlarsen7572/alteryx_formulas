@@ -370,3 +370,7 @@ func (l *secondPassListener) EnterPiFunc(_ *parser.PiFuncContext) {
 func (l *secondPassListener) EnterRandFunc(_ *parser.RandFuncContext) {
 	l.calc.pushFunction(l.calc.rand)
 }
+
+func (l *secondPassListener) EnterRandIntFunc(_ *parser.RandIntFuncContext) {
+	l.calc.pushFunction(l.calc.randInt)
+}
