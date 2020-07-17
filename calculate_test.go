@@ -734,6 +734,16 @@ func TestSqrt(t *testing.T) {
 	}
 }
 
+func TestTan(t *testing.T) {
+	result, errs := f.Calculate(`round(tan(0.785398),0.001)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 1.0 {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

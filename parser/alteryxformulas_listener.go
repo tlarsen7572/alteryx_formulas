@@ -17,6 +17,9 @@ type AlteryxFormulasListener interface {
 	// EnterRandIntFunc is called when entering the randIntFunc production.
 	EnterRandIntFunc(c *RandIntFuncContext)
 
+	// EnterTanFunc is called when entering the tanFunc production.
+	EnterTanFunc(c *TanFuncContext)
+
 	// EnterFloorFunc is called when entering the floorFunc production.
 	EnterFloorFunc(c *FloorFuncContext)
 
@@ -166,6 +169,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitRandIntFunc is called when exiting the randIntFunc production.
 	ExitRandIntFunc(c *RandIntFuncContext)
+
+	// ExitTanFunc is called when exiting the tanFunc production.
+	ExitTanFunc(c *TanFuncContext)
 
 	// ExitFloorFunc is called when exiting the floorFunc production.
 	ExitFloorFunc(c *FloorFuncContext)

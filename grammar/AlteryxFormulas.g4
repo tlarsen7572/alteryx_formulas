@@ -49,6 +49,7 @@ expr
     | Sin '(' expr ')'                                               # sinFunc
     | Sinh '(' expr ')'                                              # sinhFunc
     | Sqrt '(' expr ')'                                              # sqrtFunc
+    | Tan '(' expr ')'                                               # tanFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
@@ -89,6 +90,7 @@ Round   : R O U N D ;
 Sin     : S I N ;
 Sinh    : S I N H ;
 Sqrt    : S Q R T ;
+Tan     : T A N ;
 Iif     : I I F ;
 
 // Case-insensitive keywords

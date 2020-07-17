@@ -285,3 +285,8 @@ func (calc *calculator) sqrt() {
 	value := calc.popValue().(float64)
 	calc.pushValue(math.Sqrt(value))
 }
+
+func (calc *calculator) tan() {
+	radians := calc.popValue().(float64)
+	calc.pushValue(math.Tan(radians))
+}

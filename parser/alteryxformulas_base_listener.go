@@ -39,6 +39,12 @@ func (s *BaseAlteryxFormulasListener) EnterRandIntFunc(ctx *RandIntFuncContext) 
 // ExitRandIntFunc is called when production randIntFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitRandIntFunc(ctx *RandIntFuncContext) {}
 
+// EnterTanFunc is called when production tanFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterTanFunc(ctx *TanFuncContext) {}
+
+// ExitTanFunc is called when production tanFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitTanFunc(ctx *TanFuncContext) {}
+
 // EnterFloorFunc is called when production floorFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterFloorFunc(ctx *FloorFuncContext) {}
 
