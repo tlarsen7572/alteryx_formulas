@@ -724,6 +724,16 @@ func TestSinh(t *testing.T) {
 	}
 }
 
+func TestSqrt(t *testing.T) {
+	result, errs := f.Calculate(`sqrt(100)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 10.0 {
+		t.Fatalf(`expected 10.0 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

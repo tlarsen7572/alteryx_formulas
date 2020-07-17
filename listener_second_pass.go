@@ -386,3 +386,7 @@ func (l *secondPassListener) EnterSinFunc(_ *parser.SinFuncContext) {
 func (l *secondPassListener) EnterSinhFunc(_ *parser.SinhFuncContext) {
 	l.calc.pushFunction(l.calc.sinh)
 }
+
+func (l *secondPassListener) EnterSqrtFunc(_ *parser.SqrtFuncContext) {
+	l.calc.pushFunction(l.calc.sqrt)
+}

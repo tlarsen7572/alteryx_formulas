@@ -83,6 +83,9 @@ type AlteryxFormulasListener interface {
 	// EnterAcosFunc is called when entering the acosFunc production.
 	EnterAcosFunc(c *AcosFuncContext)
 
+	// EnterSqrtFunc is called when entering the sqrtFunc production.
+	EnterSqrtFunc(c *SqrtFuncContext)
+
 	// EnterSinhFunc is called when entering the sinhFunc production.
 	EnterSinhFunc(c *SinhFuncContext)
 
@@ -229,6 +232,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitAcosFunc is called when exiting the acosFunc production.
 	ExitAcosFunc(c *AcosFuncContext)
+
+	// ExitSqrtFunc is called when exiting the sqrtFunc production.
+	ExitSqrtFunc(c *SqrtFuncContext)
 
 	// ExitSinhFunc is called when exiting the sinhFunc production.
 	ExitSinhFunc(c *SinhFuncContext)

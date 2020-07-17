@@ -48,6 +48,7 @@ expr
     | Round '(' expr ',' expr ')'                                    # roundFunc
     | Sin '(' expr ')'                                               # sinFunc
     | Sinh '(' expr ')'                                              # sinhFunc
+    | Sqrt '(' expr ')'                                              # sqrtFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
@@ -87,6 +88,7 @@ RandInt : R A N D I N T ;
 Round   : R O U N D ;
 Sin     : S I N ;
 Sinh    : S I N H ;
+Sqrt    : S Q R T ;
 Iif     : I I F ;
 
 // Case-insensitive keywords

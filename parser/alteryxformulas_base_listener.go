@@ -171,6 +171,12 @@ func (s *BaseAlteryxFormulasListener) EnterAcosFunc(ctx *AcosFuncContext) {}
 // ExitAcosFunc is called when production acosFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitAcosFunc(ctx *AcosFuncContext) {}
 
+// EnterSqrtFunc is called when production sqrtFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterSqrtFunc(ctx *SqrtFuncContext) {}
+
+// ExitSqrtFunc is called when production sqrtFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitSqrtFunc(ctx *SqrtFuncContext) {}
+
 // EnterSinhFunc is called when production sinhFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterSinhFunc(ctx *SinhFuncContext) {}
 

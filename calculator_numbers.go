@@ -280,3 +280,8 @@ func (calc *calculator) sinh() {
 	radians := calc.popValue().(float64)
 	calc.pushValue(math.Sinh(radians))
 }
+
+func (calc *calculator) sqrt() {
+	value := calc.popValue().(float64)
+	calc.pushValue(math.Sqrt(value))
+}
