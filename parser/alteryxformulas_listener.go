@@ -125,6 +125,9 @@ type AlteryxFormulasListener interface {
 	// EnterRoundFunc is called when entering the roundFunc production.
 	EnterRoundFunc(c *RoundFuncContext)
 
+	// EnterSwitchFunc is called when entering the switchFunc production.
+	EnterSwitchFunc(c *SwitchFuncContext)
+
 	// EnterExprField is called when entering the exprField production.
 	EnterExprField(c *ExprFieldContext)
 
@@ -280,6 +283,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitRoundFunc is called when exiting the roundFunc production.
 	ExitRoundFunc(c *RoundFuncContext)
+
+	// ExitSwitchFunc is called when exiting the switchFunc production.
+	ExitSwitchFunc(c *SwitchFuncContext)
 
 	// ExitExprField is called when exiting the exprField production.
 	ExitExprField(c *ExprFieldContext)

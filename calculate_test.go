@@ -754,6 +754,36 @@ func TestTanh(t *testing.T) {
 	}
 }
 
+func TestSwitchNumberDefault(t *testing.T) {
+	result, errs := f.Calculate(`switch(1,10,2,20,3,30,4,40)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 10.0 {
+		t.Fatalf(`expected 10 but got %v`, result)
+	}
+}
+
+func TestSwitchNumberNotDefault(t *testing.T) {
+	result, errs := f.Calculate(`switch(3,10,2,20,3,30,4,40)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 30.0 {
+		t.Fatalf(`expected 30 but got %v`, result)
+	}
+}
+
+func TestSwitchStringDefault(t *testing.T) {
+	result, errs := f.Calculate(`switch('a','aa','b','bb','c','cc')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `aa` {
+		t.Fatalf(`expected 'aa' but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

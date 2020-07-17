@@ -106,3 +106,23 @@ func (calc *calculator) exprIf() {
 	}
 	calc.pushValue(exprs[exprCount-1])
 }
+
+func (calc *calculator) switchFunc() {
+	exprCount := calc.popValue().(int)
+	values := make([]interface{}, exprCount)
+
+	for i := 0; i < exprCount; i++ {
+		values[i] = calc.popValue()
+	}
+
+	switchValue := values[0]
+	for i := 2; i < exprCount; i += 2 {
+		checkValue := values[i]
+		if checkValue == switchValue {
+			calc.pushValue(values[i+1])
+			return
+		}
+	}
+	defaultValue := values[1]
+	calc.pushValue(defaultValue)
+}

@@ -49,6 +49,7 @@ expr
     | Sin '(' expr ')'                                               # sinFunc
     | Sinh '(' expr ')'                                              # sinhFunc
     | Sqrt '(' expr ')'                                              # sqrtFunc
+    | Switch '(' expr ',' expr (',' expr ',' expr)+ ')'              # switchFunc
     | Tan '(' expr ')'                                               # tanFunc
     | Tanh '(' expr ')'                                              # tanhFunc
     | Integer                                                        # numberLiteral
@@ -91,6 +92,7 @@ Round   : R O U N D ;
 Sin     : S I N ;
 Sinh    : S I N H ;
 Sqrt    : S Q R T ;
+Switch  : S W I T C H ;
 Tan     : T A N ;
 Tanh    : T A N H ;
 Iif     : I I F ;

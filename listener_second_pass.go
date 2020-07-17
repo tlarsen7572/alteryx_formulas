@@ -398,3 +398,13 @@ func (l *secondPassListener) EnterTanFunc(_ *parser.TanFuncContext) {
 func (l *secondPassListener) EnterTanhFunc(_ *parser.TanhFuncContext) {
 	l.calc.pushFunction(l.calc.tanh)
 }
+
+func (l *secondPassListener) EnterSwitchFunc(c *parser.SwitchFuncContext) {
+	_, ok := l.getSymbol(c)
+	if !ok {
+		panic(`symbol does not exist for switch`)
+	}
+	l.calc.pushFunction(l.calc.switchFunc)
+	exprCount := len(c.AllExpr())
+	l.calc.pushValueFunc(exprCount)
+}

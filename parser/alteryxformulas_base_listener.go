@@ -255,6 +255,12 @@ func (s *BaseAlteryxFormulasListener) EnterRoundFunc(ctx *RoundFuncContext) {}
 // ExitRoundFunc is called when production roundFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitRoundFunc(ctx *RoundFuncContext) {}
 
+// EnterSwitchFunc is called when production switchFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterSwitchFunc(ctx *SwitchFuncContext) {}
+
+// ExitSwitchFunc is called when production switchFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitSwitchFunc(ctx *SwitchFuncContext) {}
+
 // EnterExprField is called when production exprField is entered.
 func (s *BaseAlteryxFormulasListener) EnterExprField(ctx *ExprFieldContext) {}
 
