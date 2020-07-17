@@ -290,3 +290,8 @@ func (calc *calculator) tan() {
 	radians := calc.popValue().(float64)
 	calc.pushValue(math.Tan(radians))
 }
+
+func (calc *calculator) tanh() {
+	radians := calc.popValue().(float64)
+	calc.pushValue(math.Tanh(radians))
+}

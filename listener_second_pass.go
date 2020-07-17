@@ -394,3 +394,7 @@ func (l *secondPassListener) EnterSqrtFunc(_ *parser.SqrtFuncContext) {
 func (l *secondPassListener) EnterTanFunc(_ *parser.TanFuncContext) {
 	l.calc.pushFunction(l.calc.tan)
 }
+
+func (l *secondPassListener) EnterTanhFunc(_ *parser.TanhFuncContext) {
+	l.calc.pushFunction(l.calc.tanh)
+}

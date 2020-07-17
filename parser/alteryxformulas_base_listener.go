@@ -57,6 +57,12 @@ func (s *BaseAlteryxFormulasListener) EnterNotIn(ctx *NotInContext) {}
 // ExitNotIn is called when production notIn is exited.
 func (s *BaseAlteryxFormulasListener) ExitNotIn(ctx *NotInContext) {}
 
+// EnterTanhFunc is called when production tanhFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterTanhFunc(ctx *TanhFuncContext) {}
+
+// ExitTanhFunc is called when production tanhFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitTanhFunc(ctx *TanhFuncContext) {}
+
 // EnterGreaterThan is called when production greaterThan is entered.
 func (s *BaseAlteryxFormulasListener) EnterGreaterThan(ctx *GreaterThanContext) {}
 

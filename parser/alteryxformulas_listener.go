@@ -26,6 +26,9 @@ type AlteryxFormulasListener interface {
 	// EnterNotIn is called when entering the notIn production.
 	EnterNotIn(c *NotInContext)
 
+	// EnterTanhFunc is called when entering the tanhFunc production.
+	EnterTanhFunc(c *TanhFuncContext)
+
 	// EnterGreaterThan is called when entering the greaterThan production.
 	EnterGreaterThan(c *GreaterThanContext)
 
@@ -178,6 +181,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitNotIn is called when exiting the notIn production.
 	ExitNotIn(c *NotInContext)
+
+	// ExitTanhFunc is called when exiting the tanhFunc production.
+	ExitTanhFunc(c *TanhFuncContext)
 
 	// ExitGreaterThan is called when exiting the greaterThan production.
 	ExitGreaterThan(c *GreaterThanContext)

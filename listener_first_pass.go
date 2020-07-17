@@ -293,6 +293,10 @@ func (l *firstPassListener) ExitTanFunc(c *parser.TanFuncContext) {
 	l.setSymbol(c, Number)
 }
 
+func (l *firstPassListener) ExitTanhFunc(c *parser.TanhFuncContext) {
+	l.setSymbol(c, Number)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

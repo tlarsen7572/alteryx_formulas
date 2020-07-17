@@ -50,6 +50,7 @@ expr
     | Sinh '(' expr ')'                                              # sinhFunc
     | Sqrt '(' expr ')'                                              # sqrtFunc
     | Tan '(' expr ')'                                               # tanFunc
+    | Tanh '(' expr ')'                                              # tanhFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
@@ -91,6 +92,7 @@ Sin     : S I N ;
 Sinh    : S I N H ;
 Sqrt    : S Q R T ;
 Tan     : T A N ;
+Tanh    : T A N H ;
 Iif     : I I F ;
 
 // Case-insensitive keywords
