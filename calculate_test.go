@@ -714,6 +714,16 @@ func TestSin(t *testing.T) {
 	}
 }
 
+func TestSinh(t *testing.T) {
+	result, errs := f.Calculate(`round(sinh(1),0.0001)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 1.1752 {
+		t.Fatalf(`expected 1.1752 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

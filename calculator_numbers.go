@@ -275,3 +275,8 @@ func (calc *calculator) sin() {
 	radians := calc.popValue().(float64)
 	calc.pushValue(math.Sin(radians))
 }
+
+func (calc *calculator) sinh() {
+	radians := calc.popValue().(float64)
+	calc.pushValue(math.Sinh(radians))
+}
