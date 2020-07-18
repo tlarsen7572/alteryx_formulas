@@ -420,3 +420,14 @@ func (l *secondPassListener) EnterCharToIntFunc(_ *parser.CharToIntFuncContext) 
 func (l *secondPassListener) EnterHexToNumberFunc(_ *parser.HexToNumberFuncContext) {
 	l.calc.pushFunction(l.calc.hexToNumber)
 }
+
+func (l *secondPassListener) EnterContainsFunc(_ *parser.ContainsFuncContext) {
+	l.calc.pushFunction(l.calc.contains)
+}
+
+func (l *secondPassListener) ExitContainsFunc(c *parser.ContainsFuncContext) {
+	exprs := len(c.AllExpr())
+	if exprs == 2 {
+		l.calc.pushValueFunc(1.0)
+	}
+}

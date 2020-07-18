@@ -255,6 +255,12 @@ func (s *BaseAlteryxFormulasListener) EnterExprIf(ctx *ExprIfContext) {}
 // ExitExprIf is called when production exprIf is exited.
 func (s *BaseAlteryxFormulasListener) ExitExprIf(ctx *ExprIfContext) {}
 
+// EnterContainsFunc is called when production containsFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterContainsFunc(ctx *ContainsFuncContext) {}
+
+// ExitContainsFunc is called when production containsFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitContainsFunc(ctx *ContainsFuncContext) {}
+
 // EnterMultiply is called when production multiply is entered.
 func (s *BaseAlteryxFormulasListener) EnterMultiply(ctx *MultiplyContext) {}
 

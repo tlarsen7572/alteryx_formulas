@@ -125,6 +125,9 @@ type AlteryxFormulasListener interface {
 	// EnterExprIf is called when entering the exprIf production.
 	EnterExprIf(c *ExprIfContext)
 
+	// EnterContainsFunc is called when entering the containsFunc production.
+	EnterContainsFunc(c *ContainsFuncContext)
+
 	// EnterMultiply is called when entering the multiply production.
 	EnterMultiply(c *MultiplyContext)
 
@@ -292,6 +295,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitExprIf is called when exiting the exprIf production.
 	ExitExprIf(c *ExprIfContext)
+
+	// ExitContainsFunc is called when exiting the containsFunc production.
+	ExitContainsFunc(c *ContainsFuncContext)
 
 	// ExitMultiply is called when exiting the multiply production.
 	ExitMultiply(c *MultiplyContext)

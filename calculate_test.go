@@ -841,6 +841,46 @@ func TestHexToNumber(t *testing.T) {
 	}
 }
 
+func TestContainsTrueCaseInsensitive(t *testing.T) {
+	result, errs := f.Calculate(`contains("ABC","a")`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got: %v`, result)
+	}
+}
+
+func TestContainsFalseCaseInsensitive(t *testing.T) {
+	result, errs := f.Calculate(`contains("ABC","d")`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected true but got: %v`, result)
+	}
+}
+
+func TestContainsTrueCaseSensitive(t *testing.T) {
+	result, errs := f.Calculate(`contains("ABC","A", 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got: %v`, result)
+	}
+}
+
+func TestContainsFalseCaseSensitive(t *testing.T) {
+	result, errs := f.Calculate(`contains("ABC","a", 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected true but got: %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

@@ -31,6 +31,7 @@ expr
     | Ceil '(' expr ')'                                              # ceilFunc
     | CharFromInt '(' expr ')'                                       # charFromIntFunc
     | CharToInt '(' expr ')'                                         # charToIntFunc
+    | Contains '(' expr ',' expr (',' expr)? ')'                     # containsFunc
     | Cos '(' expr ')'                                               # cosFunc
     | Cosh '(' expr ')'                                              # coshFunc
     | Distance '(' expr ',' expr ',' expr ',' expr ')'               # distanceFunc
@@ -77,6 +78,7 @@ Average     : A V E R A G E ;
 Ceil        : C E I L ;
 CharFromInt : C H A R F R O M I N T ;
 CharToInt   : C H A R T O I N T ;
+Contains    : C O N T A I N S ;
 Cos         : C O S ;
 Cosh        : C O S H ;
 Distance    : D I S T A N C E ;

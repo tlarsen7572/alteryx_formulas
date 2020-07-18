@@ -313,6 +313,10 @@ func (l *firstPassListener) ExitHexToNumberFunc(c *parser.HexToNumberFuncContext
 	l.setSymbol(c, Number)
 }
 
+func (l *firstPassListener) ExitContainsFunc(c *parser.ContainsFuncContext) {
+	l.setSymbol(c, Number)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),
