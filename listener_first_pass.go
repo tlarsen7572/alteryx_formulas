@@ -302,6 +302,10 @@ func (l *firstPassListener) ExitSwitchFunc(c *parser.SwitchFuncContext) {
 }
 
 func (l *firstPassListener) ExitCharFromIntFunc(c *parser.CharFromIntFuncContext) {
+	l.setSymbol(c, String)
+}
+
+func (l *firstPassListener) ExitCharToIntFunc(c *parser.CharToIntFuncContext) {
 	l.setSymbol(c, Number)
 }
 

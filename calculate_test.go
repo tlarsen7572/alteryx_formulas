@@ -816,6 +816,21 @@ func TestCharFromIntInvalidCodes(t *testing.T) {
 	}
 }
 
+func TestCharToInt(t *testing.T) {
+	result, errs := f.Calculate(`charToInt('B')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 66.0 {
+		t.Fatalf(`expected 66 but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`charToInt('🏈')`, nil)
+	if result != 127944.0 {
+		t.Fatalf(`expected 127944 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

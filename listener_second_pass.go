@@ -412,3 +412,7 @@ func (l *secondPassListener) EnterSwitchFunc(c *parser.SwitchFuncContext) {
 func (l *secondPassListener) EnterCharFromIntFunc(_ *parser.CharFromIntFuncContext) {
 	l.calc.pushFunction(l.calc.charFromInt)
 }
+
+func (l *secondPassListener) EnterCharToIntFunc(_ *parser.CharToIntFuncContext) {
+	l.calc.pushFunction(l.calc.charToInt)
+}

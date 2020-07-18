@@ -30,6 +30,7 @@ expr
     | Average '(' expr (',' expr)* ')'                               # averageFunc
     | Ceil '(' expr ')'                                              # ceilFunc
     | CharFromInt '(' expr ')'                                       # charFromIntFunc
+    | CharToInt '(' expr ')'                                         # charToIntFunc
     | Cos '(' expr ')'                                               # cosFunc
     | Cosh '(' expr ')'                                              # coshFunc
     | Distance '(' expr ',' expr ',' expr ',' expr ')'               # distanceFunc
@@ -74,6 +75,7 @@ Atan2       : A T A N '2' ;
 Average     : A V E R A G E ;
 Ceil        : C E I L ;
 CharFromInt : C H A R F R O M I N T ;
+CharToInt   : C H A R T O I N T ;
 Cos         : C O S ;
 Cosh        : C O S H ;
 Distance    : D I S T A N C E ;
