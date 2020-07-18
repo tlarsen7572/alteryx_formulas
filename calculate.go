@@ -45,8 +45,8 @@ func Calculate(formula string, info RecordInfo) (interface{}, []error) {
 	}
 
 	calc := secondListener.calc
-	result := calc.Calculate()
-	return result, errors.errs
+	result, errs := calc.Calculate()
+	return result, errs
 }
 
 type errorListener struct {

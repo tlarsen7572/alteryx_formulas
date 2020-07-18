@@ -7,13 +7,14 @@ type calculator struct {
 	values     []interface{}
 	recordInfo RecordInfo
 	geo        ellipsoid.Ellipsoid
+	errs       []error
 }
 
-func (calc *calculator) Calculate() interface{} {
+func (calc *calculator) Calculate() (interface{}, []error) {
 	for funcIndex := len(calc.functions) - 1; funcIndex >= 0; funcIndex-- {
 		calc.functions[funcIndex]()
 	}
-	return calc.values[0]
+	return calc.values[0], calc.errs
 }
 
 func (calc *calculator) pushFunction(f func()) {
