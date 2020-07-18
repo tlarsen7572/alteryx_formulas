@@ -56,6 +56,9 @@ type AlteryxFormulasListener interface {
 	// EnterParenthesis is called when entering the parenthesis production.
 	EnterParenthesis(c *ParenthesisContext)
 
+	// EnterHexToNumberFunc is called when entering the hexToNumberFunc production.
+	EnterHexToNumberFunc(c *HexToNumberFuncContext)
+
 	// EnterMedianFunc is called when entering the medianFunc production.
 	EnterMedianFunc(c *MedianFuncContext)
 
@@ -220,6 +223,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitParenthesis is called when exiting the parenthesis production.
 	ExitParenthesis(c *ParenthesisContext)
+
+	// ExitHexToNumberFunc is called when exiting the hexToNumberFunc production.
+	ExitHexToNumberFunc(c *HexToNumberFuncContext)
 
 	// ExitMedianFunc is called when exiting the medianFunc production.
 	ExitMedianFunc(c *MedianFuncContext)

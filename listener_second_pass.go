@@ -416,3 +416,7 @@ func (l *secondPassListener) EnterCharFromIntFunc(_ *parser.CharFromIntFuncConte
 func (l *secondPassListener) EnterCharToIntFunc(_ *parser.CharToIntFuncContext) {
 	l.calc.pushFunction(l.calc.charToInt)
 }
+
+func (l *secondPassListener) EnterHexToNumberFunc(_ *parser.HexToNumberFuncContext) {
+	l.calc.pushFunction(l.calc.hexToNumber)
+}

@@ -4,6 +4,7 @@ import (
 	"math"
 	"math/rand"
 	"sort"
+	"strconv"
 )
 
 func (calc *calculator) addNumbers() {
@@ -294,4 +295,14 @@ func (calc *calculator) tan() {
 func (calc *calculator) tanh() {
 	radians := calc.popValue().(float64)
 	calc.pushValue(math.Tanh(radians))
+}
+
+func (calc *calculator) hexToNumber() {
+	hexCode := calc.popValue().(string)
+	result, err := strconv.ParseInt(hexCode, 16, 64)
+	if err != nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(float64(result))
 }

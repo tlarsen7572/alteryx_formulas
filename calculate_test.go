@@ -831,6 +831,16 @@ func TestCharToInt(t *testing.T) {
 	}
 }
 
+func TestHexToNumber(t *testing.T) {
+	result, errs := f.Calculate(`hexToNumber('dd')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 221.0 {
+		t.Fatalf(`expected 221 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

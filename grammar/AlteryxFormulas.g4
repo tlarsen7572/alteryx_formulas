@@ -36,6 +36,7 @@ expr
     | Distance '(' expr ',' expr ',' expr ',' expr ')'               # distanceFunc
     | Exp '(' expr ')'                                               # expFunc
     | Floor '(' expr ')'                                             # floorFunc
+    | HexToNumber '(' expr ')'                                       # hexToNumberFunc
     | Log '(' expr ')'                                               # logFunc
     | Log10 '(' expr ')'                                             # log10Func
     | Max '(' expr (',' expr)+ ')'                                   # maxFunc
@@ -81,6 +82,7 @@ Cosh        : C O S H ;
 Distance    : D I S T A N C E ;
 Exp         : E X P ;
 Floor       : F L O O R ;
+HexToNumber : H E X T O N U M B E R ;
 Log         : L O G ;
 Log10       : L O G '10' ;
 Max         : M A X ;

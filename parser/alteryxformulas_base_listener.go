@@ -117,6 +117,12 @@ func (s *BaseAlteryxFormulasListener) EnterParenthesis(ctx *ParenthesisContext) 
 // ExitParenthesis is called when production parenthesis is exited.
 func (s *BaseAlteryxFormulasListener) ExitParenthesis(ctx *ParenthesisContext) {}
 
+// EnterHexToNumberFunc is called when production hexToNumberFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterHexToNumberFunc(ctx *HexToNumberFuncContext) {}
+
+// ExitHexToNumberFunc is called when production hexToNumberFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitHexToNumberFunc(ctx *HexToNumberFuncContext) {}
+
 // EnterMedianFunc is called when production medianFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterMedianFunc(ctx *MedianFuncContext) {}
 
