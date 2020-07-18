@@ -431,3 +431,7 @@ func (l *secondPassListener) ExitContainsFunc(c *parser.ContainsFuncContext) {
 		l.calc.pushValueFunc(1.0)
 	}
 }
+
+func (l *secondPassListener) EnterCountWordsFunc(_ *parser.CountWordsFuncContext) {
+	l.calc.pushFunction(l.calc.countWords)
+}

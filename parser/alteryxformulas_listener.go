@@ -149,6 +149,9 @@ type AlteryxFormulasListener interface {
 	// EnterExpFunc is called when entering the expFunc production.
 	EnterExpFunc(c *ExpFuncContext)
 
+	// EnterCountWordsFunc is called when entering the countWordsFunc production.
+	EnterCountWordsFunc(c *CountWordsFuncContext)
+
 	// EnterPowFunc is called when entering the powFunc production.
 	EnterPowFunc(c *PowFuncContext)
 
@@ -319,6 +322,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitExpFunc is called when exiting the expFunc production.
 	ExitExpFunc(c *ExpFuncContext)
+
+	// ExitCountWordsFunc is called when exiting the countWordsFunc production.
+	ExitCountWordsFunc(c *CountWordsFuncContext)
 
 	// ExitPowFunc is called when exiting the powFunc production.
 	ExitPowFunc(c *PowFuncContext)

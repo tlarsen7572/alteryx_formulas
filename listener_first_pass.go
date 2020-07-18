@@ -314,6 +314,10 @@ func (l *firstPassListener) ExitHexToNumberFunc(c *parser.HexToNumberFuncContext
 }
 
 func (l *firstPassListener) ExitContainsFunc(c *parser.ContainsFuncContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitCountWordsFunc(c *parser.CountWordsFuncContext) {
 	l.setSymbol(c, Number)
 }
 

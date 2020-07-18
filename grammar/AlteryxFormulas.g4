@@ -34,6 +34,7 @@ expr
     | Contains '(' expr ',' expr (',' expr)? ')'                     # containsFunc
     | Cos '(' expr ')'                                               # cosFunc
     | Cosh '(' expr ')'                                              # coshFunc
+    | CountWords '(' expr ')'                                        # countWordsFunc
     | Distance '(' expr ',' expr ',' expr ',' expr ')'               # distanceFunc
     | Exp '(' expr ')'                                               # expFunc
     | Floor '(' expr ')'                                             # floorFunc
@@ -81,6 +82,7 @@ CharToInt   : C H A R T O I N T ;
 Contains    : C O N T A I N S ;
 Cos         : C O S ;
 Cosh        : C O S H ;
+CountWords  : C O U N T W O R D S ;
 Distance    : D I S T A N C E ;
 Exp         : E X P ;
 Floor       : F L O O R ;

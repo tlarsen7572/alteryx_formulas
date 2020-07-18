@@ -881,6 +881,27 @@ func TestContainsFalseCaseSensitive(t *testing.T) {
 	}
 }
 
+func TestCountWords(t *testing.T) {
+	result, errs := f.Calculate(`countWords('  a b c  ')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 3.0 {
+		t.Fatalf(`expected 3 words but got %v`, result)
+	}
+}
+
+func TestCountWordsWithNewLines(t *testing.T) {
+	result, errs := f.Calculate(`countWords('a 
+b c')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 3.0 {
+		t.Fatalf(`expected 3 words but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

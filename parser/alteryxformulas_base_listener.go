@@ -303,6 +303,12 @@ func (s *BaseAlteryxFormulasListener) EnterExpFunc(ctx *ExpFuncContext) {}
 // ExitExpFunc is called when production expFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitExpFunc(ctx *ExpFuncContext) {}
 
+// EnterCountWordsFunc is called when production countWordsFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterCountWordsFunc(ctx *CountWordsFuncContext) {}
+
+// ExitCountWordsFunc is called when production countWordsFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitCountWordsFunc(ctx *CountWordsFuncContext) {}
+
 // EnterPowFunc is called when production powFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterPowFunc(ctx *PowFuncContext) {}
 
