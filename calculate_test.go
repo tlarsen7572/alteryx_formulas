@@ -784,6 +784,38 @@ func TestSwitchStringDefault(t *testing.T) {
 	}
 }
 
+func TestCharFromInt(t *testing.T) {
+	result, errs := f.Calculate(`charFromInt(66)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `B` {
+		t.Fatalf(`expected 'B' but got '%v'`, result)
+	}
+
+	result, _ = f.Calculate(`charFromInt(127944)`, nil)
+	expected := "\U0001f3c8"
+	if result != expected {
+		t.Fatalf(`expected '%v' but got '%v'`, expected, result)
+	}
+	t.Logf(`result: '%v'`, result)
+}
+
+func TestCharFromIntInvalidCodes(t *testing.T) {
+	result, errs := f.Calculate(`charFromInt(55300)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got '%v'`, result)
+	}
+
+	result, _ = f.Calculate(`charFromInt(-1)`, nil)
+	if result != nil {
+		t.Fatalf(`expected nil but got '%v'`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

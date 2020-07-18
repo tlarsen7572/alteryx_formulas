@@ -29,6 +29,7 @@ expr
     | Atan2 '(' expr ',' expr ')'                                    # atan2Func
     | Average '(' expr (',' expr)* ')'                               # averageFunc
     | Ceil '(' expr ')'                                              # ceilFunc
+    | CharFromInt '(' expr ')'                                       # charFromIntFunc
     | Cos '(' expr ')'                                               # cosFunc
     | Cosh '(' expr ')'                                              # coshFunc
     | Distance '(' expr ',' expr ',' expr ',' expr ')'               # distanceFunc
@@ -65,37 +66,38 @@ expr
     ;
 
 // Case-insensitive function names
-Abs     : A B S ;
-Acos    : A C O S ;
-Asin    : A S I N ;
-Atan    : A T A N ;
-Atan2   : A T A N '2' ;
-Average : A V E R A G E ;
-Ceil    : C E I L ;
-Cos     : C O S ;
-Cosh    : C O S H ;
-Distance: D I S T A N C E ;
-Exp     : E X P ;
-Floor   : F L O O R ;
-Log     : L O G ;
-Log10   : L O G '10' ;
-Max     : M A X ;
-Median  : M E D I A N ;
-Min     : M I N ;
-Mod     : M O D ;
-Null    : N U L L ;
-Pi      : P I ;
-Pow     : P O W ;
-Rand    : R A N D ;
-RandInt : R A N D I N T ;
-Round   : R O U N D ;
-Sin     : S I N ;
-Sinh    : S I N H ;
-Sqrt    : S Q R T ;
-Switch  : S W I T C H ;
-Tan     : T A N ;
-Tanh    : T A N H ;
-Iif     : I I F ;
+Abs         : A B S ;
+Acos        : A C O S ;
+Asin        : A S I N ;
+Atan        : A T A N ;
+Atan2       : A T A N '2' ;
+Average     : A V E R A G E ;
+Ceil        : C E I L ;
+CharFromInt : C H A R F R O M I N T ;
+Cos         : C O S ;
+Cosh        : C O S H ;
+Distance    : D I S T A N C E ;
+Exp         : E X P ;
+Floor       : F L O O R ;
+Log         : L O G ;
+Log10       : L O G '10' ;
+Max         : M A X ;
+Median      : M E D I A N ;
+Min         : M I N ;
+Mod         : M O D ;
+Null        : N U L L ;
+Pi          : P I ;
+Pow         : P O W ;
+Rand        : R A N D ;
+RandInt     : R A N D I N T ;
+Round       : R O U N D ;
+Sin         : S I N ;
+Sinh        : S I N H ;
+Sqrt        : S Q R T ;
+Switch      : S W I T C H ;
+Tan         : T A N ;
+Tanh        : T A N H ;
+Iif         : I I F ;
 
 // Case-insensitive keywords
 In     : I N ;

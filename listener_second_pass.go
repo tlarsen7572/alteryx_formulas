@@ -408,3 +408,7 @@ func (l *secondPassListener) EnterSwitchFunc(c *parser.SwitchFuncContext) {
 	exprCount := len(c.AllExpr())
 	l.calc.pushValueFunc(exprCount)
 }
+
+func (l *secondPassListener) EnterCharFromIntFunc(_ *parser.CharFromIntFuncContext) {
+	l.calc.pushFunction(l.calc.charFromInt)
+}

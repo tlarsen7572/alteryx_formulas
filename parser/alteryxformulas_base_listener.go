@@ -171,6 +171,12 @@ func (s *BaseAlteryxFormulasListener) EnterDistanceFunc(ctx *DistanceFuncContext
 // ExitDistanceFunc is called when production distanceFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitDistanceFunc(ctx *DistanceFuncContext) {}
 
+// EnterCharFromIntFunc is called when production charFromIntFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterCharFromIntFunc(ctx *CharFromIntFuncContext) {}
+
+// ExitCharFromIntFunc is called when production charFromIntFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitCharFromIntFunc(ctx *CharFromIntFuncContext) {}
+
 // EnterBoolLiteral is called when production boolLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterBoolLiteral(ctx *BoolLiteralContext) {}
 

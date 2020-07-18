@@ -83,6 +83,9 @@ type AlteryxFormulasListener interface {
 	// EnterDistanceFunc is called when entering the distanceFunc production.
 	EnterDistanceFunc(c *DistanceFuncContext)
 
+	// EnterCharFromIntFunc is called when entering the charFromIntFunc production.
+	EnterCharFromIntFunc(c *CharFromIntFuncContext)
+
 	// EnterBoolLiteral is called when entering the boolLiteral production.
 	EnterBoolLiteral(c *BoolLiteralContext)
 
@@ -241,6 +244,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitDistanceFunc is called when exiting the distanceFunc production.
 	ExitDistanceFunc(c *DistanceFuncContext)
+
+	// ExitCharFromIntFunc is called when exiting the charFromIntFunc production.
+	ExitCharFromIntFunc(c *CharFromIntFuncContext)
 
 	// ExitBoolLiteral is called when exiting the boolLiteral production.
 	ExitBoolLiteral(c *BoolLiteralContext)
