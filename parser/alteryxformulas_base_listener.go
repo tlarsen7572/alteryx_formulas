@@ -303,6 +303,12 @@ func (s *BaseAlteryxFormulasListener) EnterExprField(ctx *ExprFieldContext) {}
 // ExitExprField is called when production exprField is exited.
 func (s *BaseAlteryxFormulasListener) ExitExprField(ctx *ExprFieldContext) {}
 
+// EnterGetWordFunc is called when production getWordFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterGetWordFunc(ctx *GetWordFuncContext) {}
+
+// ExitGetWordFunc is called when production getWordFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitGetWordFunc(ctx *GetWordFuncContext) {}
+
 // EnterOr is called when production or is entered.
 func (s *BaseAlteryxFormulasListener) EnterOr(ctx *OrContext) {}
 

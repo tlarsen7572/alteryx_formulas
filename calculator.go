@@ -1,12 +1,16 @@
 package alteryx_formulas
 
-import "github.com/StefanSchroeder/Golang-Ellipsoid/ellipsoid"
+import (
+	"github.com/StefanSchroeder/Golang-Ellipsoid/ellipsoid"
+	"regexp"
+)
 
 type calculator struct {
 	functions  []func()
 	values     []interface{}
 	recordInfo RecordInfo
 	geo        ellipsoid.Ellipsoid
+	wordExp    *regexp.Regexp
 	errs       []error
 }
 

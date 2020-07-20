@@ -1,7 +1,6 @@
 package alteryx_formulas
 
 import (
-	"regexp"
 	"strings"
 	"unicode/utf8"
 )
@@ -66,13 +65,7 @@ func (calc *calculator) concatenate() {
 
 func (calc *calculator) countWords() {
 	text := calc.popValue().(string)
-	regex, err := regexp.Compile(`[^\s]+(?:\s+|$)`)
-	if err != nil {
-		calc.pushValue(nil)
-		calc.errs = append(calc.errs, err)
-		return
-	}
-	matches := regex.FindAllString(text, -1)
+	matches := calc.wordExp.FindAllString(text, -1)
 	calc.pushValue(float64(len(matches)))
 }
 
@@ -80,4 +73,15 @@ func (calc *calculator) findString() {
 	text := calc.popValue().(string)
 	lookFor := calc.popValue().(string)
 	calc.pushValue(strings.Index(text, lookFor))
+}
+
+func (calc *calculator) getWord() {
+	text := calc.popValue().(string)
+	wordIndex := int(calc.popValue().(float64))
+	match := calc.wordExp.FindAllStringSubmatch(text, -1)
+	if wordIndex < 0 || wordIndex >= len(match) {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(match[wordIndex][1])
 }

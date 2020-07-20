@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/tlarsen7572/alteryx_formulas/parser"
+	"regexp"
 	"time"
 )
 
@@ -37,7 +38,14 @@ func Calculate(formula string, info RecordInfo) (interface{}, []error) {
 		return nil, errors.errs
 	}
 
-	secondListener := &secondPassListener{symbols: firstListener.symbols, calc: &calculator{recordInfo: info}}
+	wordExp, _ := regexp.Compile(`([^\s]+)(?:\s+|$)`)
+	secondListener := &secondPassListener{
+		symbols: firstListener.symbols,
+		calc: &calculator{
+			recordInfo: info,
+			wordExp:    wordExp,
+		},
+	}
 	antlr.ParseTreeWalkerDefault.Walk(secondListener, tree)
 
 	if len(errors.errs) > 0 {

@@ -149,6 +149,9 @@ type AlteryxFormulasListener interface {
 	// EnterExprField is called when entering the exprField production.
 	EnterExprField(c *ExprFieldContext)
 
+	// EnterGetWordFunc is called when entering the getWordFunc production.
+	EnterGetWordFunc(c *GetWordFuncContext)
+
 	// EnterOr is called when entering the or production.
 	EnterOr(c *OrContext)
 
@@ -328,6 +331,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitExprField is called when exiting the exprField production.
 	ExitExprField(c *ExprFieldContext)
+
+	// ExitGetWordFunc is called when exiting the getWordFunc production.
+	ExitGetWordFunc(c *GetWordFuncContext)
 
 	// ExitOr is called when exiting the or production.
 	ExitOr(c *OrContext)

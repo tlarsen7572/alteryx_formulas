@@ -40,6 +40,7 @@ expr
     | Exp '(' expr ')'                                               # expFunc
     | FindString '(' expr ',' expr ')'                               # findStringFunc
     | Floor '(' expr ')'                                             # floorFunc
+    | GetWord '(' expr ',' expr ')'                                  # getWordFunc
     | HexToNumber '(' expr ')'                                       # hexToNumberFunc
     | Log '(' expr ')'                                               # logFunc
     | Log10 '(' expr ')'                                             # log10Func
@@ -90,6 +91,7 @@ EndsWith    : E N D S W I T H ;
 FindString  : F I N D S T R I N G ;
 Exp         : E X P ;
 Floor       : F L O O R ;
+GetWord     : G E T W O R D ;
 HexToNumber : H E X T O N U M B E R ;
 Log         : L O G ;
 Log10       : L O G '10' ;

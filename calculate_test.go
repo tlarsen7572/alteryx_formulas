@@ -977,6 +977,36 @@ func TestFindStringFalse(t *testing.T) {
 	}
 }
 
+func TestGetWord(t *testing.T) {
+	result, errs := f.Calculate(`getWord(' ab cde fghi ', 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `ab` {
+		t.Fatalf(`expected 'ab' but got '%v'`, result)
+	}
+}
+
+func TestGetWordOutOfBounds(t *testing.T) {
+	result, errs := f.Calculate(`getWord(' ab cde fghi ', 4)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got '%v'`, result)
+	}
+}
+
+func TestGetWordNoMatch(t *testing.T) {
+	result, errs := f.Calculate(`getWord('  ', 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got '%v'`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

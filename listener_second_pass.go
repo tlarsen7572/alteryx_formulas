@@ -450,3 +450,7 @@ func (l *secondPassListener) ExitEndsWithFunc(c *parser.EndsWithFuncContext) {
 func (l *secondPassListener) EnterFindStringFunc(_ *parser.FindStringFuncContext) {
 	l.calc.pushFunction(l.calc.findString)
 }
+
+func (l *secondPassListener) EnterGetWordFunc(_ *parser.GetWordFuncContext) {
+	l.calc.pushFunction(l.calc.getWord)
+}
