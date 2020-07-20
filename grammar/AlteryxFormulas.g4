@@ -38,6 +38,7 @@ expr
     | Distance '(' expr ',' expr ',' expr ',' expr ')'               # distanceFunc
     | EndsWith '(' expr ',' expr (',' expr)? ')'                     # endsWithFunc
     | Exp '(' expr ')'                                               # expFunc
+    | FindString '(' expr ',' expr ')'                               # findStringFunc
     | Floor '(' expr ')'                                             # floorFunc
     | HexToNumber '(' expr ')'                                       # hexToNumberFunc
     | Log '(' expr ')'                                               # logFunc
@@ -86,6 +87,7 @@ Cosh        : C O S H ;
 CountWords  : C O U N T W O R D S ;
 Distance    : D I S T A N C E ;
 EndsWith    : E N D S W I T H ;
+FindString  : F I N D S T R I N G ;
 Exp         : E X P ;
 Floor       : F L O O R ;
 HexToNumber : H E X T O N U M B E R ;

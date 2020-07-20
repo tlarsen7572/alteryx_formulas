@@ -952,6 +952,31 @@ func TestEndsWithTargetLenExceedsStringLen(t *testing.T) {
 	}
 }
 
+func TestFindStringTrue(t *testing.T) {
+	result, errs := f.Calculate(`findString('abcabc', 'ab')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0 {
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`findString('123abc', 'ab')`, nil)
+	if result != 3 {
+		t.Fatalf(`expected 3 but got %v`, result)
+	}
+}
+
+func TestFindStringFalse(t *testing.T) {
+	result, errs := f.Calculate(`findString('abcabc', 'AB')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != -1 {
+		t.Fatalf(`expected -1 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

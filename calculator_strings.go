@@ -2,6 +2,7 @@ package alteryx_formulas
 
 import (
 	"regexp"
+	"strings"
 	"unicode/utf8"
 )
 
@@ -26,6 +27,36 @@ func (calc *calculator) charToInt() {
 	calc.pushValue(code)
 }
 
+func (calc *calculator) contains() {
+	value := calc.popValue().(string)
+	lookFor := calc.popValue().(string)
+	caseInsensitive := calc.popValue().(float64)
+	if caseInsensitive != 0 {
+		value = strings.ToLower(value)
+		lookFor = strings.ToLower(lookFor)
+	}
+	contains := strings.Contains(value, lookFor)
+	calc.pushValue(contains)
+}
+
+func (calc *calculator) endsWith() {
+	value := calc.popValue().(string)
+	lookFor := calc.popValue().(string)
+	caseInsensitive := calc.popValue().(float64)
+	startAt := len(value) - len(lookFor)
+	if startAt < 0 {
+		calc.pushValue(false)
+		return
+	}
+	if caseInsensitive != 0 {
+		value = strings.ToLower(value)
+		lookFor = strings.ToLower(lookFor)
+	}
+
+	contains := value[startAt:] == lookFor
+	calc.pushValue(contains)
+}
+
 func (calc *calculator) concatenate() {
 	concatenate := func(left interface{}, right interface{}) interface{} {
 		return left.(string) + right.(string)
@@ -43,4 +74,10 @@ func (calc *calculator) countWords() {
 	}
 	matches := regex.FindAllString(text, -1)
 	calc.pushValue(float64(len(matches)))
+}
+
+func (calc *calculator) findString() {
+	text := calc.popValue().(string)
+	lookFor := calc.popValue().(string)
+	calc.pushValue(strings.Index(text, lookFor))
 }
