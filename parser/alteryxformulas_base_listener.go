@@ -177,6 +177,12 @@ func (s *BaseAlteryxFormulasListener) EnterCeilFunc(ctx *CeilFuncContext) {}
 // ExitCeilFunc is called when production ceilFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCeilFunc(ctx *CeilFuncContext) {}
 
+// EnterEndsWithFunc is called when production endsWithFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterEndsWithFunc(ctx *EndsWithFuncContext) {}
+
+// ExitEndsWithFunc is called when production endsWithFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitEndsWithFunc(ctx *EndsWithFuncContext) {}
+
 // EnterDistanceFunc is called when production distanceFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterDistanceFunc(ctx *DistanceFuncContext) {}
 

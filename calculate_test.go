@@ -902,6 +902,56 @@ b c')`, nil)
 	}
 }
 
+func TestEndsWithTrueCaseInsentitive(t *testing.T) {
+	result, errs := f.Calculate(`endsWith('123ABC','abc')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
+func TestEndsWithFalseCaseInsentitive(t *testing.T) {
+	result, errs := f.Calculate(`endsWith('123ABC','abcd')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestEndsWithTrueCaseSentitive(t *testing.T) {
+	result, errs := f.Calculate(`endsWith('123ABC','ABC', 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
+func TestEndsWithFalseCaseSentitive(t *testing.T) {
+	result, errs := f.Calculate(`endsWith('123ABC','abc', 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestEndsWithTargetLenExceedsStringLen(t *testing.T) {
+	result, errs := f.Calculate(`endsWith('123ABC','abcdefghijklmnop', 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

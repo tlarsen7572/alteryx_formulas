@@ -435,3 +435,14 @@ func (l *secondPassListener) ExitContainsFunc(c *parser.ContainsFuncContext) {
 func (l *secondPassListener) EnterCountWordsFunc(_ *parser.CountWordsFuncContext) {
 	l.calc.pushFunction(l.calc.countWords)
 }
+
+func (l *secondPassListener) EnterEndsWithFunc(_ *parser.EndsWithFuncContext) {
+	l.calc.pushFunction(l.calc.endsWith)
+}
+
+func (l *secondPassListener) ExitEndsWithFunc(c *parser.EndsWithFuncContext) {
+	exprs := len(c.AllExpr())
+	if exprs == 2 {
+		l.calc.pushValueFunc(1.0)
+	}
+}

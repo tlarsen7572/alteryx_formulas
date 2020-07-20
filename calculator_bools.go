@@ -65,3 +65,21 @@ func (calc *calculator) contains() {
 	contains := strings.Contains(value, lookFor)
 	calc.pushValue(contains)
 }
+
+func (calc *calculator) endsWith() {
+	value := calc.popValue().(string)
+	lookFor := calc.popValue().(string)
+	caseInsensitive := calc.popValue().(float64)
+	startAt := len(value) - len(lookFor)
+	if startAt < 0 {
+		calc.pushValue(false)
+		return
+	}
+	if caseInsensitive != 0 {
+		value = strings.ToLower(value)
+		lookFor = strings.ToLower(lookFor)
+	}
+
+	contains := value[startAt:] == lookFor
+	calc.pushValue(contains)
+}

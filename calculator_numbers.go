@@ -3,7 +3,6 @@ package alteryx_formulas
 import (
 	"math"
 	"math/rand"
-	"regexp"
 	"sort"
 	"strconv"
 )
@@ -306,16 +305,4 @@ func (calc *calculator) hexToNumber() {
 		return
 	}
 	calc.pushValue(float64(result))
-}
-
-func (calc *calculator) countWords() {
-	text := calc.popValue().(string)
-	regex, err := regexp.Compile(`[^\s]+(?:\s+|$)`)
-	if err != nil {
-		calc.pushValue(nil)
-		calc.errs = append(calc.errs, err)
-		return
-	}
-	matches := regex.FindAllString(text, -1)
-	calc.pushValue(float64(len(matches)))
 }

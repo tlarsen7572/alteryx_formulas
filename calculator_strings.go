@@ -1,6 +1,9 @@
 package alteryx_formulas
 
-import "unicode/utf8"
+import (
+	"regexp"
+	"unicode/utf8"
+)
 
 func (calc *calculator) charFromInt() {
 	charCode := rune(calc.popValue().(float64))
@@ -28,4 +31,16 @@ func (calc *calculator) concatenate() {
 		return left.(string) + right.(string)
 	}
 	calc.ifNonNullLeftRight(concatenate)
+}
+
+func (calc *calculator) countWords() {
+	text := calc.popValue().(string)
+	regex, err := regexp.Compile(`[^\s]+(?:\s+|$)`)
+	if err != nil {
+		calc.pushValue(nil)
+		calc.errs = append(calc.errs, err)
+		return
+	}
+	matches := regex.FindAllString(text, -1)
+	calc.pushValue(float64(len(matches)))
 }

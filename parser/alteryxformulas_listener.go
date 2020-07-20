@@ -86,6 +86,9 @@ type AlteryxFormulasListener interface {
 	// EnterCeilFunc is called when entering the ceilFunc production.
 	EnterCeilFunc(c *CeilFuncContext)
 
+	// EnterEndsWithFunc is called when entering the endsWithFunc production.
+	EnterEndsWithFunc(c *EndsWithFuncContext)
+
 	// EnterDistanceFunc is called when entering the distanceFunc production.
 	EnterDistanceFunc(c *DistanceFuncContext)
 
@@ -259,6 +262,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitCeilFunc is called when exiting the ceilFunc production.
 	ExitCeilFunc(c *CeilFuncContext)
+
+	// ExitEndsWithFunc is called when exiting the endsWithFunc production.
+	ExitEndsWithFunc(c *EndsWithFuncContext)
 
 	// ExitDistanceFunc is called when exiting the distanceFunc production.
 	ExitDistanceFunc(c *DistanceFuncContext)
