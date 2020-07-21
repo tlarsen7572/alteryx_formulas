@@ -337,6 +337,10 @@ func (l *firstPassListener) ExitLeftFunc(c *parser.LeftFuncContext) {
 	l.setSymbol(c, String)
 }
 
+func (l *firstPassListener) ExitLenFunc(c *parser.LenFuncContext) {
+	l.setSymbol(c, Number)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

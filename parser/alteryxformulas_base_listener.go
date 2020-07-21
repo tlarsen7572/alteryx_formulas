@@ -231,6 +231,12 @@ func (s *BaseAlteryxFormulasListener) EnterSinhFunc(ctx *SinhFuncContext) {}
 // ExitSinhFunc is called when production sinhFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitSinhFunc(ctx *SinhFuncContext) {}
 
+// EnterLenFunc is called when production lenFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterLenFunc(ctx *LenFuncContext) {}
+
+// ExitLenFunc is called when production lenFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitLenFunc(ctx *LenFuncContext) {}
+
 // EnterRandFunc is called when production randFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterRandFunc(ctx *RandFuncContext) {}
 

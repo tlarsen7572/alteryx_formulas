@@ -113,6 +113,9 @@ type AlteryxFormulasListener interface {
 	// EnterSinhFunc is called when entering the sinhFunc production.
 	EnterSinhFunc(c *SinhFuncContext)
 
+	// EnterLenFunc is called when entering the lenFunc production.
+	EnterLenFunc(c *LenFuncContext)
+
 	// EnterRandFunc is called when entering the randFunc production.
 	EnterRandFunc(c *RandFuncContext)
 
@@ -298,6 +301,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitSinhFunc is called when exiting the sinhFunc production.
 	ExitSinhFunc(c *SinhFuncContext)
+
+	// ExitLenFunc is called when exiting the lenFunc production.
+	ExitLenFunc(c *LenFuncContext)
 
 	// ExitRandFunc is called when exiting the randFunc production.
 	ExitRandFunc(c *RandFuncContext)

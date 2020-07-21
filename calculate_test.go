@@ -1032,6 +1032,16 @@ func TestLeftOutOfBounds(t *testing.T) {
 	}
 }
 
+func TestLen(t *testing.T) {
+	result, errs := f.Calculate(`len('abcdef')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 6.0 {
+		t.Fatalf(`expected 6 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool
