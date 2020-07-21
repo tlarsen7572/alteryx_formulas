@@ -60,6 +60,7 @@ expr
     | RandInt '(' expr ')'                                           # randIntFunc
     | Regex_CountMatches '(' expr ',' expr (',' expr)? ')'           # regexCountMatchesFunc
     | Regex_Match '(' expr ',' expr (',' expr)? ')'                  # regexMatchFunc
+    | Regex_Replace '(' expr ',' expr ',' expr (',' expr)? ')'       # regexReplaceFunc
     | Round '(' expr ',' expr ')'                                    # roundFunc
     | Sin '(' expr ')'                                               # sinFunc
     | Sinh '(' expr ')'                                              # sinhFunc
@@ -118,6 +119,7 @@ Rand               : R A N D ;
 RandInt            : R A N D I N T ;
 Regex_CountMatches : R E G E X '_' C O U N T M A T C H E S ;
 Regex_Match        : R E G E X '_' M A T C H ;
+Regex_Replace      : R E G E X '_' R E P L A C E ;
 Round              : R O U N D ;
 Sin                : S I N ;
 Sinh               : S I N H ;

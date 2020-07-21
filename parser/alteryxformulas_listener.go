@@ -26,6 +26,9 @@ type AlteryxFormulasListener interface {
 	// EnterTanFunc is called when entering the tanFunc production.
 	EnterTanFunc(c *TanFuncContext)
 
+	// EnterRegexReplaceFunc is called when entering the regexReplaceFunc production.
+	EnterRegexReplaceFunc(c *RegexReplaceFuncContext)
+
 	// EnterFloorFunc is called when entering the floorFunc production.
 	EnterFloorFunc(c *FloorFuncContext)
 
@@ -229,6 +232,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitTanFunc is called when exiting the tanFunc production.
 	ExitTanFunc(c *TanFuncContext)
+
+	// ExitRegexReplaceFunc is called when exiting the regexReplaceFunc production.
+	ExitRegexReplaceFunc(c *RegexReplaceFuncContext)
 
 	// ExitFloorFunc is called when exiting the floorFunc production.
 	ExitFloorFunc(c *FloorFuncContext)

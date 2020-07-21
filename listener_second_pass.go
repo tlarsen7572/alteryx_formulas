@@ -496,3 +496,14 @@ func (l *secondPassListener) ExitRegexMatchFunc(c *parser.RegexMatchFuncContext)
 		l.calc.pushValueFunc(1.0)
 	}
 }
+
+func (l *secondPassListener) EnterRegexReplaceFunc(_ *parser.RegexReplaceFuncContext) {
+	l.calc.pushFunction(l.calc.regexReplace)
+}
+
+func (l *secondPassListener) ExitRegexReplaceFunc(c *parser.RegexReplaceFuncContext) {
+	exprs := len(c.AllExpr())
+	if exprs == 3 {
+		l.calc.pushValueFunc(1.0)
+	}
+}

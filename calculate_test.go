@@ -1160,6 +1160,23 @@ func TestRegex_MatchCaseSensitiveFalse(t *testing.T) {
 	}
 }
 
+func TestRegex_ReplaceCaseInsensitive(t *testing.T) {
+	result, errs := f.Calculate(`regex_replace('ABCABC', '(abc){2}', '${1}xyz')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `ABCxyz` { // true
+		t.Fatalf(`expected ABCxyz but got %v`, result)
+	}
+}
+
+func TestRegex_ReplaceCaseSensitive(t *testing.T) {
+	result, _ := f.Calculate(`regex_replace('ABCABC', '(abc){2}', '${1}xyz', 0)`, nil)
+	if result != `ABCABC` { // true
+		t.Fatalf(`expected ABCABC but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

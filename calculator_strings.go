@@ -162,6 +162,7 @@ func (calc *calculator) regexMatch() {
 	if err != nil {
 		calc.pushValue(0)
 		calc.errs = append(calc.errs, err)
+		return
 	}
 	matches := r.MatchString(text)
 	if matches {
@@ -169,4 +170,23 @@ func (calc *calculator) regexMatch() {
 	} else {
 		calc.pushValue(0.0)
 	}
+}
+
+func (calc *calculator) regexReplace() {
+	text := calc.popValue().(string)
+	regex := calc.popValue().(string)
+	replaceWith := calc.popValue().(string)
+	caseInsensitive := calc.popValue().(float64)
+
+	if caseInsensitive != 0 {
+		regex = `(?i)` + regex
+	}
+	r, err := regexp.Compile(regex)
+	if err != nil {
+		calc.pushValue(nil)
+		calc.errs = append(calc.errs, err)
+		return
+	}
+	newText := r.ReplaceAllString(text, replaceWith)
+	calc.pushValue(newText)
 }

@@ -361,6 +361,10 @@ func (l *firstPassListener) ExitRegexMatchFunc(c *parser.RegexMatchFuncContext) 
 	l.setSymbol(c, Number)
 }
 
+func (l *firstPassListener) ExitRegexReplaceFunc(c *parser.RegexReplaceFuncContext) {
+	l.setSymbol(c, String)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

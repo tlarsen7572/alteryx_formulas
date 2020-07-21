@@ -57,6 +57,12 @@ func (s *BaseAlteryxFormulasListener) EnterTanFunc(ctx *TanFuncContext) {}
 // ExitTanFunc is called when production tanFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitTanFunc(ctx *TanFuncContext) {}
 
+// EnterRegexReplaceFunc is called when production regexReplaceFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterRegexReplaceFunc(ctx *RegexReplaceFuncContext) {}
+
+// ExitRegexReplaceFunc is called when production regexReplaceFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitRegexReplaceFunc(ctx *RegexReplaceFuncContext) {}
+
 // EnterFloorFunc is called when production floorFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterFloorFunc(ctx *FloorFuncContext) {}
 
