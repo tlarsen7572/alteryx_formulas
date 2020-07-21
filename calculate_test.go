@@ -1033,7 +1033,7 @@ func TestLeftOutOfBounds(t *testing.T) {
 }
 
 func TestLen(t *testing.T) {
-	result, errs := f.Calculate(`len('abcdef')`, nil)
+	result, errs := f.Calculate(`length('abcdef')`, nil)
 	if len(errs) > 0 {
 		t.Fatalf(`expected no errors but got: %v`, errs)
 	}

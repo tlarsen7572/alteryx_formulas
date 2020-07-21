@@ -205,7 +205,7 @@ var symbolicNames = []string{
 	"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Abs",
 	"Acos", "Asin", "Atan", "Atan2", "Average", "Ceil", "CharFromInt", "CharToInt",
 	"Contains", "Cos", "Cosh", "CountWords", "Distance", "EndsWith", "FindString",
-	"Exp", "Floor", "GetWord", "HexToNumber", "Left", "Len", "Log", "Log10",
+	"Exp", "Floor", "GetWord", "HexToNumber", "Left", "Length", "Log", "Log10",
 	"Max", "Median", "Min", "Mod", "Null", "Pi", "Pow", "Rand", "RandInt",
 	"Round", "Sin", "Sinh", "Sqrt", "Switch", "Tan", "Tanh", "Iif", "In", "Not",
 	"And", "Or", "If", "Then", "Else", "Elseif", "Endif", "Bool", "Integer",
@@ -282,7 +282,7 @@ const (
 	AlteryxFormulasParserGetWord           = 35
 	AlteryxFormulasParserHexToNumber       = 36
 	AlteryxFormulasParserLeft              = 37
-	AlteryxFormulasParserLen               = 38
+	AlteryxFormulasParserLength            = 38
 	AlteryxFormulasParserLog               = 39
 	AlteryxFormulasParserLog10             = 40
 	AlteryxFormulasParserMax               = 41
@@ -2062,50 +2062,6 @@ func (s *SinhFuncContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
-type LenFuncContext struct {
-	*ExprContext
-}
-
-func NewLenFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LenFuncContext {
-	var p = new(LenFuncContext)
-
-	p.ExprContext = NewEmptyExprContext()
-	p.parser = parser
-	p.CopyFrom(ctx.(*ExprContext))
-
-	return p
-}
-
-func (s *LenFuncContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *LenFuncContext) Len() antlr.TerminalNode {
-	return s.GetToken(AlteryxFormulasParserLen, 0)
-}
-
-func (s *LenFuncContext) Expr() IExprContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IExprContext)
-}
-
-func (s *LenFuncContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.EnterLenFunc(s)
-	}
-}
-
-func (s *LenFuncContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
-		listenerT.ExitLenFunc(s)
-	}
-}
-
 type RandFuncContext struct {
 	*ExprContext
 }
@@ -2886,6 +2842,50 @@ func (s *GetWordFuncContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *GetWordFuncContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
 		listenerT.ExitGetWordFunc(s)
+	}
+}
+
+type LengthFuncContext struct {
+	*ExprContext
+}
+
+func NewLengthFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *LengthFuncContext {
+	var p = new(LengthFuncContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *LengthFuncContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *LengthFuncContext) Length() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserLength, 0)
+}
+
+func (s *LengthFuncContext) Expr() IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *LengthFuncContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterLengthFunc(s)
+	}
+}
+
+func (s *LengthFuncContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitLengthFunc(s)
 	}
 }
 
@@ -4314,12 +4314,12 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		}
 
 	case 25:
-		localctx = NewLenFuncContext(p, localctx)
+		localctx = NewLengthFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(172)
-			p.Match(AlteryxFormulasParserLen)
+			p.Match(AlteryxFormulasParserLength)
 		}
 		{
 			p.SetState(173)
@@ -5221,7 +5221,7 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
-				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserAcos)|(1<<AlteryxFormulasParserAsin)|(1<<AlteryxFormulasParserAtan)|(1<<AlteryxFormulasParserAtan2)|(1<<AlteryxFormulasParserAverage)|(1<<AlteryxFormulasParserCeil)|(1<<AlteryxFormulasParserCharFromInt)|(1<<AlteryxFormulasParserCharToInt)|(1<<AlteryxFormulasParserContains)|(1<<AlteryxFormulasParserCos)|(1<<AlteryxFormulasParserCosh)|(1<<AlteryxFormulasParserCountWords)|(1<<AlteryxFormulasParserDistance)|(1<<AlteryxFormulasParserEndsWith))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserFindString-32))|(1<<(AlteryxFormulasParserExp-32))|(1<<(AlteryxFormulasParserFloor-32))|(1<<(AlteryxFormulasParserGetWord-32))|(1<<(AlteryxFormulasParserHexToNumber-32))|(1<<(AlteryxFormulasParserLeft-32))|(1<<(AlteryxFormulasParserLen-32))|(1<<(AlteryxFormulasParserLog-32))|(1<<(AlteryxFormulasParserLog10-32))|(1<<(AlteryxFormulasParserMax-32))|(1<<(AlteryxFormulasParserMedian-32))|(1<<(AlteryxFormulasParserMin-32))|(1<<(AlteryxFormulasParserMod-32))|(1<<(AlteryxFormulasParserNull-32))|(1<<(AlteryxFormulasParserPi-32))|(1<<(AlteryxFormulasParserPow-32))|(1<<(AlteryxFormulasParserRand-32))|(1<<(AlteryxFormulasParserRandInt-32))|(1<<(AlteryxFormulasParserRound-32))|(1<<(AlteryxFormulasParserSin-32))|(1<<(AlteryxFormulasParserSinh-32))|(1<<(AlteryxFormulasParserSqrt-32))|(1<<(AlteryxFormulasParserSwitch-32))|(1<<(AlteryxFormulasParserTan-32))|(1<<(AlteryxFormulasParserTanh-32))|(1<<(AlteryxFormulasParserIif-32))|(1<<(AlteryxFormulasParserIf-32)))) != 0) || (((_la-67)&-(0x1f+1)) == 0 && ((1<<uint((_la-67)))&((1<<(AlteryxFormulasParserBool-67))|(1<<(AlteryxFormulasParserInteger-67))|(1<<(AlteryxFormulasParserDecimal-67))|(1<<(AlteryxFormulasParserDate-67))|(1<<(AlteryxFormulasParserDatetime-67))|(1<<(AlteryxFormulasParserField-67))|(1<<(AlteryxFormulasParserSingleQuoteString-67))|(1<<(AlteryxFormulasParserDoubleQuoteString-67)))) != 0) {
+				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserAcos)|(1<<AlteryxFormulasParserAsin)|(1<<AlteryxFormulasParserAtan)|(1<<AlteryxFormulasParserAtan2)|(1<<AlteryxFormulasParserAverage)|(1<<AlteryxFormulasParserCeil)|(1<<AlteryxFormulasParserCharFromInt)|(1<<AlteryxFormulasParserCharToInt)|(1<<AlteryxFormulasParserContains)|(1<<AlteryxFormulasParserCos)|(1<<AlteryxFormulasParserCosh)|(1<<AlteryxFormulasParserCountWords)|(1<<AlteryxFormulasParserDistance)|(1<<AlteryxFormulasParserEndsWith))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserFindString-32))|(1<<(AlteryxFormulasParserExp-32))|(1<<(AlteryxFormulasParserFloor-32))|(1<<(AlteryxFormulasParserGetWord-32))|(1<<(AlteryxFormulasParserHexToNumber-32))|(1<<(AlteryxFormulasParserLeft-32))|(1<<(AlteryxFormulasParserLength-32))|(1<<(AlteryxFormulasParserLog-32))|(1<<(AlteryxFormulasParserLog10-32))|(1<<(AlteryxFormulasParserMax-32))|(1<<(AlteryxFormulasParserMedian-32))|(1<<(AlteryxFormulasParserMin-32))|(1<<(AlteryxFormulasParserMod-32))|(1<<(AlteryxFormulasParserNull-32))|(1<<(AlteryxFormulasParserPi-32))|(1<<(AlteryxFormulasParserPow-32))|(1<<(AlteryxFormulasParserRand-32))|(1<<(AlteryxFormulasParserRandInt-32))|(1<<(AlteryxFormulasParserRound-32))|(1<<(AlteryxFormulasParserSin-32))|(1<<(AlteryxFormulasParserSinh-32))|(1<<(AlteryxFormulasParserSqrt-32))|(1<<(AlteryxFormulasParserSwitch-32))|(1<<(AlteryxFormulasParserTan-32))|(1<<(AlteryxFormulasParserTanh-32))|(1<<(AlteryxFormulasParserIif-32))|(1<<(AlteryxFormulasParserIf-32)))) != 0) || (((_la-67)&-(0x1f+1)) == 0 && ((1<<uint((_la-67)))&((1<<(AlteryxFormulasParserBool-67))|(1<<(AlteryxFormulasParserInteger-67))|(1<<(AlteryxFormulasParserDecimal-67))|(1<<(AlteryxFormulasParserDate-67))|(1<<(AlteryxFormulasParserDatetime-67))|(1<<(AlteryxFormulasParserField-67))|(1<<(AlteryxFormulasParserSingleQuoteString-67))|(1<<(AlteryxFormulasParserDoubleQuoteString-67)))) != 0) {
 					{
 						p.SetState(352)
 						p.expr(0)
@@ -5275,7 +5275,7 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
-				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserAcos)|(1<<AlteryxFormulasParserAsin)|(1<<AlteryxFormulasParserAtan)|(1<<AlteryxFormulasParserAtan2)|(1<<AlteryxFormulasParserAverage)|(1<<AlteryxFormulasParserCeil)|(1<<AlteryxFormulasParserCharFromInt)|(1<<AlteryxFormulasParserCharToInt)|(1<<AlteryxFormulasParserContains)|(1<<AlteryxFormulasParserCos)|(1<<AlteryxFormulasParserCosh)|(1<<AlteryxFormulasParserCountWords)|(1<<AlteryxFormulasParserDistance)|(1<<AlteryxFormulasParserEndsWith))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserFindString-32))|(1<<(AlteryxFormulasParserExp-32))|(1<<(AlteryxFormulasParserFloor-32))|(1<<(AlteryxFormulasParserGetWord-32))|(1<<(AlteryxFormulasParserHexToNumber-32))|(1<<(AlteryxFormulasParserLeft-32))|(1<<(AlteryxFormulasParserLen-32))|(1<<(AlteryxFormulasParserLog-32))|(1<<(AlteryxFormulasParserLog10-32))|(1<<(AlteryxFormulasParserMax-32))|(1<<(AlteryxFormulasParserMedian-32))|(1<<(AlteryxFormulasParserMin-32))|(1<<(AlteryxFormulasParserMod-32))|(1<<(AlteryxFormulasParserNull-32))|(1<<(AlteryxFormulasParserPi-32))|(1<<(AlteryxFormulasParserPow-32))|(1<<(AlteryxFormulasParserRand-32))|(1<<(AlteryxFormulasParserRandInt-32))|(1<<(AlteryxFormulasParserRound-32))|(1<<(AlteryxFormulasParserSin-32))|(1<<(AlteryxFormulasParserSinh-32))|(1<<(AlteryxFormulasParserSqrt-32))|(1<<(AlteryxFormulasParserSwitch-32))|(1<<(AlteryxFormulasParserTan-32))|(1<<(AlteryxFormulasParserTanh-32))|(1<<(AlteryxFormulasParserIif-32))|(1<<(AlteryxFormulasParserIf-32)))) != 0) || (((_la-67)&-(0x1f+1)) == 0 && ((1<<uint((_la-67)))&((1<<(AlteryxFormulasParserBool-67))|(1<<(AlteryxFormulasParserInteger-67))|(1<<(AlteryxFormulasParserDecimal-67))|(1<<(AlteryxFormulasParserDate-67))|(1<<(AlteryxFormulasParserDatetime-67))|(1<<(AlteryxFormulasParserField-67))|(1<<(AlteryxFormulasParserSingleQuoteString-67))|(1<<(AlteryxFormulasParserDoubleQuoteString-67)))) != 0) {
+				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserAcos)|(1<<AlteryxFormulasParserAsin)|(1<<AlteryxFormulasParserAtan)|(1<<AlteryxFormulasParserAtan2)|(1<<AlteryxFormulasParserAverage)|(1<<AlteryxFormulasParserCeil)|(1<<AlteryxFormulasParserCharFromInt)|(1<<AlteryxFormulasParserCharToInt)|(1<<AlteryxFormulasParserContains)|(1<<AlteryxFormulasParserCos)|(1<<AlteryxFormulasParserCosh)|(1<<AlteryxFormulasParserCountWords)|(1<<AlteryxFormulasParserDistance)|(1<<AlteryxFormulasParserEndsWith))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserFindString-32))|(1<<(AlteryxFormulasParserExp-32))|(1<<(AlteryxFormulasParserFloor-32))|(1<<(AlteryxFormulasParserGetWord-32))|(1<<(AlteryxFormulasParserHexToNumber-32))|(1<<(AlteryxFormulasParserLeft-32))|(1<<(AlteryxFormulasParserLength-32))|(1<<(AlteryxFormulasParserLog-32))|(1<<(AlteryxFormulasParserLog10-32))|(1<<(AlteryxFormulasParserMax-32))|(1<<(AlteryxFormulasParserMedian-32))|(1<<(AlteryxFormulasParserMin-32))|(1<<(AlteryxFormulasParserMod-32))|(1<<(AlteryxFormulasParserNull-32))|(1<<(AlteryxFormulasParserPi-32))|(1<<(AlteryxFormulasParserPow-32))|(1<<(AlteryxFormulasParserRand-32))|(1<<(AlteryxFormulasParserRandInt-32))|(1<<(AlteryxFormulasParserRound-32))|(1<<(AlteryxFormulasParserSin-32))|(1<<(AlteryxFormulasParserSinh-32))|(1<<(AlteryxFormulasParserSqrt-32))|(1<<(AlteryxFormulasParserSwitch-32))|(1<<(AlteryxFormulasParserTan-32))|(1<<(AlteryxFormulasParserTanh-32))|(1<<(AlteryxFormulasParserIif-32))|(1<<(AlteryxFormulasParserIf-32)))) != 0) || (((_la-67)&-(0x1f+1)) == 0 && ((1<<uint((_la-67)))&((1<<(AlteryxFormulasParserBool-67))|(1<<(AlteryxFormulasParserInteger-67))|(1<<(AlteryxFormulasParserDecimal-67))|(1<<(AlteryxFormulasParserDate-67))|(1<<(AlteryxFormulasParserDatetime-67))|(1<<(AlteryxFormulasParserField-67))|(1<<(AlteryxFormulasParserSingleQuoteString-67))|(1<<(AlteryxFormulasParserDoubleQuoteString-67)))) != 0) {
 					{
 						p.SetState(367)
 						p.expr(0)

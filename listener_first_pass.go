@@ -337,7 +337,7 @@ func (l *firstPassListener) ExitLeftFunc(c *parser.LeftFuncContext) {
 	l.setSymbol(c, String)
 }
 
-func (l *firstPassListener) ExitLenFunc(c *parser.LenFuncContext) {
+func (l *firstPassListener) ExitLengthFunc(c *parser.LengthFuncContext) {
 	l.setSymbol(c, Number)
 }
 

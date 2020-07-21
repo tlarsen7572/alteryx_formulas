@@ -43,7 +43,7 @@ expr
     | GetWord '(' expr ',' expr ')'                                  # getWordFunc
     | HexToNumber '(' expr ')'                                       # hexToNumberFunc
     | Left '(' expr ',' expr ')'                                     # leftFunc
-    | Len '(' expr ')'                                               # lenFunc
+    | Length '(' expr ')'                                            # lengthFunc
     | Log '(' expr ')'                                               # logFunc
     | Log10 '(' expr ')'                                             # log10Func
     | Max '(' expr (',' expr)+ ')'                                   # maxFunc
@@ -96,7 +96,7 @@ Floor       : F L O O R ;
 GetWord     : G E T W O R D ;
 HexToNumber : H E X T O N U M B E R ;
 Left        : L E F T ;
-Len         : L E N ;
+Length      : L E N G T H ;
 Log         : L O G ;
 Log10       : L O G '10' ;
 Max         : M A X ;

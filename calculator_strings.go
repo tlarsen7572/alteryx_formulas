@@ -96,7 +96,7 @@ func (calc *calculator) left() {
 	calc.pushValue(text[:length])
 }
 
-func (calc *calculator) len() {
+func (calc *calculator) length() {
 	text := calc.popValue().(string)
 	calc.pushValue(float64(len(text)))
 }

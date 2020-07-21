@@ -115,7 +115,7 @@ Floor
 GetWord
 HexToNumber
 Left
-Len
+Length
 Log
 Log10
 Max
