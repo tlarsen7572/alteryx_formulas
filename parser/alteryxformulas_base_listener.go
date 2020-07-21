@@ -279,6 +279,12 @@ func (s *BaseAlteryxFormulasListener) EnterContainsFunc(ctx *ContainsFuncContext
 // ExitContainsFunc is called when production containsFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitContainsFunc(ctx *ContainsFuncContext) {}
 
+// EnterLowercaseFunc is called when production lowercaseFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterLowercaseFunc(ctx *LowercaseFuncContext) {}
+
+// ExitLowercaseFunc is called when production lowercaseFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitLowercaseFunc(ctx *LowercaseFuncContext) {}
+
 // EnterMultiply is called when production multiply is entered.
 func (s *BaseAlteryxFormulasListener) EnterMultiply(ctx *MultiplyContext) {}
 

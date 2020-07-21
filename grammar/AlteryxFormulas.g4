@@ -46,6 +46,7 @@ expr
     | Length '(' expr ')'                                            # lengthFunc
     | Log '(' expr ')'                                               # logFunc
     | Log10 '(' expr ')'                                             # log10Func
+    | Lowercase '(' expr ')'                                         # lowercaseFunc
     | Max '(' expr (',' expr)+ ')'                                   # maxFunc
     | Median '(' expr (',' expr)* ')'                                # medianFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
@@ -99,6 +100,7 @@ Left        : L E F T ;
 Length      : L E N G T H ;
 Log         : L O G ;
 Log10       : L O G '10' ;
+Lowercase   : L O W E R C A S E ;
 Max         : M A X ;
 Median      : M E D I A N ;
 Min         : M I N ;

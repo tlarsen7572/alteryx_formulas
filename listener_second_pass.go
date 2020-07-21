@@ -462,3 +462,7 @@ func (l *secondPassListener) EnterLeftFunc(_ *parser.LeftFuncContext) {
 func (l *secondPassListener) EnterLengthFunc(_ *parser.LengthFuncContext) {
 	l.calc.pushFunction(l.calc.length)
 }
+
+func (l *secondPassListener) EnterLowercaseFunc(_ *parser.LowercaseFuncContext) {
+	l.calc.pushFunction(l.calc.lowercase)
+}

@@ -100,3 +100,8 @@ func (calc *calculator) length() {
 	text := calc.popValue().(string)
 	calc.pushValue(float64(len(text)))
 }
+
+func (calc *calculator) lowercase() {
+	text := calc.popValue().(string)
+	calc.pushValue(strings.ToLower(text))
+}

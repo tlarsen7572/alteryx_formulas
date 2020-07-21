@@ -1042,6 +1042,16 @@ func TestLen(t *testing.T) {
 	}
 }
 
+func TestLowercase(t *testing.T) {
+	result, errs := f.Calculate(`lowerCase('AbCdEfG')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `abcdefg` {
+		t.Fatalf(`expected abcdefg but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

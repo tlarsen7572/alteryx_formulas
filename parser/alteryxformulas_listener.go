@@ -137,6 +137,9 @@ type AlteryxFormulasListener interface {
 	// EnterContainsFunc is called when entering the containsFunc production.
 	EnterContainsFunc(c *ContainsFuncContext)
 
+	// EnterLowercaseFunc is called when entering the lowercaseFunc production.
+	EnterLowercaseFunc(c *LowercaseFuncContext)
+
 	// EnterMultiply is called when entering the multiply production.
 	EnterMultiply(c *MultiplyContext)
 
@@ -325,6 +328,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitContainsFunc is called when exiting the containsFunc production.
 	ExitContainsFunc(c *ContainsFuncContext)
+
+	// ExitLowercaseFunc is called when exiting the lowercaseFunc production.
+	ExitLowercaseFunc(c *LowercaseFuncContext)
 
 	// ExitMultiply is called when exiting the multiply production.
 	ExitMultiply(c *MultiplyContext)
