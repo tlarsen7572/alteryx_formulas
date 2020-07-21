@@ -454,3 +454,7 @@ func (l *secondPassListener) EnterFindStringFunc(_ *parser.FindStringFuncContext
 func (l *secondPassListener) EnterGetWordFunc(_ *parser.GetWordFuncContext) {
 	l.calc.pushFunction(l.calc.getWord)
 }
+
+func (l *secondPassListener) EnterLeftFunc(_ *parser.LeftFuncContext) {
+	l.calc.pushFunction(l.calc.left)
+}

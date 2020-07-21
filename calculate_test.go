@@ -1007,6 +1007,31 @@ func TestGetWordNoMatch(t *testing.T) {
 	}
 }
 
+func TestLeft(t *testing.T) {
+	result, errs := f.Calculate(`left('abcdef', 3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `abc` {
+		t.Fatalf(`expected abc but got %v`, result)
+	}
+}
+
+func TestLeftOutOfBounds(t *testing.T) {
+	result, errs := f.Calculate(`left('abcdef', -1)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `abcdef` {
+		t.Fatalf(`expected abcdef but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`left('abcdef', 20)`, nil)
+	if result != `abcdef` {
+		t.Fatalf(`expected abcdef but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

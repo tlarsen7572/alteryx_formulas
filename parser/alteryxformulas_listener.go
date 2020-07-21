@@ -20,6 +20,9 @@ type AlteryxFormulasListener interface {
 	// EnterCharToIntFunc is called when entering the charToIntFunc production.
 	EnterCharToIntFunc(c *CharToIntFuncContext)
 
+	// EnterLeftFunc is called when entering the leftFunc production.
+	EnterLeftFunc(c *LeftFuncContext)
+
 	// EnterTanFunc is called when entering the tanFunc production.
 	EnterTanFunc(c *TanFuncContext)
 
@@ -202,6 +205,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitCharToIntFunc is called when exiting the charToIntFunc production.
 	ExitCharToIntFunc(c *CharToIntFuncContext)
+
+	// ExitLeftFunc is called when exiting the leftFunc production.
+	ExitLeftFunc(c *LeftFuncContext)
 
 	// ExitTanFunc is called when exiting the tanFunc production.
 	ExitTanFunc(c *TanFuncContext)

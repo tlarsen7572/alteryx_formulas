@@ -45,6 +45,12 @@ func (s *BaseAlteryxFormulasListener) EnterCharToIntFunc(ctx *CharToIntFuncConte
 // ExitCharToIntFunc is called when production charToIntFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCharToIntFunc(ctx *CharToIntFuncContext) {}
 
+// EnterLeftFunc is called when production leftFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterLeftFunc(ctx *LeftFuncContext) {}
+
+// ExitLeftFunc is called when production leftFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitLeftFunc(ctx *LeftFuncContext) {}
+
 // EnterTanFunc is called when production tanFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterTanFunc(ctx *TanFuncContext) {}
 

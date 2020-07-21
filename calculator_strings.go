@@ -85,3 +85,13 @@ func (calc *calculator) getWord() {
 	}
 	calc.pushValue(match[wordIndex][1])
 }
+
+func (calc *calculator) left() {
+	text := calc.popValue().(string)
+	length := int(calc.popValue().(float64))
+	if length < 0 || length >= len(text) {
+		calc.pushValue(text)
+		return
+	}
+	calc.pushValue(text[:length])
+}
