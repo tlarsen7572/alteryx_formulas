@@ -134,6 +134,9 @@ type AlteryxFormulasListener interface {
 	// EnterPadRightFunc is called when entering the padRightFunc production.
 	EnterPadRightFunc(c *PadRightFuncContext)
 
+	// EnterRegexCountMatchesFunc is called when entering the regexCountMatchesFunc production.
+	EnterRegexCountMatchesFunc(c *RegexCountMatchesFuncContext)
+
 	// EnterDivide is called when entering the divide production.
 	EnterDivide(c *DivideContext)
 
@@ -331,6 +334,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitPadRightFunc is called when exiting the padRightFunc production.
 	ExitPadRightFunc(c *PadRightFuncContext)
+
+	// ExitRegexCountMatchesFunc is called when exiting the regexCountMatchesFunc production.
+	ExitRegexCountMatchesFunc(c *RegexCountMatchesFuncContext)
 
 	// ExitDivide is called when exiting the divide production.
 	ExitDivide(c *DivideContext)

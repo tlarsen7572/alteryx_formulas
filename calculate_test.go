@@ -1100,6 +1100,26 @@ func TestPadRightNoChars(t *testing.T) {
 	}
 }
 
+func TestRegex_CountMatchesCaseInsensitive(t *testing.T) {
+	result, errs := f.Calculate(`regex_countMatches('ABCABC', '[^a]')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 4.0 {
+		t.Fatalf(`expected 4 but got %v`, result)
+	}
+}
+
+func TestRegex_CountMatchesCaseSensitive(t *testing.T) {
+	result, errs := f.Calculate(`regex_countMatches('aaAA', '[^a]', 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 2.0 {
+		t.Fatalf(`expected 2 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

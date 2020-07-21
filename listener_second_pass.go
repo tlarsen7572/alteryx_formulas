@@ -474,3 +474,14 @@ func (l *secondPassListener) EnterPadLeftFunc(_ *parser.PadLeftFuncContext) {
 func (l *secondPassListener) EnterPadRightFunc(_ *parser.PadRightFuncContext) {
 	l.calc.pushFunction(l.calc.padRight)
 }
+
+func (l *secondPassListener) EnterRegexCountMatchesFunc(_ *parser.RegexCountMatchesFuncContext) {
+	l.calc.pushFunction(l.calc.regexCountMatches)
+}
+
+func (l *secondPassListener) ExitRegexCountMatchesFunc(c *parser.RegexCountMatchesFuncContext) {
+	exprs := len(c.AllExpr())
+	if exprs == 2 {
+		l.calc.pushValueFunc(1.0)
+	}
+}

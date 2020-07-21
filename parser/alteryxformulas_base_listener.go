@@ -273,6 +273,12 @@ func (s *BaseAlteryxFormulasListener) EnterPadRightFunc(ctx *PadRightFuncContext
 // ExitPadRightFunc is called when production padRightFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitPadRightFunc(ctx *PadRightFuncContext) {}
 
+// EnterRegexCountMatchesFunc is called when production regexCountMatchesFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterRegexCountMatchesFunc(ctx *RegexCountMatchesFuncContext) {}
+
+// ExitRegexCountMatchesFunc is called when production regexCountMatchesFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitRegexCountMatchesFunc(ctx *RegexCountMatchesFuncContext) {}
+
 // EnterDivide is called when production divide is entered.
 func (s *BaseAlteryxFormulasListener) EnterDivide(ctx *DivideContext) {}
 

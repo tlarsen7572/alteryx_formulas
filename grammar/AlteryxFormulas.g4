@@ -58,6 +58,7 @@ expr
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Rand '()'                                                      # randFunc
     | RandInt '(' expr ')'                                           # randIntFunc
+    | Regex_CountMatches '(' expr ',' expr (',' expr)? ')'           # regexCountMatchesFunc
     | Round '(' expr ',' expr ')'                                    # roundFunc
     | Sin '(' expr ')'                                               # sinFunc
     | Sinh '(' expr ')'                                              # sinhFunc
@@ -78,50 +79,51 @@ expr
     ;
 
 // Case-insensitive function names
-Abs         : A B S ;
-Acos        : A C O S ;
-Asin        : A S I N ;
-Atan        : A T A N ;
-Atan2       : A T A N '2' ;
-Average     : A V E R A G E ;
-Ceil        : C E I L ;
-CharFromInt : C H A R F R O M I N T ;
-CharToInt   : C H A R T O I N T ;
-Contains    : C O N T A I N S ;
-Cos         : C O S ;
-Cosh        : C O S H ;
-CountWords  : C O U N T W O R D S ;
-Distance    : D I S T A N C E ;
-EndsWith    : E N D S W I T H ;
-FindString  : F I N D S T R I N G ;
-Exp         : E X P ;
-Floor       : F L O O R ;
-GetWord     : G E T W O R D ;
-HexToNumber : H E X T O N U M B E R ;
-Left        : L E F T ;
-Length      : L E N G T H ;
-Log         : L O G ;
-Log10       : L O G '10' ;
-Lowercase   : L O W E R C A S E ;
-Max         : M A X ;
-Median      : M E D I A N ;
-Min         : M I N ;
-Mod         : M O D ;
-Null        : N U L L ;
-PadLeft     : P A D L E F T ;
-PadRight    : P A D R I G H T ;
-Pi          : P I ;
-Pow         : P O W ;
-Rand        : R A N D ;
-RandInt     : R A N D I N T ;
-Round       : R O U N D ;
-Sin         : S I N ;
-Sinh        : S I N H ;
-Sqrt        : S Q R T ;
-Switch      : S W I T C H ;
-Tan         : T A N ;
-Tanh        : T A N H ;
-Iif         : I I F ;
+Abs                : A B S ;
+Acos               : A C O S ;
+Asin               : A S I N ;
+Atan               : A T A N ;
+Atan2              : A T A N '2' ;
+Average            : A V E R A G E ;
+Ceil               : C E I L ;
+CharFromInt        : C H A R F R O M I N T ;
+CharToInt          : C H A R T O I N T ;
+Contains           : C O N T A I N S ;
+Cos                : C O S ;
+Cosh               : C O S H ;
+CountWords         : C O U N T W O R D S ;
+Distance           : D I S T A N C E ;
+EndsWith           : E N D S W I T H ;
+FindString         : F I N D S T R I N G ;
+Exp                : E X P ;
+Floor              : F L O O R ;
+GetWord            : G E T W O R D ;
+HexToNumber        : H E X T O N U M B E R ;
+Left               : L E F T ;
+Length             : L E N G T H ;
+Log                : L O G ;
+Log10              : L O G '10' ;
+Lowercase          : L O W E R C A S E ;
+Max                : M A X ;
+Median             : M E D I A N ;
+Min                : M I N ;
+Mod                : M O D ;
+Null               : N U L L ;
+PadLeft            : P A D L E F T ;
+PadRight           : P A D R I G H T ;
+Pi                 : P I ;
+Pow                : P O W ;
+Rand               : R A N D ;
+RandInt            : R A N D I N T ;
+Regex_CountMatches : R E G E X '_' C O U N T M A T C H E S ;
+Round              : R O U N D ;
+Sin                : S I N ;
+Sinh               : S I N H ;
+Sqrt               : S Q R T ;
+Switch             : S W I T C H ;
+Tan                : T A N ;
+Tanh               : T A N H ;
+Iif                : I I F ;
 
 // Case-insensitive keywords
 In     : I N ;

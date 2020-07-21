@@ -1,6 +1,7 @@
 package alteryx_formulas
 
 import (
+	"regexp"
 	"strings"
 	"unicode/utf8"
 )
@@ -130,4 +131,21 @@ func (calc *calculator) pad(side string) {
 		newText = text + strings.Repeat(string(padRunes[0]), length)
 	}
 	calc.pushValue(newText)
+}
+
+func (calc *calculator) regexCountMatches() {
+	text := calc.popValue().(string)
+	regex := calc.popValue().(string)
+	caseInsensitive := calc.popValue().(float64)
+
+	if caseInsensitive != 0 {
+		regex = `(?i)` + regex
+	}
+	r, err := regexp.Compile(regex)
+	if err != nil {
+		calc.pushValue(0)
+		calc.errs = append(calc.errs, err)
+	}
+	result := r.FindAllString(text, -1)
+	calc.pushValue(float64(len(result)))
 }
