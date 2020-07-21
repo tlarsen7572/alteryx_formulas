@@ -74,6 +74,9 @@ type AlteryxFormulasListener interface {
 	// EnterStringLiteral is called when entering the stringLiteral production.
 	EnterStringLiteral(c *StringLiteralContext)
 
+	// EnterRegexMatchFunc is called when entering the regexMatchFunc production.
+	EnterRegexMatchFunc(c *RegexMatchFuncContext)
+
 	// EnterDateLiteral is called when entering the dateLiteral production.
 	EnterDateLiteral(c *DateLiteralContext)
 
@@ -274,6 +277,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitStringLiteral is called when exiting the stringLiteral production.
 	ExitStringLiteral(c *StringLiteralContext)
+
+	// ExitRegexMatchFunc is called when exiting the regexMatchFunc production.
+	ExitRegexMatchFunc(c *RegexMatchFuncContext)
 
 	// ExitDateLiteral is called when exiting the dateLiteral production.
 	ExitDateLiteral(c *DateLiteralContext)

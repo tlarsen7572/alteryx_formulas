@@ -149,3 +149,24 @@ func (calc *calculator) regexCountMatches() {
 	result := r.FindAllString(text, -1)
 	calc.pushValue(float64(len(result)))
 }
+
+func (calc *calculator) regexMatch() {
+	text := calc.popValue().(string)
+	regex := calc.popValue().(string)
+	caseInsensitive := calc.popValue().(float64)
+
+	if caseInsensitive != 0 {
+		regex = `(?i)` + regex
+	}
+	r, err := regexp.Compile(regex)
+	if err != nil {
+		calc.pushValue(0)
+		calc.errs = append(calc.errs, err)
+	}
+	matches := r.MatchString(text)
+	if matches {
+		calc.pushValue(-1.0)
+	} else {
+		calc.pushValue(0.0)
+	}
+}

@@ -153,6 +153,12 @@ func (s *BaseAlteryxFormulasListener) EnterStringLiteral(ctx *StringLiteralConte
 // ExitStringLiteral is called when production stringLiteral is exited.
 func (s *BaseAlteryxFormulasListener) ExitStringLiteral(ctx *StringLiteralContext) {}
 
+// EnterRegexMatchFunc is called when production regexMatchFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterRegexMatchFunc(ctx *RegexMatchFuncContext) {}
+
+// ExitRegexMatchFunc is called when production regexMatchFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitRegexMatchFunc(ctx *RegexMatchFuncContext) {}
+
 // EnterDateLiteral is called when production dateLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterDateLiteral(ctx *DateLiteralContext) {}
 

@@ -1120,6 +1120,46 @@ func TestRegex_CountMatchesCaseSensitive(t *testing.T) {
 	}
 }
 
+func TestRegex_MatchCaseInsensitiveTrue(t *testing.T) {
+	result, errs := f.Calculate(`regex_match('ABCABC', '(abc){2}')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != -1.0 { // true
+		t.Fatalf(`expected -1 but got %v`, result)
+	}
+}
+
+func TestRegex_MatchCaseInsensitiveFalse(t *testing.T) {
+	result, errs := f.Calculate(`regex_match('ABCABC', '(abc){3}')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.0 { // false
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+}
+
+func TestRegex_MatchCaseSensitiveTrue(t *testing.T) {
+	result, errs := f.Calculate(`regex_match('ABCABC', '(ABC){2}', 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != -1.0 { // true
+		t.Fatalf(`expected -1 but got %v`, result)
+	}
+}
+
+func TestRegex_MatchCaseSensitiveFalse(t *testing.T) {
+	result, errs := f.Calculate(`regex_match('ABCABC', '(abc){2}', 0)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.0 { // false
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

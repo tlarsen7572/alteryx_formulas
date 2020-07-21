@@ -485,3 +485,14 @@ func (l *secondPassListener) ExitRegexCountMatchesFunc(c *parser.RegexCountMatch
 		l.calc.pushValueFunc(1.0)
 	}
 }
+
+func (l *secondPassListener) EnterRegexMatchFunc(_ *parser.RegexMatchFuncContext) {
+	l.calc.pushFunction(l.calc.regexMatch)
+}
+
+func (l *secondPassListener) ExitRegexMatchFunc(c *parser.RegexMatchFuncContext) {
+	exprs := len(c.AllExpr())
+	if exprs == 2 {
+		l.calc.pushValueFunc(1.0)
+	}
+}

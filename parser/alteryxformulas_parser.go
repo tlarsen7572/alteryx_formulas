@@ -16,7 +16,7 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 81, 420,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 82, 431,
 	4, 2, 9, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 19, 10, 2, 12, 2, 14, 2, 22, 11, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
@@ -42,172 +42,177 @@ var parserATN = []uint16{
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 5, 2, 284, 10, 2, 3, 2,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 5, 2, 295, 10, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 6, 2, 320, 10, 2,
-	13, 2, 14, 2, 321, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 6, 2, 331, 10, 2,
+	13, 2, 14, 2, 332, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	3, 2, 3, 2, 3, 2, 5, 2, 348, 10, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
+	3, 2, 3, 2, 3, 2, 5, 2, 359, 10, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
 	3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2,
-	7, 2, 392, 10, 2, 12, 2, 14, 2, 395, 11, 2, 5, 2, 397, 10, 2, 3, 2, 3,
-	2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 407, 10, 2, 12, 2, 14, 2,
-	410, 11, 2, 5, 2, 412, 10, 2, 3, 2, 7, 2, 415, 10, 2, 12, 2, 14, 2, 418,
-	11, 2, 3, 2, 2, 3, 2, 3, 2, 2, 4, 4, 2, 16, 16, 66, 66, 4, 2, 17, 17, 67,
-	67, 2, 502, 2, 347, 3, 2, 2, 2, 4, 5, 8, 2, 1, 2, 5, 6, 7, 3, 2, 2, 6,
-	7, 5, 2, 2, 2, 7, 8, 7, 4, 2, 2, 8, 348, 3, 2, 2, 2, 9, 10, 7, 68, 2, 2,
-	10, 11, 5, 2, 2, 2, 11, 12, 7, 69, 2, 2, 12, 20, 5, 2, 2, 2, 13, 14, 7,
-	71, 2, 2, 14, 15, 5, 2, 2, 2, 15, 16, 7, 69, 2, 2, 16, 17, 5, 2, 2, 2,
+	7, 2, 403, 10, 2, 12, 2, 14, 2, 406, 11, 2, 5, 2, 408, 10, 2, 3, 2, 3,
+	2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 7, 2, 418, 10, 2, 12, 2, 14, 2,
+	421, 11, 2, 5, 2, 423, 10, 2, 3, 2, 7, 2, 426, 10, 2, 12, 2, 14, 2, 429,
+	11, 2, 3, 2, 2, 3, 2, 3, 2, 2, 4, 4, 2, 16, 16, 67, 67, 4, 2, 17, 17, 68,
+	68, 2, 515, 2, 358, 3, 2, 2, 2, 4, 5, 8, 2, 1, 2, 5, 6, 7, 3, 2, 2, 6,
+	7, 5, 2, 2, 2, 7, 8, 7, 4, 2, 2, 8, 359, 3, 2, 2, 2, 9, 10, 7, 69, 2, 2,
+	10, 11, 5, 2, 2, 2, 11, 12, 7, 70, 2, 2, 12, 20, 5, 2, 2, 2, 13, 14, 7,
+	72, 2, 2, 14, 15, 5, 2, 2, 2, 15, 16, 7, 70, 2, 2, 16, 17, 5, 2, 2, 2,
 	17, 19, 3, 2, 2, 2, 18, 13, 3, 2, 2, 2, 19, 22, 3, 2, 2, 2, 20, 18, 3,
 	2, 2, 2, 20, 21, 3, 2, 2, 2, 21, 23, 3, 2, 2, 2, 22, 20, 3, 2, 2, 2, 23,
-	24, 7, 70, 2, 2, 24, 25, 5, 2, 2, 2, 25, 26, 7, 72, 2, 2, 26, 348, 3, 2,
-	2, 2, 27, 28, 7, 63, 2, 2, 28, 29, 7, 3, 2, 2, 29, 30, 5, 2, 2, 2, 30,
+	24, 7, 71, 2, 2, 24, 25, 5, 2, 2, 2, 25, 26, 7, 73, 2, 2, 26, 359, 3, 2,
+	2, 2, 27, 28, 7, 64, 2, 2, 28, 29, 7, 3, 2, 2, 29, 30, 5, 2, 2, 2, 30,
 	31, 7, 15, 2, 2, 31, 32, 5, 2, 2, 2, 32, 33, 7, 15, 2, 2, 33, 34, 5, 2,
-	2, 2, 34, 35, 7, 4, 2, 2, 35, 348, 3, 2, 2, 2, 36, 37, 7, 19, 2, 2, 37,
-	38, 7, 3, 2, 2, 38, 39, 5, 2, 2, 2, 39, 40, 7, 4, 2, 2, 40, 348, 3, 2,
+	2, 2, 34, 35, 7, 4, 2, 2, 35, 359, 3, 2, 2, 2, 36, 37, 7, 19, 2, 2, 37,
+	38, 7, 3, 2, 2, 38, 39, 5, 2, 2, 2, 39, 40, 7, 4, 2, 2, 40, 359, 3, 2,
 	2, 2, 41, 42, 7, 20, 2, 2, 42, 43, 7, 3, 2, 2, 43, 44, 5, 2, 2, 2, 44,
-	45, 7, 4, 2, 2, 45, 348, 3, 2, 2, 2, 46, 47, 7, 21, 2, 2, 47, 48, 7, 3,
-	2, 2, 48, 49, 5, 2, 2, 2, 49, 50, 7, 4, 2, 2, 50, 348, 3, 2, 2, 2, 51,
+	45, 7, 4, 2, 2, 45, 359, 3, 2, 2, 2, 46, 47, 7, 21, 2, 2, 47, 48, 7, 3,
+	2, 2, 48, 49, 5, 2, 2, 2, 49, 50, 7, 4, 2, 2, 50, 359, 3, 2, 2, 2, 51,
 	52, 7, 22, 2, 2, 52, 53, 7, 3, 2, 2, 53, 54, 5, 2, 2, 2, 54, 55, 7, 4,
-	2, 2, 55, 348, 3, 2, 2, 2, 56, 57, 7, 23, 2, 2, 57, 58, 7, 3, 2, 2, 58,
+	2, 2, 55, 359, 3, 2, 2, 2, 56, 57, 7, 23, 2, 2, 57, 58, 7, 3, 2, 2, 58,
 	59, 5, 2, 2, 2, 59, 60, 7, 15, 2, 2, 60, 61, 5, 2, 2, 2, 61, 62, 7, 4,
-	2, 2, 62, 348, 3, 2, 2, 2, 63, 64, 7, 24, 2, 2, 64, 65, 7, 3, 2, 2, 65,
+	2, 2, 62, 359, 3, 2, 2, 2, 63, 64, 7, 24, 2, 2, 64, 65, 7, 3, 2, 2, 65,
 	70, 5, 2, 2, 2, 66, 67, 7, 15, 2, 2, 67, 69, 5, 2, 2, 2, 68, 66, 3, 2,
 	2, 2, 69, 72, 3, 2, 2, 2, 70, 68, 3, 2, 2, 2, 70, 71, 3, 2, 2, 2, 71, 73,
-	3, 2, 2, 2, 72, 70, 3, 2, 2, 2, 73, 74, 7, 4, 2, 2, 74, 348, 3, 2, 2, 2,
+	3, 2, 2, 2, 72, 70, 3, 2, 2, 2, 73, 74, 7, 4, 2, 2, 74, 359, 3, 2, 2, 2,
 	75, 76, 7, 25, 2, 2, 76, 77, 7, 3, 2, 2, 77, 78, 5, 2, 2, 2, 78, 79, 7,
-	4, 2, 2, 79, 348, 3, 2, 2, 2, 80, 81, 7, 26, 2, 2, 81, 82, 7, 3, 2, 2,
-	82, 83, 5, 2, 2, 2, 83, 84, 7, 4, 2, 2, 84, 348, 3, 2, 2, 2, 85, 86, 7,
+	4, 2, 2, 79, 359, 3, 2, 2, 2, 80, 81, 7, 26, 2, 2, 81, 82, 7, 3, 2, 2,
+	82, 83, 5, 2, 2, 2, 83, 84, 7, 4, 2, 2, 84, 359, 3, 2, 2, 2, 85, 86, 7,
 	27, 2, 2, 86, 87, 7, 3, 2, 2, 87, 88, 5, 2, 2, 2, 88, 89, 7, 4, 2, 2, 89,
-	348, 3, 2, 2, 2, 90, 91, 7, 28, 2, 2, 91, 92, 7, 3, 2, 2, 92, 93, 5, 2,
+	359, 3, 2, 2, 2, 90, 91, 7, 28, 2, 2, 91, 92, 7, 3, 2, 2, 92, 93, 5, 2,
 	2, 2, 93, 94, 7, 15, 2, 2, 94, 97, 5, 2, 2, 2, 95, 96, 7, 15, 2, 2, 96,
 	98, 5, 2, 2, 2, 97, 95, 3, 2, 2, 2, 97, 98, 3, 2, 2, 2, 98, 99, 3, 2, 2,
-	2, 99, 100, 7, 4, 2, 2, 100, 348, 3, 2, 2, 2, 101, 102, 7, 29, 2, 2, 102,
-	103, 7, 3, 2, 2, 103, 104, 5, 2, 2, 2, 104, 105, 7, 4, 2, 2, 105, 348,
+	2, 99, 100, 7, 4, 2, 2, 100, 359, 3, 2, 2, 2, 101, 102, 7, 29, 2, 2, 102,
+	103, 7, 3, 2, 2, 103, 104, 5, 2, 2, 2, 104, 105, 7, 4, 2, 2, 105, 359,
 	3, 2, 2, 2, 106, 107, 7, 30, 2, 2, 107, 108, 7, 3, 2, 2, 108, 109, 5, 2,
-	2, 2, 109, 110, 7, 4, 2, 2, 110, 348, 3, 2, 2, 2, 111, 112, 7, 31, 2, 2,
+	2, 2, 109, 110, 7, 4, 2, 2, 110, 359, 3, 2, 2, 2, 111, 112, 7, 31, 2, 2,
 	112, 113, 7, 3, 2, 2, 113, 114, 5, 2, 2, 2, 114, 115, 7, 4, 2, 2, 115,
-	348, 3, 2, 2, 2, 116, 117, 7, 32, 2, 2, 117, 118, 7, 3, 2, 2, 118, 119,
+	359, 3, 2, 2, 2, 116, 117, 7, 32, 2, 2, 117, 118, 7, 3, 2, 2, 118, 119,
 	5, 2, 2, 2, 119, 120, 7, 15, 2, 2, 120, 121, 5, 2, 2, 2, 121, 122, 7, 15,
 	2, 2, 122, 123, 5, 2, 2, 2, 123, 124, 7, 15, 2, 2, 124, 125, 5, 2, 2, 2,
-	125, 126, 7, 4, 2, 2, 126, 348, 3, 2, 2, 2, 127, 128, 7, 33, 2, 2, 128,
+	125, 126, 7, 4, 2, 2, 126, 359, 3, 2, 2, 2, 127, 128, 7, 33, 2, 2, 128,
 	129, 7, 3, 2, 2, 129, 130, 5, 2, 2, 2, 130, 131, 7, 15, 2, 2, 131, 134,
 	5, 2, 2, 2, 132, 133, 7, 15, 2, 2, 133, 135, 5, 2, 2, 2, 134, 132, 3, 2,
 	2, 2, 134, 135, 3, 2, 2, 2, 135, 136, 3, 2, 2, 2, 136, 137, 7, 4, 2, 2,
-	137, 348, 3, 2, 2, 2, 138, 139, 7, 35, 2, 2, 139, 140, 7, 3, 2, 2, 140,
-	141, 5, 2, 2, 2, 141, 142, 7, 4, 2, 2, 142, 348, 3, 2, 2, 2, 143, 144,
+	137, 359, 3, 2, 2, 2, 138, 139, 7, 35, 2, 2, 139, 140, 7, 3, 2, 2, 140,
+	141, 5, 2, 2, 2, 141, 142, 7, 4, 2, 2, 142, 359, 3, 2, 2, 2, 143, 144,
 	7, 34, 2, 2, 144, 145, 7, 3, 2, 2, 145, 146, 5, 2, 2, 2, 146, 147, 7, 15,
-	2, 2, 147, 148, 5, 2, 2, 2, 148, 149, 7, 4, 2, 2, 149, 348, 3, 2, 2, 2,
+	2, 2, 147, 148, 5, 2, 2, 2, 148, 149, 7, 4, 2, 2, 149, 359, 3, 2, 2, 2,
 	150, 151, 7, 36, 2, 2, 151, 152, 7, 3, 2, 2, 152, 153, 5, 2, 2, 2, 153,
-	154, 7, 4, 2, 2, 154, 348, 3, 2, 2, 2, 155, 156, 7, 37, 2, 2, 156, 157,
+	154, 7, 4, 2, 2, 154, 359, 3, 2, 2, 2, 155, 156, 7, 37, 2, 2, 156, 157,
 	7, 3, 2, 2, 157, 158, 5, 2, 2, 2, 158, 159, 7, 15, 2, 2, 159, 160, 5, 2,
-	2, 2, 160, 161, 7, 4, 2, 2, 161, 348, 3, 2, 2, 2, 162, 163, 7, 38, 2, 2,
+	2, 2, 160, 161, 7, 4, 2, 2, 161, 359, 3, 2, 2, 2, 162, 163, 7, 38, 2, 2,
 	163, 164, 7, 3, 2, 2, 164, 165, 5, 2, 2, 2, 165, 166, 7, 4, 2, 2, 166,
-	348, 3, 2, 2, 2, 167, 168, 7, 39, 2, 2, 168, 169, 7, 3, 2, 2, 169, 170,
+	359, 3, 2, 2, 2, 167, 168, 7, 39, 2, 2, 168, 169, 7, 3, 2, 2, 169, 170,
 	5, 2, 2, 2, 170, 171, 7, 15, 2, 2, 171, 172, 5, 2, 2, 2, 172, 173, 7, 4,
-	2, 2, 173, 348, 3, 2, 2, 2, 174, 175, 7, 40, 2, 2, 175, 176, 7, 3, 2, 2,
-	176, 177, 5, 2, 2, 2, 177, 178, 7, 4, 2, 2, 178, 348, 3, 2, 2, 2, 179,
+	2, 2, 173, 359, 3, 2, 2, 2, 174, 175, 7, 40, 2, 2, 175, 176, 7, 3, 2, 2,
+	176, 177, 5, 2, 2, 2, 177, 178, 7, 4, 2, 2, 178, 359, 3, 2, 2, 2, 179,
 	180, 7, 41, 2, 2, 180, 181, 7, 3, 2, 2, 181, 182, 5, 2, 2, 2, 182, 183,
-	7, 4, 2, 2, 183, 348, 3, 2, 2, 2, 184, 185, 7, 42, 2, 2, 185, 186, 7, 3,
-	2, 2, 186, 187, 5, 2, 2, 2, 187, 188, 7, 4, 2, 2, 188, 348, 3, 2, 2, 2,
+	7, 4, 2, 2, 183, 359, 3, 2, 2, 2, 184, 185, 7, 42, 2, 2, 185, 186, 7, 3,
+	2, 2, 186, 187, 5, 2, 2, 2, 187, 188, 7, 4, 2, 2, 188, 359, 3, 2, 2, 2,
 	189, 190, 7, 43, 2, 2, 190, 191, 7, 3, 2, 2, 191, 192, 5, 2, 2, 2, 192,
-	193, 7, 4, 2, 2, 193, 348, 3, 2, 2, 2, 194, 195, 7, 44, 2, 2, 195, 196,
+	193, 7, 4, 2, 2, 193, 359, 3, 2, 2, 2, 194, 195, 7, 44, 2, 2, 195, 196,
 	7, 3, 2, 2, 196, 199, 5, 2, 2, 2, 197, 198, 7, 15, 2, 2, 198, 200, 5, 2,
 	2, 2, 199, 197, 3, 2, 2, 2, 200, 201, 3, 2, 2, 2, 201, 199, 3, 2, 2, 2,
 	201, 202, 3, 2, 2, 2, 202, 203, 3, 2, 2, 2, 203, 204, 7, 4, 2, 2, 204,
-	348, 3, 2, 2, 2, 205, 206, 7, 45, 2, 2, 206, 207, 7, 3, 2, 2, 207, 212,
+	359, 3, 2, 2, 2, 205, 206, 7, 45, 2, 2, 206, 207, 7, 3, 2, 2, 207, 212,
 	5, 2, 2, 2, 208, 209, 7, 15, 2, 2, 209, 211, 5, 2, 2, 2, 210, 208, 3, 2,
 	2, 2, 211, 214, 3, 2, 2, 2, 212, 210, 3, 2, 2, 2, 212, 213, 3, 2, 2, 2,
 	213, 215, 3, 2, 2, 2, 214, 212, 3, 2, 2, 2, 215, 216, 7, 4, 2, 2, 216,
-	348, 3, 2, 2, 2, 217, 218, 7, 46, 2, 2, 218, 219, 7, 3, 2, 2, 219, 222,
+	359, 3, 2, 2, 2, 217, 218, 7, 46, 2, 2, 218, 219, 7, 3, 2, 2, 219, 222,
 	5, 2, 2, 2, 220, 221, 7, 15, 2, 2, 221, 223, 5, 2, 2, 2, 222, 220, 3, 2,
 	2, 2, 223, 224, 3, 2, 2, 2, 224, 222, 3, 2, 2, 2, 224, 225, 3, 2, 2, 2,
-	225, 226, 3, 2, 2, 2, 226, 227, 7, 4, 2, 2, 227, 348, 3, 2, 2, 2, 228,
+	225, 226, 3, 2, 2, 2, 226, 227, 7, 4, 2, 2, 227, 359, 3, 2, 2, 2, 228,
 	229, 7, 47, 2, 2, 229, 230, 7, 3, 2, 2, 230, 235, 5, 2, 2, 2, 231, 232,
 	7, 15, 2, 2, 232, 234, 5, 2, 2, 2, 233, 231, 3, 2, 2, 2, 234, 237, 3, 2,
 	2, 2, 235, 233, 3, 2, 2, 2, 235, 236, 3, 2, 2, 2, 236, 238, 3, 2, 2, 2,
-	237, 235, 3, 2, 2, 2, 238, 239, 7, 4, 2, 2, 239, 348, 3, 2, 2, 2, 240,
-	241, 7, 48, 2, 2, 241, 348, 7, 18, 2, 2, 242, 243, 7, 49, 2, 2, 243, 244,
+	237, 235, 3, 2, 2, 2, 238, 239, 7, 4, 2, 2, 239, 359, 3, 2, 2, 2, 240,
+	241, 7, 48, 2, 2, 241, 359, 7, 18, 2, 2, 242, 243, 7, 49, 2, 2, 243, 244,
 	7, 3, 2, 2, 244, 245, 5, 2, 2, 2, 245, 246, 7, 15, 2, 2, 246, 247, 5, 2,
 	2, 2, 247, 248, 7, 15, 2, 2, 248, 249, 5, 2, 2, 2, 249, 250, 7, 4, 2, 2,
-	250, 348, 3, 2, 2, 2, 251, 252, 7, 50, 2, 2, 252, 253, 7, 3, 2, 2, 253,
+	250, 359, 3, 2, 2, 2, 251, 252, 7, 50, 2, 2, 252, 253, 7, 3, 2, 2, 253,
 	254, 5, 2, 2, 2, 254, 255, 7, 15, 2, 2, 255, 256, 5, 2, 2, 2, 256, 257,
-	7, 15, 2, 2, 257, 258, 5, 2, 2, 2, 258, 259, 7, 4, 2, 2, 259, 348, 3, 2,
-	2, 2, 260, 261, 7, 51, 2, 2, 261, 348, 7, 18, 2, 2, 262, 263, 7, 52, 2,
+	7, 15, 2, 2, 257, 258, 5, 2, 2, 2, 258, 259, 7, 4, 2, 2, 259, 359, 3, 2,
+	2, 2, 260, 261, 7, 51, 2, 2, 261, 359, 7, 18, 2, 2, 262, 263, 7, 52, 2,
 	2, 263, 264, 7, 3, 2, 2, 264, 265, 5, 2, 2, 2, 265, 266, 7, 15, 2, 2, 266,
-	267, 5, 2, 2, 2, 267, 268, 7, 4, 2, 2, 268, 348, 3, 2, 2, 2, 269, 270,
-	7, 53, 2, 2, 270, 348, 7, 18, 2, 2, 271, 272, 7, 54, 2, 2, 272, 273, 7,
-	3, 2, 2, 273, 274, 5, 2, 2, 2, 274, 275, 7, 4, 2, 2, 275, 348, 3, 2, 2,
+	267, 5, 2, 2, 2, 267, 268, 7, 4, 2, 2, 268, 359, 3, 2, 2, 2, 269, 270,
+	7, 53, 2, 2, 270, 359, 7, 18, 2, 2, 271, 272, 7, 54, 2, 2, 272, 273, 7,
+	3, 2, 2, 273, 274, 5, 2, 2, 2, 274, 275, 7, 4, 2, 2, 275, 359, 3, 2, 2,
 	2, 276, 277, 7, 55, 2, 2, 277, 278, 7, 3, 2, 2, 278, 279, 5, 2, 2, 2, 279,
 	280, 7, 15, 2, 2, 280, 283, 5, 2, 2, 2, 281, 282, 7, 15, 2, 2, 282, 284,
 	5, 2, 2, 2, 283, 281, 3, 2, 2, 2, 283, 284, 3, 2, 2, 2, 284, 285, 3, 2,
-	2, 2, 285, 286, 7, 4, 2, 2, 286, 348, 3, 2, 2, 2, 287, 288, 7, 56, 2, 2,
+	2, 2, 285, 286, 7, 4, 2, 2, 286, 359, 3, 2, 2, 2, 287, 288, 7, 56, 2, 2,
 	288, 289, 7, 3, 2, 2, 289, 290, 5, 2, 2, 2, 290, 291, 7, 15, 2, 2, 291,
-	292, 5, 2, 2, 2, 292, 293, 7, 4, 2, 2, 293, 348, 3, 2, 2, 2, 294, 295,
-	7, 57, 2, 2, 295, 296, 7, 3, 2, 2, 296, 297, 5, 2, 2, 2, 297, 298, 7, 4,
-	2, 2, 298, 348, 3, 2, 2, 2, 299, 300, 7, 58, 2, 2, 300, 301, 7, 3, 2, 2,
-	301, 302, 5, 2, 2, 2, 302, 303, 7, 4, 2, 2, 303, 348, 3, 2, 2, 2, 304,
-	305, 7, 59, 2, 2, 305, 306, 7, 3, 2, 2, 306, 307, 5, 2, 2, 2, 307, 308,
-	7, 4, 2, 2, 308, 348, 3, 2, 2, 2, 309, 310, 7, 60, 2, 2, 310, 311, 7, 3,
-	2, 2, 311, 312, 5, 2, 2, 2, 312, 313, 7, 15, 2, 2, 313, 319, 5, 2, 2, 2,
-	314, 315, 7, 15, 2, 2, 315, 316, 5, 2, 2, 2, 316, 317, 7, 15, 2, 2, 317,
-	318, 5, 2, 2, 2, 318, 320, 3, 2, 2, 2, 319, 314, 3, 2, 2, 2, 320, 321,
-	3, 2, 2, 2, 321, 319, 3, 2, 2, 2, 321, 322, 3, 2, 2, 2, 322, 323, 3, 2,
-	2, 2, 323, 324, 7, 4, 2, 2, 324, 348, 3, 2, 2, 2, 325, 326, 7, 61, 2, 2,
-	326, 327, 7, 3, 2, 2, 327, 328, 5, 2, 2, 2, 328, 329, 7, 4, 2, 2, 329,
-	348, 3, 2, 2, 2, 330, 331, 7, 62, 2, 2, 331, 332, 7, 3, 2, 2, 332, 333,
-	5, 2, 2, 2, 333, 334, 7, 4, 2, 2, 334, 348, 3, 2, 2, 2, 335, 348, 7, 74,
-	2, 2, 336, 337, 7, 8, 2, 2, 337, 348, 7, 74, 2, 2, 338, 348, 7, 75, 2,
-	2, 339, 340, 7, 8, 2, 2, 340, 348, 7, 75, 2, 2, 341, 348, 7, 79, 2, 2,
-	342, 348, 7, 80, 2, 2, 343, 348, 7, 77, 2, 2, 344, 348, 7, 76, 2, 2, 345,
-	348, 7, 73, 2, 2, 346, 348, 7, 78, 2, 2, 347, 4, 3, 2, 2, 2, 347, 9, 3,
-	2, 2, 2, 347, 27, 3, 2, 2, 2, 347, 36, 3, 2, 2, 2, 347, 41, 3, 2, 2, 2,
-	347, 46, 3, 2, 2, 2, 347, 51, 3, 2, 2, 2, 347, 56, 3, 2, 2, 2, 347, 63,
-	3, 2, 2, 2, 347, 75, 3, 2, 2, 2, 347, 80, 3, 2, 2, 2, 347, 85, 3, 2, 2,
-	2, 347, 90, 3, 2, 2, 2, 347, 101, 3, 2, 2, 2, 347, 106, 3, 2, 2, 2, 347,
-	111, 3, 2, 2, 2, 347, 116, 3, 2, 2, 2, 347, 127, 3, 2, 2, 2, 347, 138,
-	3, 2, 2, 2, 347, 143, 3, 2, 2, 2, 347, 150, 3, 2, 2, 2, 347, 155, 3, 2,
-	2, 2, 347, 162, 3, 2, 2, 2, 347, 167, 3, 2, 2, 2, 347, 174, 3, 2, 2, 2,
-	347, 179, 3, 2, 2, 2, 347, 184, 3, 2, 2, 2, 347, 189, 3, 2, 2, 2, 347,
-	194, 3, 2, 2, 2, 347, 205, 3, 2, 2, 2, 347, 217, 3, 2, 2, 2, 347, 228,
-	3, 2, 2, 2, 347, 240, 3, 2, 2, 2, 347, 242, 3, 2, 2, 2, 347, 251, 3, 2,
-	2, 2, 347, 260, 3, 2, 2, 2, 347, 262, 3, 2, 2, 2, 347, 269, 3, 2, 2, 2,
-	347, 271, 3, 2, 2, 2, 347, 276, 3, 2, 2, 2, 347, 287, 3, 2, 2, 2, 347,
-	294, 3, 2, 2, 2, 347, 299, 3, 2, 2, 2, 347, 304, 3, 2, 2, 2, 347, 309,
-	3, 2, 2, 2, 347, 325, 3, 2, 2, 2, 347, 330, 3, 2, 2, 2, 347, 335, 3, 2,
-	2, 2, 347, 336, 3, 2, 2, 2, 347, 338, 3, 2, 2, 2, 347, 339, 3, 2, 2, 2,
-	347, 341, 3, 2, 2, 2, 347, 342, 3, 2, 2, 2, 347, 343, 3, 2, 2, 2, 347,
-	344, 3, 2, 2, 2, 347, 345, 3, 2, 2, 2, 347, 346, 3, 2, 2, 2, 348, 416,
-	3, 2, 2, 2, 349, 350, 12, 72, 2, 2, 350, 351, 7, 5, 2, 2, 351, 415, 5,
-	2, 2, 73, 352, 353, 12, 71, 2, 2, 353, 354, 7, 6, 2, 2, 354, 415, 5, 2,
-	2, 72, 355, 356, 12, 70, 2, 2, 356, 357, 7, 7, 2, 2, 357, 415, 5, 2, 2,
-	71, 358, 359, 12, 69, 2, 2, 359, 360, 7, 8, 2, 2, 360, 415, 5, 2, 2, 70,
-	361, 362, 12, 68, 2, 2, 362, 363, 7, 9, 2, 2, 363, 415, 5, 2, 2, 69, 364,
-	365, 12, 67, 2, 2, 365, 366, 7, 10, 2, 2, 366, 415, 5, 2, 2, 68, 367, 368,
-	12, 66, 2, 2, 368, 369, 7, 11, 2, 2, 369, 415, 5, 2, 2, 67, 370, 371, 12,
-	65, 2, 2, 371, 372, 7, 12, 2, 2, 372, 415, 5, 2, 2, 66, 373, 374, 12, 64,
-	2, 2, 374, 375, 7, 13, 2, 2, 375, 415, 5, 2, 2, 65, 376, 377, 12, 63, 2,
-	2, 377, 378, 7, 14, 2, 2, 378, 415, 5, 2, 2, 64, 379, 380, 12, 60, 2, 2,
-	380, 381, 9, 2, 2, 2, 381, 415, 5, 2, 2, 61, 382, 383, 12, 59, 2, 2, 383,
-	384, 9, 3, 2, 2, 384, 415, 5, 2, 2, 60, 385, 386, 12, 62, 2, 2, 386, 387,
-	7, 64, 2, 2, 387, 396, 7, 3, 2, 2, 388, 393, 5, 2, 2, 2, 389, 390, 7, 15,
-	2, 2, 390, 392, 5, 2, 2, 2, 391, 389, 3, 2, 2, 2, 392, 395, 3, 2, 2, 2,
-	393, 391, 3, 2, 2, 2, 393, 394, 3, 2, 2, 2, 394, 397, 3, 2, 2, 2, 395,
-	393, 3, 2, 2, 2, 396, 388, 3, 2, 2, 2, 396, 397, 3, 2, 2, 2, 397, 398,
-	3, 2, 2, 2, 398, 415, 7, 4, 2, 2, 399, 400, 12, 61, 2, 2, 400, 401, 7,
-	65, 2, 2, 401, 402, 7, 64, 2, 2, 402, 411, 7, 3, 2, 2, 403, 408, 5, 2,
-	2, 2, 404, 405, 7, 15, 2, 2, 405, 407, 5, 2, 2, 2, 406, 404, 3, 2, 2, 2,
-	407, 410, 3, 2, 2, 2, 408, 406, 3, 2, 2, 2, 408, 409, 3, 2, 2, 2, 409,
-	412, 3, 2, 2, 2, 410, 408, 3, 2, 2, 2, 411, 403, 3, 2, 2, 2, 411, 412,
-	3, 2, 2, 2, 412, 413, 3, 2, 2, 2, 413, 415, 7, 4, 2, 2, 414, 349, 3, 2,
-	2, 2, 414, 352, 3, 2, 2, 2, 414, 355, 3, 2, 2, 2, 414, 358, 3, 2, 2, 2,
-	414, 361, 3, 2, 2, 2, 414, 364, 3, 2, 2, 2, 414, 367, 3, 2, 2, 2, 414,
-	370, 3, 2, 2, 2, 414, 373, 3, 2, 2, 2, 414, 376, 3, 2, 2, 2, 414, 379,
-	3, 2, 2, 2, 414, 382, 3, 2, 2, 2, 414, 385, 3, 2, 2, 2, 414, 399, 3, 2,
-	2, 2, 415, 418, 3, 2, 2, 2, 416, 414, 3, 2, 2, 2, 416, 417, 3, 2, 2, 2,
-	417, 3, 3, 2, 2, 2, 418, 416, 3, 2, 2, 2, 19, 20, 70, 97, 134, 201, 212,
-	224, 235, 283, 321, 347, 393, 396, 408, 411, 414, 416,
+	294, 5, 2, 2, 2, 292, 293, 7, 15, 2, 2, 293, 295, 5, 2, 2, 2, 294, 292,
+	3, 2, 2, 2, 294, 295, 3, 2, 2, 2, 295, 296, 3, 2, 2, 2, 296, 297, 7, 4,
+	2, 2, 297, 359, 3, 2, 2, 2, 298, 299, 7, 57, 2, 2, 299, 300, 7, 3, 2, 2,
+	300, 301, 5, 2, 2, 2, 301, 302, 7, 15, 2, 2, 302, 303, 5, 2, 2, 2, 303,
+	304, 7, 4, 2, 2, 304, 359, 3, 2, 2, 2, 305, 306, 7, 58, 2, 2, 306, 307,
+	7, 3, 2, 2, 307, 308, 5, 2, 2, 2, 308, 309, 7, 4, 2, 2, 309, 359, 3, 2,
+	2, 2, 310, 311, 7, 59, 2, 2, 311, 312, 7, 3, 2, 2, 312, 313, 5, 2, 2, 2,
+	313, 314, 7, 4, 2, 2, 314, 359, 3, 2, 2, 2, 315, 316, 7, 60, 2, 2, 316,
+	317, 7, 3, 2, 2, 317, 318, 5, 2, 2, 2, 318, 319, 7, 4, 2, 2, 319, 359,
+	3, 2, 2, 2, 320, 321, 7, 61, 2, 2, 321, 322, 7, 3, 2, 2, 322, 323, 5, 2,
+	2, 2, 323, 324, 7, 15, 2, 2, 324, 330, 5, 2, 2, 2, 325, 326, 7, 15, 2,
+	2, 326, 327, 5, 2, 2, 2, 327, 328, 7, 15, 2, 2, 328, 329, 5, 2, 2, 2, 329,
+	331, 3, 2, 2, 2, 330, 325, 3, 2, 2, 2, 331, 332, 3, 2, 2, 2, 332, 330,
+	3, 2, 2, 2, 332, 333, 3, 2, 2, 2, 333, 334, 3, 2, 2, 2, 334, 335, 7, 4,
+	2, 2, 335, 359, 3, 2, 2, 2, 336, 337, 7, 62, 2, 2, 337, 338, 7, 3, 2, 2,
+	338, 339, 5, 2, 2, 2, 339, 340, 7, 4, 2, 2, 340, 359, 3, 2, 2, 2, 341,
+	342, 7, 63, 2, 2, 342, 343, 7, 3, 2, 2, 343, 344, 5, 2, 2, 2, 344, 345,
+	7, 4, 2, 2, 345, 359, 3, 2, 2, 2, 346, 359, 7, 75, 2, 2, 347, 348, 7, 8,
+	2, 2, 348, 359, 7, 75, 2, 2, 349, 359, 7, 76, 2, 2, 350, 351, 7, 8, 2,
+	2, 351, 359, 7, 76, 2, 2, 352, 359, 7, 80, 2, 2, 353, 359, 7, 81, 2, 2,
+	354, 359, 7, 78, 2, 2, 355, 359, 7, 77, 2, 2, 356, 359, 7, 74, 2, 2, 357,
+	359, 7, 79, 2, 2, 358, 4, 3, 2, 2, 2, 358, 9, 3, 2, 2, 2, 358, 27, 3, 2,
+	2, 2, 358, 36, 3, 2, 2, 2, 358, 41, 3, 2, 2, 2, 358, 46, 3, 2, 2, 2, 358,
+	51, 3, 2, 2, 2, 358, 56, 3, 2, 2, 2, 358, 63, 3, 2, 2, 2, 358, 75, 3, 2,
+	2, 2, 358, 80, 3, 2, 2, 2, 358, 85, 3, 2, 2, 2, 358, 90, 3, 2, 2, 2, 358,
+	101, 3, 2, 2, 2, 358, 106, 3, 2, 2, 2, 358, 111, 3, 2, 2, 2, 358, 116,
+	3, 2, 2, 2, 358, 127, 3, 2, 2, 2, 358, 138, 3, 2, 2, 2, 358, 143, 3, 2,
+	2, 2, 358, 150, 3, 2, 2, 2, 358, 155, 3, 2, 2, 2, 358, 162, 3, 2, 2, 2,
+	358, 167, 3, 2, 2, 2, 358, 174, 3, 2, 2, 2, 358, 179, 3, 2, 2, 2, 358,
+	184, 3, 2, 2, 2, 358, 189, 3, 2, 2, 2, 358, 194, 3, 2, 2, 2, 358, 205,
+	3, 2, 2, 2, 358, 217, 3, 2, 2, 2, 358, 228, 3, 2, 2, 2, 358, 240, 3, 2,
+	2, 2, 358, 242, 3, 2, 2, 2, 358, 251, 3, 2, 2, 2, 358, 260, 3, 2, 2, 2,
+	358, 262, 3, 2, 2, 2, 358, 269, 3, 2, 2, 2, 358, 271, 3, 2, 2, 2, 358,
+	276, 3, 2, 2, 2, 358, 287, 3, 2, 2, 2, 358, 298, 3, 2, 2, 2, 358, 305,
+	3, 2, 2, 2, 358, 310, 3, 2, 2, 2, 358, 315, 3, 2, 2, 2, 358, 320, 3, 2,
+	2, 2, 358, 336, 3, 2, 2, 2, 358, 341, 3, 2, 2, 2, 358, 346, 3, 2, 2, 2,
+	358, 347, 3, 2, 2, 2, 358, 349, 3, 2, 2, 2, 358, 350, 3, 2, 2, 2, 358,
+	352, 3, 2, 2, 2, 358, 353, 3, 2, 2, 2, 358, 354, 3, 2, 2, 2, 358, 355,
+	3, 2, 2, 2, 358, 356, 3, 2, 2, 2, 358, 357, 3, 2, 2, 2, 359, 427, 3, 2,
+	2, 2, 360, 361, 12, 73, 2, 2, 361, 362, 7, 5, 2, 2, 362, 426, 5, 2, 2,
+	74, 363, 364, 12, 72, 2, 2, 364, 365, 7, 6, 2, 2, 365, 426, 5, 2, 2, 73,
+	366, 367, 12, 71, 2, 2, 367, 368, 7, 7, 2, 2, 368, 426, 5, 2, 2, 72, 369,
+	370, 12, 70, 2, 2, 370, 371, 7, 8, 2, 2, 371, 426, 5, 2, 2, 71, 372, 373,
+	12, 69, 2, 2, 373, 374, 7, 9, 2, 2, 374, 426, 5, 2, 2, 70, 375, 376, 12,
+	68, 2, 2, 376, 377, 7, 10, 2, 2, 377, 426, 5, 2, 2, 69, 378, 379, 12, 67,
+	2, 2, 379, 380, 7, 11, 2, 2, 380, 426, 5, 2, 2, 68, 381, 382, 12, 66, 2,
+	2, 382, 383, 7, 12, 2, 2, 383, 426, 5, 2, 2, 67, 384, 385, 12, 65, 2, 2,
+	385, 386, 7, 13, 2, 2, 386, 426, 5, 2, 2, 66, 387, 388, 12, 64, 2, 2, 388,
+	389, 7, 14, 2, 2, 389, 426, 5, 2, 2, 65, 390, 391, 12, 61, 2, 2, 391, 392,
+	9, 2, 2, 2, 392, 426, 5, 2, 2, 62, 393, 394, 12, 60, 2, 2, 394, 395, 9,
+	3, 2, 2, 395, 426, 5, 2, 2, 61, 396, 397, 12, 63, 2, 2, 397, 398, 7, 65,
+	2, 2, 398, 407, 7, 3, 2, 2, 399, 404, 5, 2, 2, 2, 400, 401, 7, 15, 2, 2,
+	401, 403, 5, 2, 2, 2, 402, 400, 3, 2, 2, 2, 403, 406, 3, 2, 2, 2, 404,
+	402, 3, 2, 2, 2, 404, 405, 3, 2, 2, 2, 405, 408, 3, 2, 2, 2, 406, 404,
+	3, 2, 2, 2, 407, 399, 3, 2, 2, 2, 407, 408, 3, 2, 2, 2, 408, 409, 3, 2,
+	2, 2, 409, 426, 7, 4, 2, 2, 410, 411, 12, 62, 2, 2, 411, 412, 7, 66, 2,
+	2, 412, 413, 7, 65, 2, 2, 413, 422, 7, 3, 2, 2, 414, 419, 5, 2, 2, 2, 415,
+	416, 7, 15, 2, 2, 416, 418, 5, 2, 2, 2, 417, 415, 3, 2, 2, 2, 418, 421,
+	3, 2, 2, 2, 419, 417, 3, 2, 2, 2, 419, 420, 3, 2, 2, 2, 420, 423, 3, 2,
+	2, 2, 421, 419, 3, 2, 2, 2, 422, 414, 3, 2, 2, 2, 422, 423, 3, 2, 2, 2,
+	423, 424, 3, 2, 2, 2, 424, 426, 7, 4, 2, 2, 425, 360, 3, 2, 2, 2, 425,
+	363, 3, 2, 2, 2, 425, 366, 3, 2, 2, 2, 425, 369, 3, 2, 2, 2, 425, 372,
+	3, 2, 2, 2, 425, 375, 3, 2, 2, 2, 425, 378, 3, 2, 2, 2, 425, 381, 3, 2,
+	2, 2, 425, 384, 3, 2, 2, 2, 425, 387, 3, 2, 2, 2, 425, 390, 3, 2, 2, 2,
+	425, 393, 3, 2, 2, 2, 425, 396, 3, 2, 2, 2, 425, 410, 3, 2, 2, 2, 426,
+	429, 3, 2, 2, 2, 427, 425, 3, 2, 2, 2, 427, 428, 3, 2, 2, 2, 428, 3, 3,
+	2, 2, 2, 429, 427, 3, 2, 2, 2, 20, 20, 70, 97, 134, 201, 212, 224, 235,
+	283, 294, 332, 358, 404, 407, 419, 422, 425, 427,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
@@ -222,10 +227,11 @@ var symbolicNames = []string{
 	"Contains", "Cos", "Cosh", "CountWords", "Distance", "EndsWith", "FindString",
 	"Exp", "Floor", "GetWord", "HexToNumber", "Left", "Length", "Log", "Log10",
 	"Lowercase", "Max", "Median", "Min", "Mod", "Null", "PadLeft", "PadRight",
-	"Pi", "Pow", "Rand", "RandInt", "Regex_CountMatches", "Round", "Sin", "Sinh",
-	"Sqrt", "Switch", "Tan", "Tanh", "Iif", "In", "Not", "And", "Or", "If",
-	"Then", "Else", "Elseif", "Endif", "Bool", "Integer", "Decimal", "Date",
-	"Datetime", "Field", "SingleQuoteString", "DoubleQuoteString", "Whitespace",
+	"Pi", "Pow", "Rand", "RandInt", "Regex_CountMatches", "Regex_Match", "Round",
+	"Sin", "Sinh", "Sqrt", "Switch", "Tan", "Tanh", "Iif", "In", "Not", "And",
+	"Or", "If", "Then", "Else", "Elseif", "Endif", "Bool", "Integer", "Decimal",
+	"Date", "Datetime", "Field", "SingleQuoteString", "DoubleQuoteString",
+	"Whitespace",
 }
 
 var ruleNames = []string{
@@ -313,32 +319,33 @@ const (
 	AlteryxFormulasParserRand               = 51
 	AlteryxFormulasParserRandInt            = 52
 	AlteryxFormulasParserRegex_CountMatches = 53
-	AlteryxFormulasParserRound              = 54
-	AlteryxFormulasParserSin                = 55
-	AlteryxFormulasParserSinh               = 56
-	AlteryxFormulasParserSqrt               = 57
-	AlteryxFormulasParserSwitch             = 58
-	AlteryxFormulasParserTan                = 59
-	AlteryxFormulasParserTanh               = 60
-	AlteryxFormulasParserIif                = 61
-	AlteryxFormulasParserIn                 = 62
-	AlteryxFormulasParserNot                = 63
-	AlteryxFormulasParserAnd                = 64
-	AlteryxFormulasParserOr                 = 65
-	AlteryxFormulasParserIf                 = 66
-	AlteryxFormulasParserThen               = 67
-	AlteryxFormulasParserElse               = 68
-	AlteryxFormulasParserElseif             = 69
-	AlteryxFormulasParserEndif              = 70
-	AlteryxFormulasParserBool               = 71
-	AlteryxFormulasParserInteger            = 72
-	AlteryxFormulasParserDecimal            = 73
-	AlteryxFormulasParserDate               = 74
-	AlteryxFormulasParserDatetime           = 75
-	AlteryxFormulasParserField              = 76
-	AlteryxFormulasParserSingleQuoteString  = 77
-	AlteryxFormulasParserDoubleQuoteString  = 78
-	AlteryxFormulasParserWhitespace         = 79
+	AlteryxFormulasParserRegex_Match        = 54
+	AlteryxFormulasParserRound              = 55
+	AlteryxFormulasParserSin                = 56
+	AlteryxFormulasParserSinh               = 57
+	AlteryxFormulasParserSqrt               = 58
+	AlteryxFormulasParserSwitch             = 59
+	AlteryxFormulasParserTan                = 60
+	AlteryxFormulasParserTanh               = 61
+	AlteryxFormulasParserIif                = 62
+	AlteryxFormulasParserIn                 = 63
+	AlteryxFormulasParserNot                = 64
+	AlteryxFormulasParserAnd                = 65
+	AlteryxFormulasParserOr                 = 66
+	AlteryxFormulasParserIf                 = 67
+	AlteryxFormulasParserThen               = 68
+	AlteryxFormulasParserElse               = 69
+	AlteryxFormulasParserElseif             = 70
+	AlteryxFormulasParserEndif              = 71
+	AlteryxFormulasParserBool               = 72
+	AlteryxFormulasParserInteger            = 73
+	AlteryxFormulasParserDecimal            = 74
+	AlteryxFormulasParserDate               = 75
+	AlteryxFormulasParserDatetime           = 76
+	AlteryxFormulasParserField              = 77
+	AlteryxFormulasParserSingleQuoteString  = 78
+	AlteryxFormulasParserDoubleQuoteString  = 79
+	AlteryxFormulasParserWhitespace         = 80
 )
 
 // AlteryxFormulasParserRULE_expr is the AlteryxFormulasParser rule.
@@ -1474,6 +1481,63 @@ func (s *StringLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *StringLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
 		listenerT.ExitStringLiteral(s)
+	}
+}
+
+type RegexMatchFuncContext struct {
+	*ExprContext
+}
+
+func NewRegexMatchFuncContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *RegexMatchFuncContext {
+	var p = new(RegexMatchFuncContext)
+
+	p.ExprContext = NewEmptyExprContext()
+	p.parser = parser
+	p.CopyFrom(ctx.(*ExprContext))
+
+	return p
+}
+
+func (s *RegexMatchFuncContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *RegexMatchFuncContext) Regex_Match() antlr.TerminalNode {
+	return s.GetToken(AlteryxFormulasParserRegex_Match, 0)
+}
+
+func (s *RegexMatchFuncContext) AllExpr() []IExprContext {
+	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IExprContext)(nil)).Elem())
+	var tst = make([]IExprContext, len(ts))
+
+	for i, t := range ts {
+		if t != nil {
+			tst[i] = t.(IExprContext)
+		}
+	}
+
+	return tst
+}
+
+func (s *RegexMatchFuncContext) Expr(i int) IExprContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*IExprContext)(nil)).Elem(), i)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExprContext)
+}
+
+func (s *RegexMatchFuncContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.EnterRegexMatchFunc(s)
+	}
+}
+
+func (s *RegexMatchFuncContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AlteryxFormulasListener); ok {
+		listenerT.ExitRegexMatchFunc(s)
 	}
 }
 
@@ -3854,9 +3918,9 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(345)
+	p.SetState(356)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 10, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 11, p.GetParserRuleContext()) {
 	case 1:
 		localctx = NewParenthesisContext(p, localctx)
 		p.SetParserRuleContext(localctx)
@@ -4995,12 +5059,12 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		}
 
 	case 41:
-		localctx = NewRoundFuncContext(p, localctx)
+		localctx = NewRegexMatchFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
 			p.SetState(285)
-			p.Match(AlteryxFormulasParserRound)
+			p.Match(AlteryxFormulasParserRegex_Match)
 		}
 		{
 			p.SetState(286)
@@ -5018,178 +5082,213 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 			p.SetState(289)
 			p.expr(0)
 		}
+		p.SetState(292)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == AlteryxFormulasParserT__12 {
+			{
+				p.SetState(290)
+				p.Match(AlteryxFormulasParserT__12)
+			}
+			{
+				p.SetState(291)
+				p.expr(0)
+			}
+
+		}
 		{
-			p.SetState(290)
+			p.SetState(294)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 42:
-		localctx = NewSinFuncContext(p, localctx)
+		localctx = NewRoundFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(292)
-			p.Match(AlteryxFormulasParserSin)
+			p.SetState(296)
+			p.Match(AlteryxFormulasParserRound)
 		}
 		{
-			p.SetState(293)
+			p.SetState(297)
 			p.Match(AlteryxFormulasParserT__0)
 		}
 		{
-			p.SetState(294)
+			p.SetState(298)
 			p.expr(0)
 		}
 		{
-			p.SetState(295)
+			p.SetState(299)
+			p.Match(AlteryxFormulasParserT__12)
+		}
+		{
+			p.SetState(300)
+			p.expr(0)
+		}
+		{
+			p.SetState(301)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 43:
-		localctx = NewSinhFuncContext(p, localctx)
+		localctx = NewSinFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(297)
-			p.Match(AlteryxFormulasParserSinh)
+			p.SetState(303)
+			p.Match(AlteryxFormulasParserSin)
 		}
 		{
-			p.SetState(298)
+			p.SetState(304)
 			p.Match(AlteryxFormulasParserT__0)
 		}
 		{
-			p.SetState(299)
+			p.SetState(305)
 			p.expr(0)
 		}
 		{
-			p.SetState(300)
+			p.SetState(306)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 44:
-		localctx = NewSqrtFuncContext(p, localctx)
+		localctx = NewSinhFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(302)
-			p.Match(AlteryxFormulasParserSqrt)
+			p.SetState(308)
+			p.Match(AlteryxFormulasParserSinh)
 		}
 		{
-			p.SetState(303)
+			p.SetState(309)
 			p.Match(AlteryxFormulasParserT__0)
 		}
 		{
-			p.SetState(304)
+			p.SetState(310)
 			p.expr(0)
 		}
 		{
-			p.SetState(305)
+			p.SetState(311)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 45:
+		localctx = NewSqrtFuncContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(313)
+			p.Match(AlteryxFormulasParserSqrt)
+		}
+		{
+			p.SetState(314)
+			p.Match(AlteryxFormulasParserT__0)
+		}
+		{
+			p.SetState(315)
+			p.expr(0)
+		}
+		{
+			p.SetState(316)
+			p.Match(AlteryxFormulasParserT__1)
+		}
+
+	case 46:
 		localctx = NewSwitchFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(307)
+			p.SetState(318)
 			p.Match(AlteryxFormulasParserSwitch)
 		}
 		{
-			p.SetState(308)
+			p.SetState(319)
 			p.Match(AlteryxFormulasParserT__0)
 		}
 		{
-			p.SetState(309)
+			p.SetState(320)
 			p.expr(0)
 		}
 		{
-			p.SetState(310)
+			p.SetState(321)
 			p.Match(AlteryxFormulasParserT__12)
 		}
 		{
-			p.SetState(311)
+			p.SetState(322)
 			p.expr(0)
 		}
-		p.SetState(317)
+		p.SetState(328)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = _la == AlteryxFormulasParserT__12 {
 			{
-				p.SetState(312)
+				p.SetState(323)
 				p.Match(AlteryxFormulasParserT__12)
 			}
 			{
-				p.SetState(313)
+				p.SetState(324)
 				p.expr(0)
 			}
 			{
-				p.SetState(314)
+				p.SetState(325)
 				p.Match(AlteryxFormulasParserT__12)
 			}
 			{
-				p.SetState(315)
+				p.SetState(326)
 				p.expr(0)
 			}
 
-			p.SetState(319)
+			p.SetState(330)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 		{
-			p.SetState(321)
-			p.Match(AlteryxFormulasParserT__1)
-		}
-
-	case 46:
-		localctx = NewTanFuncContext(p, localctx)
-		p.SetParserRuleContext(localctx)
-		_prevctx = localctx
-		{
-			p.SetState(323)
-			p.Match(AlteryxFormulasParserTan)
-		}
-		{
-			p.SetState(324)
-			p.Match(AlteryxFormulasParserT__0)
-		}
-		{
-			p.SetState(325)
-			p.expr(0)
-		}
-		{
-			p.SetState(326)
+			p.SetState(332)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 47:
-		localctx = NewTanhFuncContext(p, localctx)
+		localctx = NewTanFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(328)
-			p.Match(AlteryxFormulasParserTanh)
+			p.SetState(334)
+			p.Match(AlteryxFormulasParserTan)
 		}
 		{
-			p.SetState(329)
+			p.SetState(335)
 			p.Match(AlteryxFormulasParserT__0)
 		}
 		{
-			p.SetState(330)
+			p.SetState(336)
 			p.expr(0)
 		}
 		{
-			p.SetState(331)
+			p.SetState(337)
 			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 48:
-		localctx = NewNumberLiteralContext(p, localctx)
+		localctx = NewTanhFuncContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(333)
-			p.Match(AlteryxFormulasParserInteger)
+			p.SetState(339)
+			p.Match(AlteryxFormulasParserTanh)
+		}
+		{
+			p.SetState(340)
+			p.Match(AlteryxFormulasParserT__0)
+		}
+		{
+			p.SetState(341)
+			p.expr(0)
+		}
+		{
+			p.SetState(342)
+			p.Match(AlteryxFormulasParserT__1)
 		}
 
 	case 49:
@@ -5197,11 +5296,7 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(334)
-			p.Match(AlteryxFormulasParserT__5)
-		}
-		{
-			p.SetState(335)
+			p.SetState(344)
 			p.Match(AlteryxFormulasParserInteger)
 		}
 
@@ -5210,8 +5305,12 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(336)
-			p.Match(AlteryxFormulasParserDecimal)
+			p.SetState(345)
+			p.Match(AlteryxFormulasParserT__5)
+		}
+		{
+			p.SetState(346)
+			p.Match(AlteryxFormulasParserInteger)
 		}
 
 	case 51:
@@ -5219,21 +5318,21 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(337)
-			p.Match(AlteryxFormulasParserT__5)
-		}
-		{
-			p.SetState(338)
+			p.SetState(347)
 			p.Match(AlteryxFormulasParserDecimal)
 		}
 
 	case 52:
-		localctx = NewStringLiteralContext(p, localctx)
+		localctx = NewNumberLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(339)
-			p.Match(AlteryxFormulasParserSingleQuoteString)
+			p.SetState(348)
+			p.Match(AlteryxFormulasParserT__5)
+		}
+		{
+			p.SetState(349)
+			p.Match(AlteryxFormulasParserDecimal)
 		}
 
 	case 53:
@@ -5241,51 +5340,60 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(340)
-			p.Match(AlteryxFormulasParserDoubleQuoteString)
+			p.SetState(350)
+			p.Match(AlteryxFormulasParserSingleQuoteString)
 		}
 
 	case 54:
+		localctx = NewStringLiteralContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(351)
+			p.Match(AlteryxFormulasParserDoubleQuoteString)
+		}
+
+	case 55:
 		localctx = NewDatetimeLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(341)
+			p.SetState(352)
 			p.Match(AlteryxFormulasParserDatetime)
 		}
 
-	case 55:
+	case 56:
 		localctx = NewDateLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(342)
+			p.SetState(353)
 			p.Match(AlteryxFormulasParserDate)
 		}
 
-	case 56:
+	case 57:
 		localctx = NewBoolLiteralContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(343)
+			p.SetState(354)
 			p.Match(AlteryxFormulasParserBool)
 		}
 
-	case 57:
+	case 58:
 		localctx = NewExprFieldContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(344)
+			p.SetState(355)
 			p.Match(AlteryxFormulasParserField)
 		}
 
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(414)
+	p.SetState(425)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 16, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 17, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
@@ -5293,27 +5401,27 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(412)
+			p.SetState(423)
 			p.GetErrorHandler().Sync(p)
-			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 15, p.GetParserRuleContext()) {
+			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 16, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewMultiplyContext(p, NewExprContext(p, _parentctx, _parentState))
 				localctx.(*MultiplyContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(347)
+				p.SetState(358)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 70)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 70)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 71)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 71)", ""))
 				}
 				{
-					p.SetState(348)
+					p.SetState(359)
 					p.Match(AlteryxFormulasParserT__2)
 				}
 				{
-					p.SetState(349)
+					p.SetState(360)
 
-					var _x = p.expr(71)
+					var _x = p.expr(72)
 
 					localctx.(*MultiplyContext).right = _x
 				}
@@ -5323,19 +5431,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*DivideContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(350)
+				p.SetState(361)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 69)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 69)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 70)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 70)", ""))
 				}
 				{
-					p.SetState(351)
+					p.SetState(362)
 					p.Match(AlteryxFormulasParserT__3)
 				}
 				{
-					p.SetState(352)
+					p.SetState(363)
 
-					var _x = p.expr(70)
+					var _x = p.expr(71)
 
 					localctx.(*DivideContext).right = _x
 				}
@@ -5345,19 +5453,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*AddContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(353)
+				p.SetState(364)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 68)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 68)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 69)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 69)", ""))
 				}
 				{
-					p.SetState(354)
+					p.SetState(365)
 					p.Match(AlteryxFormulasParserT__4)
 				}
 				{
-					p.SetState(355)
+					p.SetState(366)
 
-					var _x = p.expr(69)
+					var _x = p.expr(70)
 
 					localctx.(*AddContext).right = _x
 				}
@@ -5367,19 +5475,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*SubtractContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(356)
+				p.SetState(367)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 67)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 67)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 68)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 68)", ""))
 				}
 				{
-					p.SetState(357)
+					p.SetState(368)
 					p.Match(AlteryxFormulasParserT__5)
 				}
 				{
-					p.SetState(358)
+					p.SetState(369)
 
-					var _x = p.expr(68)
+					var _x = p.expr(69)
 
 					localctx.(*SubtractContext).right = _x
 				}
@@ -5389,19 +5497,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*EqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(359)
+				p.SetState(370)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 66)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 66)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 67)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 67)", ""))
 				}
 				{
-					p.SetState(360)
+					p.SetState(371)
 					p.Match(AlteryxFormulasParserT__6)
 				}
 				{
-					p.SetState(361)
+					p.SetState(372)
 
-					var _x = p.expr(67)
+					var _x = p.expr(68)
 
 					localctx.(*EqualContext).right = _x
 				}
@@ -5411,19 +5519,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*GreaterThanContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(362)
+				p.SetState(373)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 65)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 65)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 66)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 66)", ""))
 				}
 				{
-					p.SetState(363)
+					p.SetState(374)
 					p.Match(AlteryxFormulasParserT__7)
 				}
 				{
-					p.SetState(364)
+					p.SetState(375)
 
-					var _x = p.expr(66)
+					var _x = p.expr(67)
 
 					localctx.(*GreaterThanContext).right = _x
 				}
@@ -5433,19 +5541,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*GreaterEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(365)
+				p.SetState(376)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 64)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 64)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 65)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 65)", ""))
 				}
 				{
-					p.SetState(366)
+					p.SetState(377)
 					p.Match(AlteryxFormulasParserT__8)
 				}
 				{
-					p.SetState(367)
+					p.SetState(378)
 
-					var _x = p.expr(65)
+					var _x = p.expr(66)
 
 					localctx.(*GreaterEqualContext).right = _x
 				}
@@ -5455,19 +5563,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*LessThanContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(368)
+				p.SetState(379)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 63)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 63)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 64)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 64)", ""))
 				}
 				{
-					p.SetState(369)
+					p.SetState(380)
 					p.Match(AlteryxFormulasParserT__9)
 				}
 				{
-					p.SetState(370)
+					p.SetState(381)
 
-					var _x = p.expr(64)
+					var _x = p.expr(65)
 
 					localctx.(*LessThanContext).right = _x
 				}
@@ -5477,19 +5585,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*LessEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(371)
+				p.SetState(382)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 62)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 62)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 63)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 63)", ""))
 				}
 				{
-					p.SetState(372)
+					p.SetState(383)
 					p.Match(AlteryxFormulasParserT__10)
 				}
 				{
-					p.SetState(373)
+					p.SetState(384)
 
-					var _x = p.expr(63)
+					var _x = p.expr(64)
 
 					localctx.(*LessEqualContext).right = _x
 				}
@@ -5499,19 +5607,19 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*NotEqualContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(374)
+				p.SetState(385)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 61)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 61)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 62)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 62)", ""))
 				}
 				{
-					p.SetState(375)
+					p.SetState(386)
 					p.Match(AlteryxFormulasParserT__11)
 				}
 				{
-					p.SetState(376)
+					p.SetState(387)
 
-					var _x = p.expr(62)
+					var _x = p.expr(63)
 
 					localctx.(*NotEqualContext).right = _x
 				}
@@ -5521,13 +5629,13 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*AndContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(377)
+				p.SetState(388)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 58)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 58)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 59)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 59)", ""))
 				}
 				{
-					p.SetState(378)
+					p.SetState(389)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == AlteryxFormulasParserT__13 || _la == AlteryxFormulasParserAnd) {
@@ -5538,9 +5646,9 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(379)
+					p.SetState(390)
 
-					var _x = p.expr(59)
+					var _x = p.expr(60)
 
 					localctx.(*AndContext).right = _x
 				}
@@ -5550,13 +5658,13 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 				localctx.(*OrContext).left = _prevctx
 
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(380)
+				p.SetState(391)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 57)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 57)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 58)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 58)", ""))
 				}
 				{
-					p.SetState(381)
+					p.SetState(392)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == AlteryxFormulasParserT__14 || _la == AlteryxFormulasParserOr) {
@@ -5567,9 +5675,9 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(382)
+					p.SetState(393)
 
-					var _x = p.expr(58)
+					var _x = p.expr(59)
 
 					localctx.(*OrContext).right = _x
 				}
@@ -5577,113 +5685,113 @@ func (p *AlteryxFormulasParser) expr(_p int) (localctx IExprContext) {
 			case 13:
 				localctx = NewInContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(383)
+				p.SetState(394)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 60)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 60)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 61)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 61)", ""))
 				}
 				{
-					p.SetState(384)
+					p.SetState(395)
 					p.Match(AlteryxFormulasParserIn)
 				}
 				{
-					p.SetState(385)
+					p.SetState(396)
 					p.Match(AlteryxFormulasParserT__0)
 				}
-				p.SetState(394)
+				p.SetState(405)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
-				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserAcos)|(1<<AlteryxFormulasParserAsin)|(1<<AlteryxFormulasParserAtan)|(1<<AlteryxFormulasParserAtan2)|(1<<AlteryxFormulasParserAverage)|(1<<AlteryxFormulasParserCeil)|(1<<AlteryxFormulasParserCharFromInt)|(1<<AlteryxFormulasParserCharToInt)|(1<<AlteryxFormulasParserContains)|(1<<AlteryxFormulasParserCos)|(1<<AlteryxFormulasParserCosh)|(1<<AlteryxFormulasParserCountWords)|(1<<AlteryxFormulasParserDistance)|(1<<AlteryxFormulasParserEndsWith))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserFindString-32))|(1<<(AlteryxFormulasParserExp-32))|(1<<(AlteryxFormulasParserFloor-32))|(1<<(AlteryxFormulasParserGetWord-32))|(1<<(AlteryxFormulasParserHexToNumber-32))|(1<<(AlteryxFormulasParserLeft-32))|(1<<(AlteryxFormulasParserLength-32))|(1<<(AlteryxFormulasParserLog-32))|(1<<(AlteryxFormulasParserLog10-32))|(1<<(AlteryxFormulasParserLowercase-32))|(1<<(AlteryxFormulasParserMax-32))|(1<<(AlteryxFormulasParserMedian-32))|(1<<(AlteryxFormulasParserMin-32))|(1<<(AlteryxFormulasParserMod-32))|(1<<(AlteryxFormulasParserNull-32))|(1<<(AlteryxFormulasParserPadLeft-32))|(1<<(AlteryxFormulasParserPadRight-32))|(1<<(AlteryxFormulasParserPi-32))|(1<<(AlteryxFormulasParserPow-32))|(1<<(AlteryxFormulasParserRand-32))|(1<<(AlteryxFormulasParserRandInt-32))|(1<<(AlteryxFormulasParserRegex_CountMatches-32))|(1<<(AlteryxFormulasParserRound-32))|(1<<(AlteryxFormulasParserSin-32))|(1<<(AlteryxFormulasParserSinh-32))|(1<<(AlteryxFormulasParserSqrt-32))|(1<<(AlteryxFormulasParserSwitch-32))|(1<<(AlteryxFormulasParserTan-32))|(1<<(AlteryxFormulasParserTanh-32))|(1<<(AlteryxFormulasParserIif-32)))) != 0) || (((_la-66)&-(0x1f+1)) == 0 && ((1<<uint((_la-66)))&((1<<(AlteryxFormulasParserIf-66))|(1<<(AlteryxFormulasParserBool-66))|(1<<(AlteryxFormulasParserInteger-66))|(1<<(AlteryxFormulasParserDecimal-66))|(1<<(AlteryxFormulasParserDate-66))|(1<<(AlteryxFormulasParserDatetime-66))|(1<<(AlteryxFormulasParserField-66))|(1<<(AlteryxFormulasParserSingleQuoteString-66))|(1<<(AlteryxFormulasParserDoubleQuoteString-66)))) != 0) {
+				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserAcos)|(1<<AlteryxFormulasParserAsin)|(1<<AlteryxFormulasParserAtan)|(1<<AlteryxFormulasParserAtan2)|(1<<AlteryxFormulasParserAverage)|(1<<AlteryxFormulasParserCeil)|(1<<AlteryxFormulasParserCharFromInt)|(1<<AlteryxFormulasParserCharToInt)|(1<<AlteryxFormulasParserContains)|(1<<AlteryxFormulasParserCos)|(1<<AlteryxFormulasParserCosh)|(1<<AlteryxFormulasParserCountWords)|(1<<AlteryxFormulasParserDistance)|(1<<AlteryxFormulasParserEndsWith))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserFindString-32))|(1<<(AlteryxFormulasParserExp-32))|(1<<(AlteryxFormulasParserFloor-32))|(1<<(AlteryxFormulasParserGetWord-32))|(1<<(AlteryxFormulasParserHexToNumber-32))|(1<<(AlteryxFormulasParserLeft-32))|(1<<(AlteryxFormulasParserLength-32))|(1<<(AlteryxFormulasParserLog-32))|(1<<(AlteryxFormulasParserLog10-32))|(1<<(AlteryxFormulasParserLowercase-32))|(1<<(AlteryxFormulasParserMax-32))|(1<<(AlteryxFormulasParserMedian-32))|(1<<(AlteryxFormulasParserMin-32))|(1<<(AlteryxFormulasParserMod-32))|(1<<(AlteryxFormulasParserNull-32))|(1<<(AlteryxFormulasParserPadLeft-32))|(1<<(AlteryxFormulasParserPadRight-32))|(1<<(AlteryxFormulasParserPi-32))|(1<<(AlteryxFormulasParserPow-32))|(1<<(AlteryxFormulasParserRand-32))|(1<<(AlteryxFormulasParserRandInt-32))|(1<<(AlteryxFormulasParserRegex_CountMatches-32))|(1<<(AlteryxFormulasParserRegex_Match-32))|(1<<(AlteryxFormulasParserRound-32))|(1<<(AlteryxFormulasParserSin-32))|(1<<(AlteryxFormulasParserSinh-32))|(1<<(AlteryxFormulasParserSqrt-32))|(1<<(AlteryxFormulasParserSwitch-32))|(1<<(AlteryxFormulasParserTan-32))|(1<<(AlteryxFormulasParserTanh-32))|(1<<(AlteryxFormulasParserIif-32)))) != 0) || (((_la-67)&-(0x1f+1)) == 0 && ((1<<uint((_la-67)))&((1<<(AlteryxFormulasParserIf-67))|(1<<(AlteryxFormulasParserBool-67))|(1<<(AlteryxFormulasParserInteger-67))|(1<<(AlteryxFormulasParserDecimal-67))|(1<<(AlteryxFormulasParserDate-67))|(1<<(AlteryxFormulasParserDatetime-67))|(1<<(AlteryxFormulasParserField-67))|(1<<(AlteryxFormulasParserSingleQuoteString-67))|(1<<(AlteryxFormulasParserDoubleQuoteString-67)))) != 0) {
 					{
-						p.SetState(386)
+						p.SetState(397)
 						p.expr(0)
 					}
-					p.SetState(391)
+					p.SetState(402)
 					p.GetErrorHandler().Sync(p)
 					_la = p.GetTokenStream().LA(1)
 
 					for _la == AlteryxFormulasParserT__12 {
 						{
-							p.SetState(387)
+							p.SetState(398)
 							p.Match(AlteryxFormulasParserT__12)
 						}
 						{
-							p.SetState(388)
+							p.SetState(399)
 							p.expr(0)
 						}
 
-						p.SetState(393)
+						p.SetState(404)
 						p.GetErrorHandler().Sync(p)
 						_la = p.GetTokenStream().LA(1)
 					}
 
 				}
 				{
-					p.SetState(396)
+					p.SetState(407)
 					p.Match(AlteryxFormulasParserT__1)
 				}
 
 			case 14:
 				localctx = NewNotInContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, AlteryxFormulasParserRULE_expr)
-				p.SetState(397)
+				p.SetState(408)
 
-				if !(p.Precpred(p.GetParserRuleContext(), 59)) {
-					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 59)", ""))
+				if !(p.Precpred(p.GetParserRuleContext(), 60)) {
+					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 60)", ""))
 				}
 				{
-					p.SetState(398)
+					p.SetState(409)
 					p.Match(AlteryxFormulasParserNot)
 				}
 				{
-					p.SetState(399)
+					p.SetState(410)
 					p.Match(AlteryxFormulasParserIn)
 				}
 				{
-					p.SetState(400)
+					p.SetState(411)
 					p.Match(AlteryxFormulasParserT__0)
 				}
-				p.SetState(409)
+				p.SetState(420)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
-				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserAcos)|(1<<AlteryxFormulasParserAsin)|(1<<AlteryxFormulasParserAtan)|(1<<AlteryxFormulasParserAtan2)|(1<<AlteryxFormulasParserAverage)|(1<<AlteryxFormulasParserCeil)|(1<<AlteryxFormulasParserCharFromInt)|(1<<AlteryxFormulasParserCharToInt)|(1<<AlteryxFormulasParserContains)|(1<<AlteryxFormulasParserCos)|(1<<AlteryxFormulasParserCosh)|(1<<AlteryxFormulasParserCountWords)|(1<<AlteryxFormulasParserDistance)|(1<<AlteryxFormulasParserEndsWith))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserFindString-32))|(1<<(AlteryxFormulasParserExp-32))|(1<<(AlteryxFormulasParserFloor-32))|(1<<(AlteryxFormulasParserGetWord-32))|(1<<(AlteryxFormulasParserHexToNumber-32))|(1<<(AlteryxFormulasParserLeft-32))|(1<<(AlteryxFormulasParserLength-32))|(1<<(AlteryxFormulasParserLog-32))|(1<<(AlteryxFormulasParserLog10-32))|(1<<(AlteryxFormulasParserLowercase-32))|(1<<(AlteryxFormulasParserMax-32))|(1<<(AlteryxFormulasParserMedian-32))|(1<<(AlteryxFormulasParserMin-32))|(1<<(AlteryxFormulasParserMod-32))|(1<<(AlteryxFormulasParserNull-32))|(1<<(AlteryxFormulasParserPadLeft-32))|(1<<(AlteryxFormulasParserPadRight-32))|(1<<(AlteryxFormulasParserPi-32))|(1<<(AlteryxFormulasParserPow-32))|(1<<(AlteryxFormulasParserRand-32))|(1<<(AlteryxFormulasParserRandInt-32))|(1<<(AlteryxFormulasParserRegex_CountMatches-32))|(1<<(AlteryxFormulasParserRound-32))|(1<<(AlteryxFormulasParserSin-32))|(1<<(AlteryxFormulasParserSinh-32))|(1<<(AlteryxFormulasParserSqrt-32))|(1<<(AlteryxFormulasParserSwitch-32))|(1<<(AlteryxFormulasParserTan-32))|(1<<(AlteryxFormulasParserTanh-32))|(1<<(AlteryxFormulasParserIif-32)))) != 0) || (((_la-66)&-(0x1f+1)) == 0 && ((1<<uint((_la-66)))&((1<<(AlteryxFormulasParserIf-66))|(1<<(AlteryxFormulasParserBool-66))|(1<<(AlteryxFormulasParserInteger-66))|(1<<(AlteryxFormulasParserDecimal-66))|(1<<(AlteryxFormulasParserDate-66))|(1<<(AlteryxFormulasParserDatetime-66))|(1<<(AlteryxFormulasParserField-66))|(1<<(AlteryxFormulasParserSingleQuoteString-66))|(1<<(AlteryxFormulasParserDoubleQuoteString-66)))) != 0) {
+				if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AlteryxFormulasParserT__0)|(1<<AlteryxFormulasParserT__5)|(1<<AlteryxFormulasParserAbs)|(1<<AlteryxFormulasParserAcos)|(1<<AlteryxFormulasParserAsin)|(1<<AlteryxFormulasParserAtan)|(1<<AlteryxFormulasParserAtan2)|(1<<AlteryxFormulasParserAverage)|(1<<AlteryxFormulasParserCeil)|(1<<AlteryxFormulasParserCharFromInt)|(1<<AlteryxFormulasParserCharToInt)|(1<<AlteryxFormulasParserContains)|(1<<AlteryxFormulasParserCos)|(1<<AlteryxFormulasParserCosh)|(1<<AlteryxFormulasParserCountWords)|(1<<AlteryxFormulasParserDistance)|(1<<AlteryxFormulasParserEndsWith))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AlteryxFormulasParserFindString-32))|(1<<(AlteryxFormulasParserExp-32))|(1<<(AlteryxFormulasParserFloor-32))|(1<<(AlteryxFormulasParserGetWord-32))|(1<<(AlteryxFormulasParserHexToNumber-32))|(1<<(AlteryxFormulasParserLeft-32))|(1<<(AlteryxFormulasParserLength-32))|(1<<(AlteryxFormulasParserLog-32))|(1<<(AlteryxFormulasParserLog10-32))|(1<<(AlteryxFormulasParserLowercase-32))|(1<<(AlteryxFormulasParserMax-32))|(1<<(AlteryxFormulasParserMedian-32))|(1<<(AlteryxFormulasParserMin-32))|(1<<(AlteryxFormulasParserMod-32))|(1<<(AlteryxFormulasParserNull-32))|(1<<(AlteryxFormulasParserPadLeft-32))|(1<<(AlteryxFormulasParserPadRight-32))|(1<<(AlteryxFormulasParserPi-32))|(1<<(AlteryxFormulasParserPow-32))|(1<<(AlteryxFormulasParserRand-32))|(1<<(AlteryxFormulasParserRandInt-32))|(1<<(AlteryxFormulasParserRegex_CountMatches-32))|(1<<(AlteryxFormulasParserRegex_Match-32))|(1<<(AlteryxFormulasParserRound-32))|(1<<(AlteryxFormulasParserSin-32))|(1<<(AlteryxFormulasParserSinh-32))|(1<<(AlteryxFormulasParserSqrt-32))|(1<<(AlteryxFormulasParserSwitch-32))|(1<<(AlteryxFormulasParserTan-32))|(1<<(AlteryxFormulasParserTanh-32))|(1<<(AlteryxFormulasParserIif-32)))) != 0) || (((_la-67)&-(0x1f+1)) == 0 && ((1<<uint((_la-67)))&((1<<(AlteryxFormulasParserIf-67))|(1<<(AlteryxFormulasParserBool-67))|(1<<(AlteryxFormulasParserInteger-67))|(1<<(AlteryxFormulasParserDecimal-67))|(1<<(AlteryxFormulasParserDate-67))|(1<<(AlteryxFormulasParserDatetime-67))|(1<<(AlteryxFormulasParserField-67))|(1<<(AlteryxFormulasParserSingleQuoteString-67))|(1<<(AlteryxFormulasParserDoubleQuoteString-67)))) != 0) {
 					{
-						p.SetState(401)
+						p.SetState(412)
 						p.expr(0)
 					}
-					p.SetState(406)
+					p.SetState(417)
 					p.GetErrorHandler().Sync(p)
 					_la = p.GetTokenStream().LA(1)
 
 					for _la == AlteryxFormulasParserT__12 {
 						{
-							p.SetState(402)
+							p.SetState(413)
 							p.Match(AlteryxFormulasParserT__12)
 						}
 						{
-							p.SetState(403)
+							p.SetState(414)
 							p.expr(0)
 						}
 
-						p.SetState(408)
+						p.SetState(419)
 						p.GetErrorHandler().Sync(p)
 						_la = p.GetTokenStream().LA(1)
 					}
 
 				}
 				{
-					p.SetState(411)
+					p.SetState(422)
 					p.Match(AlteryxFormulasParserT__1)
 				}
 
 			}
 
 		}
-		p.SetState(416)
+		p.SetState(427)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 16, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 17, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -5706,46 +5814,46 @@ func (p *AlteryxFormulasParser) Sempred(localctx antlr.RuleContext, ruleIndex, p
 func (p *AlteryxFormulasParser) Expr_Sempred(localctx antlr.RuleContext, predIndex int) bool {
 	switch predIndex {
 	case 0:
-		return p.Precpred(p.GetParserRuleContext(), 70)
+		return p.Precpred(p.GetParserRuleContext(), 71)
 
 	case 1:
-		return p.Precpred(p.GetParserRuleContext(), 69)
+		return p.Precpred(p.GetParserRuleContext(), 70)
 
 	case 2:
-		return p.Precpred(p.GetParserRuleContext(), 68)
+		return p.Precpred(p.GetParserRuleContext(), 69)
 
 	case 3:
-		return p.Precpred(p.GetParserRuleContext(), 67)
+		return p.Precpred(p.GetParserRuleContext(), 68)
 
 	case 4:
-		return p.Precpred(p.GetParserRuleContext(), 66)
+		return p.Precpred(p.GetParserRuleContext(), 67)
 
 	case 5:
-		return p.Precpred(p.GetParserRuleContext(), 65)
+		return p.Precpred(p.GetParserRuleContext(), 66)
 
 	case 6:
-		return p.Precpred(p.GetParserRuleContext(), 64)
+		return p.Precpred(p.GetParserRuleContext(), 65)
 
 	case 7:
-		return p.Precpred(p.GetParserRuleContext(), 63)
+		return p.Precpred(p.GetParserRuleContext(), 64)
 
 	case 8:
-		return p.Precpred(p.GetParserRuleContext(), 62)
+		return p.Precpred(p.GetParserRuleContext(), 63)
 
 	case 9:
-		return p.Precpred(p.GetParserRuleContext(), 61)
+		return p.Precpred(p.GetParserRuleContext(), 62)
 
 	case 10:
-		return p.Precpred(p.GetParserRuleContext(), 58)
+		return p.Precpred(p.GetParserRuleContext(), 59)
 
 	case 11:
-		return p.Precpred(p.GetParserRuleContext(), 57)
+		return p.Precpred(p.GetParserRuleContext(), 58)
 
 	case 12:
-		return p.Precpred(p.GetParserRuleContext(), 60)
+		return p.Precpred(p.GetParserRuleContext(), 61)
 
 	case 13:
-		return p.Precpred(p.GetParserRuleContext(), 59)
+		return p.Precpred(p.GetParserRuleContext(), 60)
 
 	default:
 		panic("No predicate with index: " + fmt.Sprint(predIndex))
