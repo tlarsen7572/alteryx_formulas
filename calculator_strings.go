@@ -107,6 +107,14 @@ func (calc *calculator) lowercase() {
 }
 
 func (calc *calculator) padLeft() {
+	calc.pad(`left`)
+}
+
+func (calc *calculator) padRight() {
+	calc.pad(`right`)
+}
+
+func (calc *calculator) pad(side string) {
 	text := calc.popValue().(string)
 	length := int(calc.popValue().(float64))
 	padCharStr := calc.popValue().(string)
@@ -115,6 +123,11 @@ func (calc *calculator) padLeft() {
 		return
 	}
 	padRunes := []rune(padCharStr)
-	newText := strings.Repeat(string(padRunes[0]), length) + text
+	var newText string
+	if side == `left` {
+		newText = strings.Repeat(string(padRunes[0]), length) + text
+	} else {
+		newText = text + strings.Repeat(string(padRunes[0]), length)
+	}
 	calc.pushValue(newText)
 }

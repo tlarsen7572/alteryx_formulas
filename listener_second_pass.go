@@ -470,3 +470,7 @@ func (l *secondPassListener) EnterLowercaseFunc(_ *parser.LowercaseFuncContext) 
 func (l *secondPassListener) EnterPadLeftFunc(_ *parser.PadLeftFuncContext) {
 	l.calc.pushFunction(l.calc.padLeft)
 }
+
+func (l *secondPassListener) EnterPadRightFunc(_ *parser.PadRightFuncContext) {
+	l.calc.pushFunction(l.calc.padRight)
+}

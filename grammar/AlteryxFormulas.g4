@@ -53,6 +53,7 @@ expr
     | Mod '(' expr (',' expr)* ')'                                   # modFunc
     | Null '()'                                                      # nullFunc
     | PadLeft '(' expr ',' expr ',' expr ')'                         # padLeftFunc
+    | PadRight '(' expr ',' expr ',' expr ')'                        # padRightFunc
     | Pi '()'                                                        # piFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Rand '()'                                                      # randFunc
@@ -108,6 +109,7 @@ Min         : M I N ;
 Mod         : M O D ;
 Null        : N U L L ;
 PadLeft     : P A D L E F T ;
+PadRight    : P A D R I G H T ;
 Pi          : P I ;
 Pow         : P O W ;
 Rand        : R A N D ;

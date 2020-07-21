@@ -267,6 +267,12 @@ func (s *BaseAlteryxFormulasListener) EnterLessThan(ctx *LessThanContext) {}
 // ExitLessThan is called when production lessThan is exited.
 func (s *BaseAlteryxFormulasListener) ExitLessThan(ctx *LessThanContext) {}
 
+// EnterPadRightFunc is called when production padRightFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterPadRightFunc(ctx *PadRightFuncContext) {}
+
+// ExitPadRightFunc is called when production padRightFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitPadRightFunc(ctx *PadRightFuncContext) {}
+
 // EnterDivide is called when production divide is entered.
 func (s *BaseAlteryxFormulasListener) EnterDivide(ctx *DivideContext) {}
 
