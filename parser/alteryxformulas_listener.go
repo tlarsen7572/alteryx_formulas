@@ -83,6 +83,9 @@ type AlteryxFormulasListener interface {
 	// EnterAtan2Func is called when entering the atan2Func production.
 	EnterAtan2Func(c *Atan2FuncContext)
 
+	// EnterPadLeftFunc is called when entering the padLeftFunc production.
+	EnterPadLeftFunc(c *PadLeftFuncContext)
+
 	// EnterFindStringFunc is called when entering the findStringFunc production.
 	EnterFindStringFunc(c *FindStringFuncContext)
 
@@ -274,6 +277,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitAtan2Func is called when exiting the atan2Func production.
 	ExitAtan2Func(c *Atan2FuncContext)
+
+	// ExitPadLeftFunc is called when exiting the padLeftFunc production.
+	ExitPadLeftFunc(c *PadLeftFuncContext)
 
 	// ExitFindStringFunc is called when exiting the findStringFunc production.
 	ExitFindStringFunc(c *FindStringFuncContext)

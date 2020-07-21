@@ -171,6 +171,12 @@ func (s *BaseAlteryxFormulasListener) EnterAtan2Func(ctx *Atan2FuncContext) {}
 // ExitAtan2Func is called when production atan2Func is exited.
 func (s *BaseAlteryxFormulasListener) ExitAtan2Func(ctx *Atan2FuncContext) {}
 
+// EnterPadLeftFunc is called when production padLeftFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterPadLeftFunc(ctx *PadLeftFuncContext) {}
+
+// ExitPadLeftFunc is called when production padLeftFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitPadLeftFunc(ctx *PadLeftFuncContext) {}
+
 // EnterFindStringFunc is called when production findStringFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterFindStringFunc(ctx *FindStringFuncContext) {}
 

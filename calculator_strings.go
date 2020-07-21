@@ -105,3 +105,16 @@ func (calc *calculator) lowercase() {
 	text := calc.popValue().(string)
 	calc.pushValue(strings.ToLower(text))
 }
+
+func (calc *calculator) padLeft() {
+	text := calc.popValue().(string)
+	length := int(calc.popValue().(float64))
+	padCharStr := calc.popValue().(string)
+	if len(padCharStr) == 0 {
+		calc.pushValue(text)
+		return
+	}
+	padRunes := []rune(padCharStr)
+	newText := strings.Repeat(string(padRunes[0]), length) + text
+	calc.pushValue(newText)
+}

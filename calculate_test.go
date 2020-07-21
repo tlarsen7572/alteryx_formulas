@@ -1052,6 +1052,30 @@ func TestLowercase(t *testing.T) {
 	}
 }
 
+func TestPadLeft(t *testing.T) {
+	result, errs := f.Calculate(`padLeft('M', 4, 'x')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `xxxxM` {
+		t.Fatalf(`expected xxxxM but got %v`, result)
+	}
+}
+
+func TestPadLeftMultipleChars(t *testing.T) {
+	result, _ := f.Calculate(`padLeft('M', 4, 'xyz')`, nil)
+	if result != `xxxxM` {
+		t.Fatalf(`expected xxxxM but got %v`, result)
+	}
+}
+
+func TestPadLeftNoChars(t *testing.T) {
+	result, _ := f.Calculate(`padLeft('M', 4, '')`, nil)
+	if result != `M` {
+		t.Fatalf(`expected M but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

@@ -52,6 +52,7 @@ expr
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
     | Mod '(' expr (',' expr)* ')'                                   # modFunc
     | Null '()'                                                      # nullFunc
+    | PadLeft '(' expr ',' expr ',' expr ')'                         # padLeftFunc
     | Pi '()'                                                        # piFunc
     | Pow '(' expr ',' expr ')'                                      # powFunc
     | Rand '()'                                                      # randFunc
@@ -106,6 +107,7 @@ Median      : M E D I A N ;
 Min         : M I N ;
 Mod         : M O D ;
 Null        : N U L L ;
+PadLeft     : P A D L E F T ;
 Pi          : P I ;
 Pow         : P O W ;
 Rand        : R A N D ;
