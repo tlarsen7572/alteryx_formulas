@@ -62,6 +62,7 @@ expr
     | Regex_Match '(' expr ',' expr (',' expr)? ')'                  # regexMatchFunc
     | Regex_Replace '(' expr ',' expr ',' expr (',' expr)? ')'       # regexReplaceFunc
     | Replace '(' expr ',' expr ',' expr ')'                         # replaceFunc
+    | Right '(' expr ',' expr ')'                                    # rightFunc
     | Round '(' expr ',' expr ')'                                    # roundFunc
     | Sin '(' expr ')'                                               # sinFunc
     | Sinh '(' expr ')'                                              # sinhFunc
@@ -122,6 +123,7 @@ Regex_CountMatches : R E G E X '_' C O U N T M A T C H E S ;
 Regex_Match        : R E G E X '_' M A T C H ;
 Regex_Replace      : R E G E X '_' R E P L A C E ;
 Replace            : R E P L A C E ;
+Right              : R I G H T ;
 Round              : R O U N D ;
 Sin                : S I N ;
 Sinh               : S I N H ;

@@ -90,11 +90,13 @@ func (calc *calculator) getWord() {
 func (calc *calculator) left() {
 	text := calc.popValue().(string)
 	length := int(calc.popValue().(float64))
-	if length < 0 || length >= len(text) {
+	runes := []rune(text)
+	if length < 0 || length >= len(runes) {
 		calc.pushValue(text)
 		return
 	}
-	calc.pushValue(text[:length])
+	newText := string(runes[:length])
+	calc.pushValue(newText)
 }
 
 func (calc *calculator) length() {
@@ -196,5 +198,18 @@ func (calc *calculator) replace() {
 	find := calc.popValue().(string)
 	replace := calc.popValue().(string)
 	newText := strings.ReplaceAll(text, find, replace)
+	calc.pushValue(newText)
+}
+
+func (calc *calculator) right() {
+	text := calc.popValue().(string)
+	length := int(calc.popValue().(float64))
+	runes := []rune(text)
+	if length < 0 || length >= len(runes) {
+		calc.pushValue(text)
+		return
+	}
+	startAt := len(runes) - length
+	newText := string(runes[startAt:])
 	calc.pushValue(newText)
 }

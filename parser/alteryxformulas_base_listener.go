@@ -399,6 +399,12 @@ func (s *BaseAlteryxFormulasListener) EnterEqual(ctx *EqualContext) {}
 // ExitEqual is called when production equal is exited.
 func (s *BaseAlteryxFormulasListener) ExitEqual(ctx *EqualContext) {}
 
+// EnterRightFunc is called when production rightFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterRightFunc(ctx *RightFuncContext) {}
+
+// ExitRightFunc is called when production rightFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitRightFunc(ctx *RightFuncContext) {}
+
 // EnterModFunc is called when production modFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterModFunc(ctx *ModFuncContext) {}
 

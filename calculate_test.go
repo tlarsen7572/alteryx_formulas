@@ -1187,6 +1187,45 @@ func TestReplace(t *testing.T) {
 	}
 }
 
+func TestRight(t *testing.T) {
+	result, errs := f.Calculate(`right('abcdef', 3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `def` {
+		t.Fatalf(`expected def but got %v`, result)
+	}
+}
+
+func TestLeftUnicode(t *testing.T) {
+	result, _ := f.Calculate(`left('你好，世界', 2)`, nil) // 'Hello World' in Chinese
+	if result != `你好` {
+		t.Fatalf(`expected 你好 but got %v`, result)
+	}
+}
+
+func TestRightUnicode(t *testing.T) {
+	result, _ := f.Calculate(`RIGHT('你好，世界', 2)`, nil) // 'Hello World' in Chinese
+	if result != `世界` {
+		t.Fatalf(`expected 世界 but got %v`, result)
+	}
+}
+
+func TestRightOutOfBounds(t *testing.T) {
+	result, errs := f.Calculate(`right('abcdef', -1)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `abcdef` {
+		t.Fatalf(`expected abcdef but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`right('abcdef', 20)`, nil)
+	if result != `abcdef` {
+		t.Fatalf(`expected abcdef but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

@@ -197,6 +197,9 @@ type AlteryxFormulasListener interface {
 	// EnterEqual is called when entering the equal production.
 	EnterEqual(c *EqualContext)
 
+	// EnterRightFunc is called when entering the rightFunc production.
+	EnterRightFunc(c *RightFuncContext)
+
 	// EnterModFunc is called when entering the modFunc production.
 	EnterModFunc(c *ModFuncContext)
 
@@ -406,6 +409,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitEqual is called when exiting the equal production.
 	ExitEqual(c *EqualContext)
+
+	// ExitRightFunc is called when exiting the rightFunc production.
+	ExitRightFunc(c *RightFuncContext)
 
 	// ExitModFunc is called when exiting the modFunc production.
 	ExitModFunc(c *ModFuncContext)
