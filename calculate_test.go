@@ -1177,6 +1177,16 @@ func TestRegex_ReplaceCaseSensitive(t *testing.T) {
 	}
 }
 
+func TestReplace(t *testing.T) {
+	result, errs := f.Calculate(`replace('abcdef', 'cd', '')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `abef` {
+		t.Fatalf(`expected abef but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

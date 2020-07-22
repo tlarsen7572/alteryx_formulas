@@ -507,3 +507,7 @@ func (l *secondPassListener) ExitRegexReplaceFunc(c *parser.RegexReplaceFuncCont
 		l.calc.pushValueFunc(1.0)
 	}
 }
+
+func (l *secondPassListener) EnterReplaceFunc(_ *parser.ReplaceFuncContext) {
+	l.calc.pushFunction(l.calc.replace)
+}

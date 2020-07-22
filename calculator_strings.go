@@ -190,3 +190,11 @@ func (calc *calculator) regexReplace() {
 	newText := r.ReplaceAllString(text, replaceWith)
 	calc.pushValue(newText)
 }
+
+func (calc *calculator) replace() {
+	text := calc.popValue().(string)
+	find := calc.popValue().(string)
+	replace := calc.popValue().(string)
+	newText := strings.ReplaceAll(text, find, replace)
+	calc.pushValue(newText)
+}

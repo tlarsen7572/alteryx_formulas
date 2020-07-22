@@ -33,6 +33,12 @@ func (s *BaseAlteryxFormulasListener) EnterCosFunc(ctx *CosFuncContext) {}
 // ExitCosFunc is called when production cosFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCosFunc(ctx *CosFuncContext) {}
 
+// EnterReplaceFunc is called when production replaceFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterReplaceFunc(ctx *ReplaceFuncContext) {}
+
+// ExitReplaceFunc is called when production replaceFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitReplaceFunc(ctx *ReplaceFuncContext) {}
+
 // EnterRandIntFunc is called when production randIntFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterRandIntFunc(ctx *RandIntFuncContext) {}
 
