@@ -67,6 +67,7 @@ expr
     | Sin '(' expr ')'                                               # sinFunc
     | Sinh '(' expr ')'                                              # sinhFunc
     | Sqrt '(' expr ')'                                              # sqrtFunc
+    | Substring '(' expr ',' expr ',' expr ')'                       # substringFunc
     | Switch '(' expr ',' expr (',' expr ',' expr)+ ')'              # switchFunc
     | Tan '(' expr ')'                                               # tanFunc
     | Tanh '(' expr ')'                                              # tanhFunc
@@ -128,6 +129,7 @@ Round              : R O U N D ;
 Sin                : S I N ;
 Sinh               : S I N H ;
 Sqrt               : S Q R T ;
+Substring          : S U B S T R I N G ;
 Switch             : S W I T C H ;
 Tan                : T A N ;
 Tanh               : T A N H ;

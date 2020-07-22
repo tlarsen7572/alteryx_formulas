@@ -209,6 +209,9 @@ type AlteryxFormulasListener interface {
 	// EnterAverageFunc is called when entering the averageFunc production.
 	EnterAverageFunc(c *AverageFuncContext)
 
+	// EnterSubstringFunc is called when entering the substringFunc production.
+	EnterSubstringFunc(c *SubstringFuncContext)
+
 	// EnterGreaterEqual is called when entering the greaterEqual production.
 	EnterGreaterEqual(c *GreaterEqualContext)
 
@@ -421,6 +424,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitAverageFunc is called when exiting the averageFunc production.
 	ExitAverageFunc(c *AverageFuncContext)
+
+	// ExitSubstringFunc is called when exiting the substringFunc production.
+	ExitSubstringFunc(c *SubstringFuncContext)
 
 	// ExitGreaterEqual is called when exiting the greaterEqual production.
 	ExitGreaterEqual(c *GreaterEqualContext)

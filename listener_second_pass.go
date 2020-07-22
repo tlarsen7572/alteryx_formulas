@@ -515,3 +515,7 @@ func (l *secondPassListener) EnterReplaceFunc(_ *parser.ReplaceFuncContext) {
 func (l *secondPassListener) EnterRightFunc(_ *parser.RightFuncContext) {
 	l.calc.pushFunction(l.calc.right)
 }
+
+func (l *secondPassListener) EnterSubstringFunc(_ *parser.SubstringFuncContext) {
+	l.calc.pushFunction(l.calc.substring)
+}

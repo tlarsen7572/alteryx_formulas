@@ -1226,6 +1226,48 @@ func TestRightOutOfBounds(t *testing.T) {
 	}
 }
 
+func TestSubstring(t *testing.T) {
+	result, errs := f.Calculate(`substring('abcdef', 2, 2)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no error but got: %v`, errs)
+	}
+	if result != `cd` {
+		t.Fatalf(`expected cd but got %v`, result)
+	}
+}
+
+func TestSubstringUnicode(t *testing.T) {
+	result, _ := f.Calculate(`substring('你好，世界', 2, 2)`, nil) // 'Hello World' in Chinese
+	if result != `，世` {
+		t.Fatalf(`expected ，世 but got %v`, result)
+	}
+}
+
+func TestSubstringOutOfBounds(t *testing.T) {
+	result, errs := f.Calculate(`substring('abcdef', -1, 1)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `` {
+		t.Fatalf(`expected empty string but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`substring('abcdef', 20, 1)`, nil)
+	if result != `` {
+		t.Fatalf(`expected empty string but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`substring('abcdef', -1, 20)`, nil)
+	if result != `abcdef` {
+		t.Fatalf(`expected abcdef but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`substring('abcdef', 2, -1)`, nil)
+	if result != `` {
+		t.Fatalf(`expected empty string but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

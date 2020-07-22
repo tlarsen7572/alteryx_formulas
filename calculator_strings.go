@@ -213,3 +213,35 @@ func (calc *calculator) right() {
 	newText := string(runes[startAt:])
 	calc.pushValue(newText)
 }
+
+func (calc *calculator) substring() {
+	text := calc.popValue().(string)
+	startAt := int(calc.popValue().(float64))
+	length := int(calc.popValue().(float64))
+
+	if length < 0 {
+		calc.pushValue(``)
+		return
+	}
+
+	runes := []rune(text)
+	runeLen := len(runes)
+
+	startIndex := startAt
+	endIndex := startAt + length
+
+	if endIndex < 0 || startIndex > runeLen {
+		calc.pushValue(``)
+		return
+	}
+
+	if startIndex < 0 {
+		startIndex = 0
+	}
+	if endIndex > runeLen {
+		endIndex = runeLen
+	}
+
+	newText := string(runes[startIndex:endIndex])
+	calc.pushValue(newText)
+}

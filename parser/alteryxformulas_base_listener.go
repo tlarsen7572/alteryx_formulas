@@ -423,6 +423,12 @@ func (s *BaseAlteryxFormulasListener) EnterAverageFunc(ctx *AverageFuncContext) 
 // ExitAverageFunc is called when production averageFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitAverageFunc(ctx *AverageFuncContext) {}
 
+// EnterSubstringFunc is called when production substringFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterSubstringFunc(ctx *SubstringFuncContext) {}
+
+// ExitSubstringFunc is called when production substringFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitSubstringFunc(ctx *SubstringFuncContext) {}
+
 // EnterGreaterEqual is called when production greaterEqual is entered.
 func (s *BaseAlteryxFormulasListener) EnterGreaterEqual(ctx *GreaterEqualContext) {}
 
