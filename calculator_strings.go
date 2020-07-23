@@ -255,3 +255,13 @@ func (calc *calculator) trim() {
 	}
 	calc.pushValue(strings.Trim(text, trimChars))
 }
+
+func (calc *calculator) trimRight() {
+	text := calc.popValue().(string)
+	trimChars := calc.popValue().(string)
+	if trimChars == `` {
+		calc.pushValue(strings.TrimRight(text, ` `))
+		return
+	}
+	calc.pushValue(strings.TrimRight(text, trimChars))
+}

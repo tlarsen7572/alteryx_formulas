@@ -51,6 +51,12 @@ func (s *BaseAlteryxFormulasListener) EnterCharToIntFunc(ctx *CharToIntFuncConte
 // ExitCharToIntFunc is called when production charToIntFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCharToIntFunc(ctx *CharToIntFuncContext) {}
 
+// EnterTrimRightFunc is called when production trimRightFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterTrimRightFunc(ctx *TrimRightFuncContext) {}
+
+// ExitTrimRightFunc is called when production trimRightFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitTrimRightFunc(ctx *TrimRightFuncContext) {}
+
 // EnterLeftFunc is called when production leftFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterLeftFunc(ctx *LeftFuncContext) {}
 

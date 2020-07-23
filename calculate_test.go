@@ -1288,6 +1288,26 @@ func TestTrimChars(t *testing.T) {
 	}
 }
 
+func TestTrimRightSpace(t *testing.T) {
+	result, errs := f.Calculate(`trimright('  abc  ')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `  abc` {
+		t.Fatalf(`expected '  abc' but got '%v'`, result)
+	}
+}
+
+func TestTrimRightChars(t *testing.T) {
+	result, errs := f.Calculate(`trimright('-*abc*-', '-*')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `-*abc` {
+		t.Fatalf(`expected -*abc but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

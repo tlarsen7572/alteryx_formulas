@@ -72,6 +72,7 @@ expr
     | Tan '(' expr ')'                                               # tanFunc
     | Tanh '(' expr ')'                                              # tanhFunc
     | Trim '(' expr (',' expr)? ')'                                  # trimFunc
+    | TrimRight '(' expr (',' expr)? ')'                             # trimRightFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
@@ -135,6 +136,7 @@ Switch             : S W I T C H ;
 Tan                : T A N ;
 Tanh               : T A N H ;
 Trim               : T R I M ;
+TrimRight          : T R I M R I G H T;
 Iif                : I I F ;
 
 // Case-insensitive keywords
