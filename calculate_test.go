@@ -1328,6 +1328,16 @@ func TestTrimRightChars(t *testing.T) {
 	}
 }
 
+func TestUppercase(t *testing.T) {
+	result, errs := f.Calculate(`uppercase('aBcDeFg')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `ABCDEFG` {
+		t.Fatalf(`expected ABCDEFG but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

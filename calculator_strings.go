@@ -275,3 +275,8 @@ func (calc *calculator) trimRight() {
 	}
 	calc.pushValue(strings.TrimRight(text, trimChars))
 }
+
+func (calc *calculator) uppercase() {
+	text := calc.popValue().(string)
+	calc.pushValue(strings.ToUpper(text))
+}

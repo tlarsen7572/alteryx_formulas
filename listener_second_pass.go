@@ -552,3 +552,7 @@ func (l *secondPassListener) ExitTrimRightFunc(c *parser.TrimRightFuncContext) {
 		l.calc.pushValueFunc(``)
 	}
 }
+
+func (l *secondPassListener) EnterUppercaseFunc(_ *parser.UppercaseFuncContext) {
+	l.calc.pushFunction(l.calc.uppercase)
+}

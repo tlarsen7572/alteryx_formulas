@@ -74,6 +74,7 @@ expr
     | Trim '(' expr (',' expr)? ')'                                  # trimFunc
     | TrimLeft '(' expr (',' expr)? ')'                              # trimLeftFunc
     | TrimRight '(' expr (',' expr)? ')'                             # trimRightFunc
+    | Uppercase '(' expr ')'                                         # uppercaseFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
@@ -139,6 +140,7 @@ Tanh               : T A N H ;
 Trim               : T R I M ;
 TrimLeft           : T R I M L E F T;
 TrimRight          : T R I M R I G H T;
+Uppercase          : U P P E R C A S E ;
 Iif                : I I F ;
 
 // Case-insensitive keywords

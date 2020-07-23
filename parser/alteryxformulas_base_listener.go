@@ -393,6 +393,12 @@ func (s *BaseAlteryxFormulasListener) EnterCountWordsFunc(ctx *CountWordsFuncCon
 // ExitCountWordsFunc is called when production countWordsFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCountWordsFunc(ctx *CountWordsFuncContext) {}
 
+// EnterUppercaseFunc is called when production uppercaseFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterUppercaseFunc(ctx *UppercaseFuncContext) {}
+
+// ExitUppercaseFunc is called when production uppercaseFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitUppercaseFunc(ctx *UppercaseFuncContext) {}
+
 // EnterPowFunc is called when production powFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterPowFunc(ctx *PowFuncContext) {}
 

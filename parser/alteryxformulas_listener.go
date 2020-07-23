@@ -194,6 +194,9 @@ type AlteryxFormulasListener interface {
 	// EnterCountWordsFunc is called when entering the countWordsFunc production.
 	EnterCountWordsFunc(c *CountWordsFuncContext)
 
+	// EnterUppercaseFunc is called when entering the uppercaseFunc production.
+	EnterUppercaseFunc(c *UppercaseFuncContext)
+
 	// EnterPowFunc is called when entering the powFunc production.
 	EnterPowFunc(c *PowFuncContext)
 
@@ -418,6 +421,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitCountWordsFunc is called when exiting the countWordsFunc production.
 	ExitCountWordsFunc(c *CountWordsFuncContext)
+
+	// ExitUppercaseFunc is called when exiting the uppercaseFunc production.
+	ExitUppercaseFunc(c *UppercaseFuncContext)
 
 	// ExitPowFunc is called when exiting the powFunc production.
 	ExitPowFunc(c *PowFuncContext)
