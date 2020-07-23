@@ -519,3 +519,14 @@ func (l *secondPassListener) EnterRightFunc(_ *parser.RightFuncContext) {
 func (l *secondPassListener) EnterSubstringFunc(_ *parser.SubstringFuncContext) {
 	l.calc.pushFunction(l.calc.substring)
 }
+
+func (l *secondPassListener) EnterTrimFunc(_ *parser.TrimFuncContext) {
+	l.calc.pushFunction(l.calc.trim)
+}
+
+func (l *secondPassListener) ExitTrimFunc(c *parser.TrimFuncContext) {
+	exprs := len(c.AllExpr())
+	if exprs == 1 {
+		l.calc.pushValueFunc(``)
+	}
+}

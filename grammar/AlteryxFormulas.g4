@@ -71,6 +71,7 @@ expr
     | Switch '(' expr ',' expr (',' expr ',' expr)+ ')'              # switchFunc
     | Tan '(' expr ')'                                               # tanFunc
     | Tanh '(' expr ')'                                              # tanhFunc
+    | Trim '(' expr (',' expr)? ')'                                  # trimFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
     | Decimal                                                        # numberLiteral
@@ -133,6 +134,7 @@ Substring          : S U B S T R I N G ;
 Switch             : S W I T C H ;
 Tan                : T A N ;
 Tanh               : T A N H ;
+Trim               : T R I M ;
 Iif                : I I F ;
 
 // Case-insensitive keywords

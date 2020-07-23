@@ -321,6 +321,12 @@ func (s *BaseAlteryxFormulasListener) EnterLowercaseFunc(ctx *LowercaseFuncConte
 // ExitLowercaseFunc is called when production lowercaseFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitLowercaseFunc(ctx *LowercaseFuncContext) {}
 
+// EnterTrimFunc is called when production trimFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterTrimFunc(ctx *TrimFuncContext) {}
+
+// ExitTrimFunc is called when production trimFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitTrimFunc(ctx *TrimFuncContext) {}
+
 // EnterMultiply is called when production multiply is entered.
 func (s *BaseAlteryxFormulasListener) EnterMultiply(ctx *MultiplyContext) {}
 

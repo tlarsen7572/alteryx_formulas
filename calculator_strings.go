@@ -245,3 +245,13 @@ func (calc *calculator) substring() {
 	newText := string(runes[startIndex:endIndex])
 	calc.pushValue(newText)
 }
+
+func (calc *calculator) trim() {
+	text := calc.popValue().(string)
+	trimChars := calc.popValue().(string)
+	if trimChars == `` {
+		calc.pushValue(strings.TrimSpace(text))
+		return
+	}
+	calc.pushValue(strings.Trim(text, trimChars))
+}

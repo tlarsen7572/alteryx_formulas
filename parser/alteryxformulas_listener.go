@@ -158,6 +158,9 @@ type AlteryxFormulasListener interface {
 	// EnterLowercaseFunc is called when entering the lowercaseFunc production.
 	EnterLowercaseFunc(c *LowercaseFuncContext)
 
+	// EnterTrimFunc is called when entering the trimFunc production.
+	EnterTrimFunc(c *TrimFuncContext)
+
 	// EnterMultiply is called when entering the multiply production.
 	EnterMultiply(c *MultiplyContext)
 
@@ -373,6 +376,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitLowercaseFunc is called when exiting the lowercaseFunc production.
 	ExitLowercaseFunc(c *LowercaseFuncContext)
+
+	// ExitTrimFunc is called when exiting the trimFunc production.
+	ExitTrimFunc(c *TrimFuncContext)
 
 	// ExitMultiply is called when exiting the multiply production.
 	ExitMultiply(c *MultiplyContext)
