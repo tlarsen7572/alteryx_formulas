@@ -1288,6 +1288,26 @@ func TestTrimChars(t *testing.T) {
 	}
 }
 
+func TestTrimLeftSpace(t *testing.T) {
+	result, errs := f.Calculate(`trimleft('  abc  ')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `abc  ` {
+		t.Fatalf(`expected 'abc  ' but got '%v'`, result)
+	}
+}
+
+func TestTrimLeftChars(t *testing.T) {
+	result, errs := f.Calculate(`trimleft('-*abc*-', '-*')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `abc*-` {
+		t.Fatalf(`expected abc*- but got %v`, result)
+	}
+}
+
 func TestTrimRightSpace(t *testing.T) {
 	result, errs := f.Calculate(`trimright('  abc  ')`, nil)
 	if len(errs) > 0 {

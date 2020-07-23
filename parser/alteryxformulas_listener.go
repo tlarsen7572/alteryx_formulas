@@ -212,6 +212,9 @@ type AlteryxFormulasListener interface {
 	// EnterSinFunc is called when entering the sinFunc production.
 	EnterSinFunc(c *SinFuncContext)
 
+	// EnterTrimLeftFunc is called when entering the trimLeftFunc production.
+	EnterTrimLeftFunc(c *TrimLeftFuncContext)
+
 	// EnterAverageFunc is called when entering the averageFunc production.
 	EnterAverageFunc(c *AverageFuncContext)
 
@@ -433,6 +436,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitSinFunc is called when exiting the sinFunc production.
 	ExitSinFunc(c *SinFuncContext)
+
+	// ExitTrimLeftFunc is called when exiting the trimLeftFunc production.
+	ExitTrimLeftFunc(c *TrimLeftFuncContext)
 
 	// ExitAverageFunc is called when exiting the averageFunc production.
 	ExitAverageFunc(c *AverageFuncContext)

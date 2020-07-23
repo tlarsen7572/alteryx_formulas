@@ -429,6 +429,12 @@ func (s *BaseAlteryxFormulasListener) EnterSinFunc(ctx *SinFuncContext) {}
 // ExitSinFunc is called when production sinFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitSinFunc(ctx *SinFuncContext) {}
 
+// EnterTrimLeftFunc is called when production trimLeftFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterTrimLeftFunc(ctx *TrimLeftFuncContext) {}
+
+// ExitTrimLeftFunc is called when production trimLeftFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitTrimLeftFunc(ctx *TrimLeftFuncContext) {}
+
 // EnterAverageFunc is called when production averageFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterAverageFunc(ctx *AverageFuncContext) {}
 

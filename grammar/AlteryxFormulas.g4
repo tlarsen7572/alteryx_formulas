@@ -72,6 +72,7 @@ expr
     | Tan '(' expr ')'                                               # tanFunc
     | Tanh '(' expr ')'                                              # tanhFunc
     | Trim '(' expr (',' expr)? ')'                                  # trimFunc
+    | TrimLeft '(' expr (',' expr)? ')'                              # trimLeftFunc
     | TrimRight '(' expr (',' expr)? ')'                             # trimRightFunc
     | Integer                                                        # numberLiteral
     | '-'Integer                                                     # numberLiteral
@@ -136,6 +137,7 @@ Switch             : S W I T C H ;
 Tan                : T A N ;
 Tanh               : T A N H ;
 Trim               : T R I M ;
+TrimLeft           : T R I M L E F T;
 TrimRight          : T R I M R I G H T;
 Iif                : I I F ;
 

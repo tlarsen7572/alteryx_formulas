@@ -385,6 +385,10 @@ func (l *firstPassListener) ExitTrimRightFunc(c *parser.TrimRightFuncContext) {
 	l.setSymbol(c, String)
 }
 
+func (l *firstPassListener) ExitTrimLeftFunc(c *parser.TrimLeftFuncContext) {
+	l.setSymbol(c, String)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

@@ -256,6 +256,16 @@ func (calc *calculator) trim() {
 	calc.pushValue(strings.Trim(text, trimChars))
 }
 
+func (calc *calculator) trimLeft() {
+	text := calc.popValue().(string)
+	trimChars := calc.popValue().(string)
+	if trimChars == `` {
+		calc.pushValue(strings.TrimLeft(text, ` `))
+		return
+	}
+	calc.pushValue(strings.TrimLeft(text, trimChars))
+}
+
 func (calc *calculator) trimRight() {
 	text := calc.popValue().(string)
 	trimChars := calc.popValue().(string)
