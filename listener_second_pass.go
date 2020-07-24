@@ -103,10 +103,12 @@ func (l *secondPassListener) EnterSubtract(c *parser.SubtractContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 
 	if leftType != Number && leftType != Null {
-		panic(`invalid left type`)
+		notifyTypeError(c, `left argument of subtract operation is not a number`)
+		return
 	}
 	if rightType != Number && rightType != Null {
-		panic(`invalid right type`)
+		notifyTypeError(c, `right argument of subtract operation is not a number`)
+		return
 	}
 
 	l.calc.pushFunction(l.calc.subtractNumbers)
@@ -142,11 +144,19 @@ func (l *secondPassListener) EnterDivide(c *parser.DivideContext) {
 	l.calc.pushFunction(l.calc.divideNumbers)
 }
 
-func (l *secondPassListener) EnterEqual(_ *parser.EqualContext) {
+func (l *secondPassListener) EnterEqual(c *parser.EqualContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+	if leftType != rightType && leftType != Null && rightType != Null {
+		notifyTypeError(c, `left and right arguments of equal operation are not the same`)
+	}
 	l.calc.pushFunction(l.calc.equal)
 }
 
-func (l *secondPassListener) EnterNotEqual(_ *parser.NotEqualContext) {
+func (l *secondPassListener) EnterNotEqual(c *parser.NotEqualContext) {
+	leftType, rightType := l.getLeftRightTypes(c)
+	if leftType != rightType && leftType != Null && rightType != Null {
+		notifyTypeError(c, `left and right arguments of equal operation are not the same`)
+	}
 	l.calc.pushFunction(l.calc.notEqual)
 }
 
