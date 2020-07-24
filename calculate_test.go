@@ -1388,6 +1388,16 @@ func TestIsEmptyWithNumber(t *testing.T) {
 	}
 }
 
+func TestParens(t *testing.T) {
+	result, errs := f.Calculate(`(1+(0))`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 1.0 {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

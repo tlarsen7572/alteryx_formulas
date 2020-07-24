@@ -24,6 +24,15 @@ type HasLeftRightTypes interface {
 	GetRight() parser.IExprContext
 }
 
+type ErrorNotifier interface {
+	GetParser() antlr.Parser
+	antlr.ParserRuleContext
+}
+
+func notifyTypeError(notifier ErrorNotifier, msg string) {
+	notifier.GetParser().NotifyErrorListeners(msg, notifier.GetStart(), InvalidType(``, notifier))
+}
+
 func (l *secondPassListener) getLeftRightTypes(c HasLeftRightTypes) (int, int) {
 	leftType, ok := l.getSymbol(c.GetLeft())
 	if !ok {
@@ -87,7 +96,7 @@ func (l *secondPassListener) EnterAdd(c *parser.AddContext) {
 		l.calc.pushFunction(l.calc.addNumbers)
 		return
 	}
-	c.GetParser().NotifyErrorListeners(`left and right arguments are not the same type`, c.GetStart(), InvalidType(``, c))
+	notifyTypeError(c, `left and right arguments of add operation are not the same type`)
 }
 
 func (l *secondPassListener) EnterSubtract(c *parser.SubtractContext) {
@@ -107,10 +116,12 @@ func (l *secondPassListener) EnterMultiply(c *parser.MultiplyContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 
 	if leftType != Number && leftType != Null {
-		panic(`invalid left type`)
+		notifyTypeError(c, `left argument of multiply operation is not a number`)
+		return
 	}
 	if rightType != Number && rightType != Null {
-		panic(`invalid right type`)
+		notifyTypeError(c, `right argument of multiply operation is not a number`)
+		return
 	}
 
 	l.calc.pushFunction(l.calc.multiplyNumbers)

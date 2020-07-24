@@ -401,6 +401,14 @@ func (l *firstPassListener) ExitIsEmptyFunc(c *parser.IsEmptyFuncContext) {
 	l.setSymbol(c, Bool)
 }
 
+func (l *firstPassListener) ExitParenthesis(c *parser.ParenthesisContext) {
+	childSymbol, ok := l.getSymbol(c.Expr())
+	if !ok {
+		panic(`parenthesis expr did not have a symbol`)
+	}
+	l.setSymbol(c, childSymbol)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),
