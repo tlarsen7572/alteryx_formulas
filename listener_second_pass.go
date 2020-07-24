@@ -131,10 +131,12 @@ func (l *secondPassListener) EnterDivide(c *parser.DivideContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 
 	if leftType != Number && leftType != Null {
-		panic(`invalid left type`)
+		notifyTypeError(c, `left argument of divide operation is not a number`)
+		return
 	}
 	if rightType != Number && rightType != Null {
-		panic(`invalid right type`)
+		notifyTypeError(c, `right argument of divide operation is not a number`)
+		return
 	}
 
 	l.calc.pushFunction(l.calc.divideNumbers)
