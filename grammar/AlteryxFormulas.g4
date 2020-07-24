@@ -21,7 +21,6 @@ expr
       (Elseif ifStmnt=expr Then thenStmnt=expr)*
       Else    elseStmnt=expr
       Endif                                                          # exprIf
-    | Iif '(' expr ',' expr ',' expr ')'                             # iifFunc
     | Abs '(' expr ')'                                               # absFunc
     | Acos '(' expr ')'                                              # acosFunc
     | Asin '(' expr ')'                                              # asinFunc
@@ -42,6 +41,8 @@ expr
     | Floor '(' expr ')'                                             # floorFunc
     | GetWord '(' expr ',' expr ')'                                  # getWordFunc
     | HexToNumber '(' expr ')'                                       # hexToNumberFunc
+    | Iif '(' expr ',' expr ',' expr ')'                             # iifFunc
+    | IsNull '(' expr ')'                                            # isNullFunc
     | Left '(' expr ',' expr ')'                                     # leftFunc
     | Length '(' expr ')'                                            # lengthFunc
     | Log '(' expr ')'                                               # logFunc
@@ -108,6 +109,8 @@ Exp                : E X P ;
 Floor              : F L O O R ;
 GetWord            : G E T W O R D ;
 HexToNumber        : H E X T O N U M B E R ;
+Iif                : I I F ;
+IsNull             : I S N U L L ;
 Left               : L E F T ;
 Length             : L E N G T H ;
 Log                : L O G ;
@@ -141,7 +144,6 @@ Trim               : T R I M ;
 TrimLeft           : T R I M L E F T;
 TrimRight          : T R I M R I G H T;
 Uppercase          : U P P E R C A S E ;
-Iif                : I I F ;
 
 // Case-insensitive keywords
 In     : I N ;

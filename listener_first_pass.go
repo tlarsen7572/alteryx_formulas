@@ -393,6 +393,10 @@ func (l *firstPassListener) ExitUppercaseFunc(c *parser.UppercaseFuncContext) {
 	l.setSymbol(c, String)
 }
 
+func (l *firstPassListener) ExitIsNullFunc(c *parser.IsNullFuncContext) {
+	l.setSymbol(c, Bool)
+}
+
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
 	return FormulasException{
 		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),

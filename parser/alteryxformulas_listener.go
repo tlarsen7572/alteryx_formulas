@@ -56,6 +56,9 @@ type AlteryxFormulasListener interface {
 	// EnterCoshFunc is called when entering the coshFunc production.
 	EnterCoshFunc(c *CoshFuncContext)
 
+	// EnterIsNullFunc is called when entering the isNullFunc production.
+	EnterIsNullFunc(c *IsNullFuncContext)
+
 	// EnterIn is called when entering the in production.
 	EnterIn(c *InContext)
 
@@ -283,6 +286,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitCoshFunc is called when exiting the coshFunc production.
 	ExitCoshFunc(c *CoshFuncContext)
+
+	// ExitIsNullFunc is called when exiting the isNullFunc production.
+	ExitIsNullFunc(c *IsNullFuncContext)
 
 	// ExitIn is called when exiting the in production.
 	ExitIn(c *InContext)

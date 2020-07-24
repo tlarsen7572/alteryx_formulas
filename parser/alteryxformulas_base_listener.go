@@ -117,6 +117,12 @@ func (s *BaseAlteryxFormulasListener) EnterCoshFunc(ctx *CoshFuncContext) {}
 // ExitCoshFunc is called when production coshFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitCoshFunc(ctx *CoshFuncContext) {}
 
+// EnterIsNullFunc is called when production isNullFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterIsNullFunc(ctx *IsNullFuncContext) {}
+
+// ExitIsNullFunc is called when production isNullFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitIsNullFunc(ctx *IsNullFuncContext) {}
+
 // EnterIn is called when production in is entered.
 func (s *BaseAlteryxFormulasListener) EnterIn(ctx *InContext) {}
 

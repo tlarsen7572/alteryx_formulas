@@ -1338,6 +1338,26 @@ func TestUppercase(t *testing.T) {
 	}
 }
 
+func TestIsNullTrue(t *testing.T) {
+	result, errs := f.Calculate(`isnull(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
+func TestIsNullFalse(t *testing.T) {
+	result, errs := f.Calculate(`isnull(12345)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

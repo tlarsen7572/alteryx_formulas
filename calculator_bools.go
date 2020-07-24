@@ -51,3 +51,8 @@ func (calc *calculator) numberLessEqual() {
 	}
 	calc.pushValue(value1.(float64) <= value2.(float64))
 }
+
+func (calc *calculator) isNull() {
+	value := calc.popValue()
+	calc.pushValue(value == nil)
+}
