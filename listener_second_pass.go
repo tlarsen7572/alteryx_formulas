@@ -33,6 +33,11 @@ func notifyTypeError(notifier ErrorNotifier, msg string) {
 	notifier.GetParser().NotifyErrorListeners(msg, notifier.GetStart(), InvalidType(``, notifier))
 }
 
+func (l *secondPassListener) leftRightIsNullOr(formulaType int, c HasLeftRightTypes) bool {
+	leftType, rightType := l.getLeftRightTypes(c)
+	return (leftType == formulaType || leftType == Null) && (rightType == formulaType || rightType == Null)
+}
+
 func (l *secondPassListener) getLeftRightTypes(c HasLeftRightTypes) (int, int) {
 	leftType, ok := l.getSymbol(c.GetLeft())
 	if !ok {
@@ -161,40 +166,48 @@ func (l *secondPassListener) EnterNotEqual(c *parser.NotEqualContext) {
 }
 
 func (l *secondPassListener) EnterGreaterThan(c *parser.GreaterThanContext) {
-	leftType, rightType := l.getLeftRightTypes(c)
-
-	if (leftType == Number || leftType == Null) && (rightType == Number || rightType == Null) {
+	if l.leftRightIsNullOr(Number, c) {
 		l.calc.pushFunction(l.calc.numberGreaterThan)
+		return
+	}
+	if l.leftRightIsNullOr(String, c) {
+		l.calc.pushFunction(l.calc.stringGreaterThan)
 		return
 	}
 	panic(`invalid left or right type`)
 }
 
 func (l *secondPassListener) EnterGreaterEqual(c *parser.GreaterEqualContext) {
-	leftType, rightType := l.getLeftRightTypes(c)
-
-	if (leftType == Number || leftType == Null) && (rightType == Number || rightType == Null) {
+	if l.leftRightIsNullOr(Number, c) {
 		l.calc.pushFunction(l.calc.numberGreaterEqual)
+		return
+	}
+	if l.leftRightIsNullOr(String, c) {
+		l.calc.pushFunction(l.calc.stringGreaterEqual)
 		return
 	}
 	panic(`invalid left or right type`)
 }
 
 func (l *secondPassListener) EnterLessThan(c *parser.LessThanContext) {
-	leftType, rightType := l.getLeftRightTypes(c)
-
-	if (leftType == Number || leftType == Null) && (rightType == Number || rightType == Null) {
+	if l.leftRightIsNullOr(Number, c) {
 		l.calc.pushFunction(l.calc.numberLessThan)
+		return
+	}
+	if l.leftRightIsNullOr(String, c) {
+		l.calc.pushFunction(l.calc.stringLessThan)
 		return
 	}
 	panic(`invalid left or right type`)
 }
 
 func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
-	leftType, rightType := l.getLeftRightTypes(c)
-
-	if (leftType == Number || leftType == Null) && (rightType == Number || rightType == Null) {
+	if l.leftRightIsNullOr(Number, c) {
 		l.calc.pushFunction(l.calc.numberLessEqual)
+		return
+	}
+	if l.leftRightIsNullOr(String, c) {
+		l.calc.pushFunction(l.calc.stringLessEqual)
 		return
 	}
 	panic(`invalid left or right type`)

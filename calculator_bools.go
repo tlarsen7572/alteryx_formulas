@@ -22,6 +22,16 @@ func (calc *calculator) numberGreaterThan() {
 	calc.pushValue(value1.(float64) > value2.(float64))
 }
 
+func (calc *calculator) stringGreaterThan() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	calc.pushValue(value1.(string) > value2.(string))
+}
+
 func (calc *calculator) numberGreaterEqual() {
 	value1 := calc.popValue()
 	value2 := calc.popValue()
@@ -30,6 +40,16 @@ func (calc *calculator) numberGreaterEqual() {
 		return
 	}
 	calc.pushValue(value1.(float64) >= value2.(float64))
+}
+
+func (calc *calculator) stringGreaterEqual() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	calc.pushValue(value1.(string) >= value2.(string))
 }
 
 func (calc *calculator) numberLessThan() {
@@ -42,6 +62,16 @@ func (calc *calculator) numberLessThan() {
 	calc.pushValue(value1.(float64) < value2.(float64))
 }
 
+func (calc *calculator) stringLessThan() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	calc.pushValue(value1.(string) < value2.(string))
+}
+
 func (calc *calculator) numberLessEqual() {
 	value1 := calc.popValue()
 	value2 := calc.popValue()
@@ -50,6 +80,16 @@ func (calc *calculator) numberLessEqual() {
 		return
 	}
 	calc.pushValue(value1.(float64) <= value2.(float64))
+}
+
+func (calc *calculator) stringLessEqual() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	calc.pushValue(value1.(string) <= value2.(string))
 }
 
 func (calc *calculator) isNull() {

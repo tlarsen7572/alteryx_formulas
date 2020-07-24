@@ -136,6 +136,40 @@ func TestNumberGreaterThan(t *testing.T) {
 	}
 }
 
+func TestStringGreaterThan(t *testing.T) {
+	result, err := f.Calculate(`'1' > '2'`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, err = f.Calculate(`'2' > '1'`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, err = f.Calculate(`'2' > NULL()`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, err = f.Calculate(`NULL() > '2'`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
 func TestNumberGreaterEqual(t *testing.T) {
 	result, err := f.Calculate(`1 >= 2.0`, nil)
 	if len(err) > 0 {
@@ -156,6 +190,26 @@ func TestNumberGreaterEqual(t *testing.T) {
 	}
 }
 
+func TestStringGreaterEqual(t *testing.T) {
+	result, err := f.Calculate(`'1' >= '2'`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`'2' >= '2'`, nil)
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`'3' >= '2'`, nil)
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
 func TestNumberLessThan(t *testing.T) {
 	result, err := f.Calculate(`1 < 2`, nil)
 	if len(err) > 0 {
@@ -166,6 +220,21 @@ func TestNumberLessThan(t *testing.T) {
 	}
 
 	result, _ = f.Calculate(`2 < 2`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestStringLessThan(t *testing.T) {
+	result, err := f.Calculate(`'1' < '2'`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`'2' < '2'`, nil)
 	if result != false {
 		t.Fatalf(`expected false but got %v`, result)
 	}
@@ -186,6 +255,26 @@ func TestNumberLessEqual(t *testing.T) {
 	}
 
 	result, _ = f.Calculate(`3 <= 2`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestStringLessEqual(t *testing.T) {
+	result, err := f.Calculate(`'1' <= '2'`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`'2' <= '2'`, nil)
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`'3' <= '2'`, nil)
 	if result != false {
 		t.Fatalf(`expected false but got %v`, result)
 	}

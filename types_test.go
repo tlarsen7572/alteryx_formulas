@@ -19,6 +19,16 @@ func TestMultiplyWrongTypes(t *testing.T) {
 	t.Logf(`errs: %v`, errs)
 }
 
+func TestMultiplyNestedArgumentTypesBubbleUp(t *testing.T) {
+	result, errs := f.Calculate(`(1) * Length('ABC')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 3.0 {
+		t.Fatalf(`expected 3 but got %v`, result)
+	}
+}
+
 func TestDivideWrongTypes(t *testing.T) {
 	_, errs := f.Calculate(`1 / '2'`, nil)
 	if len(errs) == 0 {
