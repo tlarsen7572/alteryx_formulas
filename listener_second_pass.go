@@ -560,3 +560,7 @@ func (l *secondPassListener) EnterUppercaseFunc(_ *parser.UppercaseFuncContext) 
 func (l *secondPassListener) EnterIsNullFunc(_ *parser.IsNullFuncContext) {
 	l.calc.pushFunction(l.calc.isNull)
 }
+
+func (l *secondPassListener) EnterIsEmptyFunc(_ *parser.IsEmptyFuncContext) {
+	l.calc.pushFunction(l.calc.isEmpty)
+}

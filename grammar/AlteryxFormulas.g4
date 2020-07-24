@@ -42,6 +42,7 @@ expr
     | GetWord '(' expr ',' expr ')'                                  # getWordFunc
     | HexToNumber '(' expr ')'                                       # hexToNumberFunc
     | Iif '(' expr ',' expr ',' expr ')'                             # iifFunc
+    | IsEmptyF '(' expr ')'                                          # isEmptyFunc
     | IsNull '(' expr ')'                                            # isNullFunc
     | Left '(' expr ',' expr ')'                                     # leftFunc
     | Length '(' expr ')'                                            # lengthFunc
@@ -110,6 +111,7 @@ Floor              : F L O O R ;
 GetWord            : G E T W O R D ;
 HexToNumber        : H E X T O N U M B E R ;
 Iif                : I I F ;
+IsEmptyF           : I S E M P T Y ;
 IsNull             : I S N U L L ;
 Left               : L E F T ;
 Length             : L E N G T H ;

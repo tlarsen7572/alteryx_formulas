@@ -83,6 +83,9 @@ type AlteryxFormulasListener interface {
 	// EnterDatetimeLiteral is called when entering the datetimeLiteral production.
 	EnterDatetimeLiteral(c *DatetimeLiteralContext)
 
+	// EnterIsEmptyFunc is called when entering the isEmptyFunc production.
+	EnterIsEmptyFunc(c *IsEmptyFuncContext)
+
 	// EnterStringLiteral is called when entering the stringLiteral production.
 	EnterStringLiteral(c *StringLiteralContext)
 
@@ -313,6 +316,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitDatetimeLiteral is called when exiting the datetimeLiteral production.
 	ExitDatetimeLiteral(c *DatetimeLiteralContext)
+
+	// ExitIsEmptyFunc is called when exiting the isEmptyFunc production.
+	ExitIsEmptyFunc(c *IsEmptyFuncContext)
 
 	// ExitStringLiteral is called when exiting the stringLiteral production.
 	ExitStringLiteral(c *StringLiteralContext)

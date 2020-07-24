@@ -171,6 +171,12 @@ func (s *BaseAlteryxFormulasListener) EnterDatetimeLiteral(ctx *DatetimeLiteralC
 // ExitDatetimeLiteral is called when production datetimeLiteral is exited.
 func (s *BaseAlteryxFormulasListener) ExitDatetimeLiteral(ctx *DatetimeLiteralContext) {}
 
+// EnterIsEmptyFunc is called when production isEmptyFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterIsEmptyFunc(ctx *IsEmptyFuncContext) {}
+
+// ExitIsEmptyFunc is called when production isEmptyFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitIsEmptyFunc(ctx *IsEmptyFuncContext) {}
+
 // EnterStringLiteral is called when production stringLiteral is entered.
 func (s *BaseAlteryxFormulasListener) EnterStringLiteral(ctx *StringLiteralContext) {}
 

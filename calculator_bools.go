@@ -56,3 +56,8 @@ func (calc *calculator) isNull() {
 	value := calc.popValue()
 	calc.pushValue(value == nil)
 }
+
+func (calc *calculator) isEmpty() {
+	value := calc.popValue()
+	calc.pushValue(value == nil || value == ``)
+}

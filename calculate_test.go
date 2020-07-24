@@ -1358,6 +1358,36 @@ func TestIsNullFalse(t *testing.T) {
 	}
 }
 
+func TestIsEmptyWithNull(t *testing.T) {
+	result, errs := f.Calculate(`isEmpty(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
+func TestIsEmptyWithEmptyString(t *testing.T) {
+	result, errs := f.Calculate(`isEmpty('')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
+func TestIsEmptyWithNumber(t *testing.T) {
+	result, errs := f.Calculate(`isEmpty(12345)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool
