@@ -600,3 +600,11 @@ func (l *secondPassListener) EnterIsNullFunc(_ *parser.IsNullFuncContext) {
 func (l *secondPassListener) EnterIsEmptyFunc(_ *parser.IsEmptyFuncContext) {
 	l.calc.pushFunction(l.calc.isEmpty)
 }
+
+func (l *secondPassListener) EnterToDateFunc(_ *parser.ToDateFuncContext) {
+	l.calc.pushFunction(l.calc.toDate)
+}
+
+func (l *secondPassListener) EnterToDatetimeFunc(_ *parser.ToDatetimeFuncContext) {
+	l.calc.pushFunction(l.calc.toDatetime)
+}

@@ -1487,6 +1487,57 @@ func TestParens(t *testing.T) {
 	}
 }
 
+func TestStringToDate(t *testing.T) {
+	result, errs := f.Calculate(`todate('2020-02-03')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != time.Date(2020, 2, 3, 0, 0, 0, 0, time.UTC) {
+		t.Fatalf(`expected 2020-02-03 but got %v`, result)
+	}
+}
+
+func TestInvalidStringToDate(t *testing.T) {
+	result, errs := f.Calculate(`todate('abcde')`, nil)
+	if len(errs) != 1 {
+		t.Fatalf(`expected an error but got none`)
+	}
+	t.Logf(`%v`, errs[0])
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}
+
+func TestNumberToDate(t *testing.T) {
+	result, errs := f.Calculate(`todate(5)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != time.Date(1900, 1, 4, 0, 0, 0, 0, time.UTC) {
+		t.Fatalf(`expected 1900-01-04 but got %v`, result)
+	}
+}
+
+func TestStringToDateTime(t *testing.T) {
+	result, errs := f.Calculate(`todatetime('2020-02-03 04:05:06')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != time.Date(2020, 2, 3, 4, 5, 6, 0, time.UTC) {
+		t.Fatalf(`expected 2020-02-03 04:05:06 but got %v`, result)
+	}
+}
+
+func TestDateTimeToDate(t *testing.T) {
+	result, errs := f.Calculate(`todate(toDateTime('2020-01-02 03:04:05'))`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != time.Date(2020, 1, 2, 0, 0, 0, 0, time.UTC) {
+		t.Fatalf(`expected 2020-01-02 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

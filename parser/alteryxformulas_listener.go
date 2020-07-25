@@ -32,6 +32,9 @@ type AlteryxFormulasListener interface {
 	// EnterTanFunc is called when entering the tanFunc production.
 	EnterTanFunc(c *TanFuncContext)
 
+	// EnterToDateFunc is called when entering the toDateFunc production.
+	EnterToDateFunc(c *ToDateFuncContext)
+
 	// EnterRegexReplaceFunc is called when entering the regexReplaceFunc production.
 	EnterRegexReplaceFunc(c *RegexReplaceFuncContext)
 
@@ -80,9 +83,6 @@ type AlteryxFormulasListener interface {
 	// EnterNullFunc is called when entering the nullFunc production.
 	EnterNullFunc(c *NullFuncContext)
 
-	// EnterDatetimeLiteral is called when entering the datetimeLiteral production.
-	EnterDatetimeLiteral(c *DatetimeLiteralContext)
-
 	// EnterIsEmptyFunc is called when entering the isEmptyFunc production.
 	EnterIsEmptyFunc(c *IsEmptyFuncContext)
 
@@ -91,9 +91,6 @@ type AlteryxFormulasListener interface {
 
 	// EnterRegexMatchFunc is called when entering the regexMatchFunc production.
 	EnterRegexMatchFunc(c *RegexMatchFuncContext)
-
-	// EnterDateLiteral is called when entering the dateLiteral production.
-	EnterDateLiteral(c *DateLiteralContext)
 
 	// EnterAbsFunc is called when entering the absFunc production.
 	EnterAbsFunc(c *AbsFuncContext)
@@ -206,6 +203,9 @@ type AlteryxFormulasListener interface {
 	// EnterPowFunc is called when entering the powFunc production.
 	EnterPowFunc(c *PowFuncContext)
 
+	// EnterToDatetimeFunc is called when entering the toDatetimeFunc production.
+	EnterToDatetimeFunc(c *ToDatetimeFuncContext)
+
 	// EnterIifFunc is called when entering the iifFunc production.
 	EnterIifFunc(c *IifFuncContext)
 
@@ -266,6 +266,9 @@ type AlteryxFormulasListener interface {
 	// ExitTanFunc is called when exiting the tanFunc production.
 	ExitTanFunc(c *TanFuncContext)
 
+	// ExitToDateFunc is called when exiting the toDateFunc production.
+	ExitToDateFunc(c *ToDateFuncContext)
+
 	// ExitRegexReplaceFunc is called when exiting the regexReplaceFunc production.
 	ExitRegexReplaceFunc(c *RegexReplaceFuncContext)
 
@@ -314,9 +317,6 @@ type AlteryxFormulasListener interface {
 	// ExitNullFunc is called when exiting the nullFunc production.
 	ExitNullFunc(c *NullFuncContext)
 
-	// ExitDatetimeLiteral is called when exiting the datetimeLiteral production.
-	ExitDatetimeLiteral(c *DatetimeLiteralContext)
-
 	// ExitIsEmptyFunc is called when exiting the isEmptyFunc production.
 	ExitIsEmptyFunc(c *IsEmptyFuncContext)
 
@@ -325,9 +325,6 @@ type AlteryxFormulasListener interface {
 
 	// ExitRegexMatchFunc is called when exiting the regexMatchFunc production.
 	ExitRegexMatchFunc(c *RegexMatchFuncContext)
-
-	// ExitDateLiteral is called when exiting the dateLiteral production.
-	ExitDateLiteral(c *DateLiteralContext)
 
 	// ExitAbsFunc is called when exiting the absFunc production.
 	ExitAbsFunc(c *AbsFuncContext)
@@ -439,6 +436,9 @@ type AlteryxFormulasListener interface {
 
 	// ExitPowFunc is called when exiting the powFunc production.
 	ExitPowFunc(c *PowFuncContext)
+
+	// ExitToDatetimeFunc is called when exiting the toDatetimeFunc production.
+	ExitToDatetimeFunc(c *ToDatetimeFuncContext)
 
 	// ExitIifFunc is called when exiting the iifFunc production.
 	ExitIifFunc(c *IifFuncContext)

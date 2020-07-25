@@ -73,6 +73,8 @@ expr
     | Switch '(' expr ',' expr (',' expr ',' expr)+ ')'              # switchFunc
     | Tan '(' expr ')'                                               # tanFunc
     | Tanh '(' expr ')'                                              # tanhFunc
+    | ToDate '(' expr ')'                                            # toDateFunc
+    | ToDatetime '(' expr ')'                                        # toDatetimeFunc
     | Trim '(' expr (',' expr)? ')'                                  # trimFunc
     | TrimLeft '(' expr (',' expr)? ')'                              # trimLeftFunc
     | TrimRight '(' expr (',' expr)? ')'                             # trimRightFunc
@@ -83,8 +85,6 @@ expr
     | '-'Decimal                                                     # numberLiteral
     | SingleQuoteString                                              # stringLiteral
     | DoubleQuoteString                                              # stringLiteral
-    | Datetime                                                       # datetimeLiteral
-    | Date                                                           # dateLiteral
     | Bool                                                           # boolLiteral
     | Field                                                          # exprField
     ;
@@ -141,6 +141,8 @@ Sqrt               : S Q R T ;
 Substring          : S U B S T R I N G ;
 Switch             : S W I T C H ;
 Tan                : T A N ;
+ToDate             : T O D A T E ;
+ToDatetime         : T O D A T E T I M E ;
 Tanh               : T A N H ;
 Trim               : T R I M ;
 TrimLeft           : T R I M L E F T;
@@ -162,8 +164,6 @@ Endif  : E N D I F ;
 Bool             : TrueLiteral | FalseLiteral ;
 Integer          : Digit+ ;
 Decimal          : Digit* '.' Digit+ ;
-Date             : [`] DateLiteral [`] ;
-Datetime         : [`] DateTimeLiteral [`] ;
 Field            : '[' ~(']')+ ']' ;
 SingleQuoteString: ['] ~(['])* ['] ;
 DoubleQuoteString: '"' ~('"')* '"' ;

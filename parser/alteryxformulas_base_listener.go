@@ -69,6 +69,12 @@ func (s *BaseAlteryxFormulasListener) EnterTanFunc(ctx *TanFuncContext) {}
 // ExitTanFunc is called when production tanFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitTanFunc(ctx *TanFuncContext) {}
 
+// EnterToDateFunc is called when production toDateFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterToDateFunc(ctx *ToDateFuncContext) {}
+
+// ExitToDateFunc is called when production toDateFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitToDateFunc(ctx *ToDateFuncContext) {}
+
 // EnterRegexReplaceFunc is called when production regexReplaceFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterRegexReplaceFunc(ctx *RegexReplaceFuncContext) {}
 
@@ -165,12 +171,6 @@ func (s *BaseAlteryxFormulasListener) EnterNullFunc(ctx *NullFuncContext) {}
 // ExitNullFunc is called when production nullFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitNullFunc(ctx *NullFuncContext) {}
 
-// EnterDatetimeLiteral is called when production datetimeLiteral is entered.
-func (s *BaseAlteryxFormulasListener) EnterDatetimeLiteral(ctx *DatetimeLiteralContext) {}
-
-// ExitDatetimeLiteral is called when production datetimeLiteral is exited.
-func (s *BaseAlteryxFormulasListener) ExitDatetimeLiteral(ctx *DatetimeLiteralContext) {}
-
 // EnterIsEmptyFunc is called when production isEmptyFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterIsEmptyFunc(ctx *IsEmptyFuncContext) {}
 
@@ -188,12 +188,6 @@ func (s *BaseAlteryxFormulasListener) EnterRegexMatchFunc(ctx *RegexMatchFuncCon
 
 // ExitRegexMatchFunc is called when production regexMatchFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitRegexMatchFunc(ctx *RegexMatchFuncContext) {}
-
-// EnterDateLiteral is called when production dateLiteral is entered.
-func (s *BaseAlteryxFormulasListener) EnterDateLiteral(ctx *DateLiteralContext) {}
-
-// ExitDateLiteral is called when production dateLiteral is exited.
-func (s *BaseAlteryxFormulasListener) ExitDateLiteral(ctx *DateLiteralContext) {}
 
 // EnterAbsFunc is called when production absFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterAbsFunc(ctx *AbsFuncContext) {}
@@ -416,6 +410,12 @@ func (s *BaseAlteryxFormulasListener) EnterPowFunc(ctx *PowFuncContext) {}
 
 // ExitPowFunc is called when production powFunc is exited.
 func (s *BaseAlteryxFormulasListener) ExitPowFunc(ctx *PowFuncContext) {}
+
+// EnterToDatetimeFunc is called when production toDatetimeFunc is entered.
+func (s *BaseAlteryxFormulasListener) EnterToDatetimeFunc(ctx *ToDatetimeFuncContext) {}
+
+// ExitToDatetimeFunc is called when production toDatetimeFunc is exited.
+func (s *BaseAlteryxFormulasListener) ExitToDatetimeFunc(ctx *ToDatetimeFuncContext) {}
 
 // EnterIifFunc is called when production iifFunc is entered.
 func (s *BaseAlteryxFormulasListener) EnterIifFunc(ctx *IifFuncContext) {}

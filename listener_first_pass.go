@@ -37,14 +37,6 @@ func (l *firstPassListener) EnterStringLiteral(c *parser.StringLiteralContext) {
 	l.setSymbol(c, String)
 }
 
-func (l *firstPassListener) EnterDateLiteral(c *parser.DateLiteralContext) {
-	l.setSymbol(c, Date)
-}
-
-func (l *firstPassListener) EnterDatetimeLiteral(c *parser.DatetimeLiteralContext) {
-	l.setSymbol(c, Date)
-}
-
 func (l *firstPassListener) EnterBoolLiteral(c *parser.BoolLiteralContext) {
 	l.setSymbol(c, Bool)
 }
@@ -407,6 +399,14 @@ func (l *firstPassListener) ExitParenthesis(c *parser.ParenthesisContext) {
 		panic(`parenthesis expr did not have a symbol`)
 	}
 	l.setSymbol(c, childSymbol)
+}
+
+func (l *firstPassListener) ExitToDateFunc(c *parser.ToDateFuncContext) {
+	l.setSymbol(c, Date)
+}
+
+func (l *firstPassListener) ExitToDatetimeFunc(c *parser.ToDatetimeFuncContext) {
+	l.setSymbol(c, Date)
 }
 
 func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
