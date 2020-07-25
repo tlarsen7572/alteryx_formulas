@@ -35,11 +35,19 @@ func (calc *calculator) toDatetime() {
 		dateValue, err := time.Parse(`2006-01-02 15:04:05`, value)
 		if err != nil {
 			calc.pushValue(nil)
-			calc.errs = append(calc.errs, fmt.Errorf(`'%v' is not a valid date: expecting format yyyy-MM-dd hh:mm:ss`, value))
+			calc.errs = append(calc.errs, fmt.Errorf(`'%v' is not a valid datetime: expecting format yyyy-MM-dd hh:mm:ss`, value))
 			return
 		}
 		calc.pushValue(dateValue)
+	case float64:
+		const secondsPerDay = 86400
+		addSeconds := time.Duration(value * secondsPerDay)
+		dateValue := time.Date(1899, 12, 30, 0, 0, 0, 0, time.UTC).Add(addSeconds * time.Second)
+		calc.pushValue(dateValue)
+	case time.Time:
+		calc.pushValue(value.Truncate(time.Second))
 	default:
-		panic(`invalid type`)
+		calc.pushValue(nil)
+		calc.errs = append(calc.errs, fmt.Errorf(`%v has incorrect type: ToDatetime can only convert strings, numbers, or datetimes`, value))
 	}
 }

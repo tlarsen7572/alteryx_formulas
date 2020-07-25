@@ -1528,8 +1528,28 @@ func TestStringToDateTime(t *testing.T) {
 	}
 }
 
+func TestNumberToDateTime(t *testing.T) {
+	result, errs := f.Calculate(`todatetime(5.44)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != time.Date(1900, 1, 4, 10, 33, 36, 0, time.UTC) {
+		t.Fatalf(`expected 1900-01-04 10:33:36 but got %v`, result)
+	}
+}
+
 func TestDateTimeToDate(t *testing.T) {
 	result, errs := f.Calculate(`todate(toDateTime('2020-01-02 03:04:05'))`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != time.Date(2020, 1, 2, 0, 0, 0, 0, time.UTC) {
+		t.Fatalf(`expected 2020-01-02 but got %v`, result)
+	}
+}
+
+func TestDateToDatetime(t *testing.T) {
+	result, errs := f.Calculate(`todatetime(toDate('2020-01-02'))`, nil)
 	if len(errs) > 0 {
 		t.Fatalf(`expected no errors but got %v`, errs)
 	}
