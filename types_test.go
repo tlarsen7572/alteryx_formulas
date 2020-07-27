@@ -98,3 +98,35 @@ func TestNotEqualWrongTypes(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestGreaterThanWrongTypes(t *testing.T) {
+	_, errs := f.Calculate(`2 > '1'`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestGreaterEqualWrongTypes(t *testing.T) {
+	_, errs := f.Calculate(`2 >= '1'`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestLessThanWrongTypes(t *testing.T) {
+	_, errs := f.Calculate(`2 < '1'`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestLessEqualWrongTypes(t *testing.T) {
+	_, errs := f.Calculate(`2 <= '1'`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

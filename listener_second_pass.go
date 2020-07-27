@@ -153,6 +153,7 @@ func (l *secondPassListener) EnterEqual(c *parser.EqualContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 	if leftType != rightType && leftType != Null && rightType != Null {
 		notifyTypeError(c, `left and right arguments of equal operation are not the same`)
+		return
 	}
 	l.calc.pushFunction(l.calc.equal)
 }
@@ -161,6 +162,7 @@ func (l *secondPassListener) EnterNotEqual(c *parser.NotEqualContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 	if leftType != rightType && leftType != Null && rightType != Null {
 		notifyTypeError(c, `left and right arguments of equal operation are not the same`)
+		return
 	}
 	l.calc.pushFunction(l.calc.notEqual)
 }
@@ -178,7 +180,7 @@ func (l *secondPassListener) EnterGreaterThan(c *parser.GreaterThanContext) {
 		l.calc.pushFunction(l.calc.dateGreaterThan)
 		return
 	}
-	panic(`invalid left or right type`)
+	notifyTypeError(c, `left and right arguments of greater than operation are not the same`)
 }
 
 func (l *secondPassListener) EnterGreaterEqual(c *parser.GreaterEqualContext) {
@@ -194,7 +196,7 @@ func (l *secondPassListener) EnterGreaterEqual(c *parser.GreaterEqualContext) {
 		l.calc.pushFunction(l.calc.dateGreaterEqual)
 		return
 	}
-	panic(`invalid left or right type`)
+	notifyTypeError(c, `left and right arguments of greater than or equal operation are not the same`)
 }
 
 func (l *secondPassListener) EnterLessThan(c *parser.LessThanContext) {
@@ -210,7 +212,7 @@ func (l *secondPassListener) EnterLessThan(c *parser.LessThanContext) {
 		l.calc.pushFunction(l.calc.dateLessThan)
 		return
 	}
-	panic(`invalid left or right type`)
+	notifyTypeError(c, `left and right arguments of less than operation are not the same`)
 }
 
 func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
@@ -226,7 +228,7 @@ func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
 		l.calc.pushFunction(l.calc.dateLessEqual)
 		return
 	}
-	panic(`invalid left or right type`)
+	notifyTypeError(c, `left and right arguments of less than or equal operation are not the same`)
 }
 
 func (l *secondPassListener) EnterIn(c *parser.InContext) {
