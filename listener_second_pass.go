@@ -174,6 +174,10 @@ func (l *secondPassListener) EnterGreaterThan(c *parser.GreaterThanContext) {
 		l.calc.pushFunction(l.calc.stringGreaterThan)
 		return
 	}
+	if l.leftRightIsNullOr(Date, c) {
+		l.calc.pushFunction(l.calc.dateGreaterThan)
+		return
+	}
 	panic(`invalid left or right type`)
 }
 
@@ -184,6 +188,10 @@ func (l *secondPassListener) EnterGreaterEqual(c *parser.GreaterEqualContext) {
 	}
 	if l.leftRightIsNullOr(String, c) {
 		l.calc.pushFunction(l.calc.stringGreaterEqual)
+		return
+	}
+	if l.leftRightIsNullOr(Date, c) {
+		l.calc.pushFunction(l.calc.dateGreaterEqual)
 		return
 	}
 	panic(`invalid left or right type`)
@@ -198,6 +206,10 @@ func (l *secondPassListener) EnterLessThan(c *parser.LessThanContext) {
 		l.calc.pushFunction(l.calc.stringLessThan)
 		return
 	}
+	if l.leftRightIsNullOr(Date, c) {
+		l.calc.pushFunction(l.calc.dateLessThan)
+		return
+	}
 	panic(`invalid left or right type`)
 }
 
@@ -208,6 +220,10 @@ func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
 	}
 	if l.leftRightIsNullOr(String, c) {
 		l.calc.pushFunction(l.calc.stringLessEqual)
+		return
+	}
+	if l.leftRightIsNullOr(Date, c) {
+		l.calc.pushFunction(l.calc.dateLessEqual)
 		return
 	}
 	panic(`invalid left or right type`)

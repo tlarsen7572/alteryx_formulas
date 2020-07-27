@@ -170,6 +170,40 @@ func TestStringGreaterThan(t *testing.T) {
 	}
 }
 
+func TestDateGreaterThan(t *testing.T) {
+	result, err := f.Calculate(`todate('2020-01-01') > todate('2020-01-02')`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, err = f.Calculate(`todate('2020-01-02') > todate('2020-01-01')`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, err = f.Calculate(`todate('2020-01-01') > NULL()`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, err = f.Calculate(`NULL() > todate('2020-01-01')`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
 func TestNumberGreaterEqual(t *testing.T) {
 	result, err := f.Calculate(`1 >= 2.0`, nil)
 	if len(err) > 0 {
@@ -210,6 +244,26 @@ func TestStringGreaterEqual(t *testing.T) {
 	}
 }
 
+func TestDateGreaterEqual(t *testing.T) {
+	result, err := f.Calculate(`todate('2020-01-01') >= todate('2020-01-02')`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`todate('2020-01-01') >= todate('2020-01-01')`, nil)
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`todate('2020-01-02') >= todate('2020-01-01')`, nil)
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
 func TestNumberLessThan(t *testing.T) {
 	result, err := f.Calculate(`1 < 2`, nil)
 	if len(err) > 0 {
@@ -235,6 +289,21 @@ func TestStringLessThan(t *testing.T) {
 	}
 
 	result, _ = f.Calculate(`'2' < '2'`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestDateLessThan(t *testing.T) {
+	result, err := f.Calculate(`todate('2020-01-01') < todate('2020-01-02')`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`todate('2020-01-02') < todate('2020-01-01')`, nil)
 	if result != false {
 		t.Fatalf(`expected false but got %v`, result)
 	}
@@ -275,6 +344,26 @@ func TestStringLessEqual(t *testing.T) {
 	}
 
 	result, _ = f.Calculate(`'3' <= '2'`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestDateLessEqual(t *testing.T) {
+	result, err := f.Calculate(`todate('2020-01-01') <= todate('2020-01-02')`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`todate('2020-01-01') <= todate('2020-01-01')`, nil)
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`todate('2020-01-02') <= todate('2020-01-01')`, nil)
 	if result != false {
 		t.Fatalf(`expected false but got %v`, result)
 	}

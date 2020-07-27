@@ -1,5 +1,7 @@
 package alteryx_formulas
 
+import "time"
+
 func (calc *calculator) equal() {
 	value1 := calc.popValue()
 	value2 := calc.popValue()
@@ -32,6 +34,16 @@ func (calc *calculator) stringGreaterThan() {
 	calc.pushValue(value1.(string) > value2.(string))
 }
 
+func (calc *calculator) dateGreaterThan() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	calc.pushValue(value1.(time.Time).After(value2.(time.Time)))
+}
+
 func (calc *calculator) numberGreaterEqual() {
 	value1 := calc.popValue()
 	value2 := calc.popValue()
@@ -50,6 +62,16 @@ func (calc *calculator) stringGreaterEqual() {
 		return
 	}
 	calc.pushValue(value1.(string) >= value2.(string))
+}
+
+func (calc *calculator) dateGreaterEqual() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	calc.pushValue(value1.(time.Time).After(value2.(time.Time)) || value1 == value2)
 }
 
 func (calc *calculator) numberLessThan() {
@@ -72,6 +94,16 @@ func (calc *calculator) stringLessThan() {
 	calc.pushValue(value1.(string) < value2.(string))
 }
 
+func (calc *calculator) dateLessThan() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	calc.pushValue(value1.(time.Time).Before(value2.(time.Time)))
+}
+
 func (calc *calculator) numberLessEqual() {
 	value1 := calc.popValue()
 	value2 := calc.popValue()
@@ -90,6 +122,16 @@ func (calc *calculator) stringLessEqual() {
 		return
 	}
 	calc.pushValue(value1.(string) <= value2.(string))
+}
+
+func (calc *calculator) dateLessEqual() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	if value1 == nil || value2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	calc.pushValue(value1.(time.Time).Before(value2.(time.Time)) || value1 == value2)
 }
 
 func (calc *calculator) isNull() {
