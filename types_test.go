@@ -146,3 +146,35 @@ func TestOrWrongTypes(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestIfNotBoolType(t *testing.T) {
+	_, errs := f.Calculate(`IF 'A' THEN 1 ELSE 2 ENDIF`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestThenAndElseNotSameType(t *testing.T) {
+	_, errs := f.Calculate(`IF true THEN 1 ELSE '2' ENDIF`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestElseIfNotBoolType(t *testing.T) {
+	_, errs := f.Calculate(`IF true THEN 1 ELSEIF 'B' THEN 3 ELSE 2 ENDIF`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestThenAndElseNotSameTypeInElseIf(t *testing.T) {
+	_, errs := f.Calculate(`IF true THEN 1 ELSEIF true THEN 3 ELSE '2' ENDIF`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

@@ -276,7 +276,32 @@ func (l *secondPassListener) EnterNotIn(c *parser.NotInContext) {
 }
 
 func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {
-	exprCount := len(c.AllExpr())
+	exprs := c.AllExpr()
+	exprCount := len(exprs)
+	cSymbol, ok := l.getSymbol(c)
+	if !ok {
+		panic(`IF statement does not have a symbol`)
+	}
+	for i := 0; i < exprCount; i++ {
+		if i < exprCount-1 && i%2 == 0 { // IF/ELSEIF, expect a boolean
+			ifSymbol, ok := l.getSymbol(exprs[i])
+			if !ok {
+				panic(`if expr missing a symbol`)
+			}
+			if ifSymbol != Bool {
+				notifyTypeError(c, `if/elseif statement is not a boolean`)
+			}
+		} else {
+			symbol, ok := l.getSymbol(exprs[i])
+			if !ok {
+				panic(`then/else expr missing a symbol`)
+			}
+			if symbol != cSymbol && symbol != Null && cSymbol != Null {
+				notifyTypeError(c, `THEN and ELSE statements are not the same type`)
+			}
+		}
+	}
+
 	l.calc.pushFunction(l.calc.exprIf)
 	l.calc.pushValueFunc(exprCount)
 }
