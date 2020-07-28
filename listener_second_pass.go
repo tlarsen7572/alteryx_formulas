@@ -6,6 +6,7 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/tlarsen7572/alteryx_formulas/parser"
 	"strconv"
+	"strings"
 )
 
 type secondPassListener struct {
@@ -84,6 +85,15 @@ func (l *secondPassListener) EnterStringLiteral(c *parser.StringLiteralContext) 
 	text := c.GetText()
 	value := text[1 : len(text)-1]
 	l.calc.pushValueFunc(value)
+}
+
+func (l *secondPassListener) EnterBoolLiteral(c *parser.BoolLiteralContext) {
+	value := strings.ToLower(c.GetText())
+	if value == `true` {
+		l.calc.pushValueFunc(true)
+	} else {
+		l.calc.pushValueFunc(false)
+	}
 }
 
 func (l *secondPassListener) EnterAdd(c *parser.AddContext) {
@@ -231,52 +241,38 @@ func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
 	notifyTypeError(c, `left and right arguments of less than or equal operation are not the same`)
 }
 
-func (l *secondPassListener) EnterIn(c *parser.InContext) {
-	inSymbol := l.checkTypeOfMultiExprs(c)
-
-	if inSymbol == Number || inSymbol == Null {
-		l.calc.pushFunction(l.calc.numberIn)
-		exprs := len(c.AllExpr())
-		l.calc.pushValueFunc(exprs)
-		return
+func (l *secondPassListener) EnterAnd(c *parser.AndContext) {
+	leftSymbol, rightSymbol := l.getLeftRightTypes(c)
+	if leftSymbol != Bool && leftSymbol != Null {
+		notifyTypeError(c, `left argument of AND is not a boolean`)
 	}
-	panic(`invalid type`)
+	if rightSymbol != Bool && rightSymbol != Null {
+		notifyTypeError(c, `right argument of AND is not a boolean`)
+	}
+	l.calc.pushFunction(l.calc.and)
+}
+
+func (l *secondPassListener) EnterOr(c *parser.OrContext) {
+	leftSymbol, rightSymbol := l.getLeftRightTypes(c)
+	if leftSymbol != Bool && leftSymbol != Null {
+		notifyTypeError(c, `left argument of OR is not a boolean`)
+	}
+	if rightSymbol != Bool && rightSymbol != Null {
+		notifyTypeError(c, `right argument of OR is not a boolean`)
+	}
+	l.calc.pushFunction(l.calc.or)
+}
+
+func (l *secondPassListener) EnterIn(c *parser.InContext) {
+	l.calc.pushFunction(l.calc.in)
+	exprs := len(c.AllExpr())
+	l.calc.pushValueFunc(exprs)
 }
 
 func (l *secondPassListener) EnterNotIn(c *parser.NotInContext) {
-	inSymbol := l.checkTypeOfMultiExprs(c)
-
-	if inSymbol == Number || inSymbol == Null {
-		l.calc.pushFunction(l.calc.numberNotIn)
-		exprs := len(c.AllExpr())
-		l.calc.pushValueFunc(exprs)
-		return
-	}
-	panic(`invalid type`)
-}
-
-type HasAllExpr interface {
-	AllExpr() []parser.IExprContext
-}
-
-func (l *secondPassListener) checkTypeOfMultiExprs(c HasAllExpr) int {
-	exprs := c.AllExpr()
-	exprCount := len(exprs)
-	inSymbol := Null
-	for i := 0; i < exprCount; i++ {
-		argType, ok := l.getSymbol(exprs[i])
-		if !ok {
-			panic(`symbol not found for in argument`)
-		}
-		if argType == Null {
-			continue
-		}
-		if inSymbol != Null && argType != inSymbol {
-			panic(fmt.Sprintf(`invalid type at parameter %v`, i))
-		}
-		inSymbol = argType
-	}
-	return inSymbol
+	l.calc.pushFunction(l.calc.notIn)
+	exprs := len(c.AllExpr())
+	l.calc.pushValueFunc(exprs)
 }
 
 func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {

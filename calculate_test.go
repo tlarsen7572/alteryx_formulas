@@ -414,6 +414,36 @@ func TestNumberNotIn(t *testing.T) {
 	}
 }
 
+func TestStringIn(t *testing.T) {
+	result, err := f.Calculate(`'1' in ('1','2','3','4')`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`'1' in ('2','3','4')`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestStringNotIn(t *testing.T) {
+	result, err := f.Calculate(`'1' not in ('2','3','4')`, nil)
+	if len(err) > 0 {
+		t.Fatalf(`expected no error but got %v`, err)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+
+	result, _ = f.Calculate(`'1' not in ('1','2','3','4')`, nil)
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
 func TestIf(t *testing.T) {
 	result, err := f.Calculate(`if 1=1 THEN 2 else 3 ENDIF`, nil)
 	if len(err) > 0 {
@@ -1644,6 +1674,50 @@ func TestDateToDatetime(t *testing.T) {
 	}
 	if result != time.Date(2020, 1, 2, 0, 0, 0, 0, time.UTC) {
 		t.Fatalf(`expected 2020-01-02 but got %v`, result)
+	}
+}
+
+func TestAndTrue(t *testing.T) {
+	result, errs := f.Calculate(`true and true`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
+func TestAndFalse(t *testing.T) {
+	result, errs := f.Calculate(`true && false`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}
+
+func TestOrTrue(t *testing.T) {
+	result, errs := f.Calculate(`true or true`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+	result, _ = f.Calculate(`true or false`, nil)
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}
+
+func TestOrFalse(t *testing.T) {
+	result, errs := f.Calculate(`false || false`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
 	}
 }
 

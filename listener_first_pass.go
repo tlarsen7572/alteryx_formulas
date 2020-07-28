@@ -109,6 +109,14 @@ func (l *firstPassListener) ExitNotEqual(c *parser.NotEqualContext) {
 	l.setSymbol(c, Bool)
 }
 
+func (l *firstPassListener) ExitAnd(c *parser.AndContext) {
+	l.setSymbol(c, Bool)
+}
+
+func (l *firstPassListener) ExitOr(c *parser.OrContext) {
+	l.setSymbol(c, Bool)
+}
+
 func (l *firstPassListener) ExitExprIf(c *parser.ExprIfContext) {
 	thenType, ok := l.getSymbol(c.Expr(1))
 	if !ok {

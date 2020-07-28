@@ -130,3 +130,19 @@ func TestLessEqualWrongTypes(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestAndWrongTypes(t *testing.T) {
+	_, errs := f.Calculate(`1=1 AND 'B'`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestOrWrongTypes(t *testing.T) {
+	_, errs := f.Calculate(`1=1 OR 'B'`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

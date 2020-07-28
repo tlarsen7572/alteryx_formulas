@@ -134,6 +134,18 @@ func (calc *calculator) dateLessEqual() {
 	calc.pushValue(value1.(time.Time).Before(value2.(time.Time)) || value1 == value2)
 }
 
+func (calc *calculator) and() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	calc.pushValue(value1 == true && value2 == true)
+}
+
+func (calc *calculator) or() {
+	value1 := calc.popValue()
+	value2 := calc.popValue()
+	calc.pushValue(value1 == true || value2 == true)
+}
+
 func (calc *calculator) isNull() {
 	value := calc.popValue()
 	calc.pushValue(value == nil)
@@ -142,4 +154,36 @@ func (calc *calculator) isNull() {
 func (calc *calculator) isEmpty() {
 	value := calc.popValue()
 	calc.pushValue(value == nil || value == ``)
+}
+
+func (calc *calculator) in() {
+	exprCount := calc.popValue().(int)
+	exprs := make([]interface{}, exprCount)
+	for i := 0; i < exprCount; i++ {
+		exprs[i] = calc.popValue()
+	}
+	baseValue := exprs[0]
+	for i := 1; i < exprCount; i++ {
+		if baseValue == exprs[i] {
+			calc.pushValue(true)
+			return
+		}
+	}
+	calc.pushValue(false)
+}
+
+func (calc *calculator) notIn() {
+	exprCount := calc.popValue().(int)
+	exprs := make([]interface{}, exprCount)
+	for i := 0; i < exprCount; i++ {
+		exprs[i] = calc.popValue()
+	}
+	baseValue := exprs[0]
+	for i := 1; i < exprCount; i++ {
+		if baseValue == exprs[i] {
+			calc.pushValue(false)
+			return
+		}
+	}
+	calc.pushValue(true)
 }
