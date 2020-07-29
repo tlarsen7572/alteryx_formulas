@@ -159,8 +159,12 @@ func (calc *calculator) ceil() {
 }
 
 func (calc *calculator) cos() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Cos(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Cos(expr.(float64)))
 }
 
 func (calc *calculator) cosh() {

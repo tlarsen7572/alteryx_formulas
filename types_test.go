@@ -276,3 +276,11 @@ func TestContainsWrongType(t *testing.T) {
 	}
 	t.Logf(`%v`, errs)
 }
+
+func TestCosWrongType(t *testing.T) {
+	_, errs := f.Calculate(`cos('1')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

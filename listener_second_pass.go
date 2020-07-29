@@ -454,7 +454,8 @@ func (l *secondPassListener) EnterCeilFunc(c *parser.CeilFuncContext) {
 	l.calc.pushFunction(l.calc.ceil)
 }
 
-func (l *secondPassListener) EnterCosFunc(_ *parser.CosFuncContext) {
+func (l *secondPassListener) EnterCosFunc(c *parser.CosFuncContext) {
+	l.checkNumber(c.Expr(), `cos parameter is not a number`)
 	l.calc.pushFunction(l.calc.cos)
 }
 
