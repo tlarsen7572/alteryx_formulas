@@ -80,3 +80,13 @@ func TestAverageNull(t *testing.T) {
 		t.Fatalf(`expected 26.25 but got %v`, result)
 	}
 }
+
+func TestCeilNull(t *testing.T) {
+	result, errs := f.Calculate(`ceil(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}

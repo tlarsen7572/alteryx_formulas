@@ -436,7 +436,8 @@ func (l *secondPassListener) EnterAverageFunc(c *parser.AverageFuncContext) {
 	l.calc.pushValueFunc(exprCount)
 }
 
-func (l *secondPassListener) EnterCeilFunc(_ *parser.CeilFuncContext) {
+func (l *secondPassListener) EnterCeilFunc(c *parser.CeilFuncContext) {
+	l.checkNumber(c.Expr(), `ceil parameter is not a number`)
 	l.calc.pushFunction(l.calc.ceil)
 }
 

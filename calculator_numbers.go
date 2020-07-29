@@ -150,8 +150,12 @@ func (calc *calculator) average() {
 }
 
 func (calc *calculator) ceil() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Ceil(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Ceil(expr.(float64)))
 }
 
 func (calc *calculator) cos() {

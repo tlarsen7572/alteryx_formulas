@@ -232,3 +232,11 @@ func TestAverageWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestCeilWrongType(t *testing.T) {
+	_, errs := f.Calculate(`ceil('a')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
