@@ -168,8 +168,12 @@ func (calc *calculator) cos() {
 }
 
 func (calc *calculator) cosh() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Cosh(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Cosh(expr.(float64)))
 }
 
 func (calc *calculator) distance() {
