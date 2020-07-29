@@ -527,7 +527,8 @@ func (l *secondPassListener) EnterSwitchFunc(c *parser.SwitchFuncContext) {
 	l.calc.pushValueFunc(exprCount)
 }
 
-func (l *secondPassListener) EnterCharFromIntFunc(_ *parser.CharFromIntFuncContext) {
+func (l *secondPassListener) EnterCharFromIntFunc(c *parser.CharFromIntFuncContext) {
+	l.checkNumber(c.Expr(), `char parameter is not a number`)
 	l.calc.pushFunction(l.calc.charFromInt)
 }
 

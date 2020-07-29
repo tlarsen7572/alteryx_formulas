@@ -7,7 +7,12 @@ import (
 )
 
 func (calc *calculator) charFromInt() {
-	charCode := rune(calc.popValue().(float64))
+	popped := calc.popValue()
+	if popped == nil {
+		calc.pushValue(nil)
+		return
+	}
+	charCode := rune(popped.(float64))
 	if !utf8.ValidRune(charCode) {
 		calc.pushValue(nil)
 		return
