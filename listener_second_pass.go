@@ -20,6 +20,38 @@ func (l *secondPassListener) getSymbol(c antlr.ParserRuleContext) (int, bool) {
 	return symbol, ok
 }
 
+type symbolChecker struct {
+	c            ErrorNotifier
+	expectedType int
+	allowNull    bool
+	errorMsg     string
+}
+
+func numberChecker(c ErrorNotifier, errorMsg string) symbolChecker {
+	return symbolChecker{
+		c:            c,
+		expectedType: Number,
+		allowNull:    true,
+		errorMsg:     errorMsg,
+	}
+}
+
+func (l *secondPassListener) checkNumber(c ErrorNotifier, errorMsg string) {
+	l.checkSymbol(numberChecker(c, errorMsg))
+}
+
+func (l *secondPassListener) checkSymbol(checker symbolChecker) {
+	symbol, ok := l.getSymbol(checker.c)
+
+	if !ok {
+		panic(`could not find a symbol`)
+	}
+	if symbol != checker.expectedType && !(checker.allowNull && symbol == Null) {
+		notifyTypeError(checker.c, checker.errorMsg)
+	}
+
+}
+
 type HasLeftRightTypes interface {
 	GetLeft() parser.IExprContext
 	GetRight() parser.IExprContext
@@ -288,7 +320,7 @@ func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {
 			if !ok {
 				panic(`if expr missing a symbol`)
 			}
-			if ifSymbol != Bool {
+			if ifSymbol != Bool && ifSymbol != Null {
 				notifyTypeError(c, `if/elseif statement is not a boolean`)
 			}
 		} else {
@@ -368,11 +400,13 @@ func (l *secondPassListener) EnterIifFunc(c *parser.IifFuncContext) {
 	}
 }
 
-func (l *secondPassListener) EnterAbsFunc(_ *parser.AbsFuncContext) {
+func (l *secondPassListener) EnterAbsFunc(c *parser.AbsFuncContext) {
+	l.checkNumber(c.Expr(), `abs parameter is not a number`)
 	l.calc.pushFunction(l.calc.abs)
 }
 
-func (l *secondPassListener) EnterAcosFunc(_ *parser.AcosFuncContext) {
+func (l *secondPassListener) EnterAcosFunc(c *parser.AcosFuncContext) {
+	l.checkNumber(c.Expr(), `acos parameter is not a number`)
 	l.calc.pushFunction(l.calc.acos)
 }
 

@@ -88,13 +88,21 @@ func (calc *calculator) numberIif() {
 }
 
 func (calc *calculator) abs() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Abs(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Abs(expr.(float64)))
 }
 
 func (calc *calculator) acos() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Acos(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Acos(expr.(float64)))
 }
 
 func (calc *calculator) asin() {

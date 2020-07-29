@@ -178,3 +178,19 @@ func TestThenAndElseNotSameTypeInElseIf(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestAbsWrongType(t *testing.T) {
+	_, errs := f.Calculate(`abs('a')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestAcosWrongType(t *testing.T) {
+	_, errs := f.Calculate(`acos('a')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
