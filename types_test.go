@@ -256,3 +256,23 @@ func TestCharToIntWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestContainsWrongType(t *testing.T) {
+	_, errs := f.Calculate(`contains('123',1)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`%v`, errs)
+
+	_, errs = f.Calculate(`contains(123,'1')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`%v`, errs)
+
+	_, errs = f.Calculate(`contains('123','1', '1')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`%v`, errs)
+}

@@ -110,3 +110,29 @@ func TestCharToIntNull(t *testing.T) {
 		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
+
+func TestContainsNull(t *testing.T) {
+	result, errs := f.Calculate(`contains(NULL(), '1')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`contains('1', NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`contains('123', '1', NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}

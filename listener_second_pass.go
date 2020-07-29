@@ -554,7 +554,12 @@ func (l *secondPassListener) EnterHexToNumberFunc(_ *parser.HexToNumberFuncConte
 	l.calc.pushFunction(l.calc.hexToNumber)
 }
 
-func (l *secondPassListener) EnterContainsFunc(_ *parser.ContainsFuncContext) {
+func (l *secondPassListener) EnterContainsFunc(c *parser.ContainsFuncContext) {
+	l.checkString(c.Expr(0), `contains string parameter is not a string`)
+	l.checkString(c.Expr(1), `contains target parameter is not a string`)
+	if len(c.AllExpr()) == 3 {
+		l.checkNumber(c.Expr(2), `contains caseInsensitive parameter is not a number`)
+	}
 	l.calc.pushFunction(l.calc.contains)
 }
 
