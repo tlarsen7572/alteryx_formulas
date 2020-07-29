@@ -60,9 +60,20 @@ func (calc *calculator) contains() {
 }
 
 func (calc *calculator) endsWith() {
-	value := calc.popValue().(string)
-	lookFor := calc.popValue().(string)
-	caseInsensitive := calc.popValue().(float64)
+	popped1 := calc.popValue()
+	popped2 := calc.popValue()
+	popped3 := calc.popValue()
+	if popped1 == nil || popped2 == nil {
+		calc.pushValue(false)
+		return
+	}
+	value := popped1.(string)
+	lookFor := popped2.(string)
+	caseInsensitive := 1.0
+	if popped3 != nil {
+		caseInsensitive = popped3.(float64)
+	}
+
 	startAt := len(value) - len(lookFor)
 	if startAt < 0 {
 		calc.pushValue(false)

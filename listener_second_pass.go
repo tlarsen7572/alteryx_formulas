@@ -581,7 +581,12 @@ func (l *secondPassListener) EnterCountWordsFunc(c *parser.CountWordsFuncContext
 	l.calc.pushFunction(l.calc.countWords)
 }
 
-func (l *secondPassListener) EnterEndsWithFunc(_ *parser.EndsWithFuncContext) {
+func (l *secondPassListener) EnterEndsWithFunc(c *parser.EndsWithFuncContext) {
+	l.checkString(c.Expr(0), `endsWith string parameter is not a string`)
+	l.checkString(c.Expr(1), `endsWith target parameter is not a string`)
+	if len(c.AllExpr()) == 3 {
+		l.checkNumber(c.Expr(2), `endsWith caseInsensitive parameter is not a number`)
+	}
 	l.calc.pushFunction(l.calc.endsWith)
 }
 
