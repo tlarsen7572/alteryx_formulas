@@ -415,11 +415,14 @@ func (l *secondPassListener) EnterAsinFunc(c *parser.AsinFuncContext) {
 	l.calc.pushFunction(l.calc.asin)
 }
 
-func (l *secondPassListener) EnterAtanFunc(_ *parser.AtanFuncContext) {
+func (l *secondPassListener) EnterAtanFunc(c *parser.AtanFuncContext) {
+	l.checkNumber(c.Expr(), `atan parameter is not a number`)
 	l.calc.pushFunction(l.calc.atan)
 }
 
-func (l *secondPassListener) EnterAtan2Func(_ *parser.Atan2FuncContext) {
+func (l *secondPassListener) EnterAtan2Func(c *parser.Atan2FuncContext) {
+	l.checkNumber(c.Expr(0), `first atan parameter is not a number`)
+	l.checkNumber(c.Expr(1), `second atan parameter is not a number`)
 	l.calc.pushFunction(l.calc.atan2)
 }
 

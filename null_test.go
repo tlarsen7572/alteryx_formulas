@@ -1,6 +1,9 @@
 package alteryx_formulas_test
 
-import "testing"
+import (
+	"math"
+	"testing"
+)
 import f "github.com/tlarsen7572/alteryx_formulas"
 
 func TestIfNull(t *testing.T) {
@@ -38,6 +41,31 @@ func TestAsinNull(t *testing.T) {
 	if len(errs) > 0 {
 		t.Fatalf(`expected no errors but got: %v`, errs)
 	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}
+
+func TestAtanNull(t *testing.T) {
+	result, errs := f.Calculate(`atan(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}
+
+func TestAtan2Null(t *testing.T) {
+	result, errs := f.Calculate(`atan2(1, NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if expected := math.Atan2(1, 0); result != expected {
+		t.Fatalf(`expected %v but got %v`, expected, result)
+	}
+
+	result, errs = f.Calculate(`atan2(NULL(), 1)`, nil)
 	if result != nil {
 		t.Fatalf(`expected nil but got %v`, result)
 	}

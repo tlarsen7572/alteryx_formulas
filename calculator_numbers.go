@@ -115,14 +115,25 @@ func (calc *calculator) asin() {
 }
 
 func (calc *calculator) atan() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Atan(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Atan(expr.(float64)))
 }
 
 func (calc *calculator) atan2() {
-	expr1 := calc.popValue().(float64)
-	expr2 := calc.popValue().(float64)
-	calc.pushValue(math.Atan2(expr1, expr2))
+	expr1 := calc.popValue()
+	expr2 := calc.popValue()
+	if expr1 == nil {
+		calc.pushValue(nil)
+		return
+	}
+	if expr2 == nil {
+		expr2 = 0.0
+	}
+	calc.pushValue(math.Atan2(expr1.(float64), expr2.(float64)))
 }
 
 func (calc *calculator) average() {
