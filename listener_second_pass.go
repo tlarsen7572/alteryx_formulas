@@ -464,7 +464,11 @@ func (l *secondPassListener) EnterCoshFunc(c *parser.CoshFuncContext) {
 	l.calc.pushFunction(l.calc.cosh)
 }
 
-func (l *secondPassListener) EnterDistanceFunc(_ *parser.DistanceFuncContext) {
+func (l *secondPassListener) EnterDistanceFunc(c *parser.DistanceFuncContext) {
+	l.checkNumber(c.Expr(0), `distance from_lat parameter is not a number`)
+	l.checkNumber(c.Expr(1), `distance from_lon parameter is not a number`)
+	l.checkNumber(c.Expr(2), `distance to_lat parameter is not a number`)
+	l.checkNumber(c.Expr(3), `distance to_lon parameter is not a number`)
 	l.calc.geo = ellipsoid.Init("WGS84", ellipsoid.Degrees, ellipsoid.Mile, ellipsoid.LongitudeIsSymmetric, ellipsoid.BearingIsSymmetric)
 
 	l.calc.pushFunction(l.calc.distance)

@@ -177,12 +177,17 @@ func (calc *calculator) cosh() {
 }
 
 func (calc *calculator) distance() {
-	fromLat := calc.popValue().(float64)
-	fromLon := calc.popValue().(float64)
-	toLat := calc.popValue().(float64)
-	toLon := calc.popValue().(float64)
+	values := make([]float64, 4)
+	for i := 0; i < 4; i++ {
+		poppedValue := calc.popValue()
+		if poppedValue == nil {
+			values[i] = 0.0
+		} else {
+			values[i] = poppedValue.(float64)
+		}
+	}
 
-	distance, _ := calc.geo.To(fromLat, fromLon, toLat, toLon)
+	distance, _ := calc.geo.To(values[0], values[1], values[2], values[3])
 
 	calc.pushValue(distance)
 }
