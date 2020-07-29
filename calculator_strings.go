@@ -85,8 +85,12 @@ func (calc *calculator) concatenate() {
 }
 
 func (calc *calculator) countWords() {
-	text := calc.popValue().(string)
-	matches := calc.wordExp.FindAllString(text, -1)
+	text := calc.popValue()
+	if text == nil {
+		calc.pushValue(0.0)
+		return
+	}
+	matches := calc.wordExp.FindAllString(text.(string), -1)
 	calc.pushValue(float64(len(matches)))
 }
 

@@ -156,3 +156,13 @@ func TestCoshNull(t *testing.T) {
 		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
+
+func TestCountWordsNull(t *testing.T) {
+	result, errs := f.Calculate(`countwords(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.0 {
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+}

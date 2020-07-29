@@ -572,7 +572,8 @@ func (l *secondPassListener) ExitContainsFunc(c *parser.ContainsFuncContext) {
 	}
 }
 
-func (l *secondPassListener) EnterCountWordsFunc(_ *parser.CountWordsFuncContext) {
+func (l *secondPassListener) EnterCountWordsFunc(c *parser.CountWordsFuncContext) {
+	l.checkString(c.Expr(), `countWords parameter is not a string`)
 	l.calc.pushFunction(l.calc.countWords)
 }
 
