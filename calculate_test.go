@@ -669,16 +669,6 @@ func TestAverage(t *testing.T) {
 	}
 }
 
-func TestAverageWithNull(t *testing.T) {
-	result, errs := f.Calculate(`average(20, 30, 55, NULL())`, nil)
-	if len(errs) > 0 {
-		t.Fatalf(`expected no errors but got: %v`, errs)
-	}
-	if result != 26.25 {
-		t.Fatalf(`expected 26.25 but got %v`, result)
-	}
-}
-
 func TestCeil(t *testing.T) {
 	result, errs := f.Calculate(`ceil(1.1)`, nil)
 	if len(errs) > 0 {

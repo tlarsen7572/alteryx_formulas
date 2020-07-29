@@ -427,7 +427,11 @@ func (l *secondPassListener) EnterAtan2Func(c *parser.Atan2FuncContext) {
 }
 
 func (l *secondPassListener) EnterAverageFunc(c *parser.AverageFuncContext) {
-	exprCount := len(c.AllExpr())
+	exprCount := 0
+	for i, expr := range c.AllExpr() {
+		l.checkNumber(expr, fmt.Sprintf(`average parameter %v is not a number`, i+1))
+		exprCount++
+	}
 	l.calc.pushFunction(l.calc.average)
 	l.calc.pushValueFunc(exprCount)
 }

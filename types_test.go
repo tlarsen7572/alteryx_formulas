@@ -224,3 +224,11 @@ func TestAtan2WrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestAverageWrongType(t *testing.T) {
+	_, errs := f.Calculate(`average(1,2,'3')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

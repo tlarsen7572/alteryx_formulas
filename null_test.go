@@ -70,3 +70,13 @@ func TestAtan2Null(t *testing.T) {
 		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
+
+func TestAverageNull(t *testing.T) {
+	result, errs := f.Calculate(`average(20, 30, 55, NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 26.25 {
+		t.Fatalf(`expected 26.25 but got %v`, result)
+	}
+}
