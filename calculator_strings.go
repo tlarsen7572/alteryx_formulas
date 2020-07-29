@@ -22,7 +22,12 @@ func (calc *calculator) charFromInt() {
 }
 
 func (calc *calculator) charToInt() {
-	value := calc.popValue().(string)
+	popped := calc.popValue()
+	if popped == nil {
+		calc.pushValue(nil)
+		return
+	}
+	value := popped.(string)
 	if len(value) == 0 {
 		calc.pushValue(nil)
 		return

@@ -36,8 +36,21 @@ func numberChecker(c ErrorNotifier, errorMsg string) symbolChecker {
 	}
 }
 
+func stringChecker(c ErrorNotifier, errorMsg string) symbolChecker {
+	return symbolChecker{
+		c:            c,
+		expectedType: String,
+		allowNull:    true,
+		errorMsg:     errorMsg,
+	}
+}
+
 func (l *secondPassListener) checkNumber(c ErrorNotifier, errorMsg string) {
 	l.checkSymbol(numberChecker(c, errorMsg))
+}
+
+func (l *secondPassListener) checkString(c ErrorNotifier, errorMsg string) {
+	l.checkSymbol(stringChecker(c, errorMsg))
 }
 
 func (l *secondPassListener) checkSymbol(checker symbolChecker) {
@@ -528,11 +541,12 @@ func (l *secondPassListener) EnterSwitchFunc(c *parser.SwitchFuncContext) {
 }
 
 func (l *secondPassListener) EnterCharFromIntFunc(c *parser.CharFromIntFuncContext) {
-	l.checkNumber(c.Expr(), `char parameter is not a number`)
+	l.checkNumber(c.Expr(), `charFromInt parameter is not a number`)
 	l.calc.pushFunction(l.calc.charFromInt)
 }
 
-func (l *secondPassListener) EnterCharToIntFunc(_ *parser.CharToIntFuncContext) {
+func (l *secondPassListener) EnterCharToIntFunc(c *parser.CharToIntFuncContext) {
+	l.checkString(c.Expr(), `charToInt parameter is not a string`)
 	l.calc.pushFunction(l.calc.charToInt)
 }
 
