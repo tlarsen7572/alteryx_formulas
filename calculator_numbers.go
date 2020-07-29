@@ -106,8 +106,12 @@ func (calc *calculator) acos() {
 }
 
 func (calc *calculator) asin() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Asin(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Asin(expr.(float64)))
 }
 
 func (calc *calculator) atan() {

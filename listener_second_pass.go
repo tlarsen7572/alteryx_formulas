@@ -410,7 +410,8 @@ func (l *secondPassListener) EnterAcosFunc(c *parser.AcosFuncContext) {
 	l.calc.pushFunction(l.calc.acos)
 }
 
-func (l *secondPassListener) EnterAsinFunc(_ *parser.AsinFuncContext) {
+func (l *secondPassListener) EnterAsinFunc(c *parser.AsinFuncContext) {
+	l.checkNumber(c.Expr(), `asin parameter is not a number`)
 	l.calc.pushFunction(l.calc.asin)
 }
 
