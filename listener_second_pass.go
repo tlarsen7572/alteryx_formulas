@@ -479,7 +479,8 @@ func (l *secondPassListener) EnterExpFunc(c *parser.ExpFuncContext) {
 	l.calc.pushFunction(l.calc.exp)
 }
 
-func (l *secondPassListener) EnterFloorFunc(_ *parser.FloorFuncContext) {
+func (l *secondPassListener) EnterFloorFunc(c *parser.FloorFuncContext) {
+	l.checkNumber(c.Expr(), `floor parameter is not a number`)
 	l.calc.pushFunction(l.calc.floor)
 }
 
