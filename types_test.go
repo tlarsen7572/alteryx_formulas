@@ -482,3 +482,11 @@ func TestMedianWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestModWrongType(t *testing.T) {
+	_, errs := f.Calculate(`mod('1','2')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

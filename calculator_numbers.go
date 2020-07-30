@@ -209,8 +209,15 @@ func (calc *calculator) median() {
 }
 
 func (calc *calculator) mod() {
-	dividend := int(calc.popValue().(float64))
-	divisor := int(calc.popValue().(float64))
+	expr1 := calc.popValue()
+	expr2 := calc.popValue()
+	if expr1 == nil || expr2 == nil {
+		calc.pushValue(nil)
+		return
+	}
+
+	dividend := int(expr1.(float64))
+	divisor := int(expr2.(float64))
 	if divisor == 0 {
 		calc.pushValue(nil)
 		return

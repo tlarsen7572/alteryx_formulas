@@ -415,3 +415,21 @@ func TestMedianNull(t *testing.T) {
 		t.Fatalf(`expected 0 but got %v`, result)
 	}
 }
+
+func TestModNull(t *testing.T) {
+	result, errs := f.Calculate(`mod(null(),1)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`mod(1,null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}

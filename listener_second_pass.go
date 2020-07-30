@@ -558,7 +558,9 @@ func (l *secondPassListener) EnterMedianFunc(c *parser.MedianFuncContext) {
 	l.calc.pushValueFunc(exprCount)
 }
 
-func (l *secondPassListener) EnterModFunc(_ *parser.ModFuncContext) {
+func (l *secondPassListener) EnterModFunc(c *parser.ModFuncContext) {
+	l.checkNumber(c.Expr(0), `mod dividend parameter is not a number`)
+	l.checkNumber(c.Expr(1), `mod divisor is not a number`)
 	l.calc.pushFunction(l.calc.mod)
 }
 
