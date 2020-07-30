@@ -130,7 +130,7 @@ func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {
 	fieldName := text[1 : len(text)-1]
 	fieldType, err := l.recordInfo.GetFieldTypeByName(fieldName)
 	if err != nil {
-		c.SetException(MissingField(fieldName, c))
+		NotifyError(c, fmt.Sprintf(`field %v does not exist`, fieldName))
 		return
 	}
 	switch fieldType {
@@ -143,7 +143,7 @@ func (l *firstPassListener) EnterExprField(c *parser.ExprFieldContext) {
 	case StringType, WStringType, V_StringType, V_WStringType:
 		l.setSymbol(c, String)
 	default:
-		c.SetException(InvalidFieldType(fieldName, fieldType, c))
+		NotifyError(c, fmt.Sprintf(`field %v has invalid type %v`, fieldName, fieldType))
 	}
 }
 
@@ -415,46 +415,4 @@ func (l *firstPassListener) ExitToDateFunc(c *parser.ToDateFuncContext) {
 
 func (l *firstPassListener) ExitToDatetimeFunc(c *parser.ToDatetimeFuncContext) {
 	l.setSymbol(c, Date)
-}
-
-func MissingField(missingField string, c antlr.ParserRuleContext) FormulasException {
-	return FormulasException{
-		Message:        fmt.Sprintf(`field '%v' does not exist`, missingField),
-		InputStream:    c.GetStart().GetInputStream(),
-		OffendingToken: c.GetStart(),
-	}
-}
-
-func InvalidFieldType(field string, fieldType string, c antlr.ParserRuleContext) FormulasException {
-	return FormulasException{
-		Message:        fmt.Sprintf(`field '%v' has type '%v' which cannot be used in formulas`, field, fieldType),
-		InputStream:    c.GetStart().GetInputStream(),
-		OffendingToken: c.GetStart(),
-	}
-}
-
-func InvalidType(message string, c antlr.ParserRuleContext) FormulasException {
-	return FormulasException{
-		Message:        message,
-		InputStream:    c.GetStart().GetInputStream(),
-		OffendingToken: c.GetStart(),
-	}
-}
-
-type FormulasException struct {
-	Message        string
-	InputStream    antlr.IntStream
-	OffendingToken antlr.Token
-}
-
-func (e FormulasException) GetOffendingToken() antlr.Token {
-	return e.OffendingToken
-}
-
-func (e FormulasException) GetMessage() string {
-	return e.Message
-}
-
-func (e FormulasException) GetInputStream() antlr.IntStream {
-	return e.InputStream
 }

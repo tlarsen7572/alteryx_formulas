@@ -83,7 +83,7 @@ func (l *secondPassListener) checkSymbol(checker symbolChecker) {
 		panic(`could not find a symbol`)
 	}
 	if symbol != checker.expectedType && !(checker.allowNull && symbol == Null) {
-		notifyTypeError(checker.c, checker.errorMsg)
+		NotifyError(checker.c, checker.errorMsg)
 	}
 
 }
@@ -91,15 +91,6 @@ func (l *secondPassListener) checkSymbol(checker symbolChecker) {
 type HasLeftRightTypes interface {
 	GetLeft() parser.IExprContext
 	GetRight() parser.IExprContext
-}
-
-type ErrorNotifier interface {
-	GetParser() antlr.Parser
-	antlr.ParserRuleContext
-}
-
-func notifyTypeError(notifier ErrorNotifier, msg string) {
-	notifier.GetParser().NotifyErrorListeners(msg, notifier.GetStart(), InvalidType(``, notifier))
 }
 
 func (l *secondPassListener) leftRightIsNullOr(formulaType int, c HasLeftRightTypes) bool {
@@ -179,18 +170,18 @@ func (l *secondPassListener) EnterAdd(c *parser.AddContext) {
 		l.calc.pushFunction(l.calc.addNumbers)
 		return
 	}
-	notifyTypeError(c, `left and right arguments of add operation are not the same type`)
+	NotifyError(c, `left and right arguments of add operation are not the same type`)
 }
 
 func (l *secondPassListener) EnterSubtract(c *parser.SubtractContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 
 	if leftType != Number && leftType != Null {
-		notifyTypeError(c, `left argument of subtract operation is not a number`)
+		NotifyError(c, `left argument of subtract operation is not a number`)
 		return
 	}
 	if rightType != Number && rightType != Null {
-		notifyTypeError(c, `right argument of subtract operation is not a number`)
+		NotifyError(c, `right argument of subtract operation is not a number`)
 		return
 	}
 
@@ -201,11 +192,11 @@ func (l *secondPassListener) EnterMultiply(c *parser.MultiplyContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 
 	if leftType != Number && leftType != Null {
-		notifyTypeError(c, `left argument of multiply operation is not a number`)
+		NotifyError(c, `left argument of multiply operation is not a number`)
 		return
 	}
 	if rightType != Number && rightType != Null {
-		notifyTypeError(c, `right argument of multiply operation is not a number`)
+		NotifyError(c, `right argument of multiply operation is not a number`)
 		return
 	}
 
@@ -216,11 +207,11 @@ func (l *secondPassListener) EnterDivide(c *parser.DivideContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 
 	if leftType != Number && leftType != Null {
-		notifyTypeError(c, `left argument of divide operation is not a number`)
+		NotifyError(c, `left argument of divide operation is not a number`)
 		return
 	}
 	if rightType != Number && rightType != Null {
-		notifyTypeError(c, `right argument of divide operation is not a number`)
+		NotifyError(c, `right argument of divide operation is not a number`)
 		return
 	}
 
@@ -230,7 +221,7 @@ func (l *secondPassListener) EnterDivide(c *parser.DivideContext) {
 func (l *secondPassListener) EnterEqual(c *parser.EqualContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 	if leftType != rightType && leftType != Null && rightType != Null {
-		notifyTypeError(c, `left and right arguments of equal operation are not the same`)
+		NotifyError(c, `left and right arguments of equal operation are not the same`)
 		return
 	}
 	l.calc.pushFunction(l.calc.equal)
@@ -239,7 +230,7 @@ func (l *secondPassListener) EnterEqual(c *parser.EqualContext) {
 func (l *secondPassListener) EnterNotEqual(c *parser.NotEqualContext) {
 	leftType, rightType := l.getLeftRightTypes(c)
 	if leftType != rightType && leftType != Null && rightType != Null {
-		notifyTypeError(c, `left and right arguments of equal operation are not the same`)
+		NotifyError(c, `left and right arguments of equal operation are not the same`)
 		return
 	}
 	l.calc.pushFunction(l.calc.notEqual)
@@ -258,7 +249,7 @@ func (l *secondPassListener) EnterGreaterThan(c *parser.GreaterThanContext) {
 		l.calc.pushFunction(l.calc.dateGreaterThan)
 		return
 	}
-	notifyTypeError(c, `left and right arguments of greater than operation are not the same`)
+	NotifyError(c, `left and right arguments of greater than operation are not the same`)
 }
 
 func (l *secondPassListener) EnterGreaterEqual(c *parser.GreaterEqualContext) {
@@ -274,7 +265,7 @@ func (l *secondPassListener) EnterGreaterEqual(c *parser.GreaterEqualContext) {
 		l.calc.pushFunction(l.calc.dateGreaterEqual)
 		return
 	}
-	notifyTypeError(c, `left and right arguments of greater than or equal operation are not the same`)
+	NotifyError(c, `left and right arguments of greater than or equal operation are not the same`)
 }
 
 func (l *secondPassListener) EnterLessThan(c *parser.LessThanContext) {
@@ -290,7 +281,7 @@ func (l *secondPassListener) EnterLessThan(c *parser.LessThanContext) {
 		l.calc.pushFunction(l.calc.dateLessThan)
 		return
 	}
-	notifyTypeError(c, `left and right arguments of less than operation are not the same`)
+	NotifyError(c, `left and right arguments of less than operation are not the same`)
 }
 
 func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
@@ -306,16 +297,16 @@ func (l *secondPassListener) EnterLessEqual(c *parser.LessEqualContext) {
 		l.calc.pushFunction(l.calc.dateLessEqual)
 		return
 	}
-	notifyTypeError(c, `left and right arguments of less than or equal operation are not the same`)
+	NotifyError(c, `left and right arguments of less than or equal operation are not the same`)
 }
 
 func (l *secondPassListener) EnterAnd(c *parser.AndContext) {
 	leftSymbol, rightSymbol := l.getLeftRightTypes(c)
 	if leftSymbol != Bool && leftSymbol != Null {
-		notifyTypeError(c, `left argument of AND is not a boolean`)
+		NotifyError(c, `left argument of AND is not a boolean`)
 	}
 	if rightSymbol != Bool && rightSymbol != Null {
-		notifyTypeError(c, `right argument of AND is not a boolean`)
+		NotifyError(c, `right argument of AND is not a boolean`)
 	}
 	l.calc.pushFunction(l.calc.and)
 }
@@ -323,10 +314,10 @@ func (l *secondPassListener) EnterAnd(c *parser.AndContext) {
 func (l *secondPassListener) EnterOr(c *parser.OrContext) {
 	leftSymbol, rightSymbol := l.getLeftRightTypes(c)
 	if leftSymbol != Bool && leftSymbol != Null {
-		notifyTypeError(c, `left argument of OR is not a boolean`)
+		NotifyError(c, `left argument of OR is not a boolean`)
 	}
 	if rightSymbol != Bool && rightSymbol != Null {
-		notifyTypeError(c, `right argument of OR is not a boolean`)
+		NotifyError(c, `right argument of OR is not a boolean`)
 	}
 	l.calc.pushFunction(l.calc.or)
 }
@@ -357,7 +348,7 @@ func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {
 				panic(`if expr missing a symbol`)
 			}
 			if ifSymbol != Bool && ifSymbol != Null {
-				notifyTypeError(c, `if/elseif statement is not a boolean`)
+				NotifyError(c, `if/elseif statement is not a boolean`)
 			}
 		} else {
 			symbol, ok := l.getSymbol(exprs[i])
@@ -365,7 +356,7 @@ func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {
 				panic(`then/else expr missing a symbol`)
 			}
 			if symbol != cSymbol && symbol != Null && cSymbol != Null {
-				notifyTypeError(c, `THEN and ELSE statements are not the same type`)
+				NotifyError(c, `THEN and ELSE statements are not the same type`)
 			}
 		}
 	}
@@ -408,7 +399,7 @@ func (l *secondPassListener) EnterMinFunc(c *parser.MinFuncContext) {
 			return nextValue.(time.Time).Before(min.(time.Time))
 		}))
 	default:
-		notifyTypeError(c, `min function returns an invalid data type`)
+		NotifyError(c, `min function returns an invalid data type`)
 	}
 	l.calc.pushValueFunc(exprCount)
 }
@@ -441,7 +432,7 @@ func (l *secondPassListener) EnterMaxFunc(c *parser.MaxFuncContext) {
 			return nextValue.(time.Time).After(max.(time.Time))
 		}))
 	default:
-		notifyTypeError(c, `max function returns an invalid data type`)
+		NotifyError(c, `max function returns an invalid data type`)
 	}
 	l.calc.pushValueFunc(exprCount)
 }
