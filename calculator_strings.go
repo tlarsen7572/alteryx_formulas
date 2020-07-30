@@ -191,9 +191,21 @@ func (calc *calculator) padRight() {
 }
 
 func (calc *calculator) pad(side string) {
-	text := calc.popValue().(string)
-	length := int(calc.popValue().(float64))
-	padCharStr := calc.popValue().(string)
+	expr1 := calc.popValue()
+	expr2 := calc.popValue()
+	expr3 := calc.popValue()
+
+	if expr1 == nil || expr2 == nil {
+		calc.pushValue(nil)
+		return
+	}
+	if expr3 == nil {
+		expr3 = ``
+	}
+
+	text := expr1.(string)
+	length := int(expr2.(float64))
+	padCharStr := expr3.(string)
 	if len(padCharStr) == 0 {
 		calc.pushValue(text)
 		return

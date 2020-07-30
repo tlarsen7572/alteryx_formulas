@@ -690,11 +690,17 @@ func (l *secondPassListener) EnterLowercaseFunc(c *parser.LowercaseFuncContext) 
 	l.calc.pushFunction(l.calc.lowercase)
 }
 
-func (l *secondPassListener) EnterPadLeftFunc(_ *parser.PadLeftFuncContext) {
+func (l *secondPassListener) EnterPadLeftFunc(c *parser.PadLeftFuncContext) {
+	l.checkString(c.Expr(0), `padLeft string parameter is not a string`)
+	l.checkNumber(c.Expr(1), `padLeft len parameter is not a number`)
+	l.checkString(c.Expr(2), `padLeft char parameter is not a string`)
 	l.calc.pushFunction(l.calc.padLeft)
 }
 
-func (l *secondPassListener) EnterPadRightFunc(_ *parser.PadRightFuncContext) {
+func (l *secondPassListener) EnterPadRightFunc(c *parser.PadRightFuncContext) {
+	l.checkString(c.Expr(0), `padRight string parameter is not a string`)
+	l.checkNumber(c.Expr(1), `padRight len parameter is not a number`)
+	l.checkString(c.Expr(2), `padRight char parameter is not a string`)
 	l.calc.pushFunction(l.calc.padRight)
 }
 

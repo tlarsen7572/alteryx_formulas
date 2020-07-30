@@ -490,3 +490,43 @@ func TestModWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestPadLeftWrongType(t *testing.T) {
+	_, errs := f.Calculate(`padleft(1, 3, '0')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`padleft('1', '3', '0')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`padleft('1', 3, 0)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestPadRightWrongType(t *testing.T) {
+	_, errs := f.Calculate(`padright(1, 3, '0')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`padright('1', '3', '0')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`padright('1', 3, 0)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

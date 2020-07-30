@@ -433,3 +433,55 @@ func TestModNull(t *testing.T) {
 		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
+
+func TestPadLeftNull(t *testing.T) {
+	result, errs := f.Calculate(`padleft(NULL(), 3, '0')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`padleft('1', null(), '0')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`padleft('1', 3, null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `1` {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+}
+
+func TestPadRightNull(t *testing.T) {
+	result, errs := f.Calculate(`padright(NULL(), 3, '0')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`padright('1', null(), '0')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`padright('1', 3, null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `1` {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+}
