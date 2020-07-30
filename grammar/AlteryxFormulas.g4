@@ -52,7 +52,7 @@ expr
     | Max '(' expr (',' expr)+ ')'                                   # maxFunc
     | Median '(' expr (',' expr)* ')'                                # medianFunc
     | Min '(' expr (',' expr)+ ')'                                   # minFunc
-    | Mod '(' expr (',' expr)* ')'                                   # modFunc
+    | Mod '(' expr ',' expr ')'                                      # modFunc
     | Null '()'                                                      # nullFunc
     | PadLeft '(' expr ',' expr ',' expr ')'                         # padLeftFunc
     | PadRight '(' expr ',' expr ',' expr ')'                        # padRightFunc
