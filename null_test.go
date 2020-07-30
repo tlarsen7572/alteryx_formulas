@@ -405,3 +405,13 @@ func TestMinNull(t *testing.T) {
 		t.Fatalf(`expected 2020-01-01 but got %v`, result)
 	}
 }
+
+func TestMedianNull(t *testing.T) {
+	result, errs := f.Calculate(`median(null(),null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.0 {
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+}

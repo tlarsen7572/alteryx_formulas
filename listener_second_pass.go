@@ -551,6 +551,9 @@ func (l *secondPassListener) EnterLog10Func(c *parser.Log10FuncContext) {
 
 func (l *secondPassListener) EnterMedianFunc(c *parser.MedianFuncContext) {
 	exprCount := len(c.AllExpr())
+	for i := 0; i < exprCount; i++ {
+		l.checkNumber(c.Expr(i), fmt.Sprintf(`median parameter #%v is not a number`, i+1))
+	}
 	l.calc.pushFunction(l.calc.median)
 	l.calc.pushValueFunc(exprCount)
 }

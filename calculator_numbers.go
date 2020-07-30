@@ -189,7 +189,12 @@ func (calc *calculator) median() {
 	exprCount := calc.popValue().(int)
 	exprs := make([]float64, exprCount)
 	for i := 0; i < exprCount; i++ {
-		exprs[i] = calc.popValue().(float64)
+		popped := calc.popValue()
+		if popped == nil {
+			exprs[i] = 0.0
+		} else {
+			exprs[i] = popped.(float64)
+		}
 	}
 	sort.Float64s(exprs)
 	var value float64
