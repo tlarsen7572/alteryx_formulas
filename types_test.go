@@ -450,3 +450,11 @@ func TestLog10WrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestLowercaseWrongType(t *testing.T) {
+	_, errs := f.Calculate(`lowercase(1)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

@@ -645,7 +645,8 @@ func (l *secondPassListener) EnterLengthFunc(c *parser.LengthFuncContext) {
 	l.calc.pushFunction(l.calc.length)
 }
 
-func (l *secondPassListener) EnterLowercaseFunc(_ *parser.LowercaseFuncContext) {
+func (l *secondPassListener) EnterLowercaseFunc(c *parser.LowercaseFuncContext) {
+	l.checkString(c.Expr(), `lowercase parameter is not a string`)
 	l.calc.pushFunction(l.calc.lowercase)
 }
 

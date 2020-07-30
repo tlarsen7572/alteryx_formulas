@@ -175,6 +175,10 @@ func (calc *calculator) length() {
 
 func (calc *calculator) lowercase() {
 	text := calc.popValue()
+	if text == nil {
+		calc.pushValue(nil)
+		return
+	}
 	calc.pushValue(strings.ToLower(text.(string)))
 }
 
