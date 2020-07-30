@@ -202,3 +202,31 @@ func TestEndsWithNull(t *testing.T) {
 		t.Fatalf(`expected true but got %v`, result)
 	}
 }
+
+func TestExpNull(t *testing.T) {
+	result, errs := f.Calculate(`exp(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}
+
+func TestFindStringNull(t *testing.T) {
+	result, errs := f.Calculate(`findstring(NULL(),'a')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`findstring('a',null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != true {
+		t.Fatalf(`expected true but got %v`, result)
+	}
+}

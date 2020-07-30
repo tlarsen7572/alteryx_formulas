@@ -106,9 +106,21 @@ func (calc *calculator) countWords() {
 }
 
 func (calc *calculator) findString() {
-	text := calc.popValue().(string)
-	lookFor := calc.popValue().(string)
-	calc.pushValue(strings.Index(text, lookFor))
+	text := calc.popValue()
+	lookFor := calc.popValue()
+	if text == nil && lookFor == nil {
+		calc.pushValue(true)
+		return
+	}
+	if text == nil {
+		calc.pushValue(false)
+		return
+	}
+	if lookFor == nil {
+		calc.pushValue(true)
+		return
+	}
+	calc.pushValue(strings.Index(text.(string), lookFor.(string)))
 }
 
 func (calc *calculator) getWord() {

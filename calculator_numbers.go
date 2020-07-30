@@ -193,8 +193,12 @@ func (calc *calculator) distance() {
 }
 
 func (calc *calculator) exp() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Exp(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Exp(expr.(float64)))
 }
 
 func (calc *calculator) floor() {

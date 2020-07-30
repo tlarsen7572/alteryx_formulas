@@ -474,7 +474,8 @@ func (l *secondPassListener) EnterDistanceFunc(c *parser.DistanceFuncContext) {
 	l.calc.pushFunction(l.calc.distance)
 }
 
-func (l *secondPassListener) EnterExpFunc(_ *parser.ExpFuncContext) {
+func (l *secondPassListener) EnterExpFunc(c *parser.ExpFuncContext) {
+	l.checkNumber(c.Expr(), `exp parameter is not a number`)
 	l.calc.pushFunction(l.calc.exp)
 }
 
@@ -597,7 +598,9 @@ func (l *secondPassListener) ExitEndsWithFunc(c *parser.EndsWithFuncContext) {
 	}
 }
 
-func (l *secondPassListener) EnterFindStringFunc(_ *parser.FindStringFuncContext) {
+func (l *secondPassListener) EnterFindStringFunc(c *parser.FindStringFuncContext) {
+	l.checkString(c.Expr(0), `findString string is not a string`)
+	l.checkString(c.Expr(1), `findString target is not a string`)
 	l.calc.pushFunction(l.calc.findString)
 }
 
