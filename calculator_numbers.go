@@ -242,7 +242,12 @@ func (calc *calculator) randInt() {
 	// adding 1 to the ceiling and using Floor() gives each integer the same probability.  If we use the ceiling
 	// as-is and then round the final result, 0 and the ceiling both have half the probability of the other integers
 	// and will, over time, have half the number of hits.
-	ceiling := calc.popValue().(float64) + 1
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(0.0)
+		return
+	}
+	ceiling := expr.(float64) + 1
 	value := rand.Float64() * ceiling
 	calc.pushValue(math.Floor(value))
 }

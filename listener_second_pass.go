@@ -562,7 +562,8 @@ func (l *secondPassListener) EnterRandFunc(_ *parser.RandFuncContext) {
 	l.calc.pushFunction(l.calc.rand)
 }
 
-func (l *secondPassListener) EnterRandIntFunc(_ *parser.RandIntFuncContext) {
+func (l *secondPassListener) EnterRandIntFunc(c *parser.RandIntFuncContext) {
+	l.checkNumber(c.Expr(), `randInt parameter is not a number`)
 	l.calc.pushFunction(l.calc.randInt)
 }
 
