@@ -398,3 +398,17 @@ func TestHexToNumberWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestIifWrongType(t *testing.T) {
+	_, errs := f.Calculate(`iif(1, 'a', 'b')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`iif(true, 'a', 1)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

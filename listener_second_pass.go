@@ -45,12 +45,34 @@ func stringChecker(c ErrorNotifier, errorMsg string) symbolChecker {
 	}
 }
 
+func boolChecker(c ErrorNotifier, errorMsg string) symbolChecker {
+	return symbolChecker{
+		c:            c,
+		expectedType: Bool,
+		allowNull:    true,
+		errorMsg:     errorMsg,
+	}
+}
+
 func (l *secondPassListener) checkNumber(c ErrorNotifier, errorMsg string) {
 	l.checkSymbol(numberChecker(c, errorMsg))
 }
 
 func (l *secondPassListener) checkString(c ErrorNotifier, errorMsg string) {
 	l.checkSymbol(stringChecker(c, errorMsg))
+}
+
+func (l *secondPassListener) checkBool(c ErrorNotifier, errorMsg string) {
+	l.checkSymbol(boolChecker(c, errorMsg))
+}
+
+func (l *secondPassListener) checkDynamic(expectedType int, c ErrorNotifier, errorMsg string) {
+	l.checkSymbol(symbolChecker{
+		c:            c,
+		expectedType: expectedType,
+		allowNull:    true,
+		errorMsg:     errorMsg,
+	})
 }
 
 func (l *secondPassListener) checkSymbol(checker symbolChecker) {
@@ -400,17 +422,15 @@ func (l *secondPassListener) EnterMaxFunc(c *parser.MaxFuncContext) {
 }
 
 func (l *secondPassListener) EnterIifFunc(c *parser.IifFuncContext) {
+	l.checkBool(c.Expr(0), `iif bool parameter is not a boolean`)
 	dataType, ok := l.getSymbol(c)
 	if !ok {
 		panic(`iif does not have a type`)
 	}
 
-	switch dataType {
-	case Number:
-		l.calc.pushFunction(l.calc.numberIif)
-	default:
-		panic(`invalid type`)
-	}
+	l.checkDynamic(dataType, c.Expr(1), `iif function then value is not the expected data type`)
+	l.checkDynamic(dataType, c.Expr(2), `iif function else value is not the expected data type`)
+	l.calc.pushFunction(l.calc.iif)
 }
 
 func (l *secondPassListener) EnterAbsFunc(c *parser.AbsFuncContext) {

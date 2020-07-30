@@ -268,3 +268,13 @@ func TestHexToNumberNull(t *testing.T) {
 		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
+
+func TestIifNull(t *testing.T) {
+	result, errs := f.Calculate(`iif(null(),10,20)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 20.0 {
+		t.Fatalf(`expected 20 but got %v`, result)
+	}
+}

@@ -112,6 +112,21 @@ func (calc *calculator) exprIf() {
 	calc.pushValue(exprs[exprCount-1])
 }
 
+func (calc *calculator) iif() {
+	question := calc.popValue()
+	thenValue := calc.popValue()
+	elseValue := calc.popValue()
+	if question == nil {
+		calc.pushValue(elseValue)
+		return
+	}
+	if question.(bool) {
+		calc.pushValue(thenValue)
+	} else {
+		calc.pushValue(elseValue)
+	}
+}
+
 func (calc *calculator) switchFunc() {
 	exprCount := calc.popValue().(int)
 	values := make([]interface{}, exprCount)
