@@ -3,6 +3,7 @@ package alteryx_formulas_test
 import (
 	"math"
 	"testing"
+	"time"
 )
 import f "github.com/tlarsen7572/alteryx_formulas"
 
@@ -334,5 +335,73 @@ func TestLowercaseNull(t *testing.T) {
 	}
 	if result != nil {
 		t.Fatalf(`expected nil but got %v`, result)
+	}
+}
+
+func TestMaxNull(t *testing.T) {
+	result, errs := f.Calculate(`max(NULL(),NULL(),NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`max(NULL(),1,NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 1.0 {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`max(NULL(),'1',NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `1` {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`max(NULL(),todate('2020-01-01'),NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC) {
+		t.Fatalf(`expected 2020-01-01 but got %v`, result)
+	}
+}
+
+func TestMinNull(t *testing.T) {
+	result, errs := f.Calculate(`min(NULL(),NULL(),NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`min(NULL(),1,NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 1.0 {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`min(NULL(),'1',NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `1` {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`min(NULL(),todate('2020-01-01'),NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC) {
+		t.Fatalf(`expected 2020-01-01 but got %v`, result)
 	}
 }

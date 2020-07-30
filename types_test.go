@@ -458,3 +458,19 @@ func TestLowercaseWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestMaxInconsistentTypes(t *testing.T) {
+	_, errs := f.Calculate(`max(1,'2')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestMinInconsistentTypes(t *testing.T) {
+	_, errs := f.Calculate(`min(1,'2')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

@@ -7,6 +7,7 @@ import (
 	"github.com/tlarsen7572/alteryx_formulas/parser"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type secondPassListener struct {
@@ -396,11 +397,28 @@ func (l *secondPassListener) EnterMinFunc(c *parser.MinFuncContext) {
 	}
 
 	exprCount := len(c.AllExpr())
+	for i := 0; i < exprCount; i++ {
+		l.checkDynamic(dataType, c.Expr(i), fmt.Sprintf(`min parameter #%v is not the expected data type`, i+1))
+	}
 	switch dataType {
+	case Null:
+		l.calc.pushFunction(l.calc.useNextIfTrue(func(min interface{}, nextValue interface{}) bool {
+			return false
+		}))
 	case Number:
-		l.calc.pushFunction(l.calc.numberMin)
+		l.calc.pushFunction(l.calc.useNextIfTrue(func(min interface{}, nextValue interface{}) bool {
+			return nextValue.(float64) < min.(float64)
+		}))
+	case String:
+		l.calc.pushFunction(l.calc.useNextIfTrue(func(min interface{}, nextValue interface{}) bool {
+			return nextValue.(string) < min.(string)
+		}))
+	case Date:
+		l.calc.pushFunction(l.calc.useNextIfTrue(func(min interface{}, nextValue interface{}) bool {
+			return nextValue.(time.Time).Before(min.(time.Time))
+		}))
 	default:
-		panic(`invalid type`)
+		notifyTypeError(c, `min function returns an invalid data type`)
 	}
 	l.calc.pushValueFunc(exprCount)
 }
@@ -412,11 +430,28 @@ func (l *secondPassListener) EnterMaxFunc(c *parser.MaxFuncContext) {
 	}
 
 	exprCount := len(c.AllExpr())
+	for i := 0; i < exprCount; i++ {
+		l.checkDynamic(dataType, c.Expr(i), fmt.Sprintf(`max parameter #%v is not the expected data type`, i+1))
+	}
 	switch dataType {
+	case Null:
+		l.calc.pushFunction(l.calc.useNextIfTrue(func(max interface{}, nextValue interface{}) bool {
+			return false
+		}))
 	case Number:
-		l.calc.pushFunction(l.calc.numberMax)
+		l.calc.pushFunction(l.calc.useNextIfTrue(func(max interface{}, nextValue interface{}) bool {
+			return nextValue.(float64) > max.(float64)
+		}))
+	case String:
+		l.calc.pushFunction(l.calc.useNextIfTrue(func(max interface{}, nextValue interface{}) bool {
+			return nextValue.(string) > max.(string)
+		}))
+	case Date:
+		l.calc.pushFunction(l.calc.useNextIfTrue(func(max interface{}, nextValue interface{}) bool {
+			return nextValue.(time.Time).After(max.(time.Time))
+		}))
 	default:
-		panic(`invalid type`)
+		notifyTypeError(c, `max function returns an invalid data type`)
 	}
 	l.calc.pushValueFunc(exprCount)
 }

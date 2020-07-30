@@ -579,6 +579,26 @@ func TestMinNumber(t *testing.T) {
 	}
 }
 
+func TestMinString(t *testing.T) {
+	result, errs := f.Calculate(`min('10', '3','5','7','8')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `10` {
+		t.Fatalf(`expected 10 but got %v`, result)
+	}
+}
+
+func TestMinDate(t *testing.T) {
+	result, errs := f.Calculate(`min(todate('2020-01-02'), todate('2020-01-01'), todate('2020-01-03'))`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC) {
+		t.Fatalf(`expected 2020-01-01 but got %v`, result)
+	}
+}
+
 func TestLotsOfNesting(t *testing.T) {
 	result, errs := f.Calculate(`min(10,min(6,7,min(min(3,4),11),16,12),5,7,8)`, nil)
 	if len(errs) > 0 {
@@ -596,6 +616,26 @@ func TestMaxNumber(t *testing.T) {
 	}
 	if result != 10.0 {
 		t.Fatalf(`expected 10 but got %v`, result)
+	}
+}
+
+func TestMaxString(t *testing.T) {
+	result, errs := f.Calculate(`max('10', '3','5','7','8')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `8` {
+		t.Fatalf(`expected 8 but got %v`, result)
+	}
+}
+
+func TestMaxDate(t *testing.T) {
+	result, errs := f.Calculate(`max(todate('2020-01-02'), todate('2020-01-01'), todate('2020-01-03'))`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != time.Date(2020, 1, 3, 0, 0, 0, 0, time.UTC) {
+		t.Fatalf(`expected 2020-01-03 but got %v`, result)
 	}
 }
 

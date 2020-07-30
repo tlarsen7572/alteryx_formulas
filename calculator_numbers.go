@@ -44,38 +44,6 @@ func (calc *calculator) pow() {
 	calc.pushValue(math.Pow(value, power))
 }
 
-func (calc *calculator) numberMin() {
-	arguments := calc.popValue().(int)
-	var min float64
-	for i := 0; i < arguments; i++ {
-		if i == 0 {
-			min = calc.popValue().(float64)
-			continue
-		}
-		nextValue := calc.popValue().(float64)
-		if nextValue < min {
-			min = nextValue
-		}
-	}
-	calc.pushValue(min)
-}
-
-func (calc *calculator) numberMax() {
-	arguments := calc.popValue().(int)
-	var max float64
-	for i := 0; i < arguments; i++ {
-		if i == 0 {
-			max = calc.popValue().(float64)
-			continue
-		}
-		nextValue := calc.popValue().(float64)
-		if nextValue > max {
-			max = nextValue
-		}
-	}
-	calc.pushValue(max)
-}
-
 func (calc *calculator) abs() {
 	expr := calc.popValue()
 	if expr == nil {

@@ -146,3 +146,29 @@ func (calc *calculator) switchFunc() {
 	defaultValue := values[1]
 	calc.pushValue(defaultValue)
 }
+
+func (calc *calculator) useNextIfTrue(comparer func(min interface{}, nextValue interface{}) bool) func() {
+	return func() {
+		arguments := calc.popValue().(int)
+		var max interface{}
+		for i := 0; i < arguments; i++ {
+			if i == 0 {
+				max = calc.popValue()
+				continue
+			}
+
+			nextValue := calc.popValue()
+			if max == nil {
+				max = nextValue
+				continue
+			}
+			if nextValue == nil {
+				continue
+			}
+			if comparer(max, nextValue) {
+				max = nextValue
+			}
+		}
+		calc.pushValue(max)
+	}
+}
