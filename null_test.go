@@ -296,3 +296,13 @@ func TestLeftNull(t *testing.T) {
 		t.Fatalf(`expected blank string but got %v`, result)
 	}
 }
+
+func TestLengthNull(t *testing.T) {
+	result, errs := f.Calculate(`length(null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.0 {
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+}

@@ -638,7 +638,8 @@ func (l *secondPassListener) EnterLeftFunc(c *parser.LeftFuncContext) {
 	l.calc.pushFunction(l.calc.left)
 }
 
-func (l *secondPassListener) EnterLengthFunc(_ *parser.LengthFuncContext) {
+func (l *secondPassListener) EnterLengthFunc(c *parser.LengthFuncContext) {
+	l.checkString(c.Expr(), `length parameter is not a string`)
 	l.calc.pushFunction(l.calc.length)
 }
 

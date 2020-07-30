@@ -165,13 +165,17 @@ func (calc *calculator) left() {
 }
 
 func (calc *calculator) length() {
-	text := calc.popValue().(string)
-	calc.pushValue(float64(len(text)))
+	text := calc.popValue()
+	if text == nil {
+		calc.pushValue(0.0)
+		return
+	}
+	calc.pushValue(float64(len(text.(string))))
 }
 
 func (calc *calculator) lowercase() {
-	text := calc.popValue().(string)
-	calc.pushValue(strings.ToLower(text))
+	text := calc.popValue()
+	calc.pushValue(strings.ToLower(text.(string)))
 }
 
 func (calc *calculator) padLeft() {
