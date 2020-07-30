@@ -686,7 +686,12 @@ func (l *secondPassListener) EnterPadRightFunc(c *parser.PadRightFuncContext) {
 	l.calc.pushFunction(l.calc.padRight)
 }
 
-func (l *secondPassListener) EnterRegexCountMatchesFunc(_ *parser.RegexCountMatchesFuncContext) {
+func (l *secondPassListener) EnterRegexCountMatchesFunc(c *parser.RegexCountMatchesFuncContext) {
+	l.checkString(c.Expr(0), `regex_CountMatches string parameter is not a string`)
+	l.checkString(c.Expr(1), `regex_CountMatches pattern parameter is not a string`)
+	if len(c.AllExpr()) == 3 {
+		l.checkNumber(c.Expr(2), `regex_CountMatches caseInsensitive parameter is not a number`)
+	}
 	l.calc.pushFunction(l.calc.regexCountMatches)
 }
 

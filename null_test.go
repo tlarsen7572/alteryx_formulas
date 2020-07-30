@@ -513,3 +513,29 @@ func TestRandIntNull(t *testing.T) {
 		t.Fatalf(`expected 0 but got %v`, result)
 	}
 }
+
+func TestRegexCountMatchesNull(t *testing.T) {
+	result, errs := f.Calculate(`regex_CountMatches(NULL(), '\w')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.0 {
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`regex_CountMatches('ABC', NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.0 {
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`regex_CountMatches('ABC', 'a', NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 0.0 {
+		t.Fatalf(`expected 0 but got %v`, result)
+	}
+}
