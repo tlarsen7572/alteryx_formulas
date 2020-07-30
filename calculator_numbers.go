@@ -200,8 +200,12 @@ func (calc *calculator) floor() {
 }
 
 func (calc *calculator) log() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Log(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Log(expr.(float64)))
 }
 
 func (calc *calculator) log10() {

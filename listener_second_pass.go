@@ -504,7 +504,8 @@ func (l *secondPassListener) EnterFloorFunc(c *parser.FloorFuncContext) {
 	l.calc.pushFunction(l.calc.floor)
 }
 
-func (l *secondPassListener) EnterLogFunc(_ *parser.LogFuncContext) {
+func (l *secondPassListener) EnterLogFunc(c *parser.LogFuncContext) {
+	l.checkNumber(c.Expr(), `log parameter is not a number`)
 	l.calc.pushFunction(l.calc.log)
 }
 
