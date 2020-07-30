@@ -605,7 +605,9 @@ func (l *secondPassListener) EnterFindStringFunc(c *parser.FindStringFuncContext
 	l.calc.pushFunction(l.calc.findString)
 }
 
-func (l *secondPassListener) EnterGetWordFunc(_ *parser.GetWordFuncContext) {
+func (l *secondPassListener) EnterGetWordFunc(c *parser.GetWordFuncContext) {
+	l.checkString(c.Expr(0), `getWord string parameter is not a string`)
+	l.checkNumber(c.Expr(1), `getWord index parameter is not a number`)
 	l.calc.pushFunction(l.calc.getWord)
 }
 

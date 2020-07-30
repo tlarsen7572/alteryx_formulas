@@ -124,9 +124,17 @@ func (calc *calculator) findString() {
 }
 
 func (calc *calculator) getWord() {
-	text := calc.popValue().(string)
-	wordIndex := int(calc.popValue().(float64))
-	match := calc.wordExp.FindAllStringSubmatch(text, -1)
+	text := calc.popValue()
+	poppedIndex := calc.popValue()
+	if text == nil {
+		calc.pushValue(nil)
+		return
+	}
+	wordIndex := 0
+	if poppedIndex != nil {
+		wordIndex = int(poppedIndex.(float64))
+	}
+	match := calc.wordExp.FindAllStringSubmatch(text.(string), -1)
 	if wordIndex < 0 || wordIndex >= len(match) {
 		calc.pushValue(nil)
 		return
