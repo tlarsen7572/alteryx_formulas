@@ -209,8 +209,12 @@ func (calc *calculator) log() {
 }
 
 func (calc *calculator) log10() {
-	expr := calc.popValue().(float64)
-	calc.pushValue(math.Log10(expr))
+	expr := calc.popValue()
+	if expr == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Log10(expr.(float64)))
 }
 
 func (calc *calculator) median() {

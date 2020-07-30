@@ -509,7 +509,8 @@ func (l *secondPassListener) EnterLogFunc(c *parser.LogFuncContext) {
 	l.calc.pushFunction(l.calc.log)
 }
 
-func (l *secondPassListener) EnterLog10Func(_ *parser.Log10FuncContext) {
+func (l *secondPassListener) EnterLog10Func(c *parser.Log10FuncContext) {
+	l.checkNumber(c.Expr(), `log10 parameter is not a number`)
 	l.calc.pushFunction(l.calc.log10)
 }
 
