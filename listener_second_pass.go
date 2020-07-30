@@ -558,7 +558,8 @@ func (l *secondPassListener) EnterCharToIntFunc(c *parser.CharToIntFuncContext) 
 	l.calc.pushFunction(l.calc.charToInt)
 }
 
-func (l *secondPassListener) EnterHexToNumberFunc(_ *parser.HexToNumberFuncContext) {
+func (l *secondPassListener) EnterHexToNumberFunc(c *parser.HexToNumberFuncContext) {
+	l.checkString(c.Expr(), `hexToNumber parameter is not a string`)
 	l.calc.pushFunction(l.calc.hexToNumber)
 }
 

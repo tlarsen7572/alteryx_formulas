@@ -314,8 +314,12 @@ func (calc *calculator) tanh() {
 }
 
 func (calc *calculator) hexToNumber() {
-	hexCode := calc.popValue().(string)
-	result, err := strconv.ParseInt(hexCode, 16, 64)
+	hexCode := calc.popValue()
+	if hexCode == nil {
+		calc.pushValue(nil)
+		return
+	}
+	result, err := strconv.ParseInt(hexCode.(string), 16, 64)
 	if err != nil {
 		calc.pushValue(nil)
 		return
