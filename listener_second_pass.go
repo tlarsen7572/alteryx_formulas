@@ -632,7 +632,9 @@ func (l *secondPassListener) EnterGetWordFunc(c *parser.GetWordFuncContext) {
 	l.calc.pushFunction(l.calc.getWord)
 }
 
-func (l *secondPassListener) EnterLeftFunc(_ *parser.LeftFuncContext) {
+func (l *secondPassListener) EnterLeftFunc(c *parser.LeftFuncContext) {
+	l.checkString(c.Expr(0), `left string parameter is not a string`)
+	l.checkNumber(c.Expr(1), `left len parameter is not a number`)
 	l.calc.pushFunction(l.calc.left)
 }
 

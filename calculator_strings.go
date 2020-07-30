@@ -143,11 +143,21 @@ func (calc *calculator) getWord() {
 }
 
 func (calc *calculator) left() {
-	text := calc.popValue().(string)
-	length := int(calc.popValue().(float64))
-	runes := []rune(text)
+	text := calc.popValue()
+	lengthPopped := calc.popValue()
+	if text == nil {
+		calc.pushValue(nil)
+		return
+	}
+	if lengthPopped == nil {
+		calc.pushValue(``)
+		return
+	}
+
+	length := int(lengthPopped.(float64))
+	runes := []rune(text.(string))
 	if length < 0 || length >= len(runes) {
-		calc.pushValue(text)
+		calc.pushValue(text.(string))
 		return
 	}
 	newText := string(runes[:length])
