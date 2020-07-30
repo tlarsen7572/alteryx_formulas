@@ -485,3 +485,21 @@ func TestPadRightNull(t *testing.T) {
 		t.Fatalf(`expected 1 but got %v`, result)
 	}
 }
+
+func TestPowNull(t *testing.T) {
+	result, errs := f.Calculate(`pow(2,null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`pow(null(), 3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}

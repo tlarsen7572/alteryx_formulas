@@ -530,3 +530,17 @@ func TestPadRightWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestPowWrongType(t *testing.T) {
+	_, errs := f.Calculate(`pow('2',3)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`pow(2,'3')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

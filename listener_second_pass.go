@@ -375,19 +375,9 @@ func (l *secondPassListener) EnterExprIf(c *parser.ExprIfContext) {
 }
 
 func (l *secondPassListener) EnterPowFunc(c *parser.PowFuncContext) {
-	valueType, ok := l.getSymbol(c.Expr(0))
-	if !ok {
-		panic(`value symbol does not have a type`)
-	}
-	powerType, ok := l.getSymbol(c.Expr(1))
-	if !ok {
-		panic(`power symbol does not have a type`)
-	}
-	if (valueType == Number || valueType == Null) && (powerType == Number || powerType == Null) {
-		l.calc.pushFunction(l.calc.pow)
-		return
-	}
-	panic(`value or power are not numbers`)
+	l.checkNumber(c.Expr(0), `pow value parameter is not a number`)
+	l.checkNumber(c.Expr(1), `pow power parameter is not a number`)
+	l.calc.pushFunction(l.calc.pow)
 }
 
 func (l *secondPassListener) EnterMinFunc(c *parser.MinFuncContext) {

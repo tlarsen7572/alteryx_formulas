@@ -39,9 +39,13 @@ func (calc *calculator) divideNumbers() {
 }
 
 func (calc *calculator) pow() {
-	value := calc.popValue().(float64)
-	power := calc.popValue().(float64)
-	calc.pushValue(math.Pow(value, power))
+	value := calc.popValue()
+	power := calc.popValue()
+	if value == nil || power == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Pow(value.(float64), power.(float64)))
 }
 
 func (calc *calculator) abs() {
