@@ -310,6 +310,7 @@ func (l *firstPassListener) ExitSwitchFunc(c *parser.SwitchFuncContext) {
 		l.setSymbol(c, symbol)
 		return
 	}
+	l.setSymbol(c, Null)
 }
 
 func (l *firstPassListener) ExitCharFromIntFunc(c *parser.CharFromIntFuncContext) {
