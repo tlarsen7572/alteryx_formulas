@@ -579,7 +579,8 @@ func (l *secondPassListener) EnterSqrtFunc(c *parser.SqrtFuncContext) {
 	l.calc.pushFunction(l.calc.sqrt)
 }
 
-func (l *secondPassListener) EnterTanFunc(_ *parser.TanFuncContext) {
+func (l *secondPassListener) EnterTanFunc(c *parser.TanFuncContext) {
+	l.checkNumber(c.Expr(), `tan parameter is not a number`)
 	l.calc.pushFunction(l.calc.tan)
 }
 

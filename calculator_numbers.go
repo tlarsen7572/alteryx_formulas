@@ -309,8 +309,12 @@ func (calc *calculator) sqrt() {
 }
 
 func (calc *calculator) tan() {
-	radians := calc.popValue().(float64)
-	calc.pushValue(math.Tan(radians))
+	radians := calc.popValue()
+	if radians == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Tan(radians.(float64)))
 }
 
 func (calc *calculator) tanh() {
