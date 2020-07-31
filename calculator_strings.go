@@ -285,10 +285,25 @@ func (calc *calculator) regexMatch() {
 }
 
 func (calc *calculator) regexReplace() {
-	text := calc.popValue().(string)
-	regex := calc.popValue().(string)
-	replaceWith := calc.popValue().(string)
-	caseInsensitive := calc.popValue().(float64)
+	expr1 := calc.popValue()
+	expr2 := calc.popValue()
+	expr3 := calc.popValue()
+	expr4 := calc.popValue()
+	if expr1 == nil || expr3 == nil {
+		calc.pushValue(``)
+		return
+	}
+	if expr2 == nil {
+		expr2 = ``
+	}
+	if expr4 == nil {
+		expr4 = 0.0
+	}
+
+	text := expr1.(string)
+	regex := expr2.(string)
+	replaceWith := expr3.(string)
+	caseInsensitive := expr4.(float64)
 
 	if caseInsensitive != 0 {
 		regex = `(?i)` + regex

@@ -565,3 +565,37 @@ func TestRegexMatchNull(t *testing.T) {
 		t.Fatalf(`expected false but got %v`, result)
 	}
 }
+
+func TestRegexReplaceNull(t *testing.T) {
+	result, errs := f.Calculate(`regex_Replace(NULL(), '\w', '-')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `` {
+		t.Fatalf(`expected a blank string but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`regex_Replace('ABC', NULL(), '-')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `-A-B-C-` {
+		t.Fatalf(`expected -A-B-C- but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`regex_Replace('ABC', '\w', NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `` {
+		t.Fatalf(`expected a blank string but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`regex_replace('AaC', 'a', '-',NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `A-C` {
+		t.Fatalf(`expected A-C but got %v`, result)
+	}
+}

@@ -718,7 +718,13 @@ func (l *secondPassListener) ExitRegexMatchFunc(c *parser.RegexMatchFuncContext)
 	}
 }
 
-func (l *secondPassListener) EnterRegexReplaceFunc(_ *parser.RegexReplaceFuncContext) {
+func (l *secondPassListener) EnterRegexReplaceFunc(c *parser.RegexReplaceFuncContext) {
+	l.checkString(c.Expr(0), `regex_Replace string parameter is not a string`)
+	l.checkString(c.Expr(1), `regex_Replace pattern parameter is not a string`)
+	l.checkString(c.Expr(2), `regex_Replace replace parameter is not a string`)
+	if len(c.AllExpr()) == 4 {
+		l.checkNumber(c.Expr(3), `regex_Replace caseInsensitive parameter is not a number`)
+	}
 	l.calc.pushFunction(l.calc.regexReplace)
 }
 
