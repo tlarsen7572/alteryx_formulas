@@ -599,3 +599,29 @@ func TestRegexReplaceNull(t *testing.T) {
 		t.Fatalf(`expected A-C but got %v`, result)
 	}
 }
+
+func TestReplaceNull(t *testing.T) {
+	result, errs := f.Calculate(`replace(NULL(), '1', '2')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `` {
+		t.Fatalf(`expected a blank string but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`replace('123', NULL(), '2')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `123` {
+		t.Fatalf(`expected 123 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`replace('123', '1', NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `23` {
+		t.Fatalf(`expected 23 but got %v`, result)
+	}
+}

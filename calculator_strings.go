@@ -319,10 +319,22 @@ func (calc *calculator) regexReplace() {
 }
 
 func (calc *calculator) replace() {
-	text := calc.popValue().(string)
-	find := calc.popValue().(string)
-	replace := calc.popValue().(string)
-	newText := strings.ReplaceAll(text, find, replace)
+	text := calc.popValue()
+	find := calc.popValue()
+	replace := calc.popValue()
+	if text == nil {
+		calc.pushValue(``)
+		return
+	}
+	if find == nil {
+		calc.pushValue(text)
+		return
+	}
+	if replace == nil {
+		replace = ``
+	}
+
+	newText := strings.ReplaceAll(text.(string), find.(string), replace.(string))
 	calc.pushValue(newText)
 }
 

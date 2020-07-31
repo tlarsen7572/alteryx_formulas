@@ -735,7 +735,10 @@ func (l *secondPassListener) ExitRegexReplaceFunc(c *parser.RegexReplaceFuncCont
 	}
 }
 
-func (l *secondPassListener) EnterReplaceFunc(_ *parser.ReplaceFuncContext) {
+func (l *secondPassListener) EnterReplaceFunc(c *parser.ReplaceFuncContext) {
+	l.checkString(c.Expr(0), `replace string parameter is not a string`)
+	l.checkString(c.Expr(1), `replace target parameter is not a string`)
+	l.checkString(c.Expr(2), `replace replacement parameter is not a string`)
 	l.calc.pushFunction(l.calc.replace)
 }
 
