@@ -564,7 +564,8 @@ func (l *secondPassListener) EnterRoundFunc(c *parser.RoundFuncContext) {
 	l.calc.pushFunction(l.calc.round)
 }
 
-func (l *secondPassListener) EnterSinFunc(_ *parser.SinFuncContext) {
+func (l *secondPassListener) EnterSinFunc(c *parser.SinFuncContext) {
+	l.checkNumber(c.Expr(), `sin parameter is not a number`)
 	l.calc.pushFunction(l.calc.sin)
 }
 
