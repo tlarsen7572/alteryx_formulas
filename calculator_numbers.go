@@ -253,8 +253,15 @@ func (calc *calculator) randInt() {
 }
 
 func (calc *calculator) round() {
-	value := calc.popValue().(float64)
-	multiple := calc.popValue().(float64)
+	expr1 := calc.popValue()
+	expr2 := calc.popValue()
+	if expr1 == nil || expr2 == nil {
+		calc.pushValue(nil)
+		return
+	}
+
+	value := expr1.(float64)
+	multiple := expr2.(float64)
 	if multiple == 0 {
 		calc.pushValue(nil)
 		return

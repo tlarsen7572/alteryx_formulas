@@ -558,7 +558,9 @@ func (l *secondPassListener) EnterRandIntFunc(c *parser.RandIntFuncContext) {
 	l.calc.pushFunction(l.calc.randInt)
 }
 
-func (l *secondPassListener) EnterRoundFunc(_ *parser.RoundFuncContext) {
+func (l *secondPassListener) EnterRoundFunc(c *parser.RoundFuncContext) {
+	l.checkNumber(c.Expr(0), `round value parameter is not a number`)
+	l.checkNumber(c.Expr(1), `round mult parameter is not a number`)
 	l.calc.pushFunction(l.calc.round)
 }
 
