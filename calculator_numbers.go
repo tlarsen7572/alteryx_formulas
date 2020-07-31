@@ -300,8 +300,12 @@ func (calc *calculator) sinh() {
 }
 
 func (calc *calculator) sqrt() {
-	value := calc.popValue().(float64)
-	calc.pushValue(math.Sqrt(value))
+	value := calc.popValue()
+	if value == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Sqrt(value.(float64)))
 }
 
 func (calc *calculator) tan() {

@@ -681,3 +681,13 @@ func TestSinhNull(t *testing.T) {
 		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
+
+func TestSqrtNull(t *testing.T) {
+	result, errs := f.Calculate(`sqrt(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}
