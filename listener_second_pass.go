@@ -584,7 +584,8 @@ func (l *secondPassListener) EnterTanFunc(c *parser.TanFuncContext) {
 	l.calc.pushFunction(l.calc.tan)
 }
 
-func (l *secondPassListener) EnterTanhFunc(_ *parser.TanhFuncContext) {
+func (l *secondPassListener) EnterTanhFunc(c *parser.TanhFuncContext) {
+	l.checkNumber(c.Expr(), `tanh parameter is not a number`)
 	l.calc.pushFunction(l.calc.tanh)
 }
 

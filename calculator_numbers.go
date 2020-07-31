@@ -318,8 +318,12 @@ func (calc *calculator) tan() {
 }
 
 func (calc *calculator) tanh() {
-	radians := calc.popValue().(float64)
-	calc.pushValue(math.Tanh(radians))
+	radians := calc.popValue()
+	if radians == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Tanh(radians.(float64)))
 }
 
 func (calc *calculator) hexToNumber() {
