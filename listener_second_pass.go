@@ -702,7 +702,12 @@ func (l *secondPassListener) ExitRegexCountMatchesFunc(c *parser.RegexCountMatch
 	}
 }
 
-func (l *secondPassListener) EnterRegexMatchFunc(_ *parser.RegexMatchFuncContext) {
+func (l *secondPassListener) EnterRegexMatchFunc(c *parser.RegexMatchFuncContext) {
+	l.checkString(c.Expr(0), `regex_Match string parameter is not a string`)
+	l.checkString(c.Expr(1), `regex_Match pattern parameter is not a string`)
+	if len(c.AllExpr()) == 3 {
+		l.checkNumber(c.Expr(2), `regex_Match caseInsensitive parameter is not a number`)
+	}
 	l.calc.pushFunction(l.calc.regexMatch)
 }
 

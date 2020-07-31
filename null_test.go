@@ -539,3 +539,29 @@ func TestRegexCountMatchesNull(t *testing.T) {
 		t.Fatalf(`expected 0 but got %v`, result)
 	}
 }
+
+func TestRegexMatchNull(t *testing.T) {
+	result, errs := f.Calculate(`regex_Match(NULL(), '\w')`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`regex_Match('ABC', NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`regex_Match('ABC', 'a', NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != false {
+		t.Fatalf(`expected false but got %v`, result)
+	}
+}

@@ -251,24 +251,36 @@ func (calc *calculator) regexCountMatches() {
 }
 
 func (calc *calculator) regexMatch() {
-	text := calc.popValue().(string)
-	regex := calc.popValue().(string)
-	caseInsensitive := calc.popValue().(float64)
+	expr1 := calc.popValue()
+	expr2 := calc.popValue()
+	expr3 := calc.popValue()
+	if expr1 == nil || expr2 == nil {
+		calc.pushValue(false)
+		return
+	}
+
+	if expr3 == nil {
+		expr3 = 0.0
+	}
+
+	text := expr1.(string)
+	regex := expr2.(string)
+	caseInsensitive := expr3.(float64)
 
 	if caseInsensitive != 0 {
 		regex = `(?i)` + regex
 	}
 	r, err := regexp.Compile(regex)
 	if err != nil {
-		calc.pushValue(0)
+		calc.pushValue(false)
 		calc.errs = append(calc.errs, err)
 		return
 	}
 	matches := r.MatchString(text)
 	if matches {
-		calc.pushValue(-1.0)
+		calc.pushValue(true)
 	} else {
-		calc.pushValue(0.0)
+		calc.pushValue(false)
 	}
 }
 

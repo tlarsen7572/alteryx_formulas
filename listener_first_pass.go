@@ -358,7 +358,7 @@ func (l *firstPassListener) ExitRegexCountMatchesFunc(c *parser.RegexCountMatche
 }
 
 func (l *firstPassListener) ExitRegexMatchFunc(c *parser.RegexMatchFuncContext) {
-	l.setSymbol(c, Number)
+	l.setSymbol(c, Bool)
 }
 
 func (l *firstPassListener) ExitRegexReplaceFunc(c *parser.RegexReplaceFuncContext) {
