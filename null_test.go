@@ -717,3 +717,29 @@ func TestSubstringNull(t *testing.T) {
 		t.Fatalf(`expected a blank string but got %v`, result)
 	}
 }
+
+func TestSwitchNull(t *testing.T) {
+	result, errs := f.Calculate(`switch(NULL(),1,'A',2,'B',3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 1.0 {
+		t.Fatalf(`expected 1 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`switch(NULL(),1,NULL(),2,'B',3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != 2.0 {
+		t.Fatalf(`expected 2 but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`switch('A',1,'A',NULL(),'B',3)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}

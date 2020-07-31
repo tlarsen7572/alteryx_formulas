@@ -588,10 +588,16 @@ func (l *secondPassListener) EnterTanhFunc(_ *parser.TanhFuncContext) {
 }
 
 func (l *secondPassListener) EnterSwitchFunc(c *parser.SwitchFuncContext) {
-	_, ok := l.getSymbol(c)
+	symbol, ok := l.getSymbol(c)
 	if !ok {
 		panic(`symbol does not exist for switch`)
 	}
+	exprs := c.AllExpr()
+	for i := 0; i < len(exprs)/2; i++ {
+		paramIndex := i*2 + 1
+		l.checkDynamic(symbol, exprs[paramIndex], fmt.Sprintf(`switch parameter %v is not the expected type`, paramIndex+1))
+	}
+
 	l.calc.pushFunction(l.calc.switchFunc)
 	exprCount := len(c.AllExpr())
 	l.calc.pushValueFunc(exprCount)

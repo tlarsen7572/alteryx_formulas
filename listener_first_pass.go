@@ -298,7 +298,18 @@ func (l *firstPassListener) ExitTanhFunc(c *parser.TanhFuncContext) {
 }
 
 func (l *firstPassListener) ExitSwitchFunc(c *parser.SwitchFuncContext) {
-	l.setSymbol(c, Number)
+	exprs := c.AllExpr()
+	for i := 0; i < len(exprs)/2; i++ {
+		symbol, ok := l.getSymbol(exprs[i*2+1])
+		if !ok {
+			panic(`no symbol for switch parameter`)
+		}
+		if symbol == Null {
+			continue
+		}
+		l.setSymbol(c, symbol)
+		return
+	}
 }
 
 func (l *firstPassListener) ExitCharFromIntFunc(c *parser.CharFromIntFuncContext) {

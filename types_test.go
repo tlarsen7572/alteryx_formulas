@@ -710,3 +710,11 @@ func TestSubstringWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestSwitchWrongType(t *testing.T) {
+	_, errs := f.Calculate(`switch('A',1,'A','2','B',3)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
