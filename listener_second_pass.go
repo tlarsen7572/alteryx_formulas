@@ -569,7 +569,8 @@ func (l *secondPassListener) EnterSinFunc(c *parser.SinFuncContext) {
 	l.calc.pushFunction(l.calc.sin)
 }
 
-func (l *secondPassListener) EnterSinhFunc(_ *parser.SinhFuncContext) {
+func (l *secondPassListener) EnterSinhFunc(c *parser.SinhFuncContext) {
+	l.checkNumber(c.Expr(), `sinh parameter is not a number`)
 	l.calc.pushFunction(l.calc.sinh)
 }
 

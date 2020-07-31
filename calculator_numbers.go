@@ -291,8 +291,12 @@ func (calc *calculator) sin() {
 }
 
 func (calc *calculator) sinh() {
-	radians := calc.popValue().(float64)
-	calc.pushValue(math.Sinh(radians))
+	radians := calc.popValue()
+	if radians == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(math.Sinh(radians.(float64)))
 }
 
 func (calc *calculator) sqrt() {

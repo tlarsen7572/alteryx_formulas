@@ -671,3 +671,13 @@ func TestSinNull(t *testing.T) {
 		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
+
+func TestSinhNull(t *testing.T) {
+	result, errs := f.Calculate(`sinh(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+}
