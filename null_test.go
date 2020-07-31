@@ -625,3 +625,21 @@ func TestReplaceNull(t *testing.T) {
 		t.Fatalf(`expected 23 but got %v`, result)
 	}
 }
+
+func TestRightNull(t *testing.T) {
+	result, errs := f.Calculate(`right(NULL(), 1)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`right('abc', null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `` {
+		t.Fatalf(`expected a blank string but got %v`, result)
+	}
+}

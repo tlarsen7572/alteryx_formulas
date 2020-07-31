@@ -339,8 +339,19 @@ func (calc *calculator) replace() {
 }
 
 func (calc *calculator) right() {
-	text := calc.popValue().(string)
-	length := int(calc.popValue().(float64))
+	expr1 := calc.popValue()
+	expr2 := calc.popValue()
+	if expr1 == nil {
+		calc.pushValue(nil)
+		return
+	}
+	if expr2 == nil {
+		calc.pushValue(``)
+		return
+	}
+
+	text := expr1.(string)
+	length := int(expr2.(float64))
 	runes := []rune(text)
 	if length < 0 || length >= len(runes) {
 		calc.pushValue(text)

@@ -742,7 +742,9 @@ func (l *secondPassListener) EnterReplaceFunc(c *parser.ReplaceFuncContext) {
 	l.calc.pushFunction(l.calc.replace)
 }
 
-func (l *secondPassListener) EnterRightFunc(_ *parser.RightFuncContext) {
+func (l *secondPassListener) EnterRightFunc(c *parser.RightFuncContext) {
+	l.checkString(c.Expr(0), `right string parameter is not a string`)
+	l.checkNumber(c.Expr(1), `right len parameter is not a number`)
 	l.calc.pushFunction(l.calc.right)
 }
 
