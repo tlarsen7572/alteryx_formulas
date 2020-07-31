@@ -734,3 +734,19 @@ func TestTanhWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestToDateWrongType(t *testing.T) {
+	_, errs := f.Calculate(`todate(true)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
+
+func TestToDateTimeWrongType(t *testing.T) {
+	_, errs := f.Calculate(`todatetime(true)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

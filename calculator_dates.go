@@ -22,6 +22,8 @@ func (calc *calculator) toDate() {
 		calc.pushValue(dateValue)
 	case time.Time:
 		calc.pushValue(value.Truncate(24 * time.Hour))
+	case nil:
+		calc.pushValue(nil)
 	default:
 		calc.pushValue(nil)
 		calc.errs = append(calc.errs, fmt.Errorf(`%v has incorrect type: ToDate can only convert strings, numbers, or datetimes`, value))
@@ -46,6 +48,8 @@ func (calc *calculator) toDatetime() {
 		calc.pushValue(dateValue)
 	case time.Time:
 		calc.pushValue(value.Truncate(time.Second))
+	case nil:
+		calc.pushValue(nil)
 	default:
 		calc.pushValue(nil)
 		calc.errs = append(calc.errs, fmt.Errorf(`%v has incorrect type: ToDatetime can only convert strings, numbers, or datetimes`, value))
