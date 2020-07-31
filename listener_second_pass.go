@@ -753,7 +753,10 @@ func (l *secondPassListener) EnterRightFunc(c *parser.RightFuncContext) {
 	l.calc.pushFunction(l.calc.right)
 }
 
-func (l *secondPassListener) EnterSubstringFunc(_ *parser.SubstringFuncContext) {
+func (l *secondPassListener) EnterSubstringFunc(c *parser.SubstringFuncContext) {
+	l.checkString(c.Expr(0), `substring string parameter is not a string`)
+	l.checkNumber(c.Expr(1), `substring start parameter is not a number`)
+	l.checkNumber(c.Expr(2), `substring length parameter is not a number`)
 	l.calc.pushFunction(l.calc.substring)
 }
 

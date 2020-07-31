@@ -690,3 +690,23 @@ func TestSqrtWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestSubstringWrongType(t *testing.T) {
+	_, errs := f.Calculate(`substring(123, 1, 2)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`substring('abc', '1', 2)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`substring('abc', 1, '2')`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

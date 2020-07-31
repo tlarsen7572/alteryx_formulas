@@ -691,3 +691,29 @@ func TestSqrtNull(t *testing.T) {
 		t.Fatalf(`expected nil but got %v`, result)
 	}
 }
+
+func TestSubstringNull(t *testing.T) {
+	result, errs := f.Calculate(`substring(NULL(),1,2)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`substring('abc',null(),2)`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `ab` {
+		t.Fatalf(`expected ab but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`substring('abc',1,null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != `` {
+		t.Fatalf(`expected a blank string but got %v`, result)
+	}
+}

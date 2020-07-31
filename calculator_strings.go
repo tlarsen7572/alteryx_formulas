@@ -363,9 +363,24 @@ func (calc *calculator) right() {
 }
 
 func (calc *calculator) substring() {
-	text := calc.popValue().(string)
-	startAt := int(calc.popValue().(float64))
-	length := int(calc.popValue().(float64))
+	expr1 := calc.popValue()
+	expr2 := calc.popValue()
+	expr3 := calc.popValue()
+	if expr1 == nil {
+		calc.pushValue(nil)
+		return
+	}
+	if expr3 == nil {
+		calc.pushValue(``)
+		return
+	}
+	if expr2 == nil {
+		expr2 = 0.0
+	}
+
+	text := expr1.(string)
+	startAt := int(expr2.(float64))
+	length := int(expr3.(float64))
 
 	if length < 0 {
 		calc.pushValue(``)
