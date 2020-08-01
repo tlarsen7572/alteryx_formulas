@@ -9,7 +9,7 @@ import (
 )
 
 type Calculator interface {
-	Calculate() interface{}
+	Calculate() (interface{}, []error)
 }
 
 type RecordInfo interface {
@@ -21,7 +21,7 @@ type RecordInfo interface {
 	GetFieldTypeByName(fieldName string) (string, error)
 }
 
-func NewCalculator(formula string, info RecordInfo) (*calculator, []error) {
+func NewCalculator(formula string, info RecordInfo) (Calculator, []error) {
 	inputStream := antlr.NewInputStream(formula)
 	lexer := parser.NewAlteryxFormulasLexer(inputStream)
 	tokens := antlr.NewCommonTokenStream(lexer, antlr.LexerDefaultTokenChannel)
