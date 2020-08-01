@@ -1751,6 +1751,35 @@ func TestOrFalse(t *testing.T) {
 	}
 }
 
+func TestCalculatorStruct(t *testing.T) {
+	record := &mockSingleFieldRecord{
+		value:     1.0,
+		isNull:    false,
+		fieldType: f.DoubleType,
+	}
+	calculator, err := f.NewCalculator(`[field] * 2`, record)
+	if len(err) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, err)
+	}
+
+	result, err := calculator.Calculate()
+	if len(err) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, err)
+	}
+	if result != 2.0 {
+		t.Fatalf(`expected 2 but got %v`, result)
+	}
+
+	record.value = 5.0
+	result, err = calculator.Calculate()
+	if len(err) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, err)
+	}
+	if result != 10.0 {
+		t.Fatalf(`expected 10 but got %v`, result)
+	}
+}
+
 type mockSingleFieldRecord struct {
 	value     interface{}
 	isNull    bool

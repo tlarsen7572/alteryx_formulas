@@ -21,7 +21,7 @@ type RecordInfo interface {
 	GetFieldTypeByName(fieldName string) (string, error)
 }
 
-func Calculate(formula string, info RecordInfo) (interface{}, []error) {
+func NewCalculator(formula string, info RecordInfo) (*calculator, []error) {
 	inputStream := antlr.NewInputStream(formula)
 	lexer := parser.NewAlteryxFormulasLexer(inputStream)
 	tokens := antlr.NewCommonTokenStream(lexer, antlr.LexerDefaultTokenChannel)
@@ -47,33 +47,34 @@ func Calculate(formula string, info RecordInfo) (interface{}, []error) {
 		},
 	}
 	antlr.ParseTreeWalkerDefault.Walk(secondListener, tree)
+	return secondListener.calc, errors.errs
+}
 
-	if len(errors.errs) > 0 {
-		return nil, errors.errs
+func Calculate(formula string, info RecordInfo) (interface{}, []error) {
+	calc, errs := NewCalculator(formula, info)
+	if len(errs) > 0 {
+		return nil, errs
 	}
-
-	calc := secondListener.calc
-	result, errs := calc.Calculate()
-	return result, errs
+	return calc.Calculate()
 }
 
 type errorListener struct {
 	errs []error
 }
 
-func (l *errorListener) SyntaxError(recognizer antlr.Recognizer, offendingSymbol interface{}, line, column int, msg string, e antlr.RecognitionException) {
+func (l *errorListener) SyntaxError(_ antlr.Recognizer, _ interface{}, line, column int, msg string, _ antlr.RecognitionException) {
 	l.errs = append(l.errs, fmt.Errorf(`line %v:%v: %v`, line, column, msg))
 }
 
-func (l *errorListener) ReportAmbiguity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, exact bool, ambigAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+func (l *errorListener) ReportAmbiguity(_ antlr.Parser, _ *antlr.DFA, _, _ int, _ bool, _ *antlr.BitSet, _ antlr.ATNConfigSet) {
 	panic("implement me")
 }
 
-func (l *errorListener) ReportAttemptingFullContext(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex int, conflictingAlts *antlr.BitSet, configs antlr.ATNConfigSet) {
+func (l *errorListener) ReportAttemptingFullContext(_ antlr.Parser, _ *antlr.DFA, _, _ int, _ *antlr.BitSet, _ antlr.ATNConfigSet) {
 	panic("implement me")
 }
 
-func (l *errorListener) ReportContextSensitivity(recognizer antlr.Parser, dfa *antlr.DFA, startIndex, stopIndex, prediction int, configs antlr.ATNConfigSet) {
+func (l *errorListener) ReportContextSensitivity(_ antlr.Parser, _ *antlr.DFA, _, _, _ int, _ antlr.ATNConfigSet) {
 	panic("implement me")
 }
 

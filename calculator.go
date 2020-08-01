@@ -15,6 +15,7 @@ type calculator struct {
 }
 
 func (calc *calculator) Calculate() (interface{}, []error) {
+	calc.values = nil
 	for funcIndex := len(calc.functions) - 1; funcIndex >= 0; funcIndex-- {
 		calc.functions[funcIndex]()
 	}
