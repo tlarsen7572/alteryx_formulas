@@ -783,7 +783,11 @@ func (l *secondPassListener) ExitTrimFunc(c *parser.TrimFuncContext) {
 	}
 }
 
-func (l *secondPassListener) EnterTrimLeftFunc(_ *parser.TrimLeftFuncContext) {
+func (l *secondPassListener) EnterTrimLeftFunc(c *parser.TrimLeftFuncContext) {
+	l.checkString(c.Expr(0), `trimLeft string parameter is not a string`)
+	if len(c.AllExpr()) == 2 {
+		l.checkString(c.Expr(1), `trimLeft characters parameter is not a string`)
+	}
 	l.calc.pushFunction(l.calc.trimLeft)
 }
 
