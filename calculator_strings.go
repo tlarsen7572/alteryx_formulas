@@ -455,6 +455,10 @@ func (calc *calculator) trimRight() {
 }
 
 func (calc *calculator) uppercase() {
-	text := calc.popValue().(string)
-	calc.pushValue(strings.ToUpper(text))
+	text := calc.popValue()
+	if text == nil {
+		calc.pushValue(nil)
+		return
+	}
+	calc.pushValue(strings.ToUpper(text.(string)))
 }

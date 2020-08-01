@@ -792,3 +792,11 @@ func TestTrimRightWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestUppercaseWrongType(t *testing.T) {
+	_, errs := f.Calculate(`uppercase(1)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}

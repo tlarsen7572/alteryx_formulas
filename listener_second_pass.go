@@ -813,7 +813,8 @@ func (l *secondPassListener) ExitTrimRightFunc(c *parser.TrimRightFuncContext) {
 	}
 }
 
-func (l *secondPassListener) EnterUppercaseFunc(_ *parser.UppercaseFuncContext) {
+func (l *secondPassListener) EnterUppercaseFunc(c *parser.UppercaseFuncContext) {
+	l.checkString(c.Expr(), `uppercase parameter is not a string`)
 	l.calc.pushFunction(l.calc.uppercase)
 }
 
