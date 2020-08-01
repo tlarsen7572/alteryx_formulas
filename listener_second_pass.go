@@ -768,7 +768,11 @@ func (l *secondPassListener) EnterSubstringFunc(c *parser.SubstringFuncContext) 
 	l.calc.pushFunction(l.calc.substring)
 }
 
-func (l *secondPassListener) EnterTrimFunc(_ *parser.TrimFuncContext) {
+func (l *secondPassListener) EnterTrimFunc(c *parser.TrimFuncContext) {
+	l.checkString(c.Expr(0), `trim string parameter is not a string`)
+	if len(c.AllExpr()) == 2 {
+		l.checkString(c.Expr(1), `trim characters parameter is not a string`)
+	}
 	l.calc.pushFunction(l.calc.trim)
 }
 

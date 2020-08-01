@@ -750,3 +750,17 @@ func TestToDateTimeWrongType(t *testing.T) {
 	}
 	t.Logf(`errs: %v`, errs)
 }
+
+func TestTrimWrongType(t *testing.T) {
+	_, errs := f.Calculate(`trim(1)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+
+	_, errs = f.Calculate(`trim(' 1 ', 1)`, nil)
+	if len(errs) == 0 {
+		t.Fatalf(`expected errors but got none`)
+	}
+	t.Logf(`errs: %v`, errs)
+}
