@@ -440,13 +440,18 @@ func (calc *calculator) trimLeft() {
 }
 
 func (calc *calculator) trimRight() {
-	text := calc.popValue().(string)
-	trimChars := calc.popValue().(string)
-	if trimChars == `` {
+	expr1 := calc.popValue()
+	trimChars := calc.popValue()
+	if expr1 == nil {
+		calc.pushValue(nil)
+		return
+	}
+	text := expr1.(string)
+	if trimChars == nil || trimChars == `` {
 		calc.pushValue(strings.TrimRight(text, ` `))
 		return
 	}
-	calc.pushValue(strings.TrimRight(text, trimChars))
+	calc.pushValue(strings.TrimRight(text, trimChars.(string)))
 }
 
 func (calc *calculator) uppercase() {

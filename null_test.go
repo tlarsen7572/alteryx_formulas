@@ -819,3 +819,21 @@ func TestTrimLeftNull(t *testing.T) {
 		t.Fatalf(`expected 'a ' but got '%v'`, result)
 	}
 }
+
+func TestTrimRightNull(t *testing.T) {
+	result, errs := f.Calculate(`trimright(NULL())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != nil {
+		t.Fatalf(`expected nil but got %v`, result)
+	}
+
+	result, errs = f.Calculate(`trimright(' a ', null())`, nil)
+	if len(errs) > 0 {
+		t.Fatalf(`expected no errors but got: %v`, errs)
+	}
+	if result != ` a` {
+		t.Fatalf(`expected ' a' but got '%v'`, result)
+	}
+}
